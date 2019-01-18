@@ -24,6 +24,7 @@ $ ./extract_game_master.sh game_master_01-12-19.json masterfiles
 ```
 # create database 
 $ createdb pokemongo
+
 # import
 $ ./import2psql.sh pokemongo masterfiles sidefiles
 ```
