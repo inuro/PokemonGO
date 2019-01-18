@@ -1777,9 +1777,192 @@ select distinct
 --    kill,death,lose,win,kill_b,death_b,lose_b,win_b,counter,
     counter, 
     counter_unique,
-    sum(case when counter_unique=0 then 0 else -1 end) over (partition by uid, f_uid, f_type, c_uid) as temp
+    sum(case when counter_unique=0 then 0 else 2 end) over (partition by uid, f_uid, f_type, c_uid) as temp
 from E
 where uid='GIRATINA_ALTERED' and f_uid='SHADOW_CLAW' and c_uid='DRAGON_CLAW';
+
+
+
+
+
+
+WITH A as (
+    select *
+    from pokemon_pattern_combat A
+    join calc_all(A.pokemon_uid, 5500, 15,15,15) B on true
+    where A.pokemon_uid in ('GIRATINA_ALTERED','LATIAS','MUK_ALOLA','TYRANITAR')
+),B as(
+    select
+        PLAYER.pokemon_uid as uid,
+        PLAYER.type_1 as type_1,
+        PLAYER.type_2 as type_2,
+        PLAYER.f_uid as f_uid,
+        PLAYER.f_type as f_type,
+        PLAYER.c_uid as c_uid,
+        PLAYER.c_type as c_type,
+        PLAYER.atk as atk,
+        PLAYER.def as def,
+        PLAYER.hpt as hpt,
+        PLAYER.f_stab_pow as f_stab_pow,
+        PLAYER.c_stab_pow as c_stab_pow,
+        Epf1.mlp * (case when Epf2.mlp is not null then Epf2.mlp else 1.0 end) as f_eff,
+        Epc1.mlp * (case when Epc2.mlp is not null then Epc2.mlp else 1.0 end) as c_eff,
+        OPPONENT.pokemon_uid as opponent_uid,
+        OPPONENT.f_uid as opponent_f_uid,
+        OPPONENT.c_uid as opponent_c_uid,
+        OPPONENT.atk as opponent_atk,
+        OPPONENT.def as opponent_def,
+        OPPONENT.hpt as opponent_hpt,
+        OPPONENT.f_stab_pow as opponent_f_stab_pow,
+        OPPONENT.c_stab_pow as opponent_c_stab_pow,
+        Eof1.mlp * (case when Eof2.mlp is not null then Eof2.mlp else 1.0 end) as opponent_f_eff,
+        Eoc1.mlp * (case when Eoc2.mlp is not null then Eoc2.mlp else 1.0 end) as opponent_c_eff
+    
+    from A as PLAYER
+    join A as OPPONENT on true
+    left join effectiveness as Epf1 on Epf1.attacker=PLAYER.f_type and Epf1.defender=OPPONENT.type_1
+    left join effectiveness as Epf2 on Epf2.attacker=PLAYER.f_type and Epf2.defender=OPPONENT.type_2
+    left join effectiveness as Epc1 on Epc1.attacker=PLAYER.c_type and Epc1.defender=OPPONENT.type_1
+    left join effectiveness as Epc2 on Epc2.attacker=PLAYER.c_type and Epc2.defender=OPPONENT.type_2
+    left join effectiveness as Eof1 on Eof1.attacker=OPPONENT.f_type and Eof1.defender=PLAYER.type_1
+    left join effectiveness as Eof2 on Eof2.attacker=OPPONENT.f_type and Eof2.defender=PLAYER.type_2
+    left join effectiveness as Eoc1 on Eoc1.attacker=OPPONENT.c_type and Eoc1.defender=PLAYER.type_1
+    left join effectiveness as Eoc2 on Eoc2.attacker=OPPONENT.c_type and Eoc2.defender=PLAYER.type_2
+), C as(
+    select
+        *, 
+        (FLOOR(0.5 * ROUND(atk::NUMERIC / opponent_def, 2) * f_stab_pow * f_eff * 1.3) + 1)::numeric as f_dmg,
+        (FLOOR(0.5 * ROUND(atk::NUMERIC / opponent_def, 2) * c_stab_pow * c_eff * 1.3) + 1)::numeric as c_dmg,
+        (FLOOR(0.5 * ROUND(opponent_atk::NUMERIC / def, 2) * opponent_f_stab_pow * opponent_f_eff * 1.3) + 1)::numeric as opponent_f_dmg,
+        (FLOOR(0.5 * ROUND(opponent_atk::NUMERIC / def, 2) * opponent_c_stab_pow * opponent_c_eff * 1.3) + 1)::numeric as opponent_c_dmg
+    from B 
+), D as(
+    select
+        *,
+        calc_killtime_combat(opponent_hpt, f_dmg, f_uid, c_dmg, c_uid, 0) as kill,
+        calc_killtime_combat(hpt, opponent_f_dmg,opponent_f_uid,opponent_c_dmg,opponent_c_uid,0)as death,
+        calc_killtime_combat(opponent_hpt, f_dmg, f_uid, c_dmg, c_uid, 2) as kill_b,
+        calc_killtime_combat(hpt, opponent_f_dmg,opponent_f_uid,opponent_c_dmg,opponent_c_uid,2)as death_b
+    from C
+), E as(
+    select 
+        uid,f_uid,f_type,c_uid,
+        opponent_uid,opponent_f_uid,opponent_c_uid,
+        kill,death,kill_b,death_b,
+        case when death<kill then 1 else 0 end as lose,
+        case when death>=kill then 1 else 0 end as win,
+        case when death_b<kill_b then 1 else 0 end as lose_b,
+        case when death_b>=kill_b then 1 else 0 end as win_b,
+--        case when death<kill and death_b<kill_b then 1 else 0 end as counter
+        sum(case when death<kill and death_b<kill_b then 1 else 0 end) over (partition by uid, f_uid, f_type, c_uid) as counter
+    ,   sum(case when death<kill and death_b<kill_b then 1 else 0 end) over (partition by uid, f_uid, f_type, c_uid, opponent_uid) as counter_unique
+    from D
+)
+select
+    uid,f_uid,f_type,c_uid,
+--    opponent_uid,opponent_f_uid,opponent_c_uid,
+--    kill,death,
+    lose,win,
+--    kill_b,death_b,
+    lose_b,win_b,
+    counter, 
+    counter_unique,
+    case when counter_unique=0 then 0 else 1 end as temp
+--    sum(case when counter_unique=0 then 0 else 1 end) over (partition by uid, f_uid, f_type, c_uid) as temp
+from E
+where uid='GIRATINA_ALTERED' and f_uid='SHADOW_CLAW' and c_uid='DRAGON_CLAW'
+
+;
+
+
+
+
+
+select now();
+BEGIN;
+drop table if exists win_lose;
+create table win_lose as (
+WITH A as (
+    select *
+    from pokemon_pattern_combat A
+    join calc_all(A.pokemon_uid, 5500, 15,15,15) B on true
+--    where A.pokemon_uid in ('GIRATINA_ALTERED','LATIAS','MUK_ALOLA','TYRANITAR')
+),B as(
+    select
+        PLAYER.pokemon_uid as uid,
+        PLAYER.type_1 as type_1,
+        PLAYER.type_2 as type_2,
+        PLAYER.f_uid as f_uid,
+        PLAYER.f_type as f_type,
+        PLAYER.c_uid as c_uid,
+        PLAYER.c_type as c_type,
+        PLAYER.atk as atk,
+        PLAYER.def as def,
+        PLAYER.hpt as hpt,
+        PLAYER.f_stab_pow as f_stab_pow,
+        PLAYER.c_stab_pow as c_stab_pow,
+        Epf1.mlp * (case when Epf2.mlp is not null then Epf2.mlp else 1.0 end) as f_eff,
+        Epc1.mlp * (case when Epc2.mlp is not null then Epc2.mlp else 1.0 end) as c_eff,
+        OPPONENT.pokemon_uid as opponent_uid,
+        OPPONENT.f_uid as opponent_f_uid,
+        OPPONENT.c_uid as opponent_c_uid,
+        OPPONENT.atk as opponent_atk,
+        OPPONENT.def as opponent_def,
+        OPPONENT.hpt as opponent_hpt,
+        OPPONENT.f_stab_pow as opponent_f_stab_pow,
+        OPPONENT.c_stab_pow as opponent_c_stab_pow,
+        Eof1.mlp * (case when Eof2.mlp is not null then Eof2.mlp else 1.0 end) as opponent_f_eff,
+        Eoc1.mlp * (case when Eoc2.mlp is not null then Eoc2.mlp else 1.0 end) as opponent_c_eff
+    
+    from A as PLAYER
+    join A as OPPONENT on true
+    left join effectiveness as Epf1 on Epf1.attacker=PLAYER.f_type and Epf1.defender=OPPONENT.type_1
+    left join effectiveness as Epf2 on Epf2.attacker=PLAYER.f_type and Epf2.defender=OPPONENT.type_2
+    left join effectiveness as Epc1 on Epc1.attacker=PLAYER.c_type and Epc1.defender=OPPONENT.type_1
+    left join effectiveness as Epc2 on Epc2.attacker=PLAYER.c_type and Epc2.defender=OPPONENT.type_2
+    left join effectiveness as Eof1 on Eof1.attacker=OPPONENT.f_type and Eof1.defender=PLAYER.type_1
+    left join effectiveness as Eof2 on Eof2.attacker=OPPONENT.f_type and Eof2.defender=PLAYER.type_2
+    left join effectiveness as Eoc1 on Eoc1.attacker=OPPONENT.c_type and Eoc1.defender=PLAYER.type_1
+    left join effectiveness as Eoc2 on Eoc2.attacker=OPPONENT.c_type and Eoc2.defender=PLAYER.type_2
+), C as(
+    select
+        *, 
+        (FLOOR(0.5 * ROUND(atk::NUMERIC / opponent_def, 2) * f_stab_pow * f_eff * 1.3) + 1)::numeric as f_dmg,
+        (FLOOR(0.5 * ROUND(atk::NUMERIC / opponent_def, 2) * c_stab_pow * c_eff * 1.3) + 1)::numeric as c_dmg,
+        (FLOOR(0.5 * ROUND(opponent_atk::NUMERIC / def, 2) * opponent_f_stab_pow * opponent_f_eff * 1.3) + 1)::numeric as opponent_f_dmg,
+        (FLOOR(0.5 * ROUND(opponent_atk::NUMERIC / def, 2) * opponent_c_stab_pow * opponent_c_eff * 1.3) + 1)::numeric as opponent_c_dmg
+    from B 
+), D as(
+    select
+        uid,type_1,type_2,f_uid,f_type,c_uid,c_type,
+        opponent_uid,opponent_f_uid,opponent_c_uid,
+        calc_killtime_combat(opponent_hpt, f_dmg, f_uid, c_dmg, c_uid, 0) as kill,
+        calc_killtime_combat(hpt, opponent_f_dmg,opponent_f_uid,opponent_c_dmg,opponent_c_uid,0)as death,
+        calc_killtime_combat(opponent_hpt, f_dmg, f_uid, c_dmg, c_uid, 2) as kill_b,
+        calc_killtime_combat(hpt, opponent_f_dmg,opponent_f_uid,opponent_c_dmg,opponent_c_uid,2)as death_b
+    from C
+), E as(
+    select 
+        *,
+        sum(case when death>=kill then 1 else 0 end) over (partition by uid, f_uid, f_type, c_uid) as win,
+        sum(case when death<kill then 1 else 0 end) over (partition by uid, f_uid, f_type, c_uid) as lose,
+        sum(case when death_b>=kill_b then 1 else 0 end) over (partition by uid, f_uid, f_type, c_uid) as win_b,
+        sum(case when death_b<kill_b then 1 else 0 end) over (partition by uid, f_uid, f_type, c_uid) as lose_b,
+        sum(case when death<kill and death_b<kill_b then 1 else 0 end) over (partition by uid, f_uid, f_type, c_uid, opponent_uid) as num_of_counter_unique
+    from D
+)
+select distinct
+    5500 as cap,
+    uid,type_1,type_2,f_uid,f_type,c_uid,c_type,
+    win,lose,win_b,lose_b,
+    sum(num_of_counter_unique) over (partition by uid,f_uid,f_type,c_uid) as counter,
+    sum(case when num_of_counter_unique > 0 then 1 else 0 end) over (partition by uid,f_uid,f_type,c_uid) as counter_unique
+from E
+group by uid,type_1,type_2,f_uid,f_type,c_uid,c_type,lose,win,lose_b,win_b,opponent_uid,num_of_counter_unique
+);
+COMMIT;
+select now();
+
 
 
 
