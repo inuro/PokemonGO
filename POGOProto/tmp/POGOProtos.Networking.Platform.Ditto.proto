@@ -1,0 +1,37 @@
+syntax = "proto3";
+package POGOProtos.Networking.Platform.Ditto;
+
+message RpcResponseEventParams {
+	uint32 rpc_id = 1;
+	uint32 status = 2;
+	repeated bytes payloads = 3;
+}
+
+message SyncRequestedEventParams {
+}
+
+message DownstreamActionEventParams {
+	repeated uint32 methods = 1;
+	repeated bytes payloads = 2;
+	repeated uint64 ids = 3;
+}
+
+message ChannelAuthEventParams {
+	uint32 status = 1;
+}
+
+message LocationUpdateEventParams {
+	double latitude_deg = 1;
+	double longitude_deg = 2;
+	double altitude_m = 3;
+	double accuracy_m = 4;
+	double timestamp_s = 5;
+	uint32 provider_status = 6;
+	uint32 location_type = 7;
+}
+
+message GoogleAuthEventParams {
+	string payload = 1;
+	string account_name = 2;
+}
+

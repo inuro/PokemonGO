@@ -1,0 +1,360 @@
+syntax = "proto3";
+package POGOProtos.Data.Quests;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Inventory.Item.proto";
+
+message QuestPokemonEncounter {
+	string quest_id = 1;
+	.POGOProtos.Data.PokemonData pokemon = 2;
+	.POGOProtos.Enums.EncounterType encounter_type = 3;
+	bool is_hidden_ditto = 4;
+	.POGOProtos.Data.PokemonData ditto = 5;
+}
+
+message ClientQuest {
+	.POGOProtos.Data.Quests.Quest quest = 1;
+	QuestDisplay quest_display = 2;
+
+	message QuestDisplay {
+		string quest_id = 1;
+		repeated .POGOProtos.Data.Quests.QuestDialog dialog = 2;
+		string description = 3;
+		string title = 4;
+		int32 slot = 5;
+		repeated QuestDisplay subdisplay = 6;
+		bool story_ending_quest = 7;
+		string story_ending_description = 8;
+	}
+}
+
+message QuestReward {
+	Type type = 1;
+
+	oneof Reward {
+		int32 exp = 2;
+		ItemReward item = 3;
+		int32 stardust = 4;
+		PokemonCandyReward candy = 5;
+		string avatar_template_id = 6;
+		string quest_template_id = 7;
+		PokemonEncounterReward pokemon_encounter = 8;
+	}
+
+	enum Type {
+		UNSET = 0;
+		EXPERIENCE = 1;
+		ITEM = 2;
+		STARDUST = 3;
+		CANDY = 4;
+		AVATAR_CLOTHING = 5;
+		QUEST = 6;
+		POKEMON_ENCOUNTER = 7;
+	}
+
+	message ItemReward {
+		.POGOProtos.Inventory.Item.ItemId item = 1;
+		int32 amount = 2;
+	}
+
+	message PokemonCandyReward {
+		.POGOProtos.Enums.PokemonId pokemon_id = 1;
+		int32 amount = 2;
+	}
+
+	message PokemonEncounterReward {
+		oneof Type {
+			.POGOProtos.Enums.PokemonId pokemon_id = 1;
+			bool use_quest_pokemon_encounter_distribuition = 2;
+		}
+
+		.POGOProtos.Data.PokemonDisplay pokemon_display = 3;
+		bool is_hidden_ditto = 4;
+		.POGOProtos.Data.PokemonDisplay ditto_display = 5;
+	}
+}
+
+message QuestCondition {
+	ConditionType type = 1;
+
+	oneof Condition {
+		WithPokemonType with_pokemon_type = 2;
+		WithPokemonCategory with_pokemon_category = 3;
+		WithWeatherBoost with_weather_boost = 4;
+		WithDailyCaptureBonus with_daily_capture_bonus = 5;
+		WithDailySpinBonus with_daily_spin_bonus = 6;
+		WithWinRaidStatus with_win_raid_status = 7;
+		WithRaidLevel with_raid_level = 8;
+		WithThrowType with_throw_type = 9;
+		WithWinGymBattleStatus with_win_gym_battle_status = 10;
+		WithSuperEffectiveChargeMove with_super_effective_charge_move = 11;
+		WithItem with_item = 12;
+		WithUniquePokestop with_unique_pokestop = 13;
+		WithQuestContext with_quest_context = 14;
+		WithBadgeType with_badge_type = 15;
+		WithPlayerLevel with_player_level = 16;
+		WithWinBattleStatus with_win_battle_status = 17;
+	}
+
+	enum ConditionType {
+		UNSET = 0;
+		WITH_POKEMON_TYPE = 1;
+		WITH_POKEMON_CATEGORY = 2;
+		WITH_WEATHER_BOOST = 3;
+		WITH_DAILY_CAPTURE_BONUS = 4;
+		WITH_DAILY_SPIN_BONUS = 5;
+		WITH_WIN_RAID_STATUS = 6;
+		WITH_RAID_LEVEL = 7;
+		WITH_THROW_TYPE = 8;
+		WITH_WIN_GYM_BATTLE_STATUS = 9;
+		WITH_SUPER_EFFECTIVE_CHARGE = 10;
+		WITH_ITEM = 11;
+		WITH_UNIQUE_POKESTOP = 12;
+		WITH_QUEST_CONTEXT = 13;
+		WITH_THROW_TYPE_IN_A_ROW = 14;
+		WITH_CURVE_BALL = 15;
+		WITH_BADGE_TYPE = 16;
+		WITH_PLAYER_LEVEL = 17;
+		WITH_WIN_BATTLE_STATUS = 18;
+		WITH_NEW_FRIEND = 19;
+		WITH_DAYS_IN_A_ROW = 20;
+	}
+
+	message WithPokemonType {
+		repeated .POGOProtos.Enums.PokemonType pokemon_type = 1;
+	}
+
+	message WithWeatherBoost {
+	}
+
+	message WithPokemonCategory {
+		string category_name = 1;
+		repeated .POGOProtos.Enums.PokemonId pokemon_ids = 2;
+	}
+
+	message WithDailyCaptureBonus {
+	}
+
+	message WithDailySpinBonus {
+	}
+
+	message WithWinRaidStatus {
+	}
+
+	message WithRaidLevel {
+		repeated .POGOProtos.Enums.RaidLevel raid_level = 1;
+	}
+
+	message WithThrowType {
+		oneof Throw {
+			.POGOProtos.Enums.ActivityType throw_type = 1;
+			bool hit = 2;
+		}
+	}
+
+	message WithCurveBall {
+	}
+
+	message WithWinGymBattleStatus {
+	}
+
+	message WithSuperEffectiveChargeMove {
+	}
+
+	message WithItem {
+		.POGOProtos.Inventory.Item.ItemId item = 1;
+	}
+
+	message WithUniquePokestop {
+	}
+
+	message WithQuestContext {
+		Context context = 1;
+
+		enum Context {
+			UNSET = 0;
+			STORY_QUEST = 1;
+			CHALLENGE_QUEST = 2;
+		}
+	}
+
+	message WithBadgeType {
+		repeated .POGOProtos.Enums.BadgeType badge_type = 1;
+		int32 badge_rank = 2;
+		int32 amount = 3;
+	}
+
+	message WithPlayerLevel {
+		int32 level = 1;
+	}
+
+	message WithWinBattleStatus {
+	}
+}
+
+message TradePokemonQuest {
+	repeated string friend_id = 1;
+}
+
+message QuestStampCard {
+	repeated .POGOProtos.Data.Quests.QuestStamp stamp = 1;
+	int32 target = 2;
+	int32 remaining_daily_stamps = 3;
+	string id = 4;
+	string icon_url = 5;
+}
+
+message QuestGoal {
+	repeated .POGOProtos.Data.Quests.QuestCondition condition = 1;
+	int32 target = 2;
+}
+
+message Quests {
+	repeated .POGOProtos.Data.Quests.Quest quest = 1;
+	repeated string completed_story_quest = 2;
+	repeated .POGOProtos.Data.Quests.QuestPokemonEncounter quest_pokemon_encounter = 3;
+	.POGOProtos.Data.Quests.QuestStampCard stamp_card = 4;
+}
+
+message QuestPrecondition {
+	enum Operator {
+		UNSET = 0;
+		EQUALS = 1;
+		GREATER_THAN = 2;
+		LESS_THAN = 3;
+	}
+
+	enum QuestPreconditionType {
+		QUEST_PRECONDITION_UNSET = 0;
+		QUEST_PRECONDITION_QUEST = 1;
+		QUEST_PRECONDITION_LEVEL = 2;
+		QUEST_PRECONDITION_MEDAL = 3;
+		QUEST_PRECONDITION_IS_MINOR = 4;
+		QUEST_PRECONDITION_EXCLUSIVE_QUESTS = 5;
+	}
+
+	message Quests {
+		repeated string quest_template_ids = 1;
+	}
+
+	message Level {
+		QuestPrecondition.Operator operator = 1;
+		int32 level = 2;
+	}
+
+	message Medal {
+		.POGOProtos.Enums.BadgeType type = 1;
+		QuestPrecondition.Operator operator = 2;
+		int32 badge_rank = 3;
+	}
+
+	QuestPreconditionType type = 1;
+
+	oneof Condition {
+		string quest_template_id = 2;
+		Level level = 3;
+		Medal medal = 4;
+		Quests quests = 5;
+	}
+}
+
+message QuestStamp {
+	Context context = 1;
+	uint64 timestamp_ms = 2;
+
+	enum Context {
+		UNSET = 0;
+		STORY_QUEST = 1;
+		CHALLENGE_QUEST = 2;
+	}
+}
+
+message Quest {
+	.POGOProtos.Enums.QuestType quest_type = 1;
+
+	oneof Quest {
+		DailyQuest daily_quest = 2;
+		MultiPartQuest multi_part = 3;
+		.POGOProtos.Data.Quests.CatchPokemonQuest catch_pokemon = 4;
+		.POGOProtos.Data.Quests.AddFriendQuest add_friend = 5;
+		.POGOProtos.Data.Quests.TradePokemonQuest trade_pokemon = 6;
+	}
+
+	string quest_id = 100;
+	int64 quest_seed = 101;
+	Context quest_context = 102;
+	string template_id = 103;
+	int32 progress = 104;
+	.POGOProtos.Data.Quests.QuestGoal goal = 105;
+	Status status = 106;
+	repeated .POGOProtos.Data.Quests.QuestReward quest_rewards = 107;
+	int64 creation_timestamp_ms = 108;
+	int64 last_update_timestamp_ms = 109;
+	int64 compeletion_timestamp_ms = 110;
+	string fort_id = 111;
+	bool admin_generated = 112;
+	bool stamp_count_override_enabled = 113;
+	int32 stamp_count_override = 114;
+	int64 s2_cell_id = 115;
+	int32 story_quest_template_version = 116;
+	DailyCounter daily_counter = 117;
+	string reward_pokemon_icon_url = 118;
+
+	message MultiPartQuest {
+		repeated .POGOProtos.Data.Quests.Quest sub_quests = 1;
+	}
+
+	message DailyQuest {
+		int32 current_period_bucket = 1;
+		int32 current_streak_count = 2;
+	}
+
+	message DailyCounter {
+		int64 window = 1;
+		int32 count = 2;
+	}
+
+	enum Context {
+		UNSET = 0;
+		STORY_QUEST = 1;
+		CHALLENGE_QUEST = 2;
+	}
+
+	enum Status {
+		STATUS_UNDEFINED = 0;
+		STATUS_ACTIVE = 1;
+		STATUS_COMPLETED = 2;
+	}
+}
+
+message QuestDialog {
+	string text = 1;
+	CharacterExpression expression = 2;
+	string image_uri = 3;
+	Character character = 4;
+
+	enum CharacterExpression {
+		EXPRESSION_UNSET = 0;
+		HAPPY = 1;
+		SYMPATHETIC = 2;
+		ENERGETIC = 3;
+		PUSHY = 4;
+		IMPATIENT = 5;
+		ADMIRATION = 6;
+	}
+
+	enum Character {
+		CHARACTER_UNSET = 0;
+		PROFESSOR_WILLOW = 1;
+	}
+}
+
+message CatchPokemonQuest {
+	//
+}
+
+message AddFriendQuest {
+	repeated string added_friend_ids = 1;
+}
+

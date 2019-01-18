@@ -1,0 +1,550 @@
+1,BULBASAUR,フシギダネ,Bulbasaur
+2,IVYSAUR,フシギソウ,Ivysaur
+3,VENUSAUR,フシギバナ,Venusaur
+4,CHARMANDER,ヒトカゲ,Charmander
+5,CHARMELEON,リザード,Charmeleon
+6,CHARIZARD,リザードン,Charizard
+7,SQUIRTLE,ゼニガメ,Squirtle
+8,WARTORTLE,カメール,Wartortle
+9,BLASTOISE,カメックス,Blastoise
+10,CATERPIE,キャタピー,Caterpie
+11,METAPOD,トランセル,Metapod
+12,BUTTERFREE,バタフリー,Butterfree
+13,WEEDLE,ビードル,Weedle
+14,KAKUNA,コクーン,Kakuna
+15,BEEDRILL,スピアー,Beedrill
+16,PIDGEY,ポッポ,Pidgey
+17,PIDGEOTTO,ピジョン,Pidgeotto
+18,PIDGEOT,ピジョット,Pidgeot
+19,RATTATA_NORMAL,コラッタ,Rattata
+19,RATTATA_ALOLA,コラッタ (アローラのすがた),Alolan Rattata
+20,RATICATE_NORMAL,ラッタ,Raticate
+20,RATICATE_ALOLA,ラッタ (アローラのすがた),Alolan Raticate
+21,SPEAROW,オニスズメ,Spearow
+22,FEAROW,オニドリル,Fearow
+23,EKANS,アーボ,Ekans
+24,ARBOK,アーボック,Arbok
+25,PIKACHU,ピカチュウ,Pikachu
+26,RAICHU_ALOLA,ライチュウ (アローラのすがた),Alolan Raichu
+26,RAICHU_NORMAL,ライチュウ,Raichu
+27,SANDSHREW_ALOLA,サンド (アローラのすがた),Alolan Sandshrew
+27,SANDSHREW_NORMAL,サンド,Sandshrew
+28,SANDSLASH_ALOLA,サンドパン (アローラのすがた),Alolan Sandslash
+28,SANDSLASH_NORMAL,サンドパン,Sandslash
+29,NIDORAN,ニドラン♀,Nidoran♀
+30,NIDORINA,ニドリーナ,Nidorina
+31,NIDOQUEEN,ニドクイン,Nidoqueen
+32,NIDORAN,ニドラン♂,Nidoran♂
+33,NIDORINO,ニドリーノ,Nidorino
+34,NIDOKING,ニドキング,Nidoking
+35,CLEFAIRY,ピッピ,Clefairy
+36,CLEFABLE,ピクシー,Clefable
+37,VULPIX_NORMAL,ロコン,Vulpix
+37,VULPIX_ALOLA,ロコン (アローラのすがた),Alolan Vulpix
+38,NINETALES_NORMAL,キュウコン,Ninetales
+38,NINETALES_ALOLA,キュウコン (アローラのすがた),Alolan Ninetales
+39,JIGGLYPUFF,プリン,Jigglypuff
+40,WIGGLYTUFF,プクリン,Wigglytuff
+41,ZUBAT,ズバット,Zubat
+42,GOLBAT,ゴルバット,Golbat
+43,ODDISH,ナゾノクサ,Oddish
+44,GLOOM,クサイハナ,Gloom
+45,VILEPLUME,ラフレシア,Vileplume
+46,PARAS,パラス,Paras
+47,PARASECT,パラセクト,Parasect
+48,VENONAT,コンパン,Venonat
+49,VENOMOTH,モルフォン,Venomoth
+50,DIGLETT_ALOLA,ディグダ (アローラのすがた),Alolan Diglett
+50,DIGLETT_NORMAL,ディグダ,Diglett
+51,DUGTRIO_ALOLA,ダグトリオ (アローラのすがた),Alolan Dugtrio
+51,DUGTRIO_NORMAL,ダグトリオ,Dugtrio
+52,MEOWTH_NORMAL,ニャース,Meowth
+52,MEOWTH_ALOLA,ニャース (アローラのすがた),Alolan Meowth
+53,PERSIAN_NORMAL,ペルシアン,Persian
+53,PERSIAN_ALOLA,ペルシアン (アローラのすがた),Alolan Persian
+54,PSYDUCK,コダック,Psyduck
+55,GOLDUCK,ゴルダック,Golduck
+56,MANKEY,マンキー,Mankey
+57,PRIMEAPE,オコリザル,Primeape
+58,GROWLITHE,ガーディ,Growlithe
+59,ARCANINE,ウインディ,Arcanine
+60,POLIWAG,ニョロモ,Poliwag
+61,POLIWHIRL,ニョロゾ,Poliwhirl
+62,POLIWRATH,ニョロボン,Poliwrath
+63,ABRA,ケーシィ,Abra
+64,KADABRA,ユンゲラー,Kadabra
+65,ALAKAZAM,フーディン,Alakazam
+66,MACHOP,ワンリキー,Machop
+67,MACHOKE,ゴーリキー,Machoke
+68,MACHAMP,カイリキー,Machamp
+69,BELLSPROUT,マダツボミ,Bellsprout
+70,WEEPINBELL,ウツドン,Weepinbell
+71,VICTREEBEL,ウツボット,Victreebel
+72,TENTACOOL,メノクラゲ,Tentacool
+73,TENTACRUEL,ドククラゲ,Tentacruel
+74,GEODUDE_NORMAL,イシツブテ,Geodude
+74,GEODUDE_ALOLA,イシツブテ (アローラのすがた),Alolan Geodude
+75,GRAVELER_NORMAL,ゴローン,Graveler
+75,GRAVELER_ALOLA,ゴローン (アローラのすがた),Alolan Graveler
+76,GOLEM_ALOLA,ゴローニャ (アローラのすがた),Alolan Golem
+76,GOLEM_NORMAL,ゴローニャ,Golem
+77,PONYTA,ポニータ,Ponyta
+78,RAPIDASH,ギャロップ,Rapidash
+79,SLOWPOKE,ヤドン,Slowpoke
+80,SLOWBRO,ヤドラン,Slowbro
+81,MAGNEMITE,コイル,Magnemite
+82,MAGNETON,レアコイル,Magneton
+83,FARFETCHD,カモネギ,Farfetch'd
+84,DODUO,ドードー,Doduo
+85,DODRIO,ドードリオ,Dodrio
+86,SEEL,パウワウ,Seel
+87,DEWGONG,ジュゴン,Dewgong
+88,GRIMER_ALOLA,ベトベター (アローラのすがた),Alolan Grimer
+88,GRIMER_NORMAL,ベトベター,Grimer
+89,MUK_NORMAL,ベトベトン,Muk
+89,MUK_ALOLA,ベトベトン (アローラのすがた),Alolan Muk
+90,SHELLDER,シェルダー,Shellder
+91,CLOYSTER,パルシェン,Cloyster
+92,GASTLY,ゴース,Gastly
+93,HAUNTER,ゴースト,Haunter
+94,GENGAR,ゲンガー,Gengar
+95,ONIX,イワーク,Onix
+96,DROWZEE,スリープ,Drowzee
+97,HYPNO,スリーパー,Hypno
+98,KRABBY,クラブ,Krabby
+99,KINGLER,キングラー,Kingler
+100,VOLTORB,ビリリダマ,Voltorb
+101,ELECTRODE,マルマイン,Electrode
+102,EXEGGCUTE,タマタマ,Exeggcute
+103,EXEGGUTOR_ALOLA,ナッシー (アローラのすがた),Alolan Exeggutor
+103,EXEGGUTOR_NORMAL,ナッシー,Exeggutor
+104,CUBONE,カラカラ,Cubone
+105,MAROWAK_ALOLA,ガラガラ (アローラのすがた),Alolan Marowak
+105,MAROWAK_NORMAL,ガラガラ,Marowak
+106,HITMONLEE,サワムラー,Hitmonlee
+107,HITMONCHAN,エビワラー,Hitmonchan
+108,LICKITUNG,ベロリンガ,Lickitung
+109,KOFFING,ドガース,Koffing
+110,WEEZING,マタドガス,Weezing
+111,RHYHORN,サイホーン,Rhyhorn
+112,RHYDON,サイドン,Rhydon
+113,CHANSEY,ラッキー,Chansey
+114,TANGELA,モンジャラ,Tangela
+115,KANGASKHAN,ガルーラ,Kangaskhan
+116,HORSEA,タッツー,Horsea
+117,SEADRA,シードラ,Seadra
+118,GOLDEEN,トサキント,Goldeen
+119,SEAKING,アズマオウ,Seaking
+120,STARYU,ヒトデマン,Staryu
+121,STARMIE,スターミー,Starmie
+122,MR_MIME,バリヤード,Mr. Mime
+123,SCYTHER,ストライク,Scyther
+124,JYNX,ルージュラ,Jynx
+125,ELECTABUZZ,エレブー,Electabuzz
+126,MAGMAR,ブーバー,Magmar
+127,PINSIR,カイロス,Pinsir
+128,TAUROS,ケンタロス,Tauros
+129,MAGIKARP,コイキング,Magikarp
+130,GYARADOS,ギャラドス,Gyarados
+131,LAPRAS,ラプラス,Lapras
+132,DITTO,メタモン,Ditto
+133,EEVEE,イーブイ,Eevee
+134,VAPOREON,シャワーズ,Vaporeon
+135,JOLTEON,サンダース,Jolteon
+136,FLAREON,ブースター,Flareon
+137,PORYGON,ポリゴン,Porygon
+138,OMANYTE,オムナイト,Omanyte
+139,OMASTAR,オムスター,Omastar
+140,KABUTO,カブト,Kabuto
+141,KABUTOPS,カブトプス,Kabutops
+142,AERODACTYL,プテラ,Aerodactyl
+143,SNORLAX,カビゴン,Snorlax
+144,ARTICUNO,フリーザー,Articuno
+145,ZAPDOS,サンダー,Zapdos
+146,MOLTRES,ファイヤー,Moltres
+147,DRATINI,ミニリュウ,Dratini
+148,DRAGONAIR,ハクリュー,Dragonair
+149,DRAGONITE,カイリュー,Dragonite
+150,MEWTWO,ミュウツー,Mewtwo
+151,MEW,ミュウ,Mew
+152,CHIKORITA,チコリータ,Chikorita
+153,BAYLEEF,ベイリーフ,Bayleef
+154,MEGANIUM,メガニウム,Meganium
+155,CYNDAQUIL,ヒノアラシ,Cyndaquil
+156,QUILAVA,マグマラシ,Quilava
+157,TYPHLOSION,バクフーン,Typhlosion
+158,TOTODILE,ワニノコ,Totodile
+159,CROCONAW,アリゲイツ,Croconaw
+160,FERALIGATR,オーダイル,Feraligatr
+161,SENTRET,オタチ,Sentret
+162,FURRET,オオタチ,Furret
+163,HOOTHOOT,ホーホー,Hoothoot
+164,NOCTOWL,ヨルノズク,Noctowl
+165,LEDYBA,レディバ,Ledyba
+166,LEDIAN,レディアン,Ledian
+167,SPINARAK,イトマル,Spinarak
+168,ARIADOS,アリアドス,Ariados
+169,CROBAT,クロバット,Crobat
+170,CHINCHOU,チョンチー,Chinchou
+171,LANTURN,ランターン,Lanturn
+172,PICHU,ピチュー,Pichu
+173,CLEFFA,ピィ,Cleffa
+174,IGGLYBUFF,ププリン,Igglybuff
+175,TOGEPI,トゲピー,Togepi
+176,TOGETIC,トゲチック,Togetic
+177,NATU,ネイティ,Natu
+178,XATU,ネイティオ,Xatu
+179,MAREEP,メリープ,Mareep
+180,FLAAFFY,モココ,Flaaffy
+181,AMPHAROS,デンリュウ,Ampharos
+182,BELLOSSOM,キレイハナ,Bellossom
+183,MARILL,マリル,Marill
+184,AZUMARILL,マリルリ,Azumarill
+185,SUDOWOODO,ウソッキー,Sudowoodo
+186,POLITOED,ニョロトノ,Politoed
+187,HOPPIP,ハネッコ,Hoppip
+188,SKIPLOOM,ポポッコ,Skiploom
+189,JUMPLUFF,ワタッコ,Jumpluff
+190,AIPOM,エイパム,Aipom
+191,SUNKERN,ヒマナッツ,Sunkern
+192,SUNFLORA,キマワリ,Sunflora
+193,YANMA,ヤンヤンマ,Yanma
+194,WOOPER,ウパー,Wooper
+195,QUAGSIRE,ヌオー,Quagsire
+196,ESPEON,エーフィ,Espeon
+197,UMBREON,ブラッキー,Umbreon
+198,MURKROW,ヤミカラス,Murkrow
+199,SLOWKING,ヤドキング,Slowking
+200,MISDREAVUS,ムウマ,Misdreavus
+201,UNOWN,アンノーン,Unown
+202,WOBBUFFET,ソーナンス,Wobbuffet
+203,GIRAFARIG,キリンリキ,Girafarig
+204,PINECO,クヌギダマ,Pineco
+205,FORRETRESS,フォレトス,Forretress
+206,DUNSPARCE,ノコッチ,Dunsparce
+207,GLIGAR,グライガー,Gligar
+208,STEELIX,ハガネール,Steelix
+209,SNUBBULL,ブルー,Snubbull
+210,GRANBULL,グランブル,Granbull
+211,QWILFISH,ハリーセン,Qwilfish
+212,SCIZOR,ハッサム,Scizor
+213,SHUCKLE,ツボツボ,Shuckle
+214,HERACROSS,ヘラクロス,Heracross
+215,SNEASEL,ニューラ,Sneasel
+216,TEDDIURSA,ヒメグマ,Teddiursa
+217,URSARING,リングマ,Ursaring
+218,SLUGMA,マグマッグ,Slugma
+219,MAGCARGO,マグカルゴ,Magcargo
+220,SWINUB,ウリムー,Swinub
+221,PILOSWINE,イノムー,Piloswine
+222,CORSOLA,サニーゴ,Corsola
+223,REMORAID,テッポウオ,Remoraid
+224,OCTILLERY,オクタン,Octillery
+225,DELIBIRD,デリバード,Delibird
+226,MANTINE,マンタイン,Mantine
+227,SKARMORY,エアームド,Skarmory
+228,HOUNDOUR,デルビル,Houndour
+229,HOUNDOOM,ヘルガー,Houndoom
+230,KINGDRA,キングドラ,Kingdra
+231,PHANPY,ゴマゾウ,Phanpy
+232,DONPHAN,ドンファン,Donphan
+233,PORYGON2,ポリゴン2,Porygon2
+234,STANTLER,オドシシ,Stantler
+235,SMEARGLE,ドーブル,Smeargle
+236,TYROGUE,バルキー,Tyrogue
+237,HITMONTOP,カポエラー,Hitmontop
+238,SMOOCHUM,ムチュール,Smoochum
+239,ELEKID,エレキッド,Elekid
+240,MAGBY,ブビィ,Magby
+241,MILTANK,ミルタンク,Miltank
+242,BLISSEY,ハピナス,Blissey
+243,RAIKOU,ライコウ,Raikou
+244,ENTEI,エンテイ,Entei
+245,SUICUNE,スイクン,Suicune
+246,LARVITAR,ヨーギラス,Larvitar
+247,PUPITAR,サナギラス,Pupitar
+248,TYRANITAR,バンギラス,Tyranitar
+249,LUGIA,ルギア,Lugia
+250,HO_OH,ホウオウ,Ho-Oh
+251,CELEBI,セレビィ,Celebi
+252,TREECKO,キモリ,Treecko
+253,GROVYLE,ジュプトル,Grovyle
+254,SCEPTILE,ジュカイン,Sceptile
+255,TORCHIC,アチャモ,Torchic
+256,COMBUSKEN,ワカシャモ,Combusken
+257,BLAZIKEN,バシャーモ,Blaziken
+258,MUDKIP,ミズゴロウ,Mudkip
+259,MARSHTOMP,ヌマクロー,Marshtomp
+260,SWAMPERT,ラグラージ,Swampert
+261,POOCHYENA,ポチエナ,Poochyena
+262,MIGHTYENA,グラエナ,Mightyena
+263,ZIGZAGOON,ジグザグマ,Zigzagoon
+264,LINOONE,マッスグマ,Linoone
+265,WURMPLE,ケムッソ,Wurmple
+266,SILCOON,カラサリス,Silcoon
+267,BEAUTIFLY,アゲハント,Beautifly
+268,CASCOON,マユルド,Cascoon
+269,DUSTOX,ドクケイル,Dustox
+270,LOTAD,ハスボー,Lotad
+271,LOMBRE,ハスブレロ,Lombre
+272,LUDICOLO,ルンパッパ,Ludicolo
+273,SEEDOT,タネボー,Seedot
+274,NUZLEAF,コノハナ,Nuzleaf
+275,SHIFTRY,ダーテング,Shiftry
+276,TAILLOW,スバメ,Taillow
+277,SWELLOW,オオスバメ,Swellow
+278,WINGULL,キャモメ,Wingull
+279,PELIPPER,ペリッパー,Pelipper
+280,RALTS,ラルトス,Ralts
+281,KIRLIA,キルリア,Kirlia
+282,GARDEVOIR,サーナイト,Gardevoir
+283,SURSKIT,アメタマ,Surskit
+284,MASQUERAIN,アメモース,Masquerain
+285,SHROOMISH,キノココ,Shroomish
+286,BRELOOM,キノガッサ,Breloom
+287,SLAKOTH,ナマケロ,Slakoth
+288,VIGOROTH,ヤルキモノ,Vigoroth
+289,SLAKING,ケッキング,Slaking
+290,NINCADA,ツチニン,Nincada
+291,NINJASK,テッカニン,Ninjask
+292,SHEDINJA,ヌケニン,Shedinja
+293,WHISMUR,ゴニョニョ,Whismur
+294,LOUDRED,ドゴーム,Loudred
+295,EXPLOUD,バクオング,Exploud
+296,MAKUHITA,マクノシタ,Makuhita
+297,HARIYAMA,ハリテヤマ,Hariyama
+298,AZURILL,ルリリ,Azurill
+299,NOSEPASS,ノズパス,Nosepass
+300,SKITTY,エネコ,Skitty
+301,DELCATTY,エネコロロ,Delcatty
+302,SABLEYE,ヤミラミ,Sableye
+303,MAWILE,クチート,Mawile
+304,ARON,ココドラ,Aron
+305,LAIRON,コドラ,Lairon
+306,AGGRON,ボスゴドラ,Aggron
+307,MEDITITE,アサナン,Meditite
+308,MEDICHAM,チャーレム,Medicham
+309,ELECTRIKE,ラクライ,Electrike
+310,MANECTRIC,ライボルト,Manectric
+311,PLUSLE,プラスル,Plusle
+312,MINUN,マイナン,Minun
+313,VOLBEAT,バルビート,Volbeat
+314,ILLUMISE,イルミーゼ,Illumise
+315,ROSELIA,ロゼリア,Roselia
+316,GULPIN,ゴクリン,Gulpin
+317,SWALOT,マルノーム,Swalot
+318,CARVANHA,キバニア,Carvanha
+319,SHARPEDO,サメハダー,Sharpedo
+320,WAILMER,ホエルコ,Wailmer
+321,WAILORD,ホエルオー,Wailord
+322,NUMEL,ドンメル,Numel
+323,CAMERUPT,バクーダ,Camerupt
+324,TORKOAL,コータス,Torkoal
+325,SPOINK,バネブー,Spoink
+326,GRUMPIG,ブーピッグ,Grumpig
+327,SPINDA,パッチール,Spinda
+328,TRAPINCH,ナックラー,Trapinch
+329,VIBRAVA,ビブラーバ,Vibrava
+330,FLYGON,フライゴン,Flygon
+331,CACNEA,サボネア,Cacnea
+332,CACTURNE,ノクタス,Cacturne
+333,SWABLU,チルット,Swablu
+334,ALTARIA,チルタリス,Altaria
+335,ZANGOOSE,ザングース,Zangoose
+336,SEVIPER,ハブネーク,Seviper
+337,LUNATONE,ルナトーン,Lunatone
+338,SOLROCK,ソルロック,Solrock
+339,BARBOACH,ドジョッチ,Barboach
+340,WHISCASH,ナマズン,Whiscash
+341,CORPHISH,ヘイガニ,Corphish
+342,CRAWDAUNT,シザリガー,Crawdaunt
+343,BALTOY,ヤジロン,Baltoy
+344,CLAYDOL,ネンドール,Claydol
+345,LILEEP,リリーラ,Lileep
+346,CRADILY,ユレイドル,Cradily
+347,ANORITH,アノプス,Anorith
+348,ARMALDO,アーマルド,Armaldo
+349,FEEBAS,ヒンバス,Feebas
+350,MILOTIC,ミロカロス,Milotic
+351,CASTFORM_SNOWY,ポワルン (ゆきぐものすがた),Castform (Snowy Form)
+351,CASTFORM_NORMAL,ポワルン,Castform
+351,CASTFORM_RAINY,ポワルン (あまみずのすがた),Castform (Rainy Form)
+351,CASTFORM_SUNNY,ポワルン (たいようのすがた),Castform (Sunny Form)
+352,KECLEON,カクレオン,Kecleon
+353,SHUPPET,カゲボウズ,Shuppet
+354,BANETTE,ジュペッタ,Banette
+355,DUSKULL,ヨマワル,Duskull
+356,DUSCLOPS,サマヨール,Dusclops
+357,TROPIUS,トロピウス,Tropius
+358,CHIMECHO,チリーン,Chimecho
+359,ABSOL,アブソル,Absol
+360,WYNAUT,ソーナノ,Wynaut
+361,SNORUNT,ユキワラシ,Snorunt
+362,GLALIE,オニゴーリ,Glalie
+363,SPHEAL,タマザラシ,Spheal
+364,SEALEO,トドグラー,Sealeo
+365,WALREIN,トドゼルガ,Walrein
+366,CLAMPERL,パールル,Clamperl
+367,HUNTAIL,ハンテール,Huntail
+368,GOREBYSS,サクラビス,Gorebyss
+369,RELICANTH,ジーランス,Relicanth
+370,LUVDISC,ラブカス,Luvdisc
+371,BAGON,タツベイ,Bagon
+372,SHELGON,コモルー,Shelgon
+373,SALAMENCE,ボーマンダ,Salamence
+374,BELDUM,ダンバル,Beldum
+375,METANG,メタング,Metang
+376,METAGROSS,メタグロス,Metagross
+377,REGIROCK,レジロック,Regirock
+378,REGICE,レジアイス,Regice
+379,REGISTEEL,レジスチル,Registeel
+380,LATIAS,ラティアス,Latias
+381,LATIOS,ラティオス,Latios
+382,KYOGRE,カイオーガ,Kyogre
+383,GROUDON,グラードン,Groudon
+384,RAYQUAZA,レックウザ,Rayquaza
+385,JIRACHI,ジラーチ,Jirachi
+386,DEOXYS_DEFENSE,デオキシス (ディフェンスフォルム),Deoxys (Normal Forme)
+386,DEOXYS_NORMAL,デオキシス (ノーマルフォルム),Deoxys (Defense Forme)
+386,DEOXYS_SPEED,デオキシス (スピードフォルム),Deoxys (Attack Forme)
+386,DEOXYS_ATTACK,デオキシス (アタックフォルム),Deoxys (Speed Forme)
+387,TURTWIG,ナエトル,Turtwig
+388,GROTLE,ハヤシガメ,Grotle
+389,TORTERRA,ドダイトス,Torterra
+390,CHIMCHAR,ヒコザル,Chimchar
+391,MONFERNO,モウカザル,Monferno
+392,INFERNAPE,ゴウカザル,Infernape
+393,PIPLUP,ポッチャマ,Piplup
+394,PRINPLUP,ポッタイシ,Prinplup
+395,EMPOLEON,エンペルト,Empoleon
+396,STARLY,ムックル,Starly
+397,STARAVIA,ムクバード,Staravia
+398,STARAPTOR,ムクホーク,Staraptor
+399,BIDOOF,ビッパ,Bidoof
+400,BIBAREL,ビーダル,Bibarel
+401,KRICKETOT,コロボーシ,Kricketot
+402,KRICKETUNE,コロトック,Kricketune
+403,SHINX,コリンク,Shinx
+404,LUXIO,ルクシオ,Luxio
+405,LUXRAY,レントラー,Luxray
+406,BUDEW,スボミー,Budew
+407,ROSERADE,ロズレイド,Roserade
+408,CRANIDOS,ズガイドス,Cranidos
+409,RAMPARDOS,ラムパルド,Rampardos
+410,SHIELDON,タテトプス,Shieldon
+411,BASTIODON,トリデプス,Bastiodon
+412,BURMY_PLANT,ミノムッチ (くさきのミノ),Burmy (Plant Cloak)
+412,BURMY_SANDY,ミノムッチ (すなちのミノ),Burmy (Sandy Cloak)
+412,BURMY_TRASH,ミノムッチ (ゴミのミノ),Burmy (Trash Cloak)
+413,WORMADAM_PLANT,ミノマダム (くさきのミノ),Wormadam (Plant Cloak)
+413,WORMADAM_TRASH,ミノマダム (ゴミのミノ),Wormadam (Trash Cloak)
+413,WORMADAM_SANDY,ミノマダム (すなちのミノ),Wormadam (Sandy Cloak)
+414,MOTHIM,ガーメイル,Mothim
+415,COMBEE,ミツハニー,Combee
+416,VESPIQUEN,ビークイン,Vespiquen
+417,PACHIRISU,パチリス,Pachirisu
+418,BUIZEL,ブイゼル,Buizel
+419,FLOATZEL,フローゼル,Floatzel
+420,CHERUBI,チェリンボ,Cherubi
+421,CHERRIM_SUNNY,チェリム (ポジフォルム),Cherrim (Sunny)
+421,CHERRIM_OVERCAST,チェリム (ネガフォルム),Cherrim (Overcast)
+422,SHELLOS_EAST_SEA,カラナクシ (ひがしのうみ),Shellos (East sea)
+422,SHELLOS_WEST_SEA,カラナクシ (にしのうみ),Shellos (West sea)
+423,GASTRODON_WEST_SEA,トリトドン (にしのうみ),Gastrodon (West Sea)
+423,GASTRODON_EAST_SEA,トリトドン (ひがしのうみ),Gastrodon (East Sea)
+424,AMBIPOM,エテボース,Ambipom
+425,DRIFLOON,フワンテ,Drifloon
+426,DRIFBLIM,フワライド,Drifblim
+427,BUNEARY,ミミロル,Buneary
+428,LOPUNNY,ミミロップ,Lopunny
+429,MISMAGIUS,ムウマージ,Mismagius
+430,HONCHKROW,ドンカラス,Honchkrow
+431,GLAMEOW,ニャルマー,Glameow
+432,PURUGLY,ブニャット,Purugly
+433,CHINGLING,リーシャン,Chingling
+434,STUNKY,スカンプー,Stunky
+435,SKUNTANK,スカタンク,Skuntank
+436,BRONZOR,ドーミラー,Bronzor
+437,BRONZONG,ドータクン,Bronzong
+438,BONSLY,ウソハチ,Bonsly
+439,MIME_JR,マネネ,Mime Jr.
+440,HAPPINY,ピンプク,Happiny
+441,CHATOT,ペラップ,Chatot
+442,SPIRITOMB,ミカルゲ,Spiritomb
+443,GIBLE,フカマル,Gible
+444,GABITE,ガバイト,Gabite
+445,GARCHOMP,ガブリアス,Garchomp
+446,MUNCHLAX,ゴンベ,Munchlax
+447,RIOLU,リオル,Riolu
+448,LUCARIO,ルカリオ,Lucario
+449,HIPPOPOTAS,ヒポポタス,Hippopotas
+450,HIPPOWDON,カバルドン,Hippowdon
+451,SKORUPI,スコルピ,Skorupi
+452,DRAPION,ドラピオン,Drapion
+453,CROAGUNK,グレッグル,Croagunk
+454,TOXICROAK,ドクロッグ,Toxicroak
+455,CARNIVINE,マスキッパ,Carnivine
+456,FINNEON,ケイコウオ,Finneon
+457,LUMINEON,ネオラント,Lumineon
+458,MANTYKE,タマンタ,Mantyke
+459,SNOVER,ユキカブリ,Snover
+460,ABOMASNOW,ユキノオー,Abomasnow
+461,WEAVILE,マニューラ,Weavile
+462,MAGNEZONE,ジバコイル,Magnezone
+463,LICKILICKY,ベロベルト,Lickilicky
+464,RHYPERIOR,ドサイドン,Rhyperior
+465,TANGROWTH,モジャンボ,Tangrowth
+466,ELECTIVIRE,エレキブル,Electivire
+467,MAGMORTAR,ブーバーン,Magmortar
+468,TOGEKISS,トゲキッス,Togekiss
+469,YANMEGA,メガヤンマ,Yanmega
+470,LEAFEON,リーフィア,Leafeon
+471,GLACEON,グレイシア,Glaceon
+472,GLISCOR,グライオン,Gliscor
+473,MAMOSWINE,マンムー,Mamoswine
+474,PORYGON_Z,ポリゴンZ,Porygon-Z
+475,GALLADE,エルレイド,Gallade
+476,PROBOPASS,ダイノーズ,Probopass
+477,DUSKNOIR,ヨノワール,Dusknoir
+478,FROSLASS,ユキメノコ,Froslass
+479,ROTOM_NORMAL,ロトム,Rotom
+479,ROTOM_WASH,ロトム (ウォッシュロトム),Rotom (Wash Rotom)
+479,ROTOM_FROST,ロトム (フロストロトム),Rotom (Frost Rotom)
+479,ROTOM_FAN,ロトム (スピンロトム),Rotom (Fan Rotom)
+479,ROTOM_HEAT,ロトム (ヒートロトム),Rotom (Heat Rotom)
+479,ROTOM_MOW,ロトム (カットロトム),Rotom (Mow Rotom)
+480,UXIE,ユクシー,Uxie
+481,MESPRIT,エムリット,Mesprit
+482,AZELF,アグノム,Azelf
+483,DIALGA,ディアルガ,Dialga
+484,PALKIA,パルキア,Palkia
+485,HEATRAN,ヒードラン,Heatran
+486,REGIGIGAS,レジギガス,Regigigas
+487,GIRATINA_ALTERED,ギラティナ (アナザーフォルム),Giratina (Altered Forme)
+487,GIRATINA_ORIGIN,ギラティナ (オリジンフォルム),Giratina (Origin Forme)
+488,CRESSELIA,クレセリア,Cresselia
+489,PHIONE,フィオネ,Phione
+490,MANAPHY,マナフィ,Manaphy
+491,DARKRAI,ダークライ,Darkrai
+492,SHAYMIN_SKY,シェイミ (スカイフォルム),Shaymin (Sky Forme)
+492,SHAYMIN_LAND,シェイミ (ランドフォルム),Shaymin (Land Forme)
+493,ARCEUS_BUG,アルセウス (むし),Arceus (Bug)
+493,ARCEUS_DRAGON,アルセウス (ドラゴン),Arceus (Dragon)
+493,ARCEUS_WATER,アルセウス (みず),Arceus (Water)
+493,ARCEUS_FAIRY,アルセウス (フェアリー),Arceus (Fairy)
+493,ARCEUS_DARK,アルセウス (あく),Arceus (Dark)
+493,ARCEUS_GHOST,アルセウス (ゴースト),Arceus (Ghost)
+493,ARCEUS_FLYING,アルセウス (ひこう),Arceus (Flying)
+493,ARCEUS_ICE,アルセウス (こおり),Arceus (Ice)
+493,ARCEUS_FIGHTING,アルセウス (かくとう),Arceus (Fighting)
+493,ARCEUS_ELECTRIC,アルセウス (でんき),Arceus (Electric)
+493,ARCEUS_STEEL,アルセウス (はがね),Arceus (Steel)
+493,ARCEUS_ROCK,アルセウス (いわ),Arceus (Rock)
+493,ARCEUS_GROUND,アルセウス (じめん),Arceus (Ground)
+493,ARCEUS_PSYCHIC,アルセウス (エスパー),Arceus (Phychic)
+493,ARCEUS_NORMAL,アルセウス,Arceus
+493,ARCEUS_GRASS,アルセウス (くさ),Arceus (Grass)
+493,ARCEUS_POISON,アルセウス (どく),Arceus (Poison)
+493,ARCEUS_FIRE,アルセウス (ほのお),Arceus (Fire)
+808,MELTAN,メルタン,Meltan
+809,MELMETAL,メルメタル,Melmetal

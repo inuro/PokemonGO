@@ -1,0 +1,846 @@
+syntax = "proto3";
+package POGOProtos.Networking.Requests.Messages;
+
+import public "POGOProtos.Data.Combat.proto";
+import public "POGOProtos.Inventory.Item.proto";
+import public "POGOProtos.Data.Player.proto";
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.Fitness.proto";
+import public "POGOProtos.Data.Battle.proto";
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Data.Avatar.proto";
+import public "POGOProtos.Data.Beluga.proto";
+
+message UpdateCombatMessage {
+	string combat_id = 1;
+	.POGOProtos.Data.Combat.CombatAction action = 2;
+}
+
+message DiskEncounterMessage {
+	uint64 encounter_id = 1;
+	string fort_id = 2;
+	double player_latitude = 3;
+	double player_longitude = 4;
+	double gym_lat_degrees = 5;
+	double gym_lng_degrees = 6;
+}
+
+message CollectDailyDefenderBonusMessage {
+	// No message needed.
+}
+
+message CancelCombatChallengeMessage {
+	string challenge_id = 1;
+}
+
+message LeaveLobbyMessage {
+	int64 raid_seed = 1;
+	string gym_id = 2;
+	repeated int32 lobby_id = 3;
+}
+
+message GetTutorialEggActionMessage {
+}
+
+message GetPlayerMessage {
+	PlayerLocale player_locale = 1;
+	bool prevent_creation = 2;
+
+	message PlayerLocale {
+		string country = 1;
+		string language = 2;
+		string timezone = 3;
+	}
+}
+
+message LevelUpRewardsMessage {
+	int32 level = 1;
+}
+
+message EncounterMessage {
+	fixed64 encounter_id = 1;
+	string spawn_point_id = 2;
+	double player_latitude = 3;
+	double player_longitude = 4;
+}
+
+message StartGymBattleMessage {
+	string gym_id = 1;
+	repeated fixed64 attacking_pokemon_ids = 2;
+	fixed64 defending_pokemon_id = 3;  // needs to be fixed64, tested by Grover
+	double player_latitude = 4;
+	double player_longitude = 5;
+}
+
+message FortDeployPokemonMessage {
+	string fort_id = 1;
+	fixed64 pokemon_id = 2;
+	double player_latitude = 3;
+	double player_longitude = 4;
+}
+
+message DownloadItemTemplatesMessage {
+	bool paginate = 1;
+	int32 page_offset = 2;
+	uint64 page_timestamp = 3;
+}
+
+message ConfirmTradingMessage {
+	string player_id = 1;
+	string transaction_log = 2;
+}
+
+message UseIncenseMessage {
+	.POGOProtos.Inventory.Item.ItemId incense_type = 1;
+}
+
+message CollectDailyBonusMessage {
+	// No message needed.
+}
+
+message SetContactSettingsMessage {
+	.POGOProtos.Data.Player.ContactSettings contact_settings = 1;
+}
+
+message SendProbeMessage {
+}
+
+message RecycleInventoryItemMessage {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+	int32 count = 2;
+}
+
+message MarkTutorialCompleteMessage {
+	repeated .POGOProtos.Enums.TutorialState tutorials_completed = 1;
+	bool send_marketing_emails = 2;
+	bool send_push_notifications = 3;
+}
+
+message DownloadRemoteConfigVersionMessage {
+	.POGOProtos.Enums.Platform platform = 1;
+	string device_manufacturer = 2;
+	string device_model = 3;
+	string locale = 4;
+	uint32 app_version = 5;
+}
+
+message GetInboxMessage {
+	bool is_history = 1;
+	bool is_reverse = 2;
+	int64 not_before_ms = 3;
+}
+
+message FitnessUpdateMessage {
+	repeated .POGOProtos.Data.Fitness.FitnessSample fitness_samples = 1;
+}
+
+message SavePlayerSnapshotMessage {
+}
+
+message GymBattleAttackMessage {
+	string gym_id = 1;
+	string battle_id = 2;
+	repeated .POGOProtos.Data.Battle.BattleAction attacker_actions = 3;
+	.POGOProtos.Data.Battle.BattleAction last_retrieved_action = 4;
+	double player_lat_degrees = 5;
+	double player_lng_degrees = 6;
+	int64 timestamp_ms = 7;
+}
+
+message GymFeedPokemonMessage {
+	.POGOProtos.Inventory.Item.ItemId item = 1;
+	int32 starting_quantity = 2;
+	string gym_id = 3;
+	fixed64 pokemon_id = 4;
+	double player_lat_degrees = 5;
+	double player_lng_degrees = 6;
+}
+
+message EchoMessage {
+	// No message needed.
+}
+
+message GymDeployMessage {
+	string fort_id = 1;
+	fixed64 pokemon_id = 2;
+	double player_latitude = 3;
+	double player_longitude = 4;
+}
+
+message FortSearchMessage {
+	string fort_id = 1;
+	double player_latitude = 2;
+	double player_longitude = 3;
+	double fort_latitude = 4;
+	double fort_longitude = 5;
+}
+
+message GetCombatChallengeMessage {
+	string challenge_id = 1;
+}
+
+message GetCombatResultsMessage {
+	string combat_id = 1;
+}
+
+message OpenNpcCombatSessionMessage {
+	repeated fixed64 attacking_pokemon_id = 1;
+	string combat_npc_template_id = 2;
+}
+
+message StartTutorialActionMessage {
+	bool onboarding_v2_enabled = 1;
+}
+
+message ListGymBadgesMessage {
+	// No message needed.
+}
+
+message GetCombatPlayerProfileMessage {
+	string player_id = 1;
+}
+
+message GetPlayerDayMessage {
+}
+
+message SetInGameCurrencyExchangeRateMessage {
+	string in_game_currency = 1;
+	string fiat_currency = 2;
+	int64 fiat_currency_cost_e6_per_in_game_unit = 3;
+}
+
+message GetFitnessRewardsMessage {
+}
+
+message GetInventoryMessage {
+	int64 last_timestamp_ms = 1;
+}
+
+message CompleteQuestMessage {
+	string quest_id = 1;
+	string sub_quest_id = 2;
+}
+
+message RegisterPushNotificationMessage {
+	ApnToken apn_token = 1;
+	GcmToken gcm_token = 2;
+
+	message ApnToken {
+		string registration_id = 1;
+		string bundle_identifier = 2;
+		int32 payload_byte_size = 3;
+	}
+
+	message GcmToken {
+		string registration_id = 1;
+	}
+}
+
+
+message UpdateNotificationStatusMessage {
+	repeated string notification_ids = 1;
+	repeated int64 create_timestamp_ms = 2;
+	NotificationState state = 3;
+
+	enum NotificationState {
+		UNSET_STATE = 0;
+		VIEWED = 1;
+	}
+}
+
+
+message OptOutPushNotificationCategoryMessage {
+	repeated string categories = 1;
+}
+
+
+message RedeemPasscodeRequest {
+	string passcode = 1;
+}
+
+
+message AddNewPoiMessage {
+	string title = 1;
+	string long_description = 2;
+	string image_gs_file_path = 3;
+	int32 lat_e6 = 4;
+	int32 lng_e6 = 5;
+	string image_serving_url = 6;
+	string user_id = 7;
+	string player_language = 8;
+	string game_unique_id = 9;
+	string app_id = 10;
+	.POGOProtos.Data.Player.PlayerReputation player_reputation = 11;
+}
+
+
+message ProxySocialActionMessage {
+	uint32 action = 1;
+	string host = 2;
+	bytes payload = 3;
+}
+
+
+message GetAvailableSubmissionsMessage {
+}
+
+
+message PushNotificationRegistryMessage {
+	RegisterPushNotificationMessage.ApnToken apn_token = 1;
+	RegisterPushNotificationMessage.GcmToken gcm_token = 2;
+}
+
+
+message AddLoginActionMessage {
+	.POGOProtos.Enums.IdentityProvider identity_provider = 1;
+	bytes inner_message = 2;
+}
+
+
+message RemoveLoginActionMessage {
+	.POGOProtos.Enums.IdentityProvider identity_provider = 1;
+}
+
+
+message SubmitNewPoiMessage {
+	string title = 1;
+	string long_description = 2;
+	int32 lat_e6 = 4;
+	int32 lng_e6 = 5;
+	string supporting_statement = 14;
+}
+
+
+message UploadPoiPhotoByUrlMessage {
+	string request_id = 1;
+	string image_url = 2;
+}
+
+
+message PingMessage {
+	int32 response_size_bytes = 1;
+	string random_request_bytes = 2;
+	bool use_cache_for_random_request_bytes = 3;
+	string return_value = 4;
+}
+
+
+message ReplaceLoginActionProto {
+	.POGOProtos.Enums.IdentityProvider existing_identity_provider = 1;
+	AddLoginActionMessage new_login = 2;
+}
+
+message FetchAllNewsMessage {
+	//
+}
+
+message FortDetailsMessage {
+	string fort_id = 1;
+	double latitude = 2;
+	double longitude = 3;
+}
+
+message SfidaActionLogMessage {
+	// No message needed.
+}
+
+message GetNewQuestsMessage {
+	// No message needed.
+}
+
+message DownloadSettingsActionMessage {
+	string hash = 1;
+}
+
+message DownloadGmTemplatesMessage {
+	int64 basis_batch_id = 1;
+	int64 batch_id = 2;
+	int32 page_offset = 3;
+}
+
+message DeclineExRaidPassMessage {
+	string fort_id = 1;
+	int64 raid_seed = 2;
+}
+
+message GymStartSessionMessage {
+	string gym_id = 1;
+	repeated fixed64 attacking_pokemon_id = 2;
+	fixed64 defending_pokemon_id = 3;
+	double player_lat_degrees = 4;
+	double player_lng_degrees = 5;
+}
+
+message SetFavoritePokemonMessage {
+	int64 pokemon_id = 1;  // Do not change https://github.com/AeonLucid/POGOProtos/pull/126
+	bool is_favorite = 2;
+}
+
+message SetLobbyVisibilityMessage {
+	int64 raid_seed = 1;
+	string gym_id = 2;
+	repeated int32 lobby_id = 3;
+}
+
+message DeclineCombatChallengeMessage {
+	string challenge_id = 1;
+}
+
+message GetTradingMessage {
+	string player_id = 1;
+}
+
+message CheckChallengeMessage {
+	bool debug_request = 1;
+}
+
+message UseItemEncounterMessage {
+	.POGOProtos.Inventory.Item.ItemId item = 1;
+	fixed64 encounter_id = 2;
+	string spawn_point_guid = 3;
+}
+
+message SubmitCombatChallengePokemonsMessage {
+	string challenge_id = 1;
+	repeated fixed64 attacking_pokemon_id = 2;
+}
+
+message AwardFreeRaidTicketMessage {
+	string gym_id = 1;
+	double player_lat_degrees = 2;
+	double player_lng_degrees = 3;
+}
+
+message EvolvePokemonMessage {
+	fixed64 pokemon_id = 1;
+	.POGOProtos.Inventory.Item.ItemId evolution_item_requirement = 2;
+}
+
+message GetBackgroundModeSettingsMessage {
+}
+
+message CheckAwardedBadgesMessage {
+	// No message needed.
+}
+
+message UseItemStardustBoostMessage {
+	.POGOProtos.Inventory.Item.ItemId item = 1;
+}
+
+message FortRecallPokemonMessage {
+	string fort_id = 1;
+	fixed64 pokemon_id = 2;
+	double player_latitude = 3;
+	double player_longitude = 4;
+}
+
+message GetBuddyWalkedMessage {
+	//
+}
+
+message CatchPokemonMessage {
+	fixed64 encounter_id = 1;
+	.POGOProtos.Inventory.Item.ItemId pokeball = 2;
+	double normalized_reticle_size = 3;
+	string spawn_point_id = 4;
+	bool hit_pokemon = 5;
+	double spin_modifier = 6;
+	double normalized_hit_position = 7;
+	.POGOProtos.Data.ARPlusEncounterValues ar_plus_values = 8;
+}
+
+message GetIncensePokemonMessage {
+	double player_latitude = 1;
+	double player_longitude = 2;
+}
+
+message IncenseEncounterMessage {
+	uint64 encounter_id = 1;
+	string encounter_location = 2;
+}
+
+message CompleteQuestStampCardMessage {
+	// No message needed.
+}
+
+message UpdateTradingMessage {
+	string player_id = 1;
+	fixed64 pokemon_id = 2;
+}
+
+message AcknowledgePunishmentMessage {
+	bool is_warn = 1;
+	bool is_suspended = 2;
+}
+
+message GymGetInfoMessage {
+	string gym_id = 1;
+	double player_lat_degrees = 2;
+	double player_lng_degrees = 3;
+	double gym_lat_degrees = 4;
+	double gym_lng_degrees = 5;
+}
+
+message BelugaTransactionStartMessage {
+	repeated int64 pokemon_id = 1;
+	string nonce = 2;
+	string beluga_id = 3;
+}
+
+message SaveCombatPlayerPreferencesMessage {
+	.POGOProtos.Data.Combat.CombatPlayerPreferences preferences = 1;
+}
+
+message GeofenceUpdateMessage {
+	int32 number_of_points = 1;
+	double minimum_point_radius_m = 2;
+}
+
+message CheckSendGiftMessage {
+	string player_id = 1;
+}
+
+message EncounterTutorialCompleteMessage {
+	.POGOProtos.Enums.PokemonId pokemon_id = 1;
+}
+
+message AttackGymMessage {
+	string gym_id = 1;
+	string battle_id = 2;
+	repeated .POGOProtos.Data.Battle.BattleAction attack_actions = 3;
+	.POGOProtos.Data.Battle.BattleAction last_retrieved_action = 4;
+	double player_latitude = 5;
+	double player_longitude = 6;
+}
+
+message SetBuddyPokemonMessage {
+	fixed64 pokemon_id = 1;
+}
+
+message NicknamePokemonMessage {
+	fixed64 pokemon_id = 1;
+	string nickname = 2;
+}
+
+message UseItemEggIncubatorMessage {
+	string item_id = 1;
+	uint64 pokemon_id = 2;
+}
+
+message ListAvatarCustomizationsMessage {
+	.POGOProtos.Data.Player.PlayerAvatarType avatar_type = 1;
+	repeated .POGOProtos.Data.Avatar.AvatarCustomization.Slot slot = 2;
+	repeated .POGOProtos.Enums.Filter filters = 3;
+	int32 start = 4;
+	int32 limit = 5;
+}
+
+message GetHatchedEggsMessage {
+	// No message needed.
+}
+
+message EquipBadgeMessage {
+	.POGOProtos.Enums.BadgeType badge_type = 1;
+}
+
+message AddFortModifierMessage {
+	.POGOProtos.Inventory.Item.ItemId modifier_type = 1;
+	string fort_id = 2;
+	double player_latitude = 3;
+	double player_longitude = 4;
+}
+
+message UseItemGymMessage {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+	string gym_id = 2;
+	double player_latitude = 3;
+	double player_longitude = 4;
+}
+
+message GetHoloInventoryMessage {
+	int64 last_timestamp_ms = 1;
+	int32 item_been_seen = 2;  // TODO: Find out what this is.
+}
+
+message VerifyChallengeMessage {
+	string token = 1;
+}
+
+message AttackRaidBattleMessage {
+	string gym_id = 1;
+	string battle_id = 2;
+	repeated .POGOProtos.Data.Battle.BattleAction attacker_actions = 3;
+	.POGOProtos.Data.Battle.BattleAction last_retrieved_action = 4;
+	int64 timestamp_ms = 5;
+}
+
+message UpdateNotificationMessage {
+	repeated string notification_ids = 1;
+	repeated int64 create_timestamp_ms = 2;
+	.POGOProtos.Enums.NotificationState state = 3;
+}
+
+message UseItemXpBoostMessage {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+}
+
+message RegisterBackgroundDeviceMessage {
+	string device_type = 1;
+	string device_id = 2;
+}
+
+message ReleasePokemonMessage {
+	fixed64 pokemon_id = 1;
+	repeated fixed64 pokemon_ids = 2;
+}
+
+message QuitCombatMessage {
+	string combat_id = 1;
+}
+
+message StartRaidBattleMessage {
+	string gym_id = 1;
+	int64 raid_seed = 2;
+	repeated int32 lobby_id = 4;
+	repeated fixed64 attacking_pokemon_id = 5;
+	double player_lat_degrees = 6;
+	double player_lng_degrees = 7;
+	double gym_lat_degrees = 8;
+	double gym_lng_degrees = 9;
+}
+
+message GetQuestDetailsMessage {
+	repeated string quest_id = 1;
+}
+
+message GetGymBadgeDetailsMessage {
+	string fort_id = 1;
+	double latitude = 2;
+	double longitude = 3;
+}
+
+message ClaimCodenameMessage {
+	string codename = 1;
+	bool force = 2;
+	bool generate_suggested_codenames = 3;
+}
+
+message UpgradePokemonMessage {
+	uint64 pokemon_id = 1;
+	bool preview = 2;
+}
+
+message JoinLobbyMessage {
+	int64 raid_seed = 1;
+	string gym_id = 2;
+	repeated int32 lobby_id = 3;
+	bool private = 4;
+	double player_lat_degrees = 5;
+	double player_lng_degrees = 6;
+	double gym_lat_degrees = 7;
+	double gym_lng_degrees = 8;
+}
+
+message LocationPingMessage {
+	enum PingReason {
+		UNSET = 0;
+		ENTRANCE_EVENT = 1;
+		EXIT_EVENT = 2;
+		DWELL_EVENT = 3;
+		VISIT_EVENT = 4;
+		FITNESS_WAKEUP = 5;
+		OTHER_WAKEUP = 6;
+	}
+
+	string geofence_identifier = 1;
+	PingReason reason = 2;
+}
+
+message UseItemCaptureMessage {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+	fixed64 encounter_id = 2;
+	string spawn_point_id = 3;
+}
+
+message UseItemMoveRerollMessage {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+	fixed64 pokemon_id = 2;
+	bool reroll_unlocked_move = 3;
+}
+
+message SetPlayerTeamMessage {
+	.POGOProtos.Enums.TeamColor team = 1;
+}
+
+message SetAvatarMessage {
+	.POGOProtos.Data.Player.PlayerAvatar player_avatar = 2;
+}
+
+message GetMapObjectsMessage {
+	repeated uint64 cell_id = 1 [packed = true];
+	repeated int64 since_timestamp_ms = 2 [packed = true];
+	double latitude = 3;
+	double longitude = 4;
+}
+
+message CheckShareExRaidPassMessage {
+	string friend_id = 1;
+	string fort_id = 2;
+	int64 raid_seed = 3;
+}
+
+message OpenCombatSessionMessage {
+	string combat_id = 1;
+	repeated fixed64 attacking_pokemon_id = 2;
+	string combat_league_template_id = 3;
+}
+
+message GetClientTelemetrySettingsMessage {
+}
+
+message BelugaTransactionCompleteMessage {
+	.POGOProtos.Data.Beluga.BelugaBleCompleteTransferRequest beluga_transfer = 1;
+	bytes app_signature = 2;
+	bytes firmware_signature = 3;
+}
+
+message SetAvatarItemAsViewedMessage {
+	repeated string avatar_template_id = 1;
+}
+
+message QuestEncounterMessage {
+	fixed64 encounter_id = 1;
+	string spawn_point_id = 2;
+}
+
+message OpenCombatChallengeMessage {
+	.POGOProtos.Enums.CombatType type = 1;
+	string challenge_id = 2;
+	string combat_league_template_id = 3;
+	string opponent_player_id = 4;
+	repeated fixed64 attacking_pokemon_id = 5;
+}
+
+message UseItemPotionMessage {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+	fixed64 pokemon_id = 2;
+}
+
+message GetAssetDigestMessage {
+	.POGOProtos.Enums.Platform platform = 1;
+	string device_manufacturer = 2;
+	string device_model = 3;
+	string locale = 4;
+	uint32 app_version = 5;
+	bool paginate = 6;
+	int32 page_offset = 7;
+	uint64 page_timestamp = 8;
+}
+
+message GetFitnessReportMessage {
+	int32 num_of_days = 1;
+	int32 num_of_weeks = 2;
+}
+
+message GetPlayerProfileMessage {
+	string player_name = 1;
+}
+
+message CombatFriendRequestMessage {
+	string combat_id = 1;
+}
+
+message SetLobbyPokemonMessage {
+	int64 raid_seed = 1;
+	string gym_id = 2;
+	repeated int32 lobby_id = 3;
+	repeated fixed64 pokemon_id = 4;
+}
+
+message DeleteGiftMessage {
+	string player_id = 1;
+	fixed64 giftbox_id = 2;
+}
+
+message CancelTradingMessage {
+	string player_id = 1;
+}
+
+message GetRaidDetailsMessage {
+	int64 raid_seed = 1;
+	string gym_id = 2;
+	repeated int32 lobby_id = 3;
+	double player_lat_degrees = 4;
+	double player_lng_degrees = 5;
+}
+
+message GetNpcCombatRewardsMessage {
+	string combat_npc_trainer_template_id = 1;
+	.POGOProtos.Enums.CombatPlayerFinishState finish_state = 2;
+	repeated fixed64 attacking_pokemon_id = 3;
+	string combat_id = 4;
+}
+
+message GetDownloadUrlsMessage {
+	repeated string asset_id = 1;
+}
+
+message GenerateCombatChallengeIdMessage {
+}
+
+message ShareExRaidPassMessage {
+	string friend_id = 1;
+	string fort_id = 2;
+	int64 raid_seed = 3;
+}
+
+message MarkReadNewsArticleMessage {
+	repeated string news_ids = 1;
+}
+
+message GetGymDetailsMessage {
+	string gym_id = 1;
+	double player_latitude = 2;
+	double player_longitude = 3;
+	double gym_latitude = 4;
+	double gym_longitude = 5;
+	string client_version = 6;
+}
+
+message AcceptCombatChallengeMessage {
+	string challenge_id = 1;
+	repeated fixed64 attacking_pokemon_id = 6;
+}
+
+message UseItemReviveMessage {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+	fixed64 pokemon_id = 2;
+}
+
+message RemoveQuestMessage {
+	string quest_id = 1;
+}
+
+message SfidaRegistrationMessage {
+	string sfida_id = 1;
+}
+
+message GetSignedGmapUrlMessage {
+	double latitude = 1;
+	double longitude = 2;
+	int32 width = 3;
+	int32 height = 4;
+	int32 zoom = 5;
+	string language_code = 6;
+	string country_code = 7;
+	string map_style = 8;
+	string map_type = 9;
+	string icon_params = 10;
+}
+
+message UseItemRareCandyMessage {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+	.POGOProtos.Enums.PokemonId pokemon_id = 2;
+	int32 candy_count = 3;
+}
+

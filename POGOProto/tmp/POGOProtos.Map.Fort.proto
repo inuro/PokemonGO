@@ -1,0 +1,126 @@
+syntax = "proto3";
+package POGOProtos.Map.Fort;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Data.Raid.proto";
+import public "POGOProtos.Inventory.Item.proto";
+
+enum FortType {
+	GYM = 0;
+	CHECKPOINT = 1;
+}
+
+message GymEvent {
+	string trainer = 1;
+	int64 timestamp_ms = 2;
+	Event event = 3;
+	int32 pokedex_id = 4;
+	fixed64 pokemon_id = 5;
+
+	enum Event {
+		UNKNOWN = 0;
+		POKEMON_FED = 1;
+		POKEMON_DEPLOYED = 2;
+		POKEMON_RETURNED = 3;
+		BATTLE_WON = 4;
+		BATTLE_LOSS = 5;
+		RAID_STARTED = 6;
+		RAID_ENDED = 7;
+		GYM_NEUTRALIZED = 8;
+	}
+}
+
+message FortSummary {
+	string fort_summary_id = 1;
+	int64 last_modified_timestamp_ms = 2;
+	double latitude = 3;
+	double longitude = 4;
+}
+
+message FortLureInfo {
+	string fort_id = 1;
+	fixed64 encounter_id = 2;
+	.POGOProtos.Enums.PokemonId active_pokemon_id = 3;
+	int64 lure_expires_timestamp_ms = 4;
+}
+
+message FortData {
+	string id = 1;
+	int64 last_modified_timestamp_ms = 2;
+	double latitude = 3;
+	double longitude = 4;
+	.POGOProtos.Enums.TeamColor owned_by_team = 5;     // (Gym only) Team that owns the gym.
+	.POGOProtos.Enums.PokemonId guard_pokemon_id = 6;  // (Gym only) Highest CP Pokemon ID at the gym.
+	int32 guard_pokemon_cp = 7;                        // (Gym only) Highest CP Pokemon at the gym.
+	bool enabled = 8;
+	.POGOProtos.Map.Fort.FortType type = 9;
+	int64 gym_points = 10;                                                 // (Gym only) Prestigate / experience of the gym.
+	bool is_in_battle = 11;                                                // (Gym only) Whether someone is battling at the gym currently.
+	repeated .POGOProtos.Inventory.Item.ItemId active_fort_modifier = 12;  // (Pokestop only)
+	.POGOProtos.Map.Fort.FortLureInfo lure_info = 13;                      // (Pokestop only)
+	int64 cooldown_complete_timestamp_ms = 14;                             // (Pokestop only) Timestamp when the pokestop can be activated again to get items / xp.
+	.POGOProtos.Map.Fort.FortSponsor sponsor = 15;
+	.POGOProtos.Map.Fort.FortRenderingType rendering_type = 16;
+	int64 deploy_lockout_end_ms = 17;
+	.POGOProtos.Data.PokemonDisplay guard_pokemon_display = 18;
+	bool closed = 19;
+	.POGOProtos.Data.Raid.RaidInfo raid_info = 20;
+	.POGOProtos.Map.Fort.GymDisplay gym_display = 21;
+	bool visited = 22;
+	int64 same_team_deploy_lockout_end_ms = 23;
+	bool allow_checkin = 24;
+	string image_url = 25;
+	bool in_event = 26;
+	string banner_url = 27;
+	string partner_id = 28;
+	bool challenge_quest_completed = 30;
+	bool is_ex_raid_eligible = 31;
+}
+
+message FortModifier {
+	.POGOProtos.Inventory.Item.ItemId item_id = 1;
+	int64 expiration_timestamp_ms = 2;
+	string deployer_player_codename = 3;
+}
+
+enum FortRenderingType {
+	DEFAULT = 0;
+	INTERNAL_TEST = 1;
+}
+
+enum FortSponsor {
+	UNSET_SPONSOR = 0;
+	MCDONALDS = 1;
+	POKEMON_STORE = 2;
+	TOHO = 3;
+	SOFTBANK = 4;
+	GLOBE = 5;
+	SPATULA = 6;
+	THERMOMETER = 7;
+	KNIFE = 8;
+	GRILL = 9;
+	SMOKER = 10;
+	PAN = 11;
+	BBQ = 12;
+	FRYER = 13;
+	STEAMER = 14;
+	HOOD = 15;
+	SLOWCOOKER = 16;
+	MIXER = 17;
+	SCOOPER = 18;
+	MUFFINTIN = 19;
+	SALAMANDER = 20;
+	PLANCHA = 21;
+	NIA_OPS = 22;
+	WHISK = 23;
+}
+
+message GymDisplay {
+	repeated .POGOProtos.Map.Fort.GymEvent gym_event = 1;
+	int32 total_gym_cp = 2;
+	double lowest_pokemon_motivation = 3;
+	int32 slots_available = 4;
+	int64 occupied_millis = 5;
+}
+

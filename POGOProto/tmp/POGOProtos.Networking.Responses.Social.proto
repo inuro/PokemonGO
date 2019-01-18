@@ -1,0 +1,435 @@
+syntax = "proto3";
+package POGOProtos.Networking.Responses.Social;
+
+import public "POGOProtos.Inventory.proto";
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Data.Friends.proto";
+import public "POGOProtos.Data.Player.proto";
+import public "POGOProtos.Data.Combat.proto";
+import public "POGOProtos.Data.Gift.proto";
+import public "POGOProtos.Data.Trading.proto";
+
+message GetFriendshipMilestoneRewardsResponse {
+	Result result = 1;
+	int64 xp_reward = 2;
+	string friend_id = 3;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_NOT_FRIENDS = 3;
+		ERROR_MILESTONE_ALREADY_AWARDED = 4;
+		ERROR_FAILED_TO_UPDATE = 5;
+	}
+}
+
+message OpenGiftResponse {
+	Result result = 1;
+	.POGOProtos.Inventory.Loot items = 2;
+	.POGOProtos.Data.PokemonData egg_pokemon = 3;
+	.POGOProtos.Data.Friends.FriendshipLevelData updated_friendship_data = 4;
+	.POGOProtos.Data.Player.PlayerPublicProfile friend_profile = 5;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_PLAYER_BAG_FULL = 3;
+		ERROR_PLAYER_LIMIT_REACHED = 4;
+		ERROR_GIFT_DOES_NOT_EXIST = 5;
+		ERROR_FRIEND_NOT_FOUND = 6;
+		ERROR_INVALID_PLAYER_ID = 7;
+		ERROR_FRIEND_UPDATE = 8;
+	}
+}
+
+message GetFriendCodeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+
+	Result result = 1;
+	string friend_code = 2;
+}
+
+message GetUploadUrlResponse {
+	enum Status {
+		UNSET = 0;
+		FAILURES = 1;
+		SUCCESS = 2;
+	}
+
+	Status status = 1;
+	string signed_url = 2;
+	string supporting_image_signed_url = 3;
+}
+
+message GetFriendsListResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+
+	message Friend {
+		string player_id = 1;
+		string codename = 2;
+		string team = 3;
+		int32 score = 4;
+		bytes data_with_me = 5;
+		int64 version = 6;
+		int64 created_ms = 7;
+		string fb_user_id = 8;
+		bool is_facebook_friendship = 9;
+	}
+
+	Result result = 1;
+	repeated Friend friend = 2;
+}
+
+message CreateCombatChallengeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_CHALLENGE_STATE = 2;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 3;
+		ERROR_ACCESS_DENIED = 4;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.CombatChallenge challenge = 2;
+}
+
+message GetOutgoingFriendInvitesResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+
+	Result result = 1;
+	repeated .POGOProtos.Data.Friends.OutgoingFriendInviteDisplay invites = 2;
+}
+
+message SendGiftResponse {
+	Result result = 1;
+	int32 awarded_xp = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_PLAYER_DOES_NOT_EXIST = 3;
+		ERROR_GIFT_DOES_NOT_EXIST = 4;
+		ERROR_GIFT_ALREADY_SENT_TODAY = 5;
+		ERROR_PLAYER_HAS_UNOPENED_GIFT = 6;
+		ERROR_FRIEND_UPDATE = 7;
+	}
+}
+
+message GetIncomingFriendInvitesResponse {
+	Result result = 1;
+	repeated .POGOProtos.Data.Friends.IncomingFriendInviteDisplay invites = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+}
+
+message AcceptFriendInviteResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_INVITE_DOES_NOT_EXIST = 3;
+		ERROR_MAX_FRIENDS_LIMIT_REACHED_DELETED = 4;
+		ERROR_INVITE_HAS_BEEN_CANCELLED = 5;
+		ERROR_SENDER_HAS_MAX_FRIENDS = 6;
+		ERROR_RECEIVER_HAS_MAX_FRIENDS = 7;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Player.PlayerSummary friend = 2;
+}
+
+message DeleteGiftFromInventoryResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_GIFT_DOES_NOT_EXIST = 3;
+	}
+
+	Result result = 1;
+}
+
+message SendFriendInviteResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_ALREADY_A_FRIEND = 3;
+		ERROR_PLAYER_DOES_NOT_EXIST_DELETED = 4;
+		ERROR_PLAYER_INBOX_FULL = 5;
+		ERROR_PLAYER_OUTBOX_FULL = 6;
+		ERROR_SENDER_HAS_MAX_FRIENDS = 7;
+		ERROR_INVITE_ALREADY_SENT = 8;
+		ERROR_CANNOT_SEND_INVITES_TO_YOURSELF = 9;
+		ERROR_INVITE_ALREADY_RECEIVED = 10;
+		ERROR_RECEIVER_HAS_MAX_FRIENDS = 11;
+	}
+
+	Result result = 1;
+}
+
+message GetGiftBoxDetailsResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_GIFT_DOES_NOT_EXIST = 3;
+		ERROR_INVALID_PLAYER_ID = 4;
+		ERROR_FRIEND_NOT_FOUND = 5;
+		ERROR_FORT_SEARCH = 6;
+	}
+
+	Result result = 1;
+	repeated .POGOProtos.Data.Gift.GiftBoxDetails gift_boxes = 2;
+}
+
+message IsMyFriendResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_PLAYER_NOT_FOUND_DELETED = 3;
+	}
+
+	Result result = 1;
+	bool is_friend = 2;
+}
+
+message DeclineFriendInviteResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_INVITE_DOES_NOT_EXIST = 3;
+		ERROR_INVITE_ALREADY_DECLINED = 4;
+	}
+
+	Result result = 1;
+}
+
+message RemoveFriendResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_DOES_NOT_EXIST_DELETED = 2;
+		ERROR_PLAYER_NOT_A_FRIEND = 3;
+	}
+
+	Result result = 1;
+}
+
+message OpenTradingResponse {
+	Result result = 1;
+	.POGOProtos.Data.Trading.Trading trading = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_FRIEND_NOT_FOUND = 3;
+		ERROR_INVALID_PLAYER_ID = 4;
+		ERROR_INVALID_STATE = 5;
+		ERROR_STATE_HANDLER = 6;
+		ERROR_TRADING_EXPIRED = 7;
+		ERROR_TRADING_COOLDOWN = 8;
+		ERROR_PLAYER_ALREADY_OPENED = 9;
+		ERROR_FRIEND_OUT_OF_RANGE = 10;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 11;
+		ERROR_PLAYER_REACHED_DAILY_LIMIT = 12;
+		ERROR_FRIEND_REACHED_DAILY_LIMIT = 13;
+		ERROR_PLAYER_NOT_ENOUGH_STARDUST = 14;
+		ERROR_FRIEND_NOT_ENOUGH_STARDUST = 15;
+		ERROR_FRIEND_BELOW_MINIMUM_LEVEL = 16;
+	}
+}
+
+message SaveSocialPlayerSettingsResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+
+	Result result = 1;
+}
+
+message GetFriendshipRewardsResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_NOT_FRIENDS = 3;
+		ERROR_MILESTONE_ALREADY_AWARDED = 4;
+		ERROR_FAILED_TO_UPDATE = 5;
+	}
+
+	Result result = 1;
+	int64 xp_reward = 2;
+	string friend_id = 3;
+}
+
+message ListFriendsResponse {
+	Result result = 1;
+	repeated .POGOProtos.Data.Friends.Friend friend = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+}
+
+message SearchPlayerResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_PLAYER_NOT_FOUND = 3;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Player.PlayerSummary player = 2;
+}
+
+message UpdateFacebookStatusResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_PLAYER_NOT_FOUND = 3;
+		ERROR_FACEBOOK_API = 4;
+		ERROR_ALREADY_EXISTS = 5;
+	}
+
+	Result result = 1;
+}
+
+message GiftDetailsResponse {
+	Result result = 1;
+	repeated .POGOProtos.Data.Gift.GiftBoxDetails gift_boxes = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_GIFT_DOES_NOT_EXIST = 3;
+		ERROR_INVALID_PLAYER_ID = 4;
+		ERROR_FRIEND_NOT_FOUND = 5;
+		ERROR_FORT_SEARCH = 6;
+	}
+}
+
+message GetFriendDetailsResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		EXCEEDS_MAX_PLAYERS_PER_QUERY = 3;
+	}
+
+	message Debug {
+		message Callee {
+			repeated int32 callee_id = 1;
+			string player_id = 2;
+		}
+
+		int32 fetched_from_db = 1;
+		int32 fetched_from_fanout = 2;
+		int32 fetched_from_player_mapper = 3;
+		int32 fetched_from_status_cache = 4;
+		int32 failed_to_fetch = 5;
+		repeated Callee callee_list = 6;
+	}
+
+	Result result = 1;
+	repeated .POGOProtos.Data.Friends.FriendDetails friend = 2;
+	Debug friend_details_debug_info = 3;
+}
+
+message SetFriendNicknameResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_NOT_FRIENDS = 3;
+		ERROR_EXCEEDED_NICKNAME_LENGTH = 4;
+		ERROR_SOCIAL_UPDATE = 5;
+		ERROR_FILTERED_NICKNAME = 6;
+		ERROR_EXCEEDED_CHANGE_LIMIT = 7;
+	}
+
+	Result result = 1;
+}
+
+message CancelFriendInviteResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_INVITE_DOES_NOT_EXIST = 3;
+		ERROR_ALREADY_CANCELLED = 4;
+	}
+
+	Result result = 1;
+}
+
+message GetFacebookFriendListResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_FACEBOOK_API = 3;
+		ERROR_FACEBOOK_PERMISSIONS = 4;
+		ERROR_NO_FACEBOOK_ID = 5;
+	}
+
+	message FacebookFriendProto {
+		.POGOProtos.Data.Player.PlayerSummary player = 1;
+		string full_name = 2;
+	}
+
+	Result result = 1;
+	repeated FacebookFriendProto friend = 2;
+	string next_cursor = 3;
+}
+
+message InviteFacebookFriendResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_PLAYER_NOT_FOUND = 3;
+		ERROR_PLAYER_OUTBOX_FULL = 4;
+		ERROR_PLAYER_INBOX_FULL = 5;
+		ERROR_SENDER_HAS_MAX_FRIENDS = 6;
+		ERROR_RECEIVER_HAS_MAX_FRIENDS = 7;
+		ERROR_ALREADY_A_FRIEND = 8;
+		ERROR_INVITE_ALREADY_SENT = 9;
+		ERROR_INVITE_ALREADY_RECEIVED = 10;
+		ERROR_CANNOT_SEND_INVITES_TO_YOURSELF = 11;
+		ERROR_FRIEND_CACHE_EXPIRED = 12;
+		ERROR_FRIEND_NOT_CACHED = 13;
+		ERROR_INVALID_SENDER_FACEBOOK_ID = 14;
+	}
+
+	Result result = 1;
+}
+

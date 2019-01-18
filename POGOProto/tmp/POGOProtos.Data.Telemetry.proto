@@ -1,0 +1,365 @@
+syntax = "proto3";
+package POGOProtos.Data.Telemetry;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.Player.proto";
+import public "POGOProtos.Networking.Platform.Telemetry.proto";
+import public "POGOProtos.Settings.proto";
+import public "POGOProtos.Networking.Requests.proto";
+
+message SocialTelemetry {
+	.POGOProtos.Enums.SocialTelemetryIds social_click_id = 1;
+	int32 pages_scrolled_in_friends_list = 2;
+}
+
+message ItemTelemetry {
+	.POGOProtos.Enums.ItemUseTelemetryIds item_use_click_id = 1;
+	int32 item_id = 2;
+}
+
+message AssetPoiDownloadTelemetry {
+	.POGOProtos.Enums.AssetTelemetryIds asset_event_id = 1;
+	string fort_id = 2;
+	uint32 size = 3;
+}
+
+message ClientTelemetryOmni {
+	oneof TelemetryData {
+		.POGOProtos.Data.Telemetry.BootTime boot_time = 1;
+		.POGOProtos.Data.Telemetry.FrameRate frame_rate = 2;
+		.POGOProtos.Data.Telemetry.GenericClickTelemetry generic_click_telemetry = 3;
+		.POGOProtos.Data.Telemetry.MapEventsTelemetry map_events_telemetry = 4;
+		.POGOProtos.Data.Telemetry.SpinPokestopTelemetry spin_pokestop_telemetry = 5;
+		.POGOProtos.Data.Telemetry.ProfilePageTelemetry profile_page_telemetry = 6;
+		.POGOProtos.Data.Telemetry.ShoppingPageTelemetry shopping_page_telemetry = 7;
+		.POGOProtos.Data.Telemetry.EncounterPokemonTelemetry encounter_pokemon_telemetry = 8;
+		.POGOProtos.Data.Telemetry.CatchPokemonTelemetry catch_pokemon_telemetry = 9;
+		.POGOProtos.Data.Telemetry.DeployPokemonTelemetry deploy_pokemon_telemetry = 10;
+		.POGOProtos.Data.Telemetry.FeedPokemonTelemetry feed_pokemon_telemetry = 11;
+		.POGOProtos.Data.Telemetry.EvolvePokemonTelemetry evolve_pokemon_telemetry = 12;
+		.POGOProtos.Data.Telemetry.ReleasePokemonTelemetry release_pokemon_telemetry = 13;
+		.POGOProtos.Data.Telemetry.NicknamePokemonTelemetry nickname_pokemon_telemetry = 14;
+		.POGOProtos.Data.Telemetry.NewsPageTelemetry news_page_telemetry = 15;
+		.POGOProtos.Data.Telemetry.ItemTelemetry item_telemetry = 16;
+		.POGOProtos.Data.Telemetry.BattlePartyTelemetry battle_party_telemetry = 17;
+		.POGOProtos.Data.Telemetry.PasscodeRedeemTelemetry passcode_redeem_telemetry = 18;
+		.POGOProtos.Data.Telemetry.LinkLoginTelemetry link_login_telemetry = 19;
+		.POGOProtos.Data.Telemetry.RaidTelemetry raid_telemetry = 20;
+		.POGOProtos.Data.Telemetry.PushNotificationTelemetry push_notification_telemetry = 21;
+		.POGOProtos.Data.Telemetry.AvatarCustomizationTelemetry avatar_customization_telemetry = 22;
+		.POGOProtos.Data.Telemetry.ReadPointOfInterestDescriptionTelemetry read_point_of_interest_description_telemetry = 23;
+		.POGOProtos.Data.Telemetry.WebTelemetry web_telemetry = 24;
+		.POGOProtos.Data.Telemetry.ChangeArTelemetry change_ar_telemetry = 25;
+		.POGOProtos.Data.Telemetry.WeatherDetailClickTelemetry weather_detail_click_telemetry = 26;
+		.POGOProtos.Data.Player.UserIssueWeatherReport user_issue_weather_report = 27;
+		.POGOProtos.Data.Telemetry.PokemonInventoryTelemetry pokemon_inventory_telemetry = 28;
+		.POGOProtos.Data.Telemetry.SocialTelemetry social_telemetry = 29;
+		.POGOProtos.Data.Telemetry.CheckEncounterTrayInfoTelemetry check_encounter_info_telemetry = 30;
+		.POGOProtos.Data.Telemetry.PokemonGoPlusTelemetry pokemon_go_plus_telemetry = 31;
+		.POGOProtos.Data.Telemetry.RpcResponseTelemetry rpc_timing_telemetry = 32;
+		.POGOProtos.Settings.SocialGiftCountTelemetry social_gift_count_telemetry = 33;
+		.POGOProtos.Data.Telemetry.AssetBundleDownloadTelemetry asset_bundle_telemetry = 34;
+		.POGOProtos.Data.Telemetry.AssetPoiDownloadTelemetry asset_poi_download_telemetry = 35;
+		.POGOProtos.Data.Telemetry.AssetStreamDownloadTelemetry asset_stream_download_telemetry = 36;
+		.POGOProtos.Data.Telemetry.AssetStreamCacheCulledTelemetry asset_stream_cache_culled_telemetry = 37;
+		.POGOProtos.Data.Telemetry.RpcSocketResponseTelemetry rpc_socket_timing_telemetry = 38;
+		.POGOProtos.Data.Telemetry.PermissionsFlowTelemetry permissions_flow = 39;
+		.POGOProtos.Data.Telemetry.DeviceServiceToggleTelemetry device_service_toggle = 40;
+		.POGOProtos.Data.Telemetry.BootTelemetry boot_telemetry = 41;
+		.POGOProtos.Data.Player.UserAttributes user_attributes = 42;
+		.POGOProtos.Data.Telemetry.OnboardingTelemetry onboarding_telemetry = 43;
+		.POGOProtos.Data.Telemetry.LoginActionTelemetry login_action_telemetry = 44;
+		.POGOProtos.Networking.Platform.Telemetry.PlatformServerData server_data = 1001;
+	}
+}
+
+message AssetStreamCacheCulledTelemetry {
+	.POGOProtos.Enums.AssetTelemetryIds asset_event_id = 1;
+	uint32 space_released = 2;
+}
+
+message RpcResponseTelemetry {
+	float window_duration = 1;
+	repeated .POGOProtos.Data.Telemetry.RpcResponseTime response_timings = 2;
+}
+
+message ReadPointOfInterestDescriptionTelemetry {
+	string result = 1;
+	string fort_id = 2;
+	int32 fort_type = 3;
+}
+
+message GenericClickTelemetry {
+	.POGOProtos.Enums.GenericClickTelemetryIds generic_click_id = 1;
+}
+
+message EvolvePokemonTelemetry {
+	.POGOProtos.Data.Telemetry.PokemonTelemetry pokemon = 1;
+	.POGOProtos.Data.Telemetry.PokemonTelemetry evolved_pokemon = 2;
+}
+
+message BootTime {
+	enum BootPhase {
+		UNDEFINED = 0;
+		TIME_TO_MAP = 1;
+		LOGO_SCREEN_TIME = 2;
+		MAIN_SCENE_LOAD_TIME = 3;
+		WAIT_FOR_AUTH = 4;
+		INIT_REMOTE_CONFIG_VERSIONS = 5;
+		INIT_BUNDLE_DIGEST = 6;
+		INIT_GMT = 7;
+		DOWNLOAD_I18N = 8;
+		DOWNLOAD_GLOBAL_ASSETS = 9;
+		REGISTER_PUSH_NOTIFICATION = 10;
+		INITIALIZE_UPSIGHT = 11;
+		INITIALIZE_CRITTERCISM = 12;
+		LOGIN_VERSION_CHECK = 13;
+		LOGIN_GET_PLAYER = 14;
+		LOGIN_AUTHENTICATION = 15;
+		MODAL_TIME = 16;
+	}
+
+	.POGOProtos.Networking.Platform.Telemetry.PlatformMetricData duration = 1;
+	BootPhase boot_phase = 2;
+}
+
+message FrameRate {
+	.POGOProtos.Networking.Platform.Telemetry.PlatformMetricData sampled_frame_rate = 1;
+}
+
+message FeedPokemonTelemetry {
+	int32 status = 1;
+	.POGOProtos.Data.Telemetry.PokemonTelemetry pokemon = 2;
+	string gym_id = 3;
+	int32 team = 4;
+	int32 defender_count = 5;
+	int32 motivation = 6;
+	int32 cp_now = 7;
+}
+
+message FavoritePokemonTelemetry {
+	.POGOProtos.Data.Telemetry.PokemonTelemetry pokemon = 1;
+	bool favored = 2;
+}
+
+message ReleasePokemonTelemetry {
+	.POGOProtos.Data.Telemetry.PokemonTelemetry pokemon = 1;
+}
+
+message RpcResponseTime {
+	.POGOProtos.Networking.Requests.RequestType rpc_id = 1;
+	int32 count_call = 2;
+	float average_response_time = 3;
+}
+
+message LoginActionTelemetry {
+	.POGOProtos.Enums.LoginActionTelemetryIds login_action_id = 1;
+	bool first_time = 2;
+	bool success = 3;
+	bool intent_existing = 4;
+	string error = 5;
+	string auth_status = 6;
+}
+
+message SpinPokestopTelemetry {
+	string result = 1;
+	string fort_id = 2;
+	int32 fort_type = 3;
+	repeated .POGOProtos.Data.Telemetry.PokestopReward pokestop_rewards = 4;
+	int32 total_rewards = 5;
+}
+
+message NicknamePokemonTelemetry {
+	.POGOProtos.Data.Telemetry.PokemonTelemetry pokemon = 1;
+	string nickname = 2;
+}
+
+message NewsPageTelemetry {
+	.POGOProtos.Enums.NewsPageTelemetryIds news_page_click_id = 1;
+}
+
+message RpcSocketResponseTime {
+	uint64 request_id = 1;
+	string probe_id = 2;
+	float response_time = 3;
+	bool side_channel = 4;
+	bool ad_hoc = 5;
+	float ad_hoc_delay = 6;
+}
+
+message DeviceServiceToggleTelemetry {
+	.POGOProtos.Enums.DeviceServiceTelemetryIds device_service_telemetry_id = 1;
+	bool was_enabled = 2;
+	bool was_subsequent = 3;
+}
+
+message MapEventsTelemetry {
+	.POGOProtos.Enums.MapEventsTelemetryIds map_event_click_id = 1;
+	string fort_id = 2;
+	repeated int32 guard_pokemon_level = 3;
+	int32 team = 4;
+	bool is_player_in_range = 5;
+}
+
+message PokemonGoPlusTelemetry {
+	.POGOProtos.Enums.PokemonGoPlusIds pgp_event_ids = 1;
+	int32 count = 2;
+	int32 version = 3;
+}
+
+message ChangeArTelemetry {
+	bool ar_enabled = 1;
+	bool ar_plus_enabled = 2;
+}
+
+message PokemonTelemetry {
+	int32 pokemon_id = 1;
+	int32 cp = 2;
+	float weight_kg = 3;
+	float height_m = 4;
+	int32 pokemon_level = 5;
+}
+
+message RpcSocketResponseTelemetry {
+	float window_duration = 1;
+	repeated .POGOProtos.Data.Telemetry.RpcSocketResponseTime response_timings = 2;
+}
+
+message PokemonInventoryTelemetry {
+	.POGOProtos.Enums.PokemonInventoryTelemetryIds pokemon_inventory_click_ids = 1;
+	string sort_id = 2;
+}
+
+message PushNotificationTelemetry {
+	.POGOProtos.Enums.PushNotificationTelemetryIds notification_id = 1;
+	string category = 2;
+}
+
+message ProfilePageTelemetry {
+	.POGOProtos.Enums.ProfilePageTelemetryIds profile_page_click_id = 1;
+}
+
+message BattlePartyTelemetry {
+	.POGOProtos.Enums.BattlePartyTelemetryIds battle_party_click_id = 1;
+	int32 battle_party_count = 2;
+	int32 battle_party_number = 3;
+}
+
+message DeployPokemonTelemetry {
+	int32 status = 1;
+	.POGOProtos.Data.Telemetry.PokemonTelemetry pokemon = 2;
+	string gym_id = 3;
+	int32 team = 4;
+	int32 defender_count = 5;
+}
+
+message LinkLoginTelemetry {
+	bool linked = 1;
+	string success = 2;
+	string error = 3;
+	string active_auth_provider_id = 4;
+	string provider = 5;
+}
+
+message AssetStreamDownloadTelemetry {
+	.POGOProtos.Enums.AssetTelemetryIds asset_event_id = 1;
+	string url = 2;
+	uint32 size = 3;
+}
+
+message PasscodeRedeemTelemetry {
+	string result = 1;
+	string passcode = 2;
+	string country_code = 3;
+	string language_code = 4;
+	string bundle_version = 5;
+}
+
+message CheckEncounterTrayInfoTelemetry {
+	bool berry_tray_info = 1;
+	bool ball_tray_info = 2;
+}
+
+message CatchPokemonTelemetry {
+	string status = 1;
+	.POGOProtos.Data.Telemetry.EncounterPokemonTelemetry encounter_pokemon_telemetry = 2;
+	int32 balltype = 3;
+	int32 hit_grade = 4;
+	bool curve_ball = 5;
+	double miss_percent = 6;
+}
+
+message RaidTelemetry {
+	.POGOProtos.Enums.RaidTelemetryIds raid_telemetry_id = 1;
+	string bundle_version = 2;
+	float time_since_enter_raid = 3;
+	float time_since_last_raid_telemetry = 4;
+	int32 raid_level = 5;
+	bool private_lobby = 6;
+	string ticket_item = 7;
+	int32 num_players_in_lobby = 8;
+	int32 battle_party_number = 9;
+}
+
+message EncounterPokemonTelemetry {
+	.POGOProtos.Data.Telemetry.PokemonTelemetry pokemon = 1;
+	string map_pokemon_type = 2;
+	bool ar_enabled = 3;
+	bool ar_plus_enabled = 4;
+}
+
+message AvatarCustomizationTelemetry {
+	.POGOProtos.Enums.AvatarCustomizationTelemetryIds avatar_customization_click_id = 1;
+	string asset_name = 2;
+	string sku = 3;
+	bool has_enough_coins = 4;
+	string group_name = 5;
+	string color_choice_id = 6;
+}
+
+message WeatherDetailClickTelemetry {
+	string gameplay_weather_type = 1;
+	bool alert_active = 2;
+	int32 severity = 3;
+}
+
+message AssetBundleDownloadTelemetry {
+	.POGOProtos.Enums.AssetTelemetryIds asset_event_id = 1;
+	string bundle_name = 2;
+	uint32 size = 3;
+}
+
+message PokestopReward {
+	int32 item_id = 1;
+	int32 item_count = 2;
+}
+
+message BootTelemetry {
+	float nearest_poi_distance = 1;
+	int32 poi_within_one_km_count = 2;
+}
+
+message OnboardingTelemetry {
+	.POGOProtos.Enums.OnboardingPathIds onboarding_path = 1;
+	.POGOProtos.Enums.OnboardingEventIds event_id = 2;
+	int32 data = 3;
+	string conversation = 4;
+}
+
+message PermissionsFlowTelemetry {
+	.POGOProtos.Enums.PermissionContextTelemetryIds permission_context_telemetry_ids = 1;
+	.POGOProtos.Enums.DeviceServiceTelemetryIds device_service_telemetry_ids = 2;
+	.POGOProtos.Enums.PermissionFlowStepTelemetryIds permission_flow_step_telemetry_ids = 3;
+	bool success = 4;
+}
+
+message WebTelemetry {
+	.POGOProtos.Enums.WebTelemetryIds web_click_ids = 1;
+	string url = 2;
+	string fort_id = 3;
+}
+
+message ShoppingPageTelemetry {
+	.POGOProtos.Enums.ShoppingPageTelemetryIds shopping_page_click_id = 1;
+}
+

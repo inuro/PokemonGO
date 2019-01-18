@@ -1,0 +1,115 @@
+syntax = "proto3";
+package POGOProtos.Data.Raid;
+
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.Battle.proto";
+import public "POGOProtos.Data.Capture.proto";
+import public "POGOProtos.Inventory.proto";
+
+message RaidInfo {
+	int64 raid_seed = 1;
+	int64 raid_spawn_ms = 2;
+	int64 raid_battle_ms = 3;
+	int64 raid_end_ms = 4;
+	.POGOProtos.Data.PokemonData raid_pokemon = 5;
+	.POGOProtos.Enums.RaidLevel raid_level = 6;
+	bool complete = 7;
+	bool is_exclusive = 8;
+	bool is_raid_hidden = 9;
+}
+
+message Lobby {
+	repeated int32 lobby_id = 1;
+	repeated .POGOProtos.Data.Battle.BattleParticipant players = 2;
+	int64 player_join_end_ms = 3;
+	int64 pokemon_selection_end_ms = 4;
+	int64 raid_battle_start_ms = 5;
+	int64 raid_battle_end_ms = 6;
+	string raid_battle_id = 8;
+	string owner_nickname = 9;
+	bool private = 10;
+	int64 creation_ms = 11;
+	int32 battle_plfe_instance = 12;
+	.POGOProtos.Enums.WeatherCondition weather_condition = 13;
+}
+
+message RaidEncounter {
+	.POGOProtos.Data.PokemonData pokemon = 1;
+	int64 encounter_id = 2;
+	string spawnpoint_id = 3;
+	.POGOProtos.Data.Capture.CaptureProbability capture_probabilities = 4;
+	int32 throws_remaining = 5;
+	.POGOProtos.Enums.RaidLevel raid_level = 6;
+	string fort_id = 7;
+}
+
+message Participation {
+	int32 individual_damage_pokeballs = 1;
+	int32 team_damage_pokeballs = 2;
+	int32 gym_ownership_pokeballs = 3;
+	int32 base_pokeballs = 4;
+	double blue_percentage = 5;
+	double red_percentage = 6;
+	double yellow_percentage = 7;
+	float bonus_item_multiplier = 8;
+	.POGOProtos.Enums.FriendshipLevelMilestone highest_friendship_milestone = 9;
+	int32 highest_friendship_pokeballs = 10;
+}
+
+message Raid {
+	int64 raid_seed = 1;
+	int64 started_ms = 2;
+	int64 completed_ms = 3;
+	.POGOProtos.Enums.PokemonId encounter_pokemon_id = 4;
+	bool completed_battle = 5;
+	bool received_rewards = 6;
+	bool finished_encounter = 7;
+	bool received_default_rewards = 8;
+	bool incremented_raid_friends = 9;
+}
+
+message PlayerRaidInfo {
+	int32 total_completed_raids = 3;
+	int32 total_completed_legendary_raids = 4;
+	repeated .POGOProtos.Data.Raid.Raid raids = 5;
+}
+
+message ExclusiveTicketInfo {
+	int64 raid_seed = 1;
+	string fort_id = 2;
+	int64 start_time_ms = 4;
+	int64 end_time_ms = 5;
+	string image_url = 6;
+	double latitude = 7;
+	double longitude = 8;
+	string gym_name = 9;
+	int64 spawn_time_ms = 10;
+	bool is_cancelled = 11;
+	.POGOProtos.Data.PokemonData raid_pokemon = 12;
+	.POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo inviter = 13;
+	.POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo invitee = 14;
+}
+
+message ExclusiveRaidCancellation {
+	string fort_id = 1;
+	int64 start_time_ms = 2;
+	int64 end_time_ms = 3;
+	string image_url = 4;
+	double latitude = 5;
+	double longitude = 6;
+	string gym_name = 7;
+	repeated .POGOProtos.Inventory.LootItem rewards = 8;
+}
+
+message EventInfo {
+	string image_url = 1;
+	string icon_url = 2;
+	string name_key = 3;
+}
+
+message SharedExclusiveTicketTrainerInfo {
+	string codename = 1;
+	string player_id = 2;
+}
+

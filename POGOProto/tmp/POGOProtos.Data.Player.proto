@@ -1,0 +1,201 @@
+syntax = "proto3";
+package POGOProtos.Data.Player;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.Combat.proto";
+
+message PlayerCurrency {
+	int32 gems = 1;
+}
+
+message PlayerSummary {
+	string player_id = 1;
+	string codename = 2;
+	bytes public_data = 3;
+	string team = 4;
+	string fb_user_id = 5;
+}
+
+message UserIssueWeatherReport {
+	string gameplayer_weather = 1;
+	bool alert_active = 2;
+	int32 severity = 3;
+	int32 user_report = 4;
+}
+
+message PlayerAvatar {
+	int32 skin = 2;
+	int32 hair = 3;
+	int32 shirt = 4;
+	int32 pants = 5;
+	int32 hat = 6;
+	int32 shoes = 7;
+	int32 avatar = 8;
+	int32 eyes = 9;
+	int32 backpack = 10;
+	string avatar_hair = 11;
+	string avatar_shirt = 12;
+	string avatar_pants = 13;
+	string avatar_hat = 14;
+	string avatar_shoes = 15;
+	string avatar_eyes = 16;
+	string avatar_backpack = 17;
+	string avatar_gloves = 18;
+	string avatar_socks = 19;
+	string avatar_belt = 20;
+	string avatar_glasses = 21;
+	string avatar_necklace = 22;
+}
+
+message UserAttributes {
+	int32 level = 1;
+	int64 xp_percentage = 2;
+	int64 pokecoin_count = 3;
+	int32 team = 4;
+	int32 catch_streak = 5;
+	int32 spin_streak = 6;
+}
+
+message PlayerChurnParameters {
+	string account_id = 1;
+	string code_name = 2;
+	string team = 3;
+	string country = 4;
+	int32 level = 5;
+	int32 total_pokemon_caught = 6;
+	int32 gifts_opened_daily = 7;
+	int32 total_big_karps = 8;
+	int32 stardust_balance = 9;
+	int32 total_raids = 10;
+	int32 total_pokemon_evolved = 11;
+	int32 total_legendary_raids = 12;
+	int32 total_eggs_hatched = 13;
+	int32 total_battle_attack_won = 14;
+	int32 total_battle_defended_won = 15;
+	int32 total_quests_completed = 16;
+	int32 poke_coin_balance = 17;
+	int32 pokemon_caught_active_day = 18;
+	float total_km_walked = 19;
+	float num_pokedex_entries = 20;
+	float km_walked_past_active_day = 21;
+	int64 days_since_last_logon = 22;
+	int64 days_since_creation = 23;
+	int64 days_since_last_pokemon_caught = 24;
+}
+
+message PlayerCamera {
+	bool is_default_camera = 1;
+}
+
+message DailyBonus {
+	int64 next_collected_timestamp_ms = 1;
+	int64 next_defender_bonus_collect_timestamp_ms = 2;
+}
+
+message ContactSettings {
+	bool send_marketing_emails = 1;
+	bool send_push_notifications = 2;
+}
+
+message SocialPlayerSettings {
+	bool disable_last_pokemon_caught = 1;
+}
+
+message EquippedBadge {
+	.POGOProtos.Enums.BadgeType badge_type = 1;
+	int32 level = 2;
+	int64 next_equip_change_allowed_timestamp_ms = 3;
+}
+
+message PlayerReputation {
+	int64 account_age_ms = 1;
+	int64 player_level = 2;
+	repeated CheatReputation cheat_reputation = 3;
+	bool is_minor = 4;
+
+	enum CheatReputation {
+		UNSET = 0;
+		BOT = 1;
+		SPOOFER = 2;
+	}
+}
+
+enum PlayerAvatarType {
+	PLAYER_AVATAR_MALE = 0;
+	PLAYER_AVATAR_FEMALE = 1;
+}
+
+message Currency {
+	string currency_type = 1;
+	int32 quantity = 2;
+	int32 fiat_purchased_quantity = 3;
+	string fiat_currency_type = 4;
+	int64 fiat_currency_cost_e6 = 5;
+}
+
+message PlayerBadge {
+	.POGOProtos.Enums.BadgeType badge_type = 1;
+	int32 rank = 2;
+	int32 start_value = 3;
+	int32 end_value = 4;
+	double current_value = 5;
+}
+
+message PlayerPublicProfile {
+	string name = 1;
+	int32 level = 2;
+	.POGOProtos.Data.Player.PlayerAvatar avatar = 3;
+	.POGOProtos.Enums.TeamColor team_color = 4;
+	int32 battles_won = 5;
+	float km_walked = 6;
+	int32 caught_pokemon = 7;
+	.POGOProtos.Enums.GymBadgeType gym_badge_type = 8;
+	repeated .POGOProtos.Data.Player.PlayerBadge badges = 9;
+	int64 experience = 10;
+	bool has_shared_ex_pass = 11;
+}
+
+message PlayerStats {
+	int32 level = 1;
+	int64 experience = 2;
+	int64 prev_level_xp = 3;
+	int64 next_level_xp = 4;
+	float km_walked = 5;
+	int32 pokemons_encountered = 6;
+	int32 unique_pokedex_entries = 7;
+	int32 pokemons_captured = 8;
+	int32 evolutions = 9;
+	int32 poke_stop_visits = 10;
+	int32 pokeballs_thrown = 11;
+	int32 eggs_hatched = 12;
+	int32 big_magikarp_caught = 13;
+	int32 battle_attack_won = 14;
+	int32 battle_attack_total = 15;
+	int32 battle_defended_won = 16;
+	int32 battle_training_won = 17;
+	int32 battle_training_total = 18;
+	int32 prestige_raised_total = 19;
+	int32 prestige_dropped_total = 20;
+	int32 pokemon_deployed = 21;
+	repeated int32 pokemon_caught_by_type = 22;
+	int32 small_rattata_caught = 23;
+	double used_km_pool = 24;
+	int64 last_km_refill_ms = 25;
+	int32 num_raid_battle_won = 26;
+	int32 num_raid_battle_total = 27;
+	int32 num_legendary_battle_won = 28;
+	int32 num_legendary_battle_total = 29;
+	int32 num_berries_fed = 30;
+	int64 total_defended_ms = 31;
+	repeated .POGOProtos.Enums.GymBadgeType event_badges = 32;
+	float km_walked_past_active_day = 33;
+	int32 num_challenge_quests_completed = 34;
+	int32 num_trades = 35;
+	int32 num_max_level_friends = 36;
+	int64 trade_accumulated_distance_km = 37;
+	int64 fitness_report_last_check_bucket = 38;
+	.POGOProtos.Data.Combat.PlayerCombatStats combat_stats = 39;
+	int32 num_npc_combats_won = 40;
+	int32 num_npc_combats_total = 41;
+}
+

@@ -1,0 +1,21 @@
+{
+    "templateId": "FORMS_V0018_POKEMON_PIDGEOT",
+    "formSettings": {
+        "pokemon": 18
+    }
+}
+{
+    "templateId": "FORMS_V0019_POKEMON_RATTATA",
+    "formSettings": {
+        "pokemon": 19,
+        "forms": [
+            {
+                "form": 45
+            },
+            {
+                "form": 46,
+                "assetBundleValue": 61
+            }
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+syntax = "proto3";
+package POGOProtos.Map.Pokemon;
+
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Enums.proto";
+
+message WildPokemon {
+	fixed64 encounter_id = 1;
+	int64 last_modified_timestamp_ms = 2;
+	double latitude = 3;
+	double longitude = 4;
+	string spawn_point_id = 5;
+	.POGOProtos.Data.PokemonData pokemon_data = 7;
+	int32 time_till_hidden_ms = 11;
+}
+
+message LobbyPokemon {
+	int64 id = 1;
+	.POGOProtos.Enums.PokemonId pokedex_id = 2;
+	int32 cp = 3;
+	float percent_health = 4;
+}
+
+message NearbyPokemon {
+	.POGOProtos.Enums.PokemonId pokemon_id = 1;
+	float distance_in_meters = 2;
+	fixed64 encounter_id = 3;
+	string fort_id = 4;
+	string fort_image_url = 5;
+	.POGOProtos.Data.PokemonDisplay pokemon_display = 6;
+}
+
+message MotivatedPokemon {
+	.POGOProtos.Data.PokemonData pokemon = 1;
+	int64 deploy_ms = 2;
+	int32 cp_when_deployed = 3;
+	double motivation_now = 4;
+	int32 cp_now = 5;
+	float berry_value = 6;
+	int64 feed_cooldown_duration_millis = 7;
+	repeated .POGOProtos.Data.FoodValue food_value = 8;
+}
+
+message MapPokemon {
+	string spawn_point_id = 1;
+	fixed64 encounter_id = 2;
+	.POGOProtos.Enums.PokemonId pokemon_id = 3;
+	// After this timestamp, the pokemon will be gone.
+	int64 expiration_timestamp_ms = 4;
+	double latitude = 5;
+	double longitude = 6;
+	.POGOProtos.Data.PokemonDisplay pokemon_display = 7;
+}
+

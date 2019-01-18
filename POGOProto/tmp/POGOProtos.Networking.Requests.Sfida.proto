@@ -1,0 +1,38 @@
+syntax = "proto3";
+package POGOProtos.Networking.Requests.Sfida;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.Sfida.proto";
+
+message SfidaCaptureRequest {
+	string spawnpoint_id = 1;
+	int64 encounter_id = 2;
+	double player_lat = 3;
+	double player_lng = 4;
+	.POGOProtos.Enums.EncounterType encounter_type = 5;
+	double gym_lat = 6;
+	double gym_lng = 7;
+}
+
+message SfidaUpdateRequest {
+	double player_lat = 1;
+	double player_lng = 2;
+	.POGOProtos.Data.Sfida.SfidaMetricsUpdate metrics_update = 3;
+}
+
+message SfidaCertificationRequest {
+	enum SfidaCertificationStage {
+		UNSET = 0;
+		STAGE1 = 1;
+		STAGE2 = 2;
+		STAGE3 = 3;
+	}
+
+	SfidaCertificationStage stage = 1;
+	bytes payload = 2;
+}
+
+message SfidaDowserRequest {
+	int64 encounter_id = 1;
+}
+

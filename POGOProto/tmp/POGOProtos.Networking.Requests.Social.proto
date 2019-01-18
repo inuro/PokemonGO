@@ -1,0 +1,124 @@
+syntax = "proto3";
+package POGOProtos.Networking.Requests.Social;
+
+import public "POGOProtos.Data.Player.proto";
+
+message GetIncomingFriendInvitesMessage {
+}
+
+message DeleteGiftFromInventoryMessage {
+	repeated uint64 giftbox_id = 1;
+}
+
+message GiftDetailsMessage {
+	repeated fixed64 giftbox_id = 1;
+	string player_id = 2;
+}
+
+message CreateCombatChallengeMessage {
+	string challenge_id = 1;
+}
+
+message GetUploadUrlMessage {
+	string user_id = 1;
+	string game_unique_id = 2;
+}
+
+message SearchPlayerMessage {
+	string friend_code = 1;
+}
+
+message GetFacebookFriendListMessage {
+	string fb_access_token = 1;
+	int32 limit = 2;
+	string cursor = 3;
+}
+
+message RemoveFriendMessage {
+	string player_id = 1;
+}
+
+message GetFriendshipMilestoneRewardsMessage {
+	string friend_id = 1;
+}
+
+message GetFriendshipRewardsMessage {
+	string friend_id = 1;
+}
+
+message SaveSocialPlayerSettingsMessage {
+	.POGOProtos.Data.Player.SocialPlayerSettings settings = 1;
+}
+
+message GetOutgoingFriendInvites {
+}
+
+message GetGiftBoxDetailsMessage {
+	repeated uint64 giftbox_id = 1;
+	string player_id = 2;
+}
+
+message SetFriendNicknameMessage {
+	string friend_id = 1;
+	string friend_nickname = 2;
+}
+
+message GetFriendsListMessage {
+}
+
+message GetFriendCodeMessage {
+	bool force_generate_code = 1;
+}
+
+message ListFriendsMessage {
+}
+
+message InviteFacebookFriendMessage {
+	string fb_access_token = 1;
+	string friend_fb_user_id = 2;
+}
+
+message SendGiftMessage {
+	fixed64 giftbox_id = 1;
+	string player_id = 2;
+}
+
+message GetFriendDetailsMessage {
+	repeated string player_id = 1;
+}
+
+message OpenTradingMessage {
+	string player_id = 1;
+}
+
+message CancelFriendInviteMessage {
+	string player_id = 1;
+}
+
+message IsMyFriendMessage {
+	string player_id = 1;
+}
+
+message UpdateFacebookStatusMessage {
+	string fb_access_token = 1;
+	bool force_update = 2;
+}
+
+message SendFriendInviteMessage {
+	string player_id = 1;
+	string friend_code = 2;
+}
+
+message DeclineFriendInviteMessage {
+	string player_id = 1;
+}
+
+message OpenGiftMessage {
+	string player_id = 1;
+	fixed64 giftbox_id = 2;
+}
+
+message AcceptFriendInviteMessage {
+	string player_id = 1;
+}
+

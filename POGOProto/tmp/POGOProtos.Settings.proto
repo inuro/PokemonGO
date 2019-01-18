@@ -1,0 +1,252 @@
+syntax = "proto3";
+package POGOProtos.Settings;
+
+import public "POGOProtos.Enums.proto";
+
+message UpsightLoggingSettings {
+	bool use_verbose_logging = 1;
+	int32 logging_percentage = 2;
+	bool disable_logging = 3;
+}
+
+message EventSettings {
+	repeated string condolence_ribbon_country = 1;
+}
+
+message LoginSettings {
+	bool enable_multi_login_linking = 1;
+}
+
+message QuestGlobalSettings {
+	bool enable_quests = 1;
+	int32 max_challenge_quests = 2;
+}
+
+message ProbeSettings {
+	bool enable_sidechannel = 1;
+	bool enable_adhoc = 2;
+	int32 adhoc_frequency_sec = 3;
+}
+
+message BackgroundModeGlobalSettings {
+	uint32 min_player_level_fitness = 1;
+}
+
+message TradingGlobalSettings {
+	bool enable_trading = 1;
+	uint32 min_player_level = 2;
+}
+
+message SocialClientSettings {
+	bool enable_social = 1;
+	int32 max_friend_details = 2;
+	int32 player_level_gate = 3;
+	int32 max_friend_nickname_length = 4;
+	bool enable_add_friend_via_qr_code = 5;
+	bool enable_share_ex_pass = 6;
+	bool enable_facebook_friends = 7;
+	int32 facebook_friend_limit_per_request = 8;
+	bool disable_facebook_friends_opening_prompt = 9;
+}
+
+
+message SocialGiftCountTelemetry {
+	int32 unopened_gift_count = 1;
+	int32 unsent_gift_count = 2;
+}
+
+message GlobalSettings {
+	.POGOProtos.Settings.FortSettings fort_settings = 2;
+	.POGOProtos.Settings.MapSettings map_settings = 3;
+	.POGOProtos.Settings.LevelSettings level_settings = 4;
+	.POGOProtos.Settings.InventorySettings inventory_settings = 5;
+	string minimum_client_version = 6;
+	.POGOProtos.Settings.GpsSettings gps_settings = 7;
+	.POGOProtos.Settings.FestivalSettings festival_settings = 8;
+	.POGOProtos.Settings.EventSettings event_settings = 9;
+	int32 max_pokemon_types = 10;
+	.POGOProtos.Settings.SfidaSettings sfida_settings = 11;
+	.POGOProtos.Settings.NewsSettings news_settings = 12;
+	.POGOProtos.Settings.TranslationSettings translation_settings = 13;
+	.POGOProtos.Settings.PasscodeSettings passcode_settings = 14;
+	.POGOProtos.Settings.NotificationSettings notification_settings = 15;
+	repeated string client_app_blacklist = 16;
+	.POGOProtos.Settings.ClientPerformanceSettings client_perf_settings = 17;
+	.POGOProtos.Settings.NewsGlobalSettings news_global_settings = 18;
+	.POGOProtos.Settings.QuestGlobalSettings quest_global_settings = 19;
+	.POGOProtos.Settings.BelugaGlobalSettings beluga_global_settings = 20;
+	.POGOProtos.Settings.TelemetryGlobalSettings telemetry_global_settings = 21;
+	.POGOProtos.Settings.LoginSettings login_settings = 22;
+	.POGOProtos.Settings.SocialClientSettings social_settings = 23;
+	.POGOProtos.Settings.TradingGlobalSettings trading_global_settings = 24;
+	repeated .POGOProtos.Enums.PokemonId additional_allowed_pokemon_ids = 25;
+	.POGOProtos.Settings.UpsightLoggingSettings upsight_logging_settings = 26;
+	.POGOProtos.Settings.CombatGlobalSettings combat_global_settings = 27;
+	.POGOProtos.Settings.ThirdMoveGlobalSettings third_move_settings = 28;
+	.POGOProtos.Settings.CombatChallengeGlobalSettings combat_challenge_global_settings = 29;
+	.POGOProtos.Settings.BackgroundModeGlobalSettings bgmode_global_settings = 30;
+	.POGOProtos.Settings.ProbeSettings probe_settings = 31;
+	.POGOProtos.Settings.PokecoinPurchaseDisplaySettings purchased_settings = 32;
+	.POGOProtos.Settings.HelpshiftSettings helpshift_settings = 33;
+	.POGOProtos.Settings.PoiGlobalSettings poi_settings = 35;
+}
+
+message CombatChallengeGlobalSettings {
+	.POGOProtos.Enums.FriendshipLevelMilestone distance_check_override_friendship_level = 1;
+	int32 get_combat_challenge_polling_interval_sec = 2;
+}
+
+message NotificationSettings {
+	bool pull_notifications = 1;
+	bool show_notifications = 2;
+}
+
+message SfidaSettings {
+	float low_battery_threshold = 1;
+}
+
+message PoiGlobalSettings {
+	bool is_enabled = 1;
+}
+
+message LevelSettings {
+	double trainer_cp_modifier = 2;
+	double trainer_difficulty_modifier = 3;
+}
+
+message BackgroundModeClientSettings {
+	int64 maximum_sample_age_ms = 1;
+	bool accept_manual_fitness_samples = 2;
+	double minimum_location_accuracy_meters = 3;
+	int32 background_wake_up_interval_minutes = 4;
+	int32 max_upload_size_in_bytes = 5;
+	double min_enclosing_geofence_radius_m = 6;
+}
+
+message NewsGlobalSettings {
+	bool enable_news = 1;
+}
+
+message ClientPerformanceSettings {
+	bool enable_local_disk_caching = 1;
+	int32 max_number_local_battle_parties = 2;
+	bool multi_pokemon_battle_party_select = 3;
+}
+
+message HelpshiftSettings {
+	uint32 min_player_level = 1;
+	uint32 default_player_level = 2;
+}
+
+message BelugaGlobalSettings {
+	bool enable_beluga_transfer = 1;
+	int32 max_num_pokemon_per_transfer = 2;
+}
+
+message InventorySettings {
+	int32 max_pokemon = 1;
+	int32 max_bag_items = 2;
+	int32 base_pokemon = 3;
+	int32 base_bag_items = 4;
+	int32 base_eggs = 5;
+}
+
+message NewsSettings {
+	repeated News news = 1;
+
+	message News {
+		string news_bundle_id = 1;
+		repeated string exclusive_countries = 2;
+	}
+}
+
+message MapSettings {
+	double pokemon_visible_range = 1;
+	double poke_nav_range_meters = 2;
+	double encounter_range_meters = 3;
+	float get_map_objects_min_refresh_seconds = 4;
+	float get_map_objects_max_refresh_seconds = 5;
+	float get_map_objects_min_distance_meters = 6;
+	string google_maps_api_key = 7;
+	int32 min_nearby_hide_sightings = 8;
+	bool enable_special_weather = 9;
+	float special_weather_probability = 10;
+	string google_maps_client_id = 11;
+}
+
+message CombatGlobalSettings {
+	bool enable_combat = 1;
+	int32 maximum_daily_rewarded_battles = 2;
+	bool enable_combat_stat_stages = 3;
+	uint32 minimum_player_level = 4;
+	int32 maximum_daily_npc_rewarded_battles = 5;
+	int32 active_combat_update_interval_ms = 6;
+	int32 waiting_for_player_update_interval_ms = 7;
+	int32 ready_for_battle_update_interval_ms = 8;
+	int32 pre_move_submit_window_ms = 9;
+	int32 post_move_submit_window_ms = 10;
+	bool enable_sockets = 11;
+	bool enable_spin_minigame = 12;
+}
+
+message PokecoinPurchaseDisplaySettings {
+	bool feature_enabled = 1;
+	repeated string enabled_countries = 2;
+}
+
+message TranslationSettings {
+	repeated string translation_bundle_ids = 1;
+}
+
+message ThirdMoveGlobalSettings {
+	bool unlock_enabled = 1;
+}
+
+message GpsSettings {
+	float driving_warning_speed_meters_per_second = 1;
+	float driving_warning_cooldown_minutes = 2;
+	float driving_speed_sample_interval_seconds = 3;
+	int32 driving_speed_sample_count = 4;
+}
+
+message PasscodeSettings {
+	bool show_passcode_in_store = 1;
+}
+
+message TelemetryGlobalSettings {
+	bool enabled = 1;
+	double session_sampling_fraction = 2;
+	int32 max_buffer_size_kb = 3;
+	int32 batch_size = 4;
+	int64 update_interval_ms = 5;
+	int64 frame_rate_sample_interval_ms = 6;
+	int64 frame_rate_sample_period_ms = 7;
+	bool enable_omni_wrapper_sending = 8;
+}
+
+message FestivalSettings {
+	FestivalType festival_type = 1;
+	string key = 2;
+	string vector = 3;
+
+	enum FestivalType {
+		NONE = 0;
+		HALLOWEEN = 1;
+		HOLIDAY = 2;
+	}
+}
+
+message FortSettings {
+	double interaction_range_meters = 1;
+	int32 max_total_deployed_pokemon = 2;
+	int32 max_player_deployed_pokemon = 3;
+	double deploy_stamina_multiplier = 4;
+	double deploy_attack_multiplier = 5;
+	double far_interaction_range_meters = 6;
+	bool disable_gyms = 7;
+	int32 max_same_pokemon_at_fort = 8;
+	int32 max_player_total_deployed_pokemon = 9;
+	bool enable_hyperlinks_in_poi_descriptions = 10;
+	bool enable_right_to_left_text_display = 11;
+}
+

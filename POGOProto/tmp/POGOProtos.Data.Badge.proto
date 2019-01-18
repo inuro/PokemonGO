@@ -1,0 +1,39 @@
+syntax = "proto3";
+package POGOProtos.Data.Badge;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.Raid.proto";
+import public "POGOProtos.Data.Gym.proto";
+
+message BadgeCaptureReward {
+	float capture_reward_multiplier = 1;
+	repeated string avatar_template_ids = 2;
+}
+
+message AwardedGymBadge {
+	string fort_id = 1;
+	.POGOProtos.Enums.GymBadgeType gym_badge_type = 2;
+	uint32 score = 3;
+	.POGOProtos.Data.Badge.GymBadgeStats gym_badge_stats = 4;
+	uint64 last_update_timestamp_ms = 5;
+	uint64 last_check_timestamp_ms = 11;
+	uint32 earned_points = 12;
+	float progress = 13;
+	bool level_up = 14;
+	string name = 6;
+	string image_url = 7;
+	string description = 8;
+	double latitude = 9;
+	double longitude = 10;
+	.POGOProtos.Data.Raid.PlayerRaidInfo raids = 15;
+}
+
+message GymBadgeStats {
+	uint64 total_time_defended_ms = 1;
+	uint32 num_battles_won = 2;
+	uint32 num_battles_lost = 5;
+	uint32 num_berries_fed = 3;
+	uint32 num_deploys = 4;
+	repeated POGOProtos.Data.Gym.GymBattle gym_battles = 15;
+}
+

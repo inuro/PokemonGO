@@ -1,0 +1,111 @@
+syntax = "proto3";
+package POGOProtos.Data.Friends;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.Player.proto";
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Data.Gift.proto";
+
+message OutgoingFriendInvite {
+	enum Status {
+		UNSET = 0;
+		PENDING = 1;
+		CANCELLED = 2;
+		DECLINED = 3;
+	}
+
+	Status status = 1;
+	string player_id = 2;
+	int64 created_ms = 3;
+	.POGOProtos.Enums.InvitationType invitation_type = 4;
+	string full_name = 5;
+}
+
+message IncomingFriendInvite {
+	Status status = 1;
+	string player_id = 2;
+	int64 created_ms = 3;
+	.POGOProtos.Enums.InvitationType invitation_type = 4;
+	string full_name = 5;
+
+	enum Status {
+		UNSET = 0;
+		PENDING = 1;
+		DECLINED = 2;
+		CANCELLED = 3;
+	}
+}
+
+message Friend {
+	string player_id = 1;
+	string codename = 2;
+	string team = 3;
+	int32 score = 4;
+	bytes data_with_me = 5;
+	int64 version = 6;
+	int64 created_ms = 7;
+	string fb_user_id = 8;
+	bool is_facebook_friendship = 9;
+}
+
+message LeveledUpFriends {
+	repeated .POGOProtos.Data.Player.PlayerPublicProfile friend_profiles = 1;
+	repeated .POGOProtos.Data.Friends.FriendshipLevelData friend_milestone_levels = 2;
+}
+
+message PlayerFriendDisplay {
+	.POGOProtos.Data.PokemonDisplay buddy = 1;
+	int32 buddy_display_pokemon_id = 2;
+	string buddy_pokemon_nickname = 3;
+	.POGOProtos.Data.PokemonDisplay last_pokemon_caught = 4;
+	int32 last_pokemon_caught_display_id = 5;
+	int64 last_pokemon_caught_timestamp = 6;
+	int32 buddy_candy_awarded = 7;
+}
+
+message FriendshipData {
+	.POGOProtos.Data.Friends.FriendshipLevelData friendship_level_data = 1;
+	repeated .POGOProtos.Data.Gift.GiftBoxDetails giftbox_details = 2;
+	string codename = 3;
+	string nickname = 4;
+	int64 open_trade_expire_ms = 5;
+}
+
+message FriendshipMilestoneReward {
+	string friend_id = 1;
+	.POGOProtos.Enums.FriendshipLevelMilestone friendship_milestone = 2;
+}
+
+message FriendshipMilestoneRewardNotification {
+	string friend_id = 1;
+	string friend_codename = 2;
+	int32 friendship_milestone_level = 3;
+	int64 xp_reward = 4;
+}
+
+message FriendDetails {
+	.POGOProtos.Data.Player.PlayerSummary player = 1;
+	bytes friend_visible_data = 2;
+	int32 score = 3;
+	bytes data_with_me = 4;
+}
+
+message FriendshipLevelData {
+	int64 bucket = 1;
+	int32 points_earned_today = 2;
+	.POGOProtos.Enums.FriendshipLevelMilestone awarded_friendship_milestone = 3;
+	.POGOProtos.Enums.FriendshipLevelMilestone current_friendship_milestone = 4;
+	double next_friendship_milestone_progress_percentage = 5;
+	int32 points_toward_next_milestone = 6;
+}
+
+message IncomingFriendInviteDisplay {
+	.POGOProtos.Data.Friends.IncomingFriendInvite invite = 1;
+	.POGOProtos.Data.Player.PlayerSummary player = 2;
+}
+
+message OutgoingFriendInviteDisplay {
+	.POGOProtos.Data.Friends.OutgoingFriendInvite invite = 1;
+	.POGOProtos.Data.Player.PlayerSummary player = 2;
+}
+

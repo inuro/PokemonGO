@@ -1,0 +1,233 @@
+syntax = "proto3";
+package POGOProtos.Data.Logs;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Inventory.proto";
+import public "POGOProtos.Inventory.Item.proto";
+import public "POGOProtos.Map.Fort.proto";
+import public "POGOProtos.Data.Gift.proto";
+import public "POGOProtos.Data.Quests.proto";
+import public "POGOProtos.Data.Redeem.proto";
+
+message CatchPokemonLogEntry {
+	Result result = 1;
+	.POGOProtos.Enums.PokemonId pokemon_id = 2;
+	int32 combat_points = 3;
+	fixed64 pokemon_data_id = 4;
+	.POGOProtos.Data.PokemonDisplay pokemon_display = 5;
+
+	enum Result {
+		UNSET = 0;
+		POKEMON_CAPTURED = 1;
+		POKEMON_FLED = 2;
+		POKEMON_HATCHED = 3;
+	}
+}
+
+message ShareExRaidPassLogEntry {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+
+	Result result = 1;
+	string friend_codename = 2;
+}
+
+message DeclineExRaidPassLogEntry {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+
+	Result result = 1;
+	string friend_codename = 2;
+}
+
+message SendGiftLogEntry {
+	Result result = 1;
+	string friend_codename = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message OpenGiftLogEntry {
+	Result result = 1;
+	string friend_codename = 2;
+	.POGOProtos.Inventory.Loot items = 3;
+	repeated .POGOProtos.Data.PokemonData pokemon_eggs = 4;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message FortSearchLogEntry {
+	Result result = 1;
+	string fort_id = 2;
+	repeated .POGOProtos.Inventory.Item.ItemData items = 3;
+	int32 eggs = 4;
+	repeated .POGOProtos.Data.PokemonData pokemon_eggs = 5;
+	.POGOProtos.Map.Fort.FortType fort_type = 6;
+	repeated .POGOProtos.Inventory.Item.ItemData awarded_items = 7;
+	repeated .POGOProtos.Inventory.Item.ItemData bonus_items = 8;
+	repeated .POGOProtos.Inventory.Item.ItemData team_bonus_items = 9;
+	repeated .POGOProtos.Data.Gift.GiftBox gift_boxes = 10;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message CombatLogEntry {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+
+	Result result = 1;
+	.POGOProtos.Enums.CombatPlayerFinishState finish_state = 2;
+	.POGOProtos.Inventory.Loot rewards = 3;
+	string opponent = 4;
+	string combat_league_template_id = 5;
+	string npc_template_id = 6;
+}
+message BelugaDailyTransferLogEntry {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+
+	Result result = 1;
+	bool includes_weekly_bonus = 2;
+	.POGOProtos.Inventory.Loot items_awarded = 3;
+}
+
+message RaidRewardsLogEntry {
+	Result result = 1;
+	bool is_exclusive = 2;
+	repeated .POGOProtos.Inventory.Item.ItemData items = 3;
+	repeated .POGOProtos.Inventory.Item.ItemData default_rewards = 4;
+	int32 stardust = 5;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message CompleteQuestLogEntry {
+	Result result = 1;
+	.POGOProtos.Data.Quests.ClientQuest quest = 2;
+	repeated .POGOProtos.Data.Quests.QuestStamp stamp = 3;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message CompleteQuestStampCardLogEntry {
+	Result result = 1;
+	repeated .POGOProtos.Data.Quests.QuestReward reward = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message TradingLogEntry {
+	Result result = 1;
+	string friend_codename = 2;
+	.POGOProtos.Data.PokemonData trade_out_pokemon = 3;
+	.POGOProtos.Data.PokemonData trade_in_pokemon = 4;
+	.POGOProtos.Inventory.Loot rewards = 5;
+	.POGOProtos.Inventory.Loot price = 6;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message BuddyPokemonLogEntry {
+	Result result = 1;
+	.POGOProtos.Enums.PokemonId pokemon_id = 2;
+	int32 amount = 3;
+	.POGOProtos.Data.PokemonDisplay pokemon_display = 4;
+	fixed64 pokemon = 5;
+
+	enum Result {
+		UNSET = 0;
+		CANDY_FOUND = 1;
+	}
+}
+
+message FitnessRewardsLogEntry {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+
+	Result result = 1;
+	.POGOProtos.Inventory.Loot rewards = 2;
+	double distance_walked_km = 3;
+}
+
+message ActionLogEntry {
+	int64 timestamp_ms = 1;
+	bool sfida = 2;
+
+	oneof Action {
+		.POGOProtos.Data.Logs.CatchPokemonLogEntry catch_pokemon = 3;
+		.POGOProtos.Data.Logs.FortSearchLogEntry fort_search = 4;
+		.POGOProtos.Data.Logs.BuddyPokemonLogEntry buddy_pokemon = 5;
+		.POGOProtos.Data.Logs.RaidRewardsLogEntry raid_rewards = 6;
+		.POGOProtos.Data.Logs.PasscodeRewardsLogEntry passcode_rewards = 7;
+		.POGOProtos.Data.Logs.CompleteQuestLogEntry complete_quest = 8;
+		.POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry complete_quest_stamp_card = 9;
+		.POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry complete_quest_pokemon_encounter = 10;
+		.POGOProtos.Data.Logs.BelugaDailyTransferLogEntry beluga_transfer = 11;
+		.POGOProtos.Data.Logs.OpenGiftLogEntry open_gift = 12;
+		.POGOProtos.Data.Logs.SendGiftLogEntry send_gift = 13;
+		.POGOProtos.Data.Logs.TradingLogEntry trading = 14;
+		.POGOProtos.Data.Logs.ShareExRaidPassLogEntry share_ex_raid_pass = 15;
+		.POGOProtos.Data.Logs.DeclineExRaidPassLogEntry decline_ex_raid_pass = 16;
+		.POGOProtos.Data.Logs.FitnessRewardsLogEntry fitness_rewards = 17;
+		.POGOProtos.Data.Logs.CombatLogEntry combat = 18;
+	}
+}
+
+message PasscodeRewardsLogEntry {
+	Result result = 1;
+	string passcode = 2;
+	.POGOProtos.Data.Redeem.RedeemPasscodeReward rewards = 3;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message CompleteQuestPokemonEncounterLogEntry {
+	Result result = 1;
+	int32 pokedex_number = 2;
+	int32 combat_points = 3;
+	fixed64 pokemon_id = 4;
+	.POGOProtos.Data.PokemonDisplay pokemon_display = 5;
+	.POGOProtos.Enums.EncounterType encounter_type = 6;
+
+	enum Result {
+		UNSET = 0;
+		POKEMON_CAPTURED = 1;
+		POKEMON_FLED = 2;
+	}
+}
+

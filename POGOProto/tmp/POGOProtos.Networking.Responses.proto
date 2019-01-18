@@ -1,0 +1,2075 @@
+syntax = "proto3";
+package POGOProtos.Networking.Responses;
+
+import public "POGOProtos.Data.Raid.proto";
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Data.Fitness.proto";
+import public "POGOProtos.Data.Combat.proto";
+import public "POGOProtos.Settings.proto";
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.Quests.proto";
+import public "POGOProtos.Inventory.Item.proto";
+import public "POGOProtos.Inventory.proto";
+import public "POGOProtos.Data.Badge.proto";
+import public "POGOProtos.Data.Gift.proto";
+import public "POGOProtos.Data.Capture.proto";
+import public "POGOProtos.Data.Battle.proto";
+import public "POGOProtos.Data.Beluga.proto";
+import public "POGOProtos.Data.Friends.proto";
+import public "POGOProtos.Data.Player.proto";
+import public "POGOProtos.Map.proto";
+import public "POGOProtos.Map.Weather.proto";
+import public "POGOProtos.Data.Gym.proto";
+import public "POGOProtos.Data.Avatar.proto";
+import public "POGOProtos.Map.Pokemon.proto";
+import public "POGOProtos.Data.News.proto";
+import public "POGOProtos.Data.Trading.proto";
+import public "POGOProtos.Data.Logs.proto";
+import public "POGOProtos.Settings.Master.proto";
+import public "POGOProtos.Data.Login.proto";
+import public "POGOProtos.Map.Fort.proto";
+
+message LeaveLobbyResponse {
+	Result result = 1;
+	.POGOProtos.Data.Raid.Lobby lobby = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_RAID_UNAVAILABLE = 2;
+		ERROR_LOBBY_NOT_FOUND = 3;
+	}
+}
+
+message EvolvePokemonResponse {
+	Result result = 1;
+	.POGOProtos.Data.PokemonData evolved_pokemon_data = 2;
+	int32 experience_awarded = 3;
+	int32 candy_awarded = 4;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILED_POKEMON_MISSING = 2;
+		FAILED_INSUFFICIENT_RESOURCES = 3;
+		FAILED_POKEMON_CANNOT_EVOLVE = 4;
+		FAILED_POKEMON_IS_DEPLOYED = 5;
+		FAILED_INVALID_ITEM_REQUIREMENT = 6;
+	}
+}
+
+message GetFitnessReportResponse {
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_NOT_FOUND = 2;
+		ERROR_RECORDS_NOT_FOUND = 3;
+		ERROR_INVALID_WINDOW = 4;
+		ERROR_UNKNOWN = 5;
+	}
+
+	Status status = 1;
+	repeated .POGOProtos.Data.Fitness.FitnessReport daily_reports = 2;
+	repeated .POGOProtos.Data.Fitness.FitnessReport weekly_reports = 3;
+}
+
+message OpenCombatSessionResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_COMBAT_STATE = 2;
+		ERROR_COMBAT_SESSION_FULL = 3;
+		ERROR_POKEMON_NOT_IN_INVENTORY = 4;
+		ERROR_OPPONENT_NOT_IN_RANGE = 5;
+		ERROR_CHALLENGE_EXPIRED = 6;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 7;
+		ERROR_OPPONENT_QUIT = 8;
+		ERROR_POKEMON_LINEUP_INELIGIBLE_FOR_LEAGUE = 9;
+		ERROR_COMBAT_LEAGUE_UNSPECIFIED = 10;
+		ERROR_ACCESS_DENIED = 11;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.Combat combat = 2;
+}
+
+message DownloadSettingsActionResponse {
+	string error = 1;
+	string hash = 2;
+	.POGOProtos.Settings.GlobalSettings settings = 3;
+}
+
+message CheckShareExRaidPassResponse {
+	.POGOProtos.Enums.ShareExRaidPassResult result = 1;
+}
+
+message FortSearchResponse {
+	Result result = 1;
+	repeated .POGOProtos.Inventory.Item.ItemAward items_awarded = 2;
+	int32 gems_awarded = 3;
+	.POGOProtos.Data.PokemonData pokemon_data_egg = 4;
+	int32 experience_awarded = 5;
+	int64 cooldown_complete_timestamp_ms = 6;
+	int32 chain_hack_sequence_number = 7;
+	.POGOProtos.Data.Badge.AwardedGymBadge awarded_gym_badge = 8;
+	.POGOProtos.Inventory.Loot loot = 9;
+	.POGOProtos.Inventory.Loot bonus_loot = 10;
+	int32 raid_tickets = 11;
+	.POGOProtos.Inventory.Loot team_bonus_loot = 12;
+	string fort_id = 13;
+	.POGOProtos.Data.Quests.ClientQuest challenge_quest = 14;
+	.POGOProtos.Data.Gift.GiftBox gift_box = 15;
+
+	enum Result {
+		NO_RESULT_SET = 0;
+		SUCCESS = 1;
+		OUT_OF_RANGE = 2;
+		IN_COOLDOWN_PERIOD = 3;
+		INVENTORY_FULL = 4;
+		EXCEEDED_DAILY_LIMIT = 5;
+		POI_INACCESSIBLE = 6;
+	}
+}
+
+message GetPlayerDayResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+
+	Result result = 1;
+	int64 day = 2;
+}
+
+message SetAvatarItemAsViewedResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+	}
+}
+
+message GetTutorialEggActionResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_ALREADY_HAS_TUTORIAL_EGG = 2;
+		ERROR_FAILED_TO_ADD_EGG = 3;
+		ERROR_NOT_V2_FLOW = 4;
+	}
+
+	Result result = 1;
+}
+
+message EchoResponse {
+	string context = 1;
+}
+
+message DeclineCombatChallengeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_CHALLENGE_STATE = 2;
+		ERROR_CHALLENGE_NOT_FOUND = 3;
+		ERROR_ALREADY_TIMEDOUT = 4;
+		ERROR_ALREADY_CANCELLED = 5;
+	}
+
+	Result result = 1;
+}
+
+message UseItemReviveResponse {
+	Result result = 1;
+	int32 stamina = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_NO_POKEMON = 2;
+		ERROR_CANNOT_USE = 3;
+		ERROR_DEPLOYED_TO_FORT = 4;
+	}
+}
+
+message OpenCombatChallengeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_CHALLENGE_STATE = 2;
+		ERROR_CHALLENGE_NOT_FOUND = 3;
+		ERROR_POKEMON_NOT_IN_INVENTORY = 4;
+		ERROR_NOT_ELIGIBLE_LEAGUE = 5;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 6;
+		ERROR_ALREADY_TIMEDOUT = 8;
+		ERROR_ALREADY_CANCELLED = 9;
+		ERROR_FRIEND_NOT_FOUND = 10;
+		ERROR_FAILED_TO_SEND_NOTIFICATION = 11;
+		ERROR_ACCESS_DENIED = 12;
+		ERROR_INELIGIBLE_OPPONENT = 13;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.CombatChallenge challenge = 2;
+}
+
+message EncounterTutorialCompleteResponse {
+	Result result = 1;
+	.POGOProtos.Data.PokemonData pokemon_data = 2;
+	.POGOProtos.Data.Capture.CaptureAward capture_award = 3;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_POKEMON = 2;
+	}
+}
+
+message GetNpcCombatRewardsResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALD_NUMBER_ATTACKING_POKEMON_IDS = 2;
+	}
+
+	Result result = 1;
+	.POGOProtos.Enums.CombatRewardStatus reward_status = 2;
+	.POGOProtos.Inventory.Loot rewards = 3;
+	int32 number_rewarded_npc_battles_today = 4;
+}
+
+message GetInboxResponse {
+	Result result = 1;
+	ClientInbox inbox = 2;
+
+	message ClientInbox {
+		repeated Notification notifications = 1;
+		repeated TemplateVariable builtin_variables = 2;
+
+		message Notification {
+			string notification_id = 1;
+			string title_key = 2;
+			string category = 3;
+			int64 create_timestamp_ms = 4;
+			repeated TemplateVariable variables = 5;
+			repeated Label labels = 6;
+			int64 expire_time_ms = 7;
+
+			enum Label {
+				UNSET_LABEL = 0;
+				UNREAD = 1;
+				NEW = 2;
+				IMMEDIATE = 3;
+			}
+		}
+
+		message TemplateVariable {
+			string name = 1;
+			string literal = 2;
+			string key = 3;
+			string lookup_table = 4;
+			bytes byte_value = 5;
+		}
+	}
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		TIMED_OUT = 3;
+	}
+}
+
+message DeleteGiftResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_INVALID_PLAYER_ID = 3;
+		ERROR_FRIEND_NOT_FOUND = 4;
+		ERROR_GIFT_DOES_NOT_EXIST = 5;
+		ERROR_FRIEND_UPDATE = 6;
+	}
+}
+
+message MarkReadNewsArticleResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		NO_NEWS_FOUND = 2;
+	}
+}
+
+message StartRaidBattleResponse {
+	Result result = 1;
+	.POGOProtos.Data.Battle.Battle battle = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_GYM_NOT_FOUND = 2;
+		ERROR_RAID_UNAVAILABLE = 3;
+		ERROR_RAID_COMPLETED = 4;
+		ERROR_INVALID_ATTACKERS = 5;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 6;
+		ERROR_NOT_IN_RANGE = 7;
+		ERROR_POI_INACCESSIBLE = 8;
+		ERROR_LOBBY_NOT_FOUND = 9;
+		ERROR_NO_TICKET = 10;
+		ERROR_INVALID_SERVER = 11;
+		ERROR_NEVER_JOINED_BATTLE = 12;
+	}
+}
+
+message BelugaTransactionStartResponse {
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILED = 2;
+		ERROR_INVALID_POKEMON_ID = 3;
+		ERROR_POKEMON_DEPLOYED = 4;
+		ERROR_POKEMON_IS_EGG = 5;
+		ERROR_POKEMON_IS_BUDDY = 6;
+		ERROR_POKEMON_NOT_ALLOWED = 7;
+		ERROR_INVALID_NONCE = 8;
+		ERROR_TOO_MANY_POKEMON = 9;
+		ERROR_NO_POKEMON_SPECIFIED = 10;
+	}
+
+	Status status = 1;
+	.POGOProtos.Data.Beluga.BelugaBleTransferPrep beluga_transfer_prep = 2;
+	bytes server_signature = 3;
+}
+message GetPlayerProfileResponse {
+	Result result = 1;
+	int64 start_time = 2;
+	repeated .POGOProtos.Data.PlayerBadge badges = 3;
+	GymBadges gym_badges = 4;
+
+	message GymBadges {
+		repeated .POGOProtos.Data.Badge.AwardedGymBadge gym_badge = 1;
+		int32 total = 2;
+	}
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message GenerateCombatChallengeIdResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 2;
+		ERROR_ACCESS_DENIED = 3;
+	}
+
+	Result result = 1;
+	string challenge_id = 2;
+}
+
+message BelugaTransactionCompleteResponse {
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILED = 2;
+		ERROR_INVALID_POKEMON_ID = 3;
+		ERROR_POKEMON_DEPLOYED = 4;
+		ERROR_POKEMON_NOT_ALLOWED = 5;
+		ERROR_POKEMON_IS_BUDDY = 6;
+		ERROR_INVALID_TRANSACTION_ID = 7;
+		ERROR_MISSING_TRANSACTION_ID = 8;
+	}
+
+	Status status = 1;
+	int32 candy_awarded = 2;
+	.POGOProtos.Inventory.Loot loot_awarded = 3;
+	.POGOProtos.Data.Beluga.BelugaBleFinalizeTransfer beluga_finalize_response = 4;
+	int32 buckets_until_weekly_award = 5;
+}
+
+message QuitCombatResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_COMBAT_NOT_FOUND = 2;
+		ERROR_INVALID_COMBAT_STATE = 3;
+		ERROR_PLAYER_NOT_IN_COMBAT = 4;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.Combat combat = 2;
+}
+
+message RemoveQuestResponse {
+	Status status = 1;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_QUEST_NOT_FOUND = 2;
+		ERROR_STORY_QUEST_NOT_REMOVABLE = 3;
+	}
+}
+
+message AttackGymResponse {
+	Result result = 1;
+	.POGOProtos.Data.Battle.BattleLog battle_log = 2;
+	string battle_id = 3;
+	.POGOProtos.Data.Battle.BattlePokemonInfo active_defender = 4;
+	.POGOProtos.Data.Battle.BattlePokemonInfo active_attacker = 5;
+	.POGOProtos.Data.Battle.BattleUpdate battle_update = 6;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_ATTACK_ACTIONS = 2;
+		ERROR_NOT_IN_RANGE = 3;
+	}
+}
+
+message SetLobbyPokemonResponse {
+	Result result = 1;
+	.POGOProtos.Data.Raid.Lobby lobby = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_LOBBY_NOT_FOUND = 2;
+		ERROR_RAID_UNAVAILABLE = 3;
+		ERROR_INVALID_POKEMON = 4;
+	}
+}
+
+message UpdateCombatResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_COMBAT_STATE = 2;
+		ERROR_COMBAT_NOT_FOUND = 3;
+		ERROR_PLAYER_NOT_IN_COMBAT = 4;
+		ERROR_ILLEGAL_ACTION = 5;
+		ERROR_INVALID_SUBMIT_TIME = 6;
+		ERROR_PLAYER_IN_MINIGAME = 7;
+		ERROR_EXISTING_QUEUED_ATTACK = 8;
+		ERROR_INVALID_CHANGE_POKEMON = 9;
+		ERROR_INSUFFICIENT_ENERGY = 10;
+		ERROR_INVALID_MOVE = 11;
+		ERROR_INVALID_DURATION_TURNS = 12;
+		ERROR_INVALID_MINIGAME_STATE = 13;
+		ERROR_INVALID_QUICK_SWAP_POKEMON = 14;
+		ERROR_QUICK_SWAP_NOT_AVAILABLE = 15;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.Combat combat = 2;
+}
+
+message GetIncensePokemonResponse {
+	Result result = 1;
+	.POGOProtos.Enums.PokemonId pokemon_id = 2;
+	double latitude = 3;
+	double longitude = 4;
+	string encounter_location = 5;
+	fixed64 encounter_id = 6;
+	int64 disappear_timestamp_ms = 7;
+	.POGOProtos.Data.PokemonDisplay pokemon_display = 8;
+
+	enum Result {
+		INCENSE_ENCOUNTER_UNKNOWN = 0;
+		INCENSE_ENCOUNTER_AVAILABLE = 1;
+		INCENSE_ENCOUNTER_NOT_AVAILABLE = 2;
+	}
+}
+
+message DeclineExRaidPassResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_EX_RAID_PASS_NOT_FOUND = 2;
+		ERROR_UNKNOWN = 3;
+	}
+
+	Result result = 1;
+}
+
+message DiskEncounterResponse {
+	Result result = 1;
+	.POGOProtos.Data.PokemonData pokemon_data = 2;
+	.POGOProtos.Data.Capture.CaptureProbability capture_probability = 3;
+	.POGOProtos.Inventory.Item.ItemId active_item = 4;
+	int32 arplus_attempts_until_flee = 5;
+
+	enum Result {
+		UNKNOWN = 0;
+		SUCCESS = 1;
+		NOT_AVAILABLE = 2;
+		NOT_IN_RANGE = 3;
+		ENCOUNTER_ALREADY_FINISHED = 4;
+		POKEMON_INVENTORY_FULL = 5;
+	}
+}
+
+message ShareExRaidPassResponse {
+	.POGOProtos.Enums.ShareExRaidPassResult result = 1;
+	.POGOProtos.Data.Friends.FriendshipLevelData updated_friendship_data = 2;
+	.POGOProtos.Data.Player.PlayerPublicProfile friend_profile = 3;
+}
+
+message GetMapObjectsResponse {
+	repeated .POGOProtos.Map.MapCell map_cells = 1;
+	.POGOProtos.Map.MapObjectsStatus status = 2;
+	TimeOfDay time_of_day = 3;
+	repeated .POGOProtos.Map.Weather.ClientWeather client_weather = 4;
+
+	enum TimeOfDay {
+		NONE = 0;
+		DAY = 1;
+		NIGHT = 2;
+	}
+}
+
+message GymDeployResponse {
+	Result result = 1;
+	.POGOProtos.Data.Gym.GymStatusAndDefenders gym_status_and_defenders = 2;
+	.POGOProtos.Data.Badge.AwardedGymBadge awarded_gym_badge = 3;
+	int64 cooldown_complete_timestamp_ms = 4;
+
+	enum Result {
+		NO_RESULT_SET = 0;
+		SUCCESS = 1;
+		ERROR_ALREADY_HAS_POKEMON_ON_FORT = 2;
+		ERROR_OPPOSING_TEAM_OWNS_FORT = 3;
+		ERROR_FORT_IS_FULL = 4;
+		ERROR_NOT_IN_RANGE = 5;
+		ERROR_PLAYER_HAS_NO_TEAM = 6;
+		ERROR_POKEMON_NOT_FULL_HP = 7;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 8;
+		ERROR_POKEMON_IS_BUDDY = 9;
+		ERROR_FORT_DEPLOY_LOCKOUT = 10;
+		ERROR_PLAYER_HAS_NO_NICKNAME = 11;
+		ERROR_POI_INACCESSIBLE = 12;
+		ERROR_NOT_A_POKEMON = 13;
+		ERROR_TOO_MANY_OF_SAME_KIND = 14;
+		ERROR_TOO_MANY_DEPLOYED = 15;
+		ERROR_TEAM_DEPLOY_LOCKOUT = 16;
+		ERROR_LEGENDARY_POKEMON = 17;
+		ERROR_INVALID_POKEMON = 18;
+		ERROR_RAID_ACTIVE = 19;
+	}
+}
+
+message GymStartSessionResponse {
+	Result result = 1;
+	.POGOProtos.Data.Battle.Battle battle = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_GYM_NOT_FOUND = 2;
+		ERROR_GYM_NEUTRAL = 3;
+		ERROR_GYM_WRONG_TEAM = 4;
+		ERROR_GYM_EMPTY = 5;
+		ERROR_INVALID_DEFENDER = 6;
+		ERROR_TRAINING_INVALID_ATTACKER_COUNT = 7;
+		ERROR_ALL_POKEMON_FAINTED = 8;
+		ERROR_TOO_MANY_BATTLES = 9;
+		ERROR_TOO_MANY_PLAYERS = 10;
+		ERROR_GYM_BATTLE_LOCKOUT = 11;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 12;
+		ERROR_NOT_IN_RANGE = 13;
+		ERROR_POI_INACCESSIBLE = 14;
+		ERROR_RAID_ACTIVE = 15;
+	}
+}
+
+message LevelUpRewardsResponse {
+	Result result = 1;
+	repeated .POGOProtos.Inventory.Item.ItemAward items_awarded = 2;
+	repeated .POGOProtos.Inventory.Item.ItemId items_unlocked = 4;
+	repeated string avatar_template_ids = 5;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		AWARDED_ALREADY = 2;
+	}
+}
+
+message DownloadGmTemplatesResponse {
+	Result result = 1;
+	repeated ClientGameMasterTemplate template = 2;
+	repeated string deleted_template = 3;
+	fixed64 batch_id = 4;
+	int32 page_offset = 5;
+
+	enum Result {
+		UNSET = 0;
+		COMPLETE = 1;
+		MORE_RESULTS = 2;
+		BATCH_ID_NOT_LIVE = 3;
+		INVALID_BASIS_BATCH_ID = 4;
+	}
+
+	message ClientGameMasterTemplate {
+		string template_id = 1;
+		bytes data = 2;
+	}
+}
+
+message UseItemRareCandyResponse {
+	Result result = 1;
+	.POGOProtos.Enums.PokemonId pokemon_id = 2;
+	int32 updated_candy_count = 3;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		INVALID_POKEMON_ID = 2;
+		NO_PLAYER = 3;
+		WRONG_ITEM_TYPE = 4;
+		ITEM_NOT_IN_INVENTORY = 5;
+		NOT_ENOUGH_ITEMS = 6;
+	}
+}
+
+message AttackRaidBattleResponse {
+	Result result = 1;
+	.POGOProtos.Data.Battle.BattleUpdate battle_update = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_GYM_NOT_FOUND = 2;
+		ERROR_BATTLE_NOT_FOUND = 3;
+		ERROR_INVALID_ATTACK_ACTIONS = 4;
+		ERROR_NOT_PART_OF_BATTLE = 5;
+		ERROR_BATTLE_ID_NOT_RAID = 6;
+	}
+}
+
+message GymGetInfoResponse {
+	.POGOProtos.Data.Gym.GymStatusAndDefenders gym_status_and_defenders = 1;
+	string name = 2;
+	string url = 3;
+	Result result = 4;
+	string description = 5;
+	string secondary_url = 6;
+	.POGOProtos.Data.Badge.AwardedGymBadge awarded_gym_badge = 7;
+	string checkin_image_url = 8;
+	.POGOProtos.Data.Raid.EventInfo event_info = 9;
+	.POGOProtos.Map.Weather.DisplayWeather display_weather = 10;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_NOT_IN_RANGE = 2;
+		ERROR_GYM_DISABLED = 3;
+	}
+}
+
+message GetGymBadgeDetailsResponse {
+	.POGOProtos.Data.Badge.AwardedGymBadge gym_badge = 1;
+	.POGOProtos.Data.Gym.GymDefender gym_defender = 2;
+	bool success = 3;
+}
+
+message JoinLobbyResponse {
+	Result result = 1;
+	.POGOProtos.Data.Raid.Lobby lobby = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_NOT_IN_RANGE = 2;
+		ERROR_RAID_UNAVAILABLE = 3;
+		ERROR_RAID_COMPLETED = 4;
+		ERROR_NO_AVAILABLE_LOBBIES = 5;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 6;
+		ERROR_POI_INACCESSIBLE = 7;
+		ERROR_GYM_LOCKOUT = 8;
+		ERROR_NO_TICKET = 9;
+	}
+}
+
+message GetBuddyWalkedResponse {
+	bool success = 1;
+	.POGOProtos.Enums.PokemonFamilyId family_candy_id = 2;
+	int32 candy_earned_count = 3;
+	double km_remaining = 4;
+}
+
+message AddFortModifierResponse {
+	Result result = 1;
+	.POGOProtos.Networking.Responses.FortDetailsResponse fort_details = 2;
+
+	enum Result {
+		NO_RESULT_SET = 0;
+		SUCCESS = 1;
+		FORT_ALREADY_HAS_MODIFIER = 2;
+		TOO_FAR_AWAY = 3;
+		NO_ITEM_IN_INVENTORY = 4;
+		POI_INACCESSIBLE = 5;
+	}
+}
+
+message VerifyChallengeResponse {
+	bool success = 1;
+}
+
+message UpdateNotificationResponse {
+	repeated string notification_ids = 1;
+	repeated int64 create_timestamp_ms = 2;
+	.POGOProtos.Enums.NotificationState state = 3;
+}
+
+message StartGymBattleResponse {
+	Result result = 1;
+	int64 battle_start_timestamp_ms = 2;
+	int64 battle_end_timestamp_ms = 3;
+	string battle_id = 4;
+	.POGOProtos.Data.Battle.BattleParticipant defender = 5;
+	.POGOProtos.Data.Battle.BattleLog battle_log = 6;
+	.POGOProtos.Data.Battle.BattleParticipant attacker = 7;
+	.POGOProtos.Data.Battle.Battle battle = 8;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_GYM_NOT_FOUND = 2;
+		ERROR_GYM_NEUTRAL = 3;
+		ERROR_GYM_WRONG_TEAM = 4;
+		ERROR_GYM_EMPTY = 5;
+		ERROR_INVALID_DEFENDER = 6;
+		ERROR_TRAINING_INVALID_ATTACKER_COUNT = 7;
+		ERROR_ALL_POKEMON_FAINTED = 8;
+		ERROR_TOO_MANY_BATTLES = 9;
+		ERROR_TOO_MANY_PLAYERS = 10;
+		ERROR_GYM_BATTLE_LOCKOUT = 11;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 12;
+		ERROR_NOT_IN_RANGE = 13;
+		ERROR_POI_INACCESSIBLE = 14;
+	}
+}
+
+message CheckAwardedBadgesResponse {
+	bool success = 1;
+	repeated .POGOProtos.Enums.BadgeType awarded_badges = 2;
+	repeated int32 awarded_badge_levels = 3;
+	repeated string avatar_template_ids = 4;
+}
+
+message ListAvatarCustomizationsResponse {
+	Result result = 1;
+	repeated .POGOProtos.Data.Avatar.AvatarCustomization avatar_customizations = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+	}
+}
+
+message EncounterResponse {
+	.POGOProtos.Map.Pokemon.WildPokemon wild_pokemon = 1;
+	Background background = 2;
+	Status status = 3;
+	.POGOProtos.Data.Capture.CaptureProbability capture_probability = 4;
+	.POGOProtos.Inventory.Item.ItemId active_item = 5;
+	int32 arplus_attempts_until_flee = 6;
+
+	enum Background {
+		PARK = 0;
+		DESERT = 1;
+	}
+
+	enum Status {
+		ENCOUNTER_ERROR = 0;
+		ENCOUNTER_SUCCESS = 1;
+		ENCOUNTER_NOT_FOUND = 2;
+		ENCOUNTER_CLOSED = 3;
+		ENCOUNTER_POKEMON_FLED = 4;
+		ENCOUNTER_NOT_IN_RANGE = 5;
+		ENCOUNTER_ALREADY_HAPPENED = 6;
+		POKEMON_INVENTORY_FULL = 7;
+	}
+}
+
+message GetCombatResultsResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_COMBAT_STATE = 2;
+		ERROR_COMBAT_NOT_FOUND = 3;
+		ERROR_PLAYER_QUIT = 4;
+	}
+
+	message CombatRematch {
+		string combat_rematch_id = 1;
+		string combat_league_template_id = 2;
+	}
+
+	Result result = 1;
+	.POGOProtos.Enums.CombatRewardStatus reward_status = 2;
+	.POGOProtos.Inventory.Loot rewards = 3;
+	.POGOProtos.Data.Friends.LeveledUpFriends friend_level_up = 4;
+	int32 number_rewarded_battles_today = 5;
+	.POGOProtos.Enums.CombatPlayerFinishState combat_player_finish_state = 6;
+	CombatRematch combat_rematch = 7;
+}
+
+message CheckChallengeResponse {
+	bool show_challenge = 1;
+	string challenge_url = 2;
+}
+
+message ListGymBadgesResponse {
+	repeated .POGOProtos.Data.Badge.AwardedGymBadge gym_badge = 1;
+}
+
+message GetFitnessRewardsResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		REWARDS_ALREADY_COLLECTED = 2;
+		ERROR_UNKNOWN = 3;
+	}
+
+	Result result = 1;
+	.POGOProtos.Inventory.Loot rewards = 2;
+}
+
+message OpenNpcCombatSessionResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 2;
+		ERROR_POKEMON_LINEUP_INELIGIBLE_FOR_LEAGUE = 3;
+		ERROR_ACCESS_DENIED = 4;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.Combat combat = 2;
+}
+
+message UseItemXpBoostResponse {
+	Result result = 1;
+	.POGOProtos.Inventory.AppliedItems applied_items = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_ITEM_TYPE = 2;
+		ERROR_XP_BOOST_ALREADY_ACTIVE = 3;
+		ERROR_NO_ITEMS_REMAINING = 4;
+		ERROR_LOCATION_UNSET = 5;
+	}
+}
+
+message AwardFreeRaidTicketResponse {
+	Result result = 1;
+
+	enum Result {
+		NO_RESULT_SET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_DOES_NOT_MEET_MIN_LEVEL = 2;
+		ERROR_DAILY_TICKET_ALREADY_AWARDED = 3;
+		ERROR_PLAYER_OUT_OF_RANGE = 4;
+	}
+}
+
+message QuestEncounterResponse {
+	Result result = 1;
+	.POGOProtos.Map.Pokemon.WildPokemon pokemon = 2;
+	.POGOProtos.Data.Capture.CaptureProbability capture_probability = 3;
+	.POGOProtos.Inventory.Item.ItemId active_item = 4;
+
+	enum Result {
+		QUEST_ENCOUNTER_UNKNOWN = 0;
+		QUEST_ENCOUNTER_SUCCESS = 1;
+		QUEST_ENCOUNTER_NOT_AVAILABLE = 2;
+		QUEST_ENCOUNTER_ALREADY_FINISHED = 3;
+		POKEMON_INVENTORY_FULL = 4;
+	}
+}
+
+message DownloadRemoteConfigVersionResponse {
+	Result result = 1;
+	uint64 item_templates_timestamp_ms = 2;  // Latest available?
+	uint64 asset_digest_timestamp_ms = 3;
+	repeated uint32 experiment_id = 4;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message SetFavoritePokemonResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_POKEMON_NOT_FOUND = 2;
+		ERROR_POKEMON_IS_EGG = 3;
+	}
+}
+
+message GetNewQuestsResponse {
+	Status status = 1;
+	repeated .POGOProtos.Data.Quests.ClientQuest quests = 2;
+	repeated .POGOProtos.Data.Quests.ClientQuest version_changed_quests = 3;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_DISPLAY = 2;
+	}
+}
+
+message GetAssetDigestResponse {
+	repeated .POGOProtos.Data.AssetDigestEntry digest = 1;
+	uint64 timestamp_ms = 2;
+	Result result = 3;
+	int32 page_offset = 4;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		PAGE = 2;
+		RETRY = 3;
+	}
+}
+
+message FetchAllNewsResponse {
+	Result result = 1;
+	.POGOProtos.Data.News.CurrentNews current_news = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		NO_NEWS_FOUND = 2;
+	}
+}
+
+message UpgradePokemonResponse {
+	Result result = 1;
+	.POGOProtos.Data.PokemonData upgraded_pokemon = 2;
+	.POGOProtos.Data.PokemonData next_upgraded_pokemon = 3;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_POKEMON_NOT_FOUND = 2;
+		ERROR_INSUFFICIENT_RESOURCES = 3;
+		ERROR_UPGRADE_NOT_AVAILABLE = 4;
+		ERROR_POKEMON_IS_DEPLOYED = 5;
+	}
+}
+
+message CatchPokemonResponse {
+	CatchStatus status = 1;
+	double miss_percent = 2;
+	fixed64 captured_pokemon_id = 3;
+	.POGOProtos.Data.Capture.CaptureAward capture_award = 4;
+	CaptureReason capture_reason = 5;
+	int32 display_pokedex_id = 6;
+	int32 throws_remaining = 7;
+	.POGOProtos.Data.PokemonDisplay pokemon_display = 8;
+
+	enum CatchStatus {
+		CATCH_ERROR = 0;
+		CATCH_SUCCESS = 1;
+		CATCH_ESCAPE = 2;
+		CATCH_FLEE = 3;
+		CATCH_MISSED = 4;
+	}
+
+	enum CaptureReason {
+		UNSET = 0;
+		DEFAULT = 1;
+		ELEMENTAL_BADGE = 2;
+		CRITICAL_CATCH = 3;
+	}
+}
+
+message SaveCombatPlayerPreferencesResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+
+	Result result = 1;
+}
+
+message GetCombatChallengeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_CHALLENGE_NOT_FOUND = 2;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.CombatChallenge challenge = 2;
+}
+
+message UseItemGymResponse {
+	Result result = 1;
+	int64 updated_gp = 2;  // Gym Points (?)
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_CANNOT_USE = 2;
+		ERROR_NOT_IN_RANGE = 3;
+	}
+}
+
+message GeofenceUpdateResponse {
+	repeated .POGOProtos.Data.GeofenceMetadata geofence = 1;
+}
+
+message GetTradingResponse {
+	Result result = 1;
+	.POGOProtos.Data.Trading.Trading trading = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_FRIEND_NOT_FOUND = 3;
+		ERROR_INVALID_PLAYER_ID = 4;
+		ERROR_INVALID_STATE = 5;
+		ERROR_STATE_HANDLER = 6;
+	}
+}
+
+message RecycleInventoryItemResponse {
+	Result result = 1;
+	int32 new_count = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_NOT_ENOUGH_COPIES = 2;
+		ERROR_CANNOT_RECYCLE_INCUBATORS = 3;
+	}
+}
+
+message GetRaidDetailsResponse {
+	.POGOProtos.Data.Raid.Lobby lobby = 1;
+	.POGOProtos.Data.Battle.Battle raid_battle = 2;
+	bool player_can_join_lobby = 3;
+	Result result = 4;
+	.POGOProtos.Data.Raid.RaidInfo raid_info = 5;
+	bool ticket_used = 6;
+	bool free_ticket_available = 7;
+	int32 throws_remaining = 8;
+	bool received_rewards = 9;
+	int32 num_players_in_lobby = 10;
+	int64 server_ms = 11;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_NOT_IN_RANGE = 2;
+		ERROR_RAID_COMPLETED = 3;
+		ERROR_RAID_UNAVAILABLE = 4;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 5;
+		ERROR_POI_INACCESSIBLE = 6;
+	}
+}
+
+message SfidaRegistrationResponse {
+	bytes access_token = 1;
+}
+
+message GetInventoryResponse {
+	bool success = 1;
+	.POGOProtos.Inventory.InventoryDelta inventory_delta = 2;
+}
+
+message GetHatchedEggsResponse {
+	bool success = 1;
+	repeated fixed64 pokemon_id = 2 [packed = true];
+	repeated int32 experience_awarded = 3;
+	repeated int32 candy_awarded = 4;
+	repeated int32 stardust_awarded = 5;
+	repeated float egg_km_walked = 6;
+	repeated .POGOProtos.Data.PokemonData hatched_pokemon = 7;
+}
+
+message SetPlayerTeamResponse {
+	Status status = 1;
+	.POGOProtos.Data.PlayerData player_data = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		TEAM_ALREADY_SET = 2;
+		FAILURE = 3;
+	}
+}
+
+message StartTutorialActionResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_ALREADY_STARTED_TUTORIAL = 2;
+		ERROR_FAILED_TO_START = 3;
+	}
+
+	Result result = 1;
+}
+
+message GetGymDetailsResponse {
+	.POGOProtos.Data.Gym.GymState gym_state = 1;
+	string name = 2;
+	repeated string urls = 3;
+	Result result = 4;
+	string description = 5;
+	repeated string secondary_url = 6;
+	string checkin_image_url = 7;
+	.POGOProtos.Data.Raid.EventInfo event_info = 8;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_NOT_IN_RANGE = 2;
+	}
+}
+
+message UseIncenseResponse {
+	Result result = 1;
+	.POGOProtos.Inventory.AppliedItem applied_incense = 2;
+
+	enum Result {
+		UNKNOWN = 0;
+		SUCCESS = 1;
+		INCENSE_ALREADY_ACTIVE = 2;
+		NONE_IN_INVENTORY = 3;
+		LOCATION_UNSET = 4;
+	}
+}
+
+message FortDeployPokemonResponse {
+	Result result = 1;
+	.POGOProtos.Networking.Responses.FortDetailsResponse fort_details = 2;
+	.POGOProtos.Data.PokemonData pokemon_data = 3;
+	.POGOProtos.Data.Gym.GymState gym_state = 4;
+
+	enum Result {
+		NO_RESULT_SET = 0;
+		SUCCESS = 1;
+		ERROR_ALREADY_HAS_POKEMON_ON_FORT = 2;
+		ERROR_OPPOSING_TEAM_OWNS_FORT = 3;
+		ERROR_FORT_IS_FULL = 4;
+		ERROR_NOT_IN_RANGE = 5;
+		ERROR_PLAYER_HAS_NO_TEAM = 6;
+		ERROR_POKEMON_NOT_FULL_HP = 7;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 8;
+		ERROR_POKEMON_IS_BUDDY = 9;
+		ERROR_FORT_DEPLOY_LOCKOUT = 10;
+		ERROR_PLAYER_HAS_NO_NICKNAME = 11;
+		ERROR_POI_INACCESSIBLE = 12;
+		ERROR_LEGENDARY_POKEMON = 13;
+		ERROR_INVALID_POKEMON = 14;
+	}
+}
+
+message SfidaActionLogResponse {
+	Result result = 1;
+	repeated .POGOProtos.Data.Logs.ActionLogEntry log_entries = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+}
+
+message ReleasePokemonResponse {
+	Result result = 1;
+	int32 candy_awarded = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		POKEMON_DEPLOYED = 2;
+		FAILED = 3;
+		ERROR_POKEMON_IS_EGG = 4;
+		ERROR_POKEMON_IS_BUDDY = 5;
+	}
+}
+
+message UseItemCaptureResponse {
+	bool success = 1;
+	double item_capture_mult = 2;
+	double item_flee_mult = 3;
+	bool stop_movement = 4;
+	bool stop_attack = 5;
+	bool target_max = 6;
+	bool target_slow = 7;
+}
+
+message SendProbeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+	}
+
+	Result result = 1;
+	string id = 2;
+	int64 server_timestamp_ms = 3;
+}
+
+message LocationPingResponse {
+}
+
+message UseItemEggIncubatorResponse {
+	Result result = 1;
+	.POGOProtos.Inventory.EggIncubator egg_incubator = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INCUBATOR_NOT_FOUND = 2;
+		ERROR_POKEMON_EGG_NOT_FOUND = 3;
+		ERROR_POKEMON_ID_NOT_EGG = 4;
+		ERROR_INCUBATOR_ALREADY_IN_USE = 5;
+		ERROR_POKEMON_ALREADY_INCUBATING = 6;
+		ERROR_INCUBATOR_NO_USES_REMAINING = 7;
+	}
+}
+
+message SubmitCombatChallengePokemonsResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_CHALLENGE_STATE = 2;
+		ERROR_CHALLENGE_NOT_FOUND = 3;
+		ERROR_POKEMON_NOT_IN_INVENTORY = 4;
+		ERROR_NOT_ELIGIBLE_LEAGUE = 5;
+		ERROR_ALREADY_TIMEDOUT = 6;
+		ERROR_ALREADY_CANCELLED = 7;
+		ERROR_ACCESS_DENIED = 8;
+		ERROR_ALREADY_DECLINED = 9;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.CombatChallenge challenge = 2;
+}
+
+message RegisterBackgroundDeviceResponse {
+	Status status = 1;
+	.POGOProtos.Data.BackgroundToken token = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR = 2;
+	}
+}
+
+message EquipBadgeResponse {
+	Result result = 1;
+	.POGOProtos.Data.Player.EquippedBadge equipped = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		COOLDOWN_ACTIVE = 2;
+		NOT_QUALIFIED = 3;
+	}
+}
+
+message FortRecallPokemonResponse {
+	Result result = 1;
+	.POGOProtos.Networking.Responses.FortDetailsResponse fort_details = 2;
+
+	enum Result {
+		NO_RESULT_SET = 0;
+		SUCCESS = 1;
+		ERROR_NOT_IN_RANGE = 2;
+		ERROR_POKEMON_NOT_ON_FORT = 3;
+		ERROR_NO_PLAYER = 4;
+	}
+}
+
+message SetInGameCurrencyExchangeRateResponse {
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+	}
+
+	Status status = 1;
+}
+
+message GetDownloadUrlsResponse {
+	repeated .POGOProtos.Data.DownloadUrlEntry download_urls = 1;
+}
+
+message UseItemPotionResponse {
+	Result result = 1;
+	int32 stamina = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_NO_POKEMON = 2;
+		ERROR_CANNOT_USE = 3;
+		ERROR_DEPLOYED_TO_FORT = 4;
+	}
+}
+
+message GetSignedGmapUrlResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_NOT_VALID = 2;
+		ERROR_RATE_LIMITED = 3;
+		ERROR_MISSING_INPUT = 4;
+		ERROR_UNKNOWN = 5;
+	}
+
+	Result result = 1;
+	string signed_url = 2;
+}
+
+message GymFeedPokemonResponse {
+	Result result = 1;
+	.POGOProtos.Data.Gym.GymStatusAndDefenders gym_status_and_defenders = 2;
+	.POGOProtos.Data.Badge.AwardedGymBadge awarded_gym_badge = 3;
+	int32 stardust_awarded = 4;
+	int32 xp_awarded = 5;
+	int32 num_candy_awarded = 6;
+	.POGOProtos.Enums.PokemonFamilyId family_candy_id = 7;
+	int64 cooldown_complete = 8;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_CANNOT_USE = 2;
+		ERROR_NOT_IN_RANGE = 3;
+		ERROR_POKEMON_NOT_THERE = 4;
+		ERROR_POKEMON_FULL = 5;
+		ERROR_NO_BERRIES_LEFT = 6;
+		ERROR_WRONG_TEAM = 7;
+		ERROR_WRONG_COUNT = 8;
+		ERROR_TOO_FAST = 9;
+		ERROR_TOO_FREQUENT = 10;
+		ERROR_GYM_BUSY = 11;
+		ERROR_RAID_ACTIVE = 12;
+		ERROR_GYM_CLOSED = 13;
+	}
+}
+
+message SetLobbyVisibilityResponse {
+	Result result = 1;
+	.POGOProtos.Data.Raid.Lobby lobby = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_NOT_LOBBY_CREATOR = 2;
+		ERROR_LOBBY_NOT_FOUND = 3;
+		ERROR_RAID_UNAVAILABLE = 4;
+	}
+}
+
+message NicknamePokemonResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_NICKNAME = 2;
+		ERROR_POKEMON_NOT_FOUND = 3;
+		ERROR_POKEMON_IS_EGG = 4;
+		ERROR_FILTERED_NICKNAME = 5;
+		ERROR_EXCEEDED_CHANGE_LIMIT = 6;
+	}
+}
+
+message GetPlayerResponse {
+	bool success = 1;
+	.POGOProtos.Data.PlayerData player_data = 2;
+	bool banned = 3;
+	bool warn = 4;
+	bool was_created = 5;
+	bool warn_message_acknowledged = 6;
+	bool was_suspended = 7;
+	bool suspended_message_acknowledged = 8;
+	int64 warn_expire_ms = 9;
+	repeated int32 user_permission = 10;
+}
+
+message CollectDailyDefenderBonusResponse {
+	Result result = 1;
+	repeated string currency_type = 2;
+	repeated int32 currency_awarded = 3;
+	int32 defenders_count = 4;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		TOO_SOON = 3;
+		NO_DEFENDERS = 4;
+	}
+}
+
+message CombatFriendRequestResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_COMBAT_NOT_FOUND = 2;
+		ERROR_COMBAT_INCOMPLETE = 3;
+		ERROR_PLAYER_NOT_IN_COMBAT = 4;
+		ERROR_SOCIAL_RPC = 5;
+	}
+
+	Result result = 1;
+}
+
+message FitnessUpdateResponse {
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+
+	Status status = 1;
+}
+
+message DownloadItemTemplatesResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		PAGE = 2;
+		RETRY = 3;
+	}
+
+	message ItemTemplate {
+		string template_id = 1;
+		.POGOProtos.Settings.Master.PokemonSettings pokemon_settings = 2;
+		.POGOProtos.Settings.Master.ItemSettings item_settings = 3;
+		.POGOProtos.Settings.Master.MoveSettings move_settings = 4;
+		.POGOProtos.Settings.Master.MoveSequenceSettings move_sequence_settings = 5;
+		.POGOProtos.Settings.Master.TypeEffectiveSettings type_effective = 8;
+		.POGOProtos.Settings.Master.BadgeSettings badge_settings = 10;
+		.POGOProtos.Settings.Master.CameraSettings camera = 11;
+		.POGOProtos.Settings.Master.PlayerLevelSettings player_level = 12;
+		.POGOProtos.Settings.Master.GymLevelSettings gym_level = 13;
+		.POGOProtos.Settings.Master.GymBattleSettings battle_settings = 14;
+		.POGOProtos.Settings.Master.EncounterSettings encounter_settings = 15;
+		.POGOProtos.Settings.Master.IapItemDisplay iap_item_display = 16;
+		.POGOProtos.Settings.Master.IapSettings iap_settings = 17;
+		.POGOProtos.Settings.Master.PokemonUpgradeSettings pokemon_upgrades = 18;
+		.POGOProtos.Settings.Master.EquippedBadgeSettings equipped_badges = 19;
+		.POGOProtos.Settings.Master.QuestSettings quest_settings = 20;
+		.POGOProtos.Settings.Master.AvatarCustomizationSettings avatar_customization = 21;
+		.POGOProtos.Settings.Master.FormSettings form_settings = 22;
+		.POGOProtos.Settings.Master.GenderSettings gender_settings = 23;
+		.POGOProtos.Settings.Master.GymBadgeGmtSettings gym_badge_settings = 24;
+		.POGOProtos.Settings.Master.WeatherAffinity weather_affinities = 25;
+		.POGOProtos.Settings.Master.WeatherBonus weather_bonus_settings = 26;
+		.POGOProtos.Settings.Master.PokemonScaleSetting pokemon_scale_settings = 27;
+		.POGOProtos.Settings.Master.IapItemCategoryDisplay iap_category_display = 28;
+		.POGOProtos.Settings.Master.BelugaPokemonWhitelist beluga_pokemon_whitelist = 29;
+		.POGOProtos.Settings.Master.OnboardingSettings onboarding_settings = 30;
+		.POGOProtos.Settings.Master.FriendshipLevelMilestoneSettings friendship_milestone_settings = 31;
+		.POGOProtos.Settings.Master.LuckyPokemonSettings lucky_pokemon_settings = 32;
+		.POGOProtos.Settings.Master.CombatSettings combat_settings = 33;
+		.POGOProtos.Settings.Master.CombatLeagueSettings combat_league_settings = 34;
+		.POGOProtos.Settings.Master.CombatLeague combat_league = 35;
+		.POGOProtos.Settings.Master.ExRaidSettings ex_raid_settings = 36;
+		.POGOProtos.Settings.Master.CombatMoveSettings combat_move = 37;
+		.POGOProtos.Settings.Master.BackgroundModeSettings background_mode_settings = 38;
+		.POGOProtos.Settings.Master.CombatStatStageSettings combat_stat_stage_settings = 39;
+		.POGOProtos.Settings.Master.CombatNpcTrainer combat_npc_trainer = 40;
+		.POGOProtos.Settings.Master.CombatNpcPersonality combat_npc_personality = 41;
+		.POGOProtos.Settings.Master.OnboardingV2Settings onboarding_v2_settings = 42;
+	}
+
+	Result result = 1;
+	repeated ItemTemplate item_templates = 2;
+	uint64 timestamp_ms = 3;
+	int32 page_offset = 4;
+}
+
+message CreateCombatChallengeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_CHALLENGE_STATE = 2;
+		ERROR_CHALLENGE_NOT_FOUND = 3;
+		ERROR_POKEMON_NOT_IN_INVENTORY = 4;
+		ERROR_NOT_ELIGIBLE_LEAGUE = 5;
+		ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 6;
+		ERROR_OPPONENT_NOT_IN_RANGE = 7;
+		ERROR_ALREADY_TIMEDOUT = 8;
+		ERROR_ALREADY_CANCELLED = 9;
+		ERROR_ACCESS_DENIED = 10;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.CombatChallenge challenge = 2;
+}
+
+message RegisterPushNotificationResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		NO_CHANGE = 2;
+	}
+}
+
+
+message UpdateNotificationStatusResponse {
+	repeated string notification_ids = 1;
+	repeated int64 create_timestamp_ms = 2;
+	NotificationState state = 3;
+
+	enum NotificationState {
+		UNSET_STATE = 0;
+		VIEWED = 1;
+	}
+}
+
+
+message OptOutPushNotificationCategoryResponse {
+	//
+}
+
+
+message RedeemPasscodeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		NOT_AVAILABLE = 2;
+		OVER_INVENTORY_LIMIT = 3;
+		ALREADY_REDEEMED = 4;
+		OVER_PLAYER_REDEMPTION_LIMIT = 5;
+	}
+
+	message AcquiredItem {
+		string item = 1;
+		int64 count = 2;
+	}
+
+	Result result = 1;
+	repeated AcquiredItem acquired_item = 2;
+	bytes acquired_items_proto = 3;
+	string passcode = 4;
+}
+
+
+message AddNewPoiResponse {
+	Status status = 1;
+	repeated string message = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		INTERNAL_ERROR = 3;
+		TOO_MANY_RECENT_SUBMISSIONS = 4;
+		INVALID_INPUT = 5;
+	}
+}
+
+
+message ProxySocialActionResponse {
+	Status status = 1;
+	string assigned_host = 2;
+	bytes payload = 3;
+
+	enum Status {
+		UNSET = 0;
+		COMPLETED = 1;
+		COMPLETED_AND_REASSIGNED = 2;
+		ACTION_NOT_FOUND = 3;
+		ASSIGNMENT_ERROR = 4;
+		PROXY_UNAUTHORIZED_ERROR = 5;
+		INTERNAL_ERROR = 6;
+		BAD_REQUEST = 7;
+		ACCESS_DENIED = 8;
+		TIMEOUT_ERROR = 9;
+		RATE_LIMITED = 10;
+	}
+}
+
+
+message GetAvailableSubmissionsResponse {
+	int32 submissions_left = 1;
+	int32 min_player_level = 2;
+	bool has_valid_email = 3;
+	bool is_feature_enabled = 4;
+	int64 time_window_for_submissions_limit_ms = 5;
+}
+
+
+message PushNotificationRegistryResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		NO_CHANGE = 2;
+	}
+
+	Result result = 1;
+}
+
+
+message AddLoginActionResponse {
+	bool success = 1;
+	repeated .POGOProtos.Data.Login.LoginDetail login_detail = 2;
+	Status status = 3;
+
+	enum Status {
+		UNSET = 0;
+		AUTH_FAILURE = 1;
+		LOGIN_TAKEN = 2;
+	}
+}
+
+
+message RemoveLoginActionResponse {
+	enum Status {
+		UNSET = 0;
+		LOGIN_NOT_REMOVABLE = 1;
+	}
+
+	bool success = 1;
+	repeated .POGOProtos.Data.Login.LoginDetail login_detail = 2;
+	Status status = 3;
+}
+
+
+message SubmitNewPoiResponse {
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		INTERNAL_ERROR = 3;
+		TOO_MANY_RECENT_SUBMISSIONS = 4;
+		INVALID_INPUT = 5;
+		MINOR = 6;
+		NOT_AVAILABLE = 7;
+	}
+
+	Status status = 1;
+}
+
+
+message UploadPoiPhotoByUrlResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		FEATURE_DISABLED = 2;
+		ALREADY_UPLOADED = 3;
+		IMAGE_NOT_FOUND = 4;
+		IMAGE_TOO_BIG = 5;
+		IMAGE_NOT_SERVABLE = 6;
+		PORTAL_NOT_FOUND = 7;
+	}
+
+	Result status = 1;
+}
+
+
+message PingResponse {
+	string user_info = 1;
+	string server_info = 2;
+	string random_response_bytes = 3;
+	string return_value = 4;
+}
+
+
+message ReplaceLoginActionResponse {
+	enum Status {
+		UNSET = 0;
+		AUTH_FAILURE = 1;
+		LOGIN_TAKEN = 2;
+		LOGIN_ALREADY_HAVE = 3;
+		LOGIN_NOT_REPLACEABLE = 4;
+	}
+
+	bool success = 1;
+	repeated POGOProtos.Data.Login.LoginDetail login_detail = 2;
+	Status status = 3;
+}
+
+message FortDetailsResponse {
+	string fort_id = 1;
+	.POGOProtos.Enums.TeamColor team_color = 2;
+	.POGOProtos.Data.PokemonData pokemon_data = 3;
+	string name = 4;
+	repeated string image_urls = 5;
+	int32 fp = 6;
+	int32 stamina = 7;
+	int32 max_stamina = 8;
+	.POGOProtos.Map.Fort.FortType type = 9;
+	double latitude = 10;
+	double longitude = 11;
+	string description = 12;
+	repeated .POGOProtos.Map.Fort.FortModifier modifiers = 13;
+	bool close_soon = 14;
+	string checkin_image_url = 15;
+	.POGOProtos.Data.Raid.EventInfo event_info = 16;
+}
+
+message SetBuddyPokemonResponse {
+	Result result = 1;
+	.POGOProtos.Data.BuddyPokemon updated_buddy = 2;
+
+	enum Result {
+		UNEST = 0;
+		SUCCESS = 1;
+		ERROR_POKEMON_DEPLOYED = 2;
+		ERROR_POKEMON_NOT_OWNED = 3;
+		ERROR_POKEMON_IS_EGG = 4;
+		ERROR_INVALID_POKEMON = 5;
+	}
+}
+
+message SetContactSettingsResponse {
+	Status status = 1;
+	.POGOProtos.Data.PlayerData player_data = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+	}
+}
+
+message GetQuestDetailsResponse {
+	Status status = 1;
+	repeated .POGOProtos.Data.Quests.ClientQuest quests = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_QUEST_NOT_FOUND = 2;
+		ERROR_INVALID_DISPLAY = 3;
+	}
+}
+
+message SetAvatarResponse {
+	Status status = 1;
+	.POGOProtos.Data.PlayerData player_data = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		AVATAR_ALREADY_SET = 2;
+		FAILURE = 3;
+		SLOT_NOT_ALLOWED = 4;
+		ITEM_NOT_OWNED = 5;
+		INVALID_AVATAR_TYPE = 6;
+	}
+}
+
+message MarkTutorialCompleteResponse {
+	bool success = 1;
+	.POGOProtos.Data.PlayerData player_data = 2;
+}
+
+message CheckSendGiftResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_PLAYER_DOES_NOT_EXIST = 3;
+		ERROR_GIFT_NOT_AVAILABLE = 4;
+		ERROR_GIFT_ALREADY_SENT_TODAY = 5;
+		ERROR_PLAYER_HAS_UNOPENED_GIFT = 6;
+	}
+}
+
+message CollectDailyBonusResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		TOO_SOON = 3;
+	}
+}
+
+message CompleteQuestStampCardResponse {
+	Status status = 1;
+	repeated .POGOProtos.Data.Quests.QuestReward reward = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_STILL_IN_PROGRESS = 2;
+	}
+}
+
+message UpdateTradingResponse {
+	Result result = 1;
+	.POGOProtos.Data.Trading.Trading trading = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_FRIEND_NOT_FOUND = 3;
+		ERROR_INVALID_PLAYER_ID = 4;
+		ERROR_INVALID_STATE = 5;
+		ERROR_STATE_HANDLER = 6;
+		ERROR_INVALID_POKEMON = 7;
+		ERROR_INSUFFICIENT_PAYMENT = 8;
+		ERROR_TRADING_EXPIRED = 9;
+		ERROR_TRADING_FINISHED = 10;
+	}
+}
+
+message SavePlayerSnapshotResponse {
+	Result result = 1;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		TOO_SOON_TO_UPDATE = 2;
+		ERROR_FAILED_TO_UPDATE = 3;
+		ERROR_REQUEST_TIMED_OUT = 4;
+	}
+}
+
+message CompleteQuestResponse {
+	Status status = 1;
+	.POGOProtos.Data.Quests.ClientQuest quest = 2;
+	repeated .POGOProtos.Data.Quests.QuestStamp stamp = 3;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_QUEST_NOT_FOUND = 2;
+		ERROR_QUEST_STILL_IN_PROGRESS = 3;
+		ERROR_QUEST_ALREADY_COMPLETED = 4;
+		ERROR_SUBQUEST_NOT_FOUND = 5;
+		ERROR_SUBQUEST_STILL_IN_PROGRESS = 6;
+		ERROR_SUBQUEST_ALREADY_COMPLETED = 7;
+		ERROR_MULTIPART_STILL_IN_PROGRESS = 8;
+		ERROR_MULTIPART_ALREADY_COMPLETED = 9;
+		ERROR_REDEEM_COMPLETED_QUEST_STAMP_CARD_FIRST = 10;
+		ERROR_INVENTORY_FULL = 11;
+	}
+}
+
+message IncenseEncounterResponse {
+	Result result = 1;
+	.POGOProtos.Data.PokemonData pokemon_data = 2;
+	.POGOProtos.Data.Capture.CaptureProbability capture_probability = 3;
+	.POGOProtos.Inventory.Item.ItemId active_item = 4;
+	int32 arplus_attempts_until_flee = 5;
+
+	enum Result {
+		INCENSE_ENCOUNTER_UNKNOWN = 0;
+		INCENSE_ENCOUNTER_SUCCESS = 1;
+		INCENSE_ENCOUNTER_NOT_AVAILABLE = 2;
+		POKEMON_INVENTORY_FULL = 3;
+	}
+}
+
+message GetCombatPlayerProfileResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_PLAYER_NOT_FOUND = 2;
+		ERROR_ACCESS_DENIED = 3;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.Combat.CombatPlayerProfile profile = 2;
+}
+
+message AcknowledgePunishmentResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+
+	Result result = 1;
+}
+
+message GetClientTelemetrySettingsResponse {
+	int32 one = 1;
+	int32 two = 2;
+	int32 three = 3;
+	int32 four = 4;
+	int32 five = 5;
+	fixed64 six = 6;
+	int32 seven = 7;
+	fixed64 eight = 8;
+	string nine = 9;
+}
+
+message GetHoloInventoryResponse {
+	bool success = 1;
+	.POGOProtos.Inventory.InventoryDelta inventory_delta = 2;
+}
+
+message GetBackgroundModeSettingsResponse {
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+	}
+
+	Status status = 1;
+	.POGOProtos.Settings.BackgroundModeClientSettings settings = 2;
+}
+
+message ConfirmTradingResponse {
+	Result result = 1;
+	.POGOProtos.Data.Trading.Trading trading = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_FRIEND_NOT_FOUND = 3;
+		ERROR_INVALID_PLAYER_ID = 4;
+		ERROR_INVALID_STATE = 5;
+		ERROR_STATE_HANDLER = 6;
+		ERROR_INVALID_POKEMON = 7;
+		ERROR_INSUFFICIENT_PAYMENT = 8;
+		ERROR_NO_PLAYER_POKEMON = 9;
+		ERROR_NO_FRIEND_POKEMON = 10;
+		ERROR_PLAYER_ALREADY_CONFIRMED = 11;
+		ERROR_TRANSACTION_LOG_NOT_MATCH = 12;
+		ERROR_TRADING_EXPIRED = 13;
+		ERROR_TRANSACTION = 14;
+		ERROR_DAILY_LIMIT_REACHED = 15;
+	}
+}
+
+message CancelTradingResponse {
+	Result result = 1;
+	.POGOProtos.Data.Trading.Trading trading = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_UNKNOWN = 2;
+		ERROR_FRIEND_NOT_FOUND = 3;
+		ERROR_INVALID_PLAYER_ID = 4;
+		ERROR_INVALID_STATE = 5;
+		ERROR_STATE_HANDLER = 6;
+	}
+}
+
+message UseItemMoveRerollResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		NO_POKEMON = 2;
+		NO_OTHER_MOVES = 3;
+		NO_PLAYER = 4;
+		WRONG_ITEM_TYPE = 5;
+		ITEM_NOT_IN_INVENTORY = 6;
+		INVALID_POKEMON = 7;
+		MOVE_LOCKED = 8;
+	}
+
+	Result result = 1;
+	.POGOProtos.Data.PokemonData upgraded_pokemon = 2;
+	.POGOProtos.Data.PokemonData next_upgraded_pokemon = 3;
+}
+
+message UseItemEncounterResponse {
+	Status status = 1;
+	.POGOProtos.Data.Capture.CaptureProbability capture_probability = 2;
+	.POGOProtos.Inventory.Item.ItemId active_item = 3;
+
+	enum Status {
+		SUCCESS = 0;
+		ALREADY_COMPLETED = 1;
+		ACTIVE_ITEM_EXISTS = 2;
+		NO_ITEM_IN_INVENTORY = 3;
+		INVALID_ITEM_CATEGORY = 4;
+	}
+}
+
+message CancelCombatChallengeResponse {
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_CHALLENGE_STATE = 2;
+		ERROR_CHALLENGE_NOT_FOUND = 3;
+		ERROR_ALREADY_ACCEPTED = 4;
+		ERROR_ALREADY_DECLINED = 5;
+		ERROR_ALREADY_TIMEDOUT = 6;
+		ERROR_ACCESS_DENIED = 7;
+	}
+
+	Result result = 1;
+}
+
+message ClaimCodenameResponse {
+	string codename = 1;
+	string user_message = 2;
+	bool is_assignable = 3;
+	Status status = 4;
+	.POGOProtos.Data.PlayerData updated_player = 5;
+	repeated string suggested_codenames = 6;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		CODENAME_NOT_AVAILABLE = 2;
+		CODENAME_NOT_VALID = 3;
+		CURRENT_OWNER = 4;
+		CODENAME_CHANGE_NOT_ALLOWED = 5;
+	}
+}
+
+message UseItemStardustBoostResponse {
+	Result result = 1;
+	.POGOProtos.Inventory.AppliedItems applied_items = 2;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_ITEM_TYPE = 2;
+		ERROR_STARDUST_BOOST_ALREADY_ACTIVE = 3;
+		ERROR_NO_ITEMS_REMAINING = 4;
+		ERROR_LOCATION_UNSET = 5;
+	}
+}
+
+message GymBattleAttackResponse {
+	Result result = 1;
+	.POGOProtos.Data.Battle.BattleUpdate battle_update = 2;
+	.POGOProtos.Data.Badge.AwardedGymBadge gym_badge = 3;
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		ERROR_INVALID_ATTACK_ACTIONS = 2;
+		ERROR_NOT_IN_RANGE = 3;
+		ERROR_WRONG_BATTLE_TYPE = 4;
+		ERROR_RAID_ACTIVE = 5;
+	}
+}
+

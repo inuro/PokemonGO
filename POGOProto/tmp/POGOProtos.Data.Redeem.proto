@@ -1,0 +1,33 @@
+syntax = "proto3";
+package POGOProtos.Data.Redeem;
+
+import public "POGOProtos.Enums.proto";
+import public "POGOProtos.Data.proto";
+import public "POGOProtos.Inventory.Item.proto";
+
+message RedeemPasscodeReward {
+	repeated .POGOProtos.Data.Redeem.RedeemedItem items = 1;
+	repeated .POGOProtos.Data.Redeem.RedeemedAvatarItem avatar_items = 2;
+	repeated .POGOProtos.Data.PokemonData egg_pokemon = 3;
+	repeated .POGOProtos.Data.PokemonData pokemon = 4;
+	repeated .POGOProtos.Data.Redeem.PokeCandy poke_candy = 5;
+	int32 stardust = 6;
+	int32 pokecoins = 7;
+	repeated .POGOProtos.Enums.BadgeType badges = 8;
+}
+
+message PokeCandy {
+	fixed64 pokemon_id = 1;
+	int32 candy_count = 2;
+}
+
+message RedeemedItem {
+	.POGOProtos.Inventory.Item.ItemId item = 1;
+	int32 item_count = 2;
+}
+
+message RedeemedAvatarItem {
+	string avatar_template_id = 1;
+	int32 item_count = 2;
+}
+

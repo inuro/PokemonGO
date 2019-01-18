@@ -1,0 +1,40 @@
+syntax = "proto3";
+package POGOProtos.Networking.Platform.Analytics;
+
+
+message ClientTelemetryRecord {
+	string record_id = 1;
+	bytes encoded_message = 2;
+	int64 client_timestamp_ms = 3;
+	int64 metric_id = 4;
+}
+
+message ClientTelemetryBatch {
+	enum TelemetryScopeId {
+		UNSET = 0;
+		DITTO = 1;
+		GAME = 2;
+	}
+
+	TelemetryScopeId telemetry_scope_id = 1;
+	repeated .POGOProtos.Networking.Platform.Analytics.ClientTelemetryRecord events = 2;
+	string api_version = 3;
+	string message_version = 4;
+}
+
+message ClientTelemetrySettingsRequest {
+}
+
+message ClientTelemetryClientSettings {
+	bool is_upload_enabled = 1;
+	int64 max_upload_size_in_bytes = 2;
+	int64 update_interval_in_sec = 3;
+	int64 settings_update_interval_in_sec = 4;
+	int64 max_envelope_queue_size = 5;
+	double sampling_probability = 6;
+	bool use_player_based_sampling = 7;
+	double player_hash = 8;
+	string player_external_omni_id = 9;
+	bool disable_omni_sending = 10;
+}
+
