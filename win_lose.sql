@@ -1392,3 +1392,90 @@ join pokemon B on B.uid=A.pokemon_uid
 ;
 
 
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('キノガッサ',2500,15,15,15,'カウンター','くさむすび') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b
+and kill/death < 0.9 and kill_b/death_b<0.9
+order by A.index, kill/death;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('マニューラ',2500,15,15,15,'こおりのつぶて','ゆきなだれ') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b
+and kill/death < 0.9 and kill_b/death_b<0.9
+order by A.index, kill/death;
+
+
+
+
+drop function if exists calc_cost(current_lv numeric, target_lv numeric);
+create function calc_cost(current_lv numeric, target_lv numeric)
+returns table (stardust integer, candy integer) as '
+DECLARE
+    row record;
+    _candy integer := 0;
+    _stardust integer := 0;
+BEGIN
+    FOR row in select * from stardust_candy loop
+        CONTINUE WHEN row.lv < current_lv;
+        EXIT WHEN row.lv=target_lv;
+        _candy := _candy + row.candy;
+        _stardust := _stardust + row.stardust;
+    end loop;
+    return query select _stardust, _candy;
+    return;
+END
+' LANGUAGE 'plpgsql';
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('カメックス',1500,15,15,15,'みずでっぽう','ハイドロカノン') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b
+and kill/death < 0.85 and kill_b/death_b<0.85
+order by kill/death * kill_b/death_b;
+
+
+

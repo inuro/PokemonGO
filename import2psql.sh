@@ -677,7 +677,7 @@ END
 -- usage: select * from calc_all('ラティアス,1500,15,15,15');
 drop function if exists calc_all(text);
 create or replace function calc_all(condition TEXT)
-returns table(cp integer, lv numeric, atk integer, def integer, hpt integer) as'
+returns table(cp integer, lv numeric, hpt integer, atk integer, def integer) as'
 DECLARE
     temp text[];
     target_uid TEXT;
@@ -698,66 +698,22 @@ END
 
 drop function if exists calc_all(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer) cascade;
 create or replace function calc_all(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer)
-returns table(cp integer, lv numeric, atk integer, def integer, hpt integer) as'
+returns table(cp integer, lv numeric, hpt integer, atk integer, def integer) as'
 BEGIN
     return query
         with A as (
         select
             (floor((B.at+ATIV) * (sqrt(B.df+DFIV)) * (sqrt(B.hp+HPIV)) * (A.mlp * A.mlp) / 10))::INTEGER as cp,
             A.lv as lv,
+            floor((B.hp+HPIV) * A.mlp)::INTEGER as hp,
             floor((B.at+ATIV) * A.mlp)::INTEGER as at,
-            floor((B.df+DFIV) * A.mlp)::INTEGER as df,
-            floor((B.hp+HPIV) * A.mlp)::INTEGER as hp
+            floor((B.df+DFIV) * A.mlp)::INTEGER as df
         from cpm A
         join $TABLE_POKEMON B on B.uid in (target_uid)
         ) select * from A where A.cp <= cap_cp order by A.cp desc limit 1;
     return;
 END
 ' LANGUAGE 'plpgsql';
-
-drop function if exists calc_all_obsolated(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer);
-create or replace function calc_all_obsolated(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer)
-returns table(cp integer, lv numeric, atk integer, def integer, hpt integer) as'
-DECLARE
-    cpm record;
-    _cp INTEGER := 0;
-    _lv NUMERIC := 0.0;
-    _atk INTEGER := 0;
-    _def INTEGER := 0;
-    _hpt INTEGER := 0;
-    prev_cp INTEGER := 0;
-    prev_lv NUMERIC := 0.0;
-    prev_mlp NUMERIC := 0.0;
-
-    pokemon record;
-    eff1 record;
-    eff2 record;
-BEGIN
-    select * into pokemon from $TABLE_POKEMON where uid=get_pokemon_uid(target_uid);
-
-    for cpm in select * from $TABLE_CPM loop
-        cp := floor((pokemon.at+ATIV) * (sqrt(pokemon.df+DFIV)) * (sqrt(pokemon.hp+HPIV)) * (cpm.mlp * cpm.mlp) / 10);
-        EXIT when cp > CAP_CP;
-        prev_cp := cp;
-        prev_lv := cpm.lv;
-        prev_mlp := cpm.mlp;
-    end loop;
-    _cp := prev_cp;
-    _lv := prev_lv;
-    _hpt := floor((pokemon.hp+HPIV) * prev_mlp);
-    _atk := floor((pokemon.at+ATIV) * prev_mlp);
-    _def := floor((pokemon.df+DFIV) * prev_mlp);
-
-    return query
-        select _cp,_lv,_atk,_def,_hpt;
-    return;
-END
-' LANGUAGE 'plpgsql';
-
-
-
-
-
 
 
 
@@ -767,7 +723,7 @@ END
 -- usage: select * from calc_bracket('VENUSAUR', 1500, 12, 14, 8);
 drop function if exists calc_bracket(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer);
 create or replace function calc_bracket(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer)
-returns table(IV text, cp integer, lv numeric, atk integer, def integer, hpt integer) as'
+returns table(IV text, cp integer, hpt integer, lv numeric, atk integer, def integer) as'
 DECLARE
     pokemon record;
 BEGIN
@@ -802,9 +758,9 @@ returns table(
     IV text, 
     cp integer, 
     lv numeric, 
-    at integer, df integer, hp integer,
+    hp integer, at integer, df integer, 
     overall text,
-    atk integer, def integer, hpt integer, 
+    hpt integer, atk integer, def integer, 
     total integer,
     dust integer
 ) as'
@@ -824,7 +780,7 @@ BEGIN
         select 
             q1.IV, 
             q2.cp, q2.lv, 
-            at as at, df as df, hp as hp,
+            hp as hp, at as at, df as df, 
             case 
                 when at+df+hp = 45 then ''S''
                 when at+df+hp >= 37 then ''A''
@@ -832,7 +788,7 @@ BEGIN
                 when at+df+hp >= 23 then ''C''
                 else ''D''
             end as overall, 
-            q2.atk, q2.def, q2.hpt,
+            q2.hpt, q2.atk, q2.def, 
             q2.atk+q2.def+q2.hpt total,
             q3.stardust
         from (select concat(''HP'',hp,''/AT'',at,''/DF'',df) as IV)q1
@@ -964,69 +920,6 @@ END
 ' LANGUAGE 'plpgsql';
 
 
--- calc killtime for combat
--- (Target HP, Fastmove Damage, Fastmove ID, Chargemove Damage, Chargemove Damage, barrier_left int)
--- 243,"COUNTER",2,12,900,8,700,900
--- 246,"DYNAMIC_PUNCH",2,90,2700,50,1200,2700
--- select * from test(200, 12, 'COUNTER', 90, 'DYNAMIC_PUNCH');
-drop function if exists calc_killtime_combat_debug(
-    hpt numeric, f_dmg numeric, f_uid text, c_dmg numeric, c_uid text, barrier_left int
-);
-create or replace function calc_killtime_combat_debug(
-    hpt numeric, f_dmg numeric, f_uid text, c_dmg numeric, c_uid text, barrier_left int
-)
-returns numeric as '
-DECLARE
-    fast record;
-    charge record;
-    time numeric := 0;
-    gained integer := 0;
-    turn int:=1;
-BEGIN
-    select * into fast from $TABLE_FASTMOVE_COMBAT_RAW F where F.uid=f_uid; 
-    select * into charge from $TABLE_CHARGEMOVE_COMBAT_RAW C where C.uid=c_uid; 
-    IF fast.uid is NULL or charge.uid is NULL THEN
-        return -1.0;
-    END IF;
-    
-    LOOP
-        -- FAST move
-        hpt := hpt - f_dmg;
-        time := time + (1 + fast.duration)::numeric * 0.5;
-RAISE INFO ''#% fastmove HPT:% TIME:% ENE:%'', turn, hpt, time, gained;
-
-        IF hpt <= 0 THEN
-RAISE INFO ''defeated'';
-            EXIT;
-        END IF;
-        gained := gained + fast.energy;
-        IF gained > 100 THEN 
-            gained := 100;
-        END IF;
-
-        -- CHARGE move
-        IF gained >= charge.energy THEN
-            gained := gained - charge.energy;
-            IF barrier_left > 0 THEN
-                barrier_left := barrier_left - 1;
-            ELSE
-                hpt := hpt - c_dmg;
-            END IF;
-RAISE INFO ''#% chargemove HPT:% TIME:% ENE:% BARRIER:%'', turn, hpt, time, gained, barrier_left;
-            IF hpt <= 0 THEN
-RAISE INFO ''defeated'';
-                EXIT;
-            END IF;
-            turn := turn + 1;
-        END IF;
-    END LOOP;
-return ROUND(time, 1);
-END
-' LANGUAGE 'plpgsql';
-
-
-
-
 
 
 -- calc counter
@@ -1041,7 +934,7 @@ END
 drop function if exists calc_counter(opponent_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, opponent_move_type TEXT);
 create or replace function calc_counter(opponent_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, opponent_move_type TEXT)
 returns table(
-    index numeric, uid text, jp text, type_1 text, type_2 text, cp integer, lv numeric, atk integer, def integer, hpt integer, 
+    index numeric, uid text, jp text, type_1 text, type_2 text, cp integer, lv numeric, hpt integer,  atk integer, def integer, 
     Lf text, fastmove text, f_type text, f_dps numeric, 
 --    f_dmg numeric, f_dur numeric, f_ini numeric, f_ene integer, f_stab_pow numeric, f_eff numeric,
     Lc text, chargemove text, c_type text, c_dps numeric,  
@@ -1346,9 +1239,9 @@ select
     S.type_2, 
     S.cp, 
     S.lv, 
+    S.hpt, 
     S.atk, 
     S.def, 
-    S.hpt, 
 -- fastmove
     (case when S.f_leg = true then ''▲'' else null end), 
     S.f_uid,
@@ -1398,9 +1291,9 @@ returns table(
     type_2 text, 
     cp integer, 
     lv numeric, 
+    hpt integer, 
     atk integer, 
     def integer, 
-    hpt integer, 
 -- fastmove
     Lf text, 
     f_uid text,
@@ -1543,6 +1436,19 @@ BEGIN
 END
 ' LANGUAGE 'plpgsql';
 
+
+
+drop function if exists puid(name text);
+create or replace function puid(name text)
+returns text as '
+DECLARE
+    temp text;
+BEGIN
+    select * into temp from get_pokemon_uid(name);
+    return temp;
+END
+' LANGUAGE 'plpgsql';
+
 drop function if exists get_pokemon_uid(name text);
 create or replace function get_pokemon_uid(name text)
 returns text as '
@@ -1557,6 +1463,7 @@ BEGIN
     return temp.uid;
 END
 ' LANGUAGE 'plpgsql';
+
 
 drop function if exists get_move_uid(name text);
 create or replace function get_move_uid(name text)
@@ -1581,7 +1488,7 @@ END
 -- e.g. select * from calc_iv('メルタン,344,65,1600,d,ad,d,メルメタル');
 drop function if exists calc_iv(text);
 create or replace function calc_iv(condition TEXT)
-returns table(lv NUMERIC, atk INTEGER, def INTEGER, hpt INTEGER, total TEXT, evolved_cp INTEGER) as'
+returns table(lv NUMERIC, hpt INTEGER, atk INTEGER, def INTEGER, total TEXT, evolved_cp INTEGER) as'
 DECLARE
     temp text[];
     _pokemon TEXT;
@@ -1608,7 +1515,7 @@ END
 
 drop function if exists calc_iv(_pokemon TEXT, _cp INTEGER, _hp INTEGER, _stardust INTEGER, _overall TEXT, _beststats TEXT, _statsanalysis TEXT, _evolve TEXT);
 create or replace function calc_iv(_pokemon TEXT, _cp INTEGER, _hp INTEGER, _stardust INTEGER, _overall TEXT, _beststats TEXT, _statsanalysis TEXT, _evolve TEXT)
-returns table(lv NUMERIC, atk INTEGER, def INTEGER, hpt INTEGER, total TEXT, evolved_cp INTEGER) as '
+returns table(lv NUMERIC, hpt INTEGER, atk INTEGER, def INTEGER, total TEXT, evolved_cp INTEGER) as '
 DECLARE
     temp record;
     f_at boolean;
@@ -1693,8 +1600,8 @@ BEGIN
                         END IF;
                         return query 
                             select 
-                                lvs.lv, atIV, dfIV, hpIV, 
-                                upper(to_hex(atIV)) || upper(to_hex(dfIV)) || upper(to_hex(hpIV)) || ''%'' || ceil((atIV+dfIV+hpIV)*100 / 45), 
+                                lvs.lv, hpIV, atIV, dfIV,  
+                                upper(to_hex(hpIV)) || upper(to_hex(atIV)) || upper(to_hex(dfIV)) || ''%'' || ceil((hpIV+atIV+dfIV)*100 / 45), 
                                 evolveCP;
                     END IF;
                 end loop;
@@ -1707,6 +1614,27 @@ BEGIN
 END
 ' LANGUAGE 'plpgsql';
 
+
+
+-- calculate powerup costs
+drop function if exists calc_cost(current_lv numeric, target_lv numeric);
+create function calc_cost(current_lv numeric, target_lv numeric)
+returns table (stardust integer, candy integer) as '
+DECLARE
+    row record;
+    _candy integer := 0;
+    _stardust integer := 0;
+BEGIN
+    FOR row in select * from $TABLE_STARDUST_CANDY loop
+        CONTINUE WHEN row.lv < current_lv;
+        EXIT WHEN row.lv=target_lv;
+        _candy := _candy + row.candy;
+        _stardust := _stardust + row.stardust;
+    end loop;
+    return query select _stardust, _candy;
+    return;
+END
+' LANGUAGE 'plpgsql';
 
 
 
