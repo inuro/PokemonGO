@@ -1334,12 +1334,16 @@ END
 -- calculate all win(kill < death) and lose(kill>death) patterns
 -- [usage] heavy query - basically make static table
 -- BEGIN;
--- drop table if exists win_lose_masterleague;
--- create table win_lose_masterleague as (select * from count_win_lose_pattern(5500));
--- drop table if exists win_lose_hyperleague;
--- create table win_lose_hyperleague as (select * from count_win_lose_pattern(2500));
--- drop table if exists win_lose_superleague;
--- create table win_lose_superleague as (select * from count_win_lose_pattern(1500));
+-- drop table if exists win_lose;
+-- create table win_lose as (select * from count_win_lose_pattern(5500));
+-- COMMIT;
+-- 
+-- BEGIN;
+-- insert into win_lose select * from count_win_lose_pattern(2500);
+-- COMMIT;
+-- 
+-- BEGIN;
+-- insert into win_lose select * from count_win_lose_pattern(1500);
 -- COMMIT;
 --
 drop function if exists count_win_lose_pattern(CAP_CP INTEGER);
