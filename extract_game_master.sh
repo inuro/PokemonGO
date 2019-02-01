@@ -3,7 +3,7 @@
 #
 # [usage]
 # $ extract_game_master.sh <GAME_MASTER_JSON> <OUTPUTDIR>
-# $ ./extract_game_master.sh game_master.json 2017-02-16
+# $ 
 
 LOCALFILE=$1
 VERSION=$2

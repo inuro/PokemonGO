@@ -4,7 +4,7 @@
 
   [usage]
   $ node decode_game_master.js ${original_game_master_file} > ${output_file}
-  $ node decode_game_master.js .game_master/0000015A62513FDA_GAME_MASTER > ./out/game_master.json
+  $ node decode_game_master.js GAME_MASTER/0000015A62513FDA_GAME_MASTER > game_master_latest.json
 
   [requiremnt]
   - fs
