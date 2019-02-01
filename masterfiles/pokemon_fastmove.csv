@@ -54,6 +54,7 @@
 23,null,EKANS,225,false
 24,null,ARBOK,202,false
 24,null,ARBOK,225,false
+24,null,ARBOK,253,false
 25,null,PIKACHU,205,false
 25,null,PIKACHU,219,false
 26,null,RAICHU,250,false
@@ -238,6 +239,7 @@
 89,null,MUK,224,false
 89,76,MUK_ALOLA,202,false
 89,76,MUK_ALOLA,224,false
+89,76,MUK_ALOLA,278,false
 89,75,MUK_NORMAL,260,false
 89,75,MUK_NORMAL,224,false
 90,null,SHELLDER,217,false
@@ -349,6 +351,7 @@
 140,null,KABUTO,216,false
 141,null,KABUTOPS,216,false
 141,null,KABUTOPS,241,false
+141,null,KABUTOPS,283,false
 142,null,AERODACTYL,239,false
 142,null,AERODACTYL,202,false
 143,null,SNORLAX,234,false
@@ -508,6 +511,7 @@
 216,null,TEDDIURSA,212,false
 217,null,URSARING,228,false
 217,null,URSARING,243,false
+217,null,URSARING,213,false
 218,null,SLUGMA,209,false
 218,null,SLUGMA,227,false
 219,null,MAGCARGO,209,false
@@ -525,6 +529,7 @@
 225,null,DELIBIRD,291,false
 226,null,MANTINE,237,false
 226,null,MANTINE,210,false
+226,null,MANTINE,271,false
 227,null,SKARMORY,239,false
 227,null,SKARMORY,255,false
 228,null,HOUNDOUR,238,false
@@ -537,6 +542,7 @@
 231,null,PHANPY,241,false
 232,null,DONPHAN,221,false
 232,null,DONPHAN,243,false
+232,null,DONPHAN,233,false
 233,null,PORYGON2,281,false
 233,null,PORYGON2,249,false
 234,null,STANTLER,221,false
@@ -572,6 +578,7 @@
 249,null,LUGIA,253,false
 250,null,HO_OH,274,false
 250,null,HO_OH,239,false
+250,null,HO_OH,281,false
 251,null,CELEBI,235,false
 251,null,CELEBI,249,false
 252,null,TREECKO,222,false
@@ -823,6 +830,7 @@
 372,null,SHELGON,204,false
 373,null,SALAMENCE,253,false
 373,null,SALAMENCE,240,false
+373,null,SALAMENCE,202,false
 374,null,BELDUM,282,false
 375,null,METANG,234,false
 375,null,METANG,228,false
@@ -893,6 +901,7 @@
 404,null,LUXIO,202,false
 405,null,LUXRAY,206,false
 405,null,LUXRAY,278,false
+405,null,LUXRAY,281,false
 406,null,BUDEW,281,false
 406,null,BUDEW,215,false
 407,null,ROSERADE,224,false
@@ -1010,6 +1019,7 @@
 451,null,SKORUPI,260,false
 452,null,DRAPION,236,false
 452,null,DRAPION,260,false
+452,null,DRAPION,202,false
 453,null,CROAGUNK,236,false
 453,null,CROAGUNK,224,false
 454,null,TOXICROAK,224,false
