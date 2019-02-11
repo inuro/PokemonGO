@@ -500,7 +500,9 @@ select
 from $TABLE_POKEMON A 
 join $TABLE_POKEMON_FASTMOVE_COMBAT B on B.pokemon_uid=A.uid and B.index=A.index
 join $TABLE_POKEMON_CHARGEMOVE_COMBAT C on C.pokemon_uid=A.uid and C.index=A.index
-where A.available=true and A.uid not in ('DITTO', 'SHEDINJA')
+where true
+--and A.available=true 
+and A.uid not in ('DITTO', 'SHEDINJA')
 );
 
 
@@ -520,106 +522,36 @@ join (select uid from _type union select null)C on true
 -------------------------------------------------------------------------------
 -- functions
 
-drop function if exists calc_cp(INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER);
-create or replace function calc_cp(CAP_CP INTEGER, HP INTEGER, AT INTEGER, DF INTEGER, HPIV INTEGER, ATIV INTEGER, DFIV INTEGER)
-returns INTEGER as'
+drop function if exists calc_cp(condition TEXT);
+create or replace function calc_cp(condition TEXT)
+returns table(uid text, cp integer, lv numeric, hpt integer, atk integer, def integer) as'
 DECLARE
-    cpm record;
-    cp INTEGER := 0;
-    prev_cp INTEGER := 0;
-    prev_lv NUMERIC := 0.0;
+    temp text[];
+    target_uid TEXT;
+    level NUMERIC;
+    HPIV integer := 15;
+    ATIV integer := 15;
+    DFIV integer := 15;
 BEGIN
-    for cpm in select * from $TABLE_CPM loop
-        cp := floor((AT+ATIV) * (sqrt(DF+DFIV)) * (sqrt(HP+HPIV)) * (cpm.mlp * cpm.mlp) / 10);
---        raise INFO ''lv = % CP = %'', cpm.lv, cp;
-        EXIT when cp > CAP_CP;
-        prev_cp := cp;
-        prev_lv := cpm.lv;
-    end loop;
-    RETURN prev_cp;
-END
-' LANGUAGE 'plpgsql';
+    temp := string_to_array(condition,'','');
+    target_uid := puid(temp[1]);
+    level := temp[2];
+    IF temp[3] is not null then HPIV := temp[3]::integer; end if;
+    IF temp[4] is not null then ATIV := temp[4]::integer; end if;
+    IF temp[5] is not null then DFIV := temp[5]::integer; end if;
 
-drop function if exists calc_lv(INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER);
-create or replace function calc_lv(CAP_CP INTEGER, HP INTEGER, AT INTEGER, DF INTEGER, HPIV INTEGER, ATIV INTEGER, DFIV INTEGER)
-returns NUMERIC as'
-DECLARE
-    cpm record;
-    cp INTEGER := 0;
-    prev_cp INTEGER := 0;
-    prev_lv NUMERIC := 0.0;
-BEGIN
-    for cpm in select * from $TABLE_CPM loop
-        cp := floor((AT+ATIV) * (sqrt(DF+DFIV)) * (sqrt(HP+HPIV)) * (cpm.mlp * cpm.mlp) / 10);
---        raise INFO ''lv = % CP = %'', cpm.lv, cp;
-        EXIT when cp > CAP_CP;
-        prev_cp := cp;
-        prev_lv := cpm.lv;
-    end loop;
-    RETURN prev_lv;
-END
-' LANGUAGE 'plpgsql';
-
-
-drop function if exists calc_atk(INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER);
-create or replace function calc_atk(CAP_CP INTEGER, HP INTEGER, AT INTEGER, DF INTEGER, HPIV INTEGER, ATIV INTEGER, DFIV INTEGER)
-returns INTEGER as'
-DECLARE
-    cpm record;
-    cp INTEGER := 0;
-    prev_cp INTEGER := 0;
-    prev_mlp NUMERIC := 0.0;
-BEGIN
-    for cpm in select * from $TABLE_CPM loop
-        cp := floor((AT+ATIV) * (sqrt(DF+DFIV)) * (sqrt(HP+HPIV)) * (cpm.mlp * cpm.mlp) / 10);
---        raise INFO ''lv = % CP = %'', cpm.lv, cp;
-        EXIT when cp > CAP_CP;
-        prev_cp := cp;
-        prev_mlp := cpm.mlp;
-    end loop;
-    RETURN floor((AT+ATIV) * prev_mlp);
-END
-' LANGUAGE 'plpgsql';
-
-
-drop function if exists calc_def(INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER);
-create or replace function calc_def(CAP_CP INTEGER, HP INTEGER, AT INTEGER, DF INTEGER, HPIV INTEGER, ATIV INTEGER, DFIV INTEGER)
-returns INTEGER as'
-DECLARE
-    cpm record;
-    cp INTEGER := 0;
-    prev_cp INTEGER := 0;
-    prev_mlp NUMERIC := 0.0;
-BEGIN
-    for cpm in select * from $TABLE_CPM loop
-        cp := floor((AT+ATIV) * (sqrt(DF+DFIV)) * (sqrt(HP+HPIV)) * (cpm.mlp * cpm.mlp) / 10);
---        raise INFO ''lv = % CP = %'', cpm.lv, cp;
-        EXIT when cp > CAP_CP;
-        prev_cp := cp;
-        prev_mlp := cpm.mlp;
-    end loop;
-    RETURN floor((DF+DFIV) * prev_mlp);
-END
-' LANGUAGE 'plpgsql';
-
-
-drop function if exists calc_hp(INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER, INTEGER);
-create or replace function calc_hp(CAP_CP INTEGER, HP INTEGER, AT INTEGER, DF INTEGER, HPIV INTEGER, ATIV INTEGER, DFIV INTEGER)
-returns INTEGER as'
-DECLARE
-    cpm record;
-    cp INTEGER := 0;
-    prev_cp INTEGER := 0;
-    prev_mlp NUMERIC := 0.0;
-BEGIN
-    for cpm in select * from $TABLE_CPM loop
-        cp := floor((AT+ATIV) * (sqrt(DF+DFIV)) * (sqrt(HP+HPIV)) * (cpm.mlp * cpm.mlp) / 10);
---        raise INFO ''lv = % CP = %'', cpm.lv, cp;
-        EXIT when cp > CAP_CP;
-        prev_cp := cp;
-        prev_mlp := cpm.mlp;
-    end loop;
-    RETURN floor((HP+HPIV) * prev_mlp);
+    return query
+        select
+            B.uid,
+            (floor((B.at+ATIV) * (sqrt(B.df+DFIV)) * (sqrt(B.hp+HPIV)) * (A.mlp * A.mlp) / 10))::INTEGER as cp,
+            A.lv as lv,
+            floor((B.hp+HPIV) * A.mlp)::INTEGER as hp,
+            floor((B.at+ATIV) * A.mlp)::INTEGER as at,
+            floor((B.df+DFIV) * A.mlp)::INTEGER as df
+        from $TABLE_CPM A
+        join $TABLE_POKEMON B on B.uid in (target_uid)
+        where A.lv=level;
+    return;
 END
 ' LANGUAGE 'plpgsql';
 
@@ -1408,9 +1340,7 @@ END
 
 
 
--- calc_iv
--- select * from calc_iv('MISDREAVUS', 1551, 124, 5000, 'B', 'h', 'a', null);
--- select * from calc_iv('ムウマ', 1551, 124, 5000, 'B', 'HP', 'A', 'ムウマージ');
+
 
 drop function if exists stats_minmax(_statsanalysis TEXT);
 create or replace function stats_minmax(_statsanalysis TEXT)
@@ -1621,21 +1551,29 @@ END
 
 
 -- calculate powerup costs
-drop function if exists calc_cost(current_lv numeric, target_lv numeric);
-create function calc_cost(current_lv numeric, target_lv numeric)
-returns table (stardust integer, candy integer) as '
+drop function if exists calc_cost(current_lv numeric, target_lv numeric, current_candy integer);
+create function calc_cost(current_lv numeric, target_lv numeric, current_candy integer)
+returns table (stardust integer, candy integer, achievable_lv numeric, how_many_mroe_candy integer) as '
 DECLARE
     row record;
     _candy integer := 0;
     _stardust integer := 0;
+    _achievable_lv numeric := -1.0;
 BEGIN
     FOR row in select * from $TABLE_STARDUST_CANDY loop
         CONTINUE WHEN row.lv < current_lv;
         EXIT WHEN row.lv=target_lv;
         _candy := _candy + row.candy;
         _stardust := _stardust + row.stardust;
+        --raise NOTICE '' lv:% candy:% / %'',row.lv, _candy, current_candy;
+        IF (_achievable_lv < 0) and (current_candy - _candy < 0) THEN
+            _achievable_lv := row.lv;
+        END IF;
     end loop;
-    return query select _stardust, _candy;
+    IF _achievable_lv < 0 and current_candy >= _candy THEN
+        _achievable_lv := row.lv;
+    END IF;
+    return query select _stardust, _candy, _achievable_lv, case when _candy > current_candy then _candy - current_candy else 0 end;
     return;
 END
 ' LANGUAGE 'plpgsql';

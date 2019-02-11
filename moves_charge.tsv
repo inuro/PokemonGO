@@ -1,0 +1,136 @@
+シザークロス	X Scissor	BUG	45	35	1.29
+むしのさざめき	Bug Buzz	BUG	90	60	1.50
+メガホーン	Megahorn	BUG	90	55	1.64
+シグナルビーム	Signal Beam	BUG	75	55	1.36
+ぎんいろのかぜ	Silver Wind	BUG	70	45	1.56
+つじぎり	Night Slash	DARK	50	40	1.25
+かみくだく	Crunch	DARK	70	45	1.56
+あくのはどう	Dark Pulse	DARK	80	50	1.60
+イカサマ	Foul Play	DARK	70	45	1.56
+りゅうせいぐん	Draco Meteor	DRAGON	150	75	2.00
+ドラゴンクロー	Dragon Claw	DRAGON	50	35	1.43
+りゅうのはどう	Dragon Pulse	DRAGON	90	60	1.50
+げきりん	Outrage	DRAGON	110	60	1.83
+たつまき	Twister	DRAGON	45	45	1.00
+ワイルドボルト	Wild Charge	ELECTRIC	90	50	1.80
+かみなりパンチ	Thunder Punch	ELECTRIC	55	40	1.38
+１０まんボルト	Thunderbolt	ELECTRIC	90	55	1.64
+かみなり	Thunder	ELECTRIC	100	60	1.67
+パラボラチャージ	Parabolic Charge	ELECTRIC	25	55	0.45
+ほうでん	Discharge	ELECTRIC	65	45	1.44
+でんじほう	Zap Cannon	ELECTRIC	150	80	1.88
+じゃれつく	Play Rough	FAIRY	90	60	1.50
+マジカルシャイン	Dazzling Gleam	FAIRY	110	70	1.57
+チャームボイス	Disarming Voice	FAIRY	70	45	1.56
+ドレインキッス	Draining Kiss	FAIRY	60	55	1.09
+ムーンフォース	Moonblast	FAIRY	130	70	1.86
+きあいだま	Focus Blast	FIGHTING	150	75	2.00
+ローキック	Low Sweep	FIGHTING	40	40	1.00
+じごくぐるま	Submission	FIGHTING	60	50	1.20
+かわらわり	Brick Break	FIGHTING	40	35	1.14
+インファイト	Close Combat	FIGHTING	100	60	1.67
+クロスチョップ	Cross Chop	FIGHTING	50	35	1.43
+ばくれつパンチ	Dynamic Punch	FIGHTING	90	50	1.80
+オーバーヒート	Overheat	FIRE	150	80	1.88
+ブラストバーン	Blast Burn	FIRE	110	50	2.20
+ウェザーボール（ほのお）	Weather Ball(Fire)	FIRE	60	35	1.71
+ねっぷう	Heat Wave	FIRE	95	75	1.27
+かえんぐるま	Flame Wheel	FIRE	60	55	1.09
+かえんほうしゃ	Flamethrower	FIRE	90	55	1.64
+ニトロチャージ	Flame Charge	FIRE	70	50	1.40
+はじけるほのお	Flame Burst	FIRE	70	55	1.27
+ほのおのパンチ	Fire Punch	FIRE	55	40	1.38
+だいもんじ	Fire Blast	FIRE	140	80	1.75
+ブレイブバード	Brave Bird	FLYING	90	55	1.64
+ドリルくちばし	Drill Peck	FLYING	60	40	1.50
+ぼうふう	Hurricane	FLYING	110	65	1.69
+ゴッドバード	Sky Attack	FLYING	80	45	1.78
+つばめがえし	Aerial Ace	FLYING	55	45	1.22
+エアカッター	Air Cutter	FLYING	60	55	1.09
+シャドーパンチ	Shadow Punch	GHOST	40	35	1.14
+あやしいかぜ	Ominous Wind	GHOST	50	40	1.25
+ナイトヘッド	Night Shade	GHOST	60	55	1.09
+かげうち	Shadow Sneak	GHOST	50	45	1.11
+シャドーボール	Shadow Ball	GHOST	100	55	1.82
+メガドレイン	Mega Drain	GRASS	25	55	0.45
+リーフブレード	Leaf Blade	GRASS	70	35	2.00
+くさむすび	Grass Knot	GRASS	90	50	1.80
+ギガドレイン	Giga Drain	GRASS	50	80	0.63
+エナジーボール	Energy Ball	GRASS	90	60	1.50
+ハードプラント	Frenzy Plant	GRASS	100	45	2.22
+ソーラービーム	Solar Beam	GRASS	150	80	1.88
+タネばくだん	Seed Bomb	GRASS	55	40	1.38
+パワーウィップ	Power Whip	GRASS	90	50	1.80
+はなふぶき	Petal Blizzard	GRASS	110	65	1.69
+あなをほる	Dig	GROUND	100	80	1.25
+ドリルライナー	Drill Run	GROUND	80	55	1.45
+どろばくだん	Mud Bomb	GROUND	55	40	1.38
+じしん	Earthquake	GROUND	120	65	1.85
+すなじごく	Sand Tomb	GROUND	80	60	1.33
+だんがいのつるぎ	Precipice Blades	GROUND	130	60	2.17
+ホネこんぼう	Bone Club	GROUND	40	35	1.14
+じならし	Bulldoze	GROUND	80	60	1.33
+れいとうビーム	Ice Beam	ICE	90	55	1.64
+オーロラビーム	Aurora Beam	ICE	80	60	1.33
+ゆきなだれ	Avalanche	ICE	90	45	2.00
+ふぶき	Blizzard	ICE	130	75	1.73
+れいとうパンチ	Ice Punch	ICE	55	40	1.38
+こごえるかぜ	Icy Wind	ICE	60	45	1.33
+ウェザーボール（こおり）	Weather Ball(Ice)	ICE	60	35	1.71
+つのでつく	Horn Attack	NORMAL	40	35	1.14
+のしかかり	Body Slam	NORMAL	60	35	1.71
+ねむる	Rest	NORMAL	50	35	1.43
+まきつく	Wrap	NORMAL	60	45	1.33
+はさむ	Vice Grip	NORMAL	40	40	1.00
+スピードスター	Swift	NORMAL	60	55	1.09
+わるあがき	Struggle	NORMAL	35	100	0.35
+まきつく（ピンク）	Wrap(Pink)	NORMAL	25	45	0.56
+まきつく（みどり）	Wrap(Green)	NORMAL	25	45	0.56
+ふみつけ	Stomp	NORMAL	55	40	1.38
+とっておき	Last Resort	NORMAL	90	55	1.64
+はかいこうせん	Hyper Beam	NORMAL	150	80	1.88
+ひっさつまえば	Hyper Fang	NORMAL	80	50	1.60
+ヘドロウェーブ	Sludge Wave	POISON	110	65	1.69
+クロスポイズン	Cross Poison	POISON	40	35	1.14
+ダストシュート	Gunk Shot	POISON	130	75	1.73
+どくどくのキバ	Poison Fang	POISON	40	35	1.14
+ヘドロこうげき	Sludge	POISON	50	40	1.25
+ヘドロばくだん	Sludge Bomb	POISON	80	50	1.60
+サイコショック	Psyshock	PSYCHIC	70	45	1.56
+サイコキネシス	Psychic	PSYCHIC	100	70	1.43
+みらいよち	Future Sight	PSYCHIC	120	65	1.85
+ハートスタンプ	Heart Stamp	PSYCHIC	40	40	1.00
+ミラーコート	Mirror Coat	PSYCHIC	60	55	1.09
+サイケこうせん	Psybeam	PSYCHIC	70	60	1.17
+サイコブースト	Psycho Boost	PSYCHIC	70	40	1.75
+サイコブレイク	Psystrike	PSYCHIC	100	55	1.82
+がんせきふうじ	Rock Tomb	ROCK	70	60	1.17
+いわなだれ	Rock Slide	ROCK	80	45	1.78
+げんしのちから	Ancient Power	ROCK	70	45	1.56
+パワージェム	Power Gem	ROCK	80	60	1.33
+ロックブラスト	Rock Blast	ROCK	50	40	1.25
+ウェザーボール（いわ）	Weather Ball(Rock)	ROCK	60	35	1.71
+ストーンエッジ	Stone Edge	ROCK	100	55	1.82
+コメットパンチ	Meteor Mash	STEEL	100	50	2.00
+ラスターカノン	Flash Cannon	STEEL	110	65	1.69
+ジャイロボール	Gyro Ball	STEEL	80	60	1.33
+ヘビーボンバー	Heavy Slam	STEEL	70	50	1.40
+アイアンヘッド	Iron Head	STEEL	70	50	1.40
+マグネットボム	Magnet Bomb	STEEL	70	45	1.56
+はめつのねがい	Doom Desire	STEEL	80	35	2.29
+アクアジェット	Aqua Jet	WATER	45	45	1.00
+ハイドロポンプ	Hydro Pump	WATER	130	75	1.73
+バブルこうせん	Bubble Beam	WATER	45	40	1.13
+しおみず	Brine	WATER	60	50	1.20
+アクアテール	Aqua Tail	WATER	50	35	1.43
+ねっとう	Scald	WATER	80	60	1.33
+ハイドロポンプ（カメックス）	Hydro Pump(Blastoise)	WATER	90	80	1.13
+ねっとう（カメックス）	Scald(Blastoise)	WATER	50	80	0.63
+みずのはどう	Water Pulse	WATER	70	60	1.17
+なみのり	Surf	WATER	65	40	1.63
+こんげんのはどう	Origin Pulse	WATER	130	60	2.17
+ウェザーボール（みず）	Weather Ball(Water)	WATER	60	35	1.71
+ハイドロカノン	Hydro Cannon	WATER	90	40	2.25
+5500	ABOMASNOW	GRASS	ICE	POWDER_SNOW	ICE	BLIZZARD	ICE	2923	1404	2157	2170	1279	176
+5500	ABOMASNOW	GRASS	ICE	POWDER_SNOW	ICE	ENERGY_BALL	GRASS	2863	1464	2780	1547	1126	165
+5500	ABOMASNOW	GRASS	ICE	POWDER_SNOW	ICE	OUTRAGE	DRAGON	2881	1446	2722	1605	1149	164

@@ -1,0 +1,63 @@
+むしのていこう	Struggle Bug	BUG	9	1.5	8	6.0	5.3
+むしくい	Bug Bite	BUG	3	0.5	3	6.0	6.0
+れんぞくぎり	Fury Cutter	BUG	2	0.5	4	4.0	8.0
+まとわりつく	Infestation	BUG	6	1.5	11	4.0	7.3
+ふいうち	Sucker Punch	DARK	5	1.0	7	5.0	7.0
+かみつく	Bite	DARK	4	0.5	2	8.0	4.0
+だましうち	Feint Attack	DARK	6	1.0	6	6.0	6.0
+バークアウト	Snarl	DARK	8	1.5	10	5.3	6.7
+ドラゴンテール	Dragon Tail	DRAGON	9	1.5	10	6.0	6.7
+りゅうのいぶき	Dragon Breath	DRAGON	4	0.5	3	8.0	6.0
+スパーク	Spark	ELECTRIC	4	1.0	8	4.0	8.0
+でんきショック	Thunder Shock	ELECTRIC	3	1.0	9	3.0	9.0
+ボルトチェンジ	Volt Switch	ELECTRIC	12	2.5	10	4.8	4.0
+チャージビーム	Charge Beam	ELECTRIC	5	1.5	11	3.3	7.3
+いわくだき	Rock Smash	FIGHTING	9	1.5	7	6.0	4.7
+けたぐり	Low Kick	FIGHTING	4	1.0	5	4.0	5.0
+からてチョップ	Karate Chop	FIGHTING	5	1.0	7	5.0	7.0
+カウンター	Counter	FIGHTING	8	1.0	7	8.0	7.0
+ひのこ	Ember	FIRE	6	1.0	6	6.0	6.0
+ほのおのうず	Fire Spin	FIRE	9	1.5	10	6.0	6.7
+ほのおのキバ	Fire Fang	FIRE	7	1.0	5	7.0	5.0
+つばさでうつ	Wing Attack	FLYING	5	1.0	7	5.0	7.0
+エアスラッシュ	Air Slash	FLYING	9	1.5	9	6.0	6.0
+つつく	Peck	FLYING	6	1.0	5	6.0	5.0
+シャドークロー	Shadow Claw	GHOST	6	1.0	8	6.0	8.0
+たたりめ	Hex	GHOST	6	1.5	11	4.0	7.3
+したでなめる	Lick	GHOST	3	0.5	3	6.0	6.0
+おどろかす	Astonish	GHOST	5	1.5	9	3.3	6.0
+はっぱカッター	Razor Leaf	GRASS	11	1.0	4	11.0	4.0
+つるのムチ	Vine Whip	GRASS	5	1.0	8	5.0	8.0
+タネマシンガン	Bullet Seed	GRASS	5	1.5	11	3.3	7.3
+マッドショット	Mud Shot	GROUND	3	1.0	9	3.0	9.0
+どろかけ	Mud Slap	GROUND	9	1.5	8	6.0	5.3
+こおりのいぶき	Frost Breath	ICE	7	1.0	5	7.0	5.0
+こなゆき	Powder Snow	ICE	4	1.0	8	4.0	8.0
+こおりのつぶて	Ice Shard	ICE	9	1.5	10	6.0	6.7
+でんこうせっか	Quick Attack	NORMAL	5	1.0	7	5.0	7.0
+とっしん	Take Down	NORMAL	5	1.5	8	3.3	5.3
+あくび	Yawn	NORMAL	0	2.0	12	0.0	6.0
+プレゼント	Present	NORMAL	3	1.5	12	2.0	8.0
+いあいぎり	Cut	NORMAL	3	0.5	2	6.0	4.0
+めざめるパワー	Hidden Power	NORMAL	9	1.5	8	6.0	5.3
+はたく	Pound	NORMAL	5	1.0	4	5.0	4.0
+ひっかく	Scratch	NORMAL	4	0.5	2	8.0	4.0
+たいあたり	Tackle	NORMAL	3	0.5	2	6.0	4.0
+へんしん	Transform	NORMAL	0	1.5	0	0.0	0.0
+ようかいえき	Acid	POISON	6	1.0	5	6.0	5.0
+どくづき	Poison Jab	POISON	6	1.0	7	6.0	7.0
+どくばり	Poison Sting	POISON	3	1.0	6	3.0	6.0
+しねんのずつき	Zen Headbutt	PSYCHIC	8	1.5	6	5.3	4.0
+じんつうりき	Extrasensory	PSYCHIC	8	1.5	10	5.3	6.7
+ねんりき	Confusion	PSYCHIC	16	2.0	12	8.0	6.0
+サイコカッター	Psycho Cut	PSYCHIC	3	1.0	9	3.0	9.0
+うちおとす	Smack Down	ROCK	12	1.5	8	8.0	5.3
+いわおとし	Rock Throw	ROCK	8	1.0	5	8.0	5.0
+アイアンテール	Iron Tail	STEEL	9	1.5	6	6.0	4.0
+はがねのつばさ	Steel Wing	STEEL	7	1.0	5	7.0	5.0
+バレットパンチ	Bullet Punch	STEEL	6	1.0	7	6.0	7.0
+メタルクロー	Metal Claw	STEEL	5	1.0	6	5.0	6.0
+あわ	Bubble	WATER	8	1.5	11	5.3	7.3
+たきのぼり	Waterfall	WATER	12	1.5	8	8.0	5.3
+みずでっぽう	Water Gun	WATER	3	0.5	3	6.0	6.0
+はねる	Splash	WATER	0	2.0	12	0.0	6.0

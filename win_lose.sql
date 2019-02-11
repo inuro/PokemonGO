@@ -482,6 +482,66 @@ join pokemon F on F.uid=A.uid
 where kill<death and kill_b < death_b 
 order by A.index, kill/death;
 
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('GIRATINA_ALTERED',5500,15,15,15,'SHADOW_CLAW','ANCIENT_POWER') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b 
+order by A.index, kill/death;
+
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('GIRATINA_ALTERED',5500,15,15,15,'DRAGON_BREATH','DRAGON_CLAW') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b 
+order by A.index, kill/death;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('GIRATINA_ALTERED',5500,15,15,15,'DRAGON_BREATH','ANCIENT_POWER') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b 
+order by A.index, kill/death;
+
+
 select A.* 
 from (select distinct jp,fastmove,chargemove from calc_counter_combat('GIRATINA_ALTERED',5500,15,15,15,'DRAGON_BREATH','DRAGON_CLAW') where kill<death or kill_b < death_b) A
 join (select distinct jp,fastmove,chargemove from calc_counter_combat('GIRATINA_ALTERED',5500,15,15,15,'DRAGON_BREATH','ANCIENT_POWER') where kill<death or kill_b < death_b) B on B.jp=A.jp and B.fastmove=A.fastmove and B.chargemove=A.chargemove
@@ -914,7 +974,7 @@ select
 from calc_counter_combat('SNORLAX',5500,15,15,15,'LICK','BODY_SLAM') A
 join pokemon F on F.uid=A.uid
 where kill<death and kill_b < death_b
-and kill/death < 0.9 and kill_b/death_b<0.9
+--and kill/death < 0.9 and kill_b/death_b<0.9
 order by A.index, kill/death;
 
 select 
@@ -959,6 +1019,25 @@ and kill/death < 0.9 and kill_b/death_b<0.9
 order by A.index, kill/death;
 
 
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('SNORLAX',5500,15,15,15,'LICK','OUTRAGE') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b
+--and kill/death < 0.9 and kill_b/death_b<0.9
+order by A.index, kill/death;
 
 
 
@@ -1823,3 +1902,557 @@ where kill<death and kill_b < death_b
 and kill/death < 0.9 and kill_b/death_b<0.9
 order by A.index, kill/death;
 
+
+
+select *
+from (
+    select *, 
+    rank() OVER (ORDER BY counter_unique) AS rank
+    from win_lose
+    where cap=5500
+) A 
+order by counter_unique;
+
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('TANGROWTH',5500,15,15,15,'VINE_WHIP','SOLAR_BEAM') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b
+and kill/death < 0.9 and kill_b/death_b<0.9
+order by kill/death;
+
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('ゲンガー',5500,15,15,15,'シャドークロー','シャドーボール') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+order by kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('ギャラドス',1500,15,15,15,'たきのぼり','ハイドロポンプ') A
+join pokemon F on F.uid=A.uid
+where kill<death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+order by kill/death * kill_b/death_b;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('RAIKOU',5500,15,15,15,'THUNDER_SHOCK','SHADOW_BALL') A
+join pokemon F on F.uid=A.uid
+where true
+--and kill<death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+and A.uid in ('GIRATINA_ALTERED','LATIOS','LATIAS','MEWTWO','KYOGRE','PALKIA')
+order by A.index, kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('RAIKOU',5500,15,15,15,'THUNDER_SHOCK','SHADOW_BALL') A
+join pokemon F on F.uid=A.uid
+where true
+and kill<death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED','LATIOS','LATIAS','MEWTWO','KYOGRE','PALKIA')
+order by A.index, kill/death * kill_b/death_b;
+
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('DIALGA',5500,15,15,15,'DRAGON_BREATH','IRON_HEAD') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED','LATIOS','LATIAS','MEWTWO','KYOGRE','PALKIA')
+order by kill/death * kill_b/death_b;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('DIALGA',5500,15,15,15,'DRAGON_BREATH','THUNDER') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED','LATIOS','LATIAS','MEWTWO','KYOGRE','PALKIA')
+order by kill/death * kill_b/death_b;
+
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('DIALGA',5500,15,15,15,'DRAGON_BREATH','DRACO_METEOR') A
+join pokemon F on F.uid=A.uid
+where true
+--and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+and A.uid in ('GIRATINA_ALTERED')
+order by kill/death * kill_b/death_b;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('ギラティナ',5500,15,15,15,'シャドークロー','ドラゴンクロー') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED','LATIOS','LATIAS','MEWTWO','KYOGRE','PALKIA')
+order by kill/death * kill_b/death_b;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('DIALGA',5500,15,15,15,'DRAGON_BREATH','IRON_HEAD') A
+join pokemon F on F.uid=A.uid
+where true
+--and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+and A.uid in ('GIRATINA_ALTERED')
+order by kill/death * kill_b/death_b;
+
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('AZUMARILL',1500,15,15,15,'BUBBLE','PLAY_ROUGH') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('AZUMARILL',1500,15,15,15,'BUBBLE','HYDRO_PUMP') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by kill/death * kill_b/death_b;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('ジュカイン',1500,15,15,15,'れんぞくぎり','リーフブレード') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('ルンパッパ',1500,15,15,15,'はっぱカッター','れいとうビーム') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('ヤミラミ',1500,15,15,15,'シャドークロー','イカサマ') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by kill/death * kill_b/death_b;
+
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('カビゴン',5500,15,15,15,'LICK','OUTRAGE') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by A.index, kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('カビゴン',5500,15,15,15,'LICK','BODY_SLAM') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by A.index, kill/death * kill_b/death_b;
+
+
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('マリルリ',1500,15,15,15,'あわ','ICE_BEAM') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by A.index, kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('マリルリ',1500,15,15,15,'あわ','じゃれつく') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by A.index, kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('ゴウカザル',2500,15,15,15,'FIRE_SPIN','CLOSE_COMBAT') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by kill/death, A.index;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('ゴウカザル',2500,15,15,15,'FIRE_SPIN','CLOSE_COMBAT') A
+join pokemon F on F.uid=A.uid
+where true
+and kill > death and kill_b > death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+--and A.uid in ('GIRATINA_ALTERED')
+order by hpt*atk*def desc;
+
+
+select B.jp,A.* from win_lose A join localize_pokemon B on B.uid=A.uid where cap='2500' order by counter_unique;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('パルキア',5500,15,15,15,'DRAGON_BREATH','DRACO_METEOR') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+order by A.index, kill/death * kill_b/death_b;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('パルキア',5500,15,15,15,'DRAGON_BREATH','FIRE_BLAST') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+order by A.index, kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('パルキア',5500,15,15,15,'DRAGON_BREATH','HYDRO_PUMP') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+order by A.index, kill/death * kill_b/death_b;
