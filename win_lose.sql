@@ -2456,3 +2456,68 @@ where true
 and kill < death and kill_b < death_b
 --and kill/death < 0.85 and kill_b/death_b<0.85
 order by A.index, kill/death * kill_b/death_b;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('MAMOSWINE',5500,15,15,15,'POWDER_SNOW','AVALANCHE') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+order by A.index, kill/death * kill_b/death_b;
+
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('MAMOSWINE',5500,15,15,15,'POWDER_SNOW','ANCIENT_POWER') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+order by A.index, kill/death * kill_b/death_b;
+
+select 
+    A.jp as "ポケモン",
+    type_markup(F.type_1) as "タイプ1",
+    type_markup(F.type_2) as "タイプ2",
+    A.fastmove as "通常技", 
+    type_markup(A.f_type) as "タイプ", 
+    A.chargemove as "必殺技", 
+    type_markup(A.c_type) as "タイプ", 
+    A.kill as "倒す", 
+    A.death as "倒され", 
+    ROUND(A.kill / A.death * 100,1)||'%' as "%",
+    A.kill_b as "倒す(B)", 
+    A.death_b as "倒され(B)",
+    ROUND(A.kill_b / A.death_b * 100,1)||'%' as "%"
+from calc_counter_combat('MAMOSWINE',5500,15,15,15,'POWDER_SNOW','STONE_EDGE') A
+join pokemon F on F.uid=A.uid
+where true
+and kill < death and kill_b < death_b
+--and kill/death < 0.85 and kill_b/death_b<0.85
+order by A.index, kill/death * kill_b/death_b;

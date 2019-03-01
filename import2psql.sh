@@ -522,6 +522,13 @@ join (select uid from _type union select null)C on true
 -------------------------------------------------------------------------------
 -- functions
 
+
+-- calc CP by LV,IVs (IVs could be omitted)
+-- select * from calc_cp('ヤミラミ,40,15,15,15');
+--    uid   |  cp  | lv | hpt | atk | def 
+-- ---------+------+----+-----+-----+-----
+--  SABLEYE | 1476 | 40 | 120 | 123 | 119
+-- 
 drop function if exists calc_cp(condition TEXT);
 create or replace function calc_cp(condition TEXT)
 returns table(uid text, cp integer, lv numeric, hpt integer, atk integer, def integer) as'
@@ -655,7 +662,7 @@ END
 -- usage: select * from calc_bracket('VENUSAUR', 1500, 12, 14, 8);
 drop function if exists calc_bracket(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer);
 create or replace function calc_bracket(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer)
-returns table(IV text, cp integer, hpt integer, lv numeric, atk integer, def integer) as'
+returns table(IV text, cp integer, lv numeric, hpt integer, atk integer, def integer) as'
 DECLARE
     pokemon record;
 BEGIN
@@ -734,6 +741,69 @@ BEGIN
     return;
 END
 ' LANGUAGE 'plpgsql';
+
+
+
+
+-- select * from calc_evolve_border('サーナイト,キルリア,2500');
+--  title | to_cp | from_cp | lvl  | hpiv | ativ | dfiv | rank 
+-- -------+-------+---------+------+------+------+------+------
+--  min   |  2483 |     690 | 34.5 |    1 |    0 |    0 | D
+--  max   |  2498 |     778 | 28.5 |   12 |   15 |   15 | A
+drop function if exists calc_evolve_border(condition TEXT);
+create or replace function calc_evolve_border(condition TEXT)
+returns table(
+    title text,
+    to_cp integer, 
+    from_cp integer,
+    lvl numeric,
+    hpiv integer,
+    ativ integer,
+    dfiv integer,
+    rank text
+) as'
+DECLARE
+    temp text[];
+    to_uid TEXT;
+    from_uid TEXT;
+    cap_cp INTEGER;
+BEGIN
+    temp := string_to_array(condition,'','');
+    to_uid := puid(temp[1]);
+    from_uid := puid(temp[2]);
+    cap_cp := temp[3];
+    return query 
+        With A as(
+            select * from calc_all_IV_pattern(to_uid,cap_cp)
+        ), B as(
+            select
+                A.*,
+                (floor((B.at+A.at) * (sqrt(B.df+A.df)) * (sqrt(B.hp+A.hp)) * (c.mlp * c.mlp) / 10))::INTEGER as _from_cp
+            from A
+            join pokemon B on B.uid=from_uid
+            join cpm C on C.lv=A.lv
+        )
+        select ''min'', cp, _from_cp, lv, hp, at, df, overall from B order by _from_cp limit 1;
+
+    return query 
+        With A as(
+            select * from calc_all_IV_pattern(to_uid,cap_cp)
+        ), B as(
+            select
+                A.*,
+                (floor((B.at+A.at) * (sqrt(B.df+A.df)) * (sqrt(B.hp+A.hp)) * (c.mlp * c.mlp) / 10))::INTEGER as _from_cp
+            from A
+            join pokemon B on B.uid=from_uid
+            join cpm C on C.lv=A.lv
+        )
+        select ''max'', cp, _from_cp, lv, hp, at, df, overall from B order by _from_cp desc limit 1;
+
+    return;
+END
+' LANGUAGE 'plpgsql';
+
+
+
 
 
 
@@ -982,13 +1052,7 @@ END
 
 -- calc counter for combat
 -- [usage]
--- [counter with opponent move type] 
--- select * from calc_counter('BLISSEY',2500,15,15,15,'POUND','HYPER_BEAM') order by firepower desc;
--- [general ranking for specific type]
--- select * from calc_counter(null, 1500,15,15,15,null) where (type_1='FIRE' or type_2='FIRE') order by dps desc;
--- [general ranking for specific move type]
--- select * from calc_counter(null, 1500,15,15,15,null) where (c_type='ELECTRIC') order by dps desc;
-
+-- select * from calc_counter_combat('パルキア',5500,15,15,15,'DRAGON_BREATH','FIRE_BLAST');
 drop function if exists calc_counter_combat(opponent_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, opponent_fastmove TEXT, opponent_chargemove TEXT, player_uid TEXT, player_fastmove TEXT, player_chargemove TEXT);
 create or replace function calc_counter_combat(opponent_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, opponent_fastmove TEXT, opponent_chargemove TEXT, player_uid TEXT, player_fastmove TEXT, player_chargemove TEXT)
 returns table(

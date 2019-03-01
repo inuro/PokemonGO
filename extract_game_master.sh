@@ -76,7 +76,7 @@ jq --arg version "$VERSION" -r -c '.item_templates[] | select(.template_id | tes
 .pokemon_settings.pokemon_id as $id |
 .pokemon_settings.form as $form | 
 (.template_id | capture("^V[0-9]+_POKEMON_(?<name>.+)$").name) as $name |
-.pokemon_settings.quick_moves[] | [$id, $form, $name, ., "false"]
+if .pokemon_settings.quick_moves == null then [$id, $form, $name, null, "false"] else .pokemon_settings.quick_moves[] | [$id, $form, $name, ., "false"] end
 '| sed -E 's/^\[//g' | sed -E 's/\]$//g' | sed -E 's/"//g' > ${POKEMON_TO_FASTMOVE_FILE}
 
 
@@ -92,7 +92,7 @@ jq --arg version "$VERSION" -r -c '.item_templates[] | select(.template_id | tes
 .pokemon_settings.pokemon_id as $id |
 .pokemon_settings.form as $form | 
 (.template_id | capture("^V[0-9]+_POKEMON_(?<name>.+)$").name) as $name |
-.pokemon_settings.cinematic_moves[] | [$id, $form, $name, ., "false"]
+if .pokemon_settings.cinematic_moves == null then [$id, $form, $name, null, "false"] else .pokemon_settings.cinematic_moves[] | [$id, $form, $name, ., "false"] end
 '| sed -E 's/^\[//g' | sed -E 's/\]$//g' | sed -E 's/"//g' > ${POKEMON_TO_CHARGEMOVE_FILE}
 
 
