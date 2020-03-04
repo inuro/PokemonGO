@@ -15,7 +15,7 @@ AAA as(
     join pokemon A on A.uid=B.uid
     where
     B.cap=1500
-    --and B.cp>1200
+    and B.cp>1200
     --and B.uid in (select uid from cup_toxic)
 ),
 -- eligible Pokemon all patterns
