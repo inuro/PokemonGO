@@ -23,8 +23,9 @@ GAMEMASTERDIR=$2
 SIDEFILEDIR=$3
 
 HOST=localhost
-PORT=5432
-PSQL_COMMAND="psql -p $PORT $DB"
+#PORT=5432
+PSQL_COMMAND="psql -p 5432 $DB"
+#PSQL_COMMAND="psql -U tkawai -h localhost -p 6802 $DB"
 
 #files generated from GAME_MASTER
 FILE_FORM=$GAMEMASTERDIR/form.csv
@@ -37,12 +38,13 @@ FILE_FASTMOVE=$GAMEMASTERDIR/fastmove.csv
 FILE_CHARGEMOVE=$GAMEMASTERDIR/chargemove.csv
 FILE_FASTMOVE_COMBAT=$GAMEMASTERDIR/fastmove_combat.csv
 FILE_CHARGEMOVE_COMBAT=$GAMEMASTERDIR/chargemove_combat.csv
+FILE_CPM=$GAMEMASTERDIR/cp_multiplier.csv
 #files statically prepared in sidefiles directory
 FILE_LOCALIZE_POKEMON=$SIDEFILEDIR/localize_pokemon.csv
 FILE_LOCALIZE_FASTMOVE=$SIDEFILEDIR/localize_fastmove.csv
 FILE_LOCALIZE_CHARGEMOVE=$SIDEFILEDIR/localize_chargemove.csv
 FILE_LOCALIZE_TYPE=$SIDEFILEDIR/localize_type.csv
-FILE_CPM=$SIDEFILEDIR/cpmultiplier.csv
+#FILE_CPM=$SIDEFILEDIR/cpmultiplier.csv
 FILE_MON_FAST_LEGACY=$SIDEFILEDIR/pokemon_fastmove_legacy.csv
 FILE_MON_CHARGE_LEGACY=$SIDEFILEDIR/pokemon_chargemove_legacy.csv
 FILE_POKEMON_NOT_YET=$SIDEFILEDIR/pokemon_not_yet.csv
@@ -162,7 +164,9 @@ create table if not exists $TABLE_MON_FAST_RAW(
 -- delete dups
 create temporary table temp_pokemon_fast as select distinct * from $TABLE_MON_FAST_RAW;
 delete from $TABLE_MON_FAST_RAW where true;
-insert into $TABLE_MON_FAST_RAW select * from temp_pokemon_fast;
+--insert into $TABLE_MON_FAST_RAW select * from temp_pokemon_fast;
+insert into $TABLE_MON_FAST_RAW select pokemon_id,form_id,uid,move,legacy from (select *, rank() over (partition by pokemon_id,form_id,uid,move order by legacy) as rnk from temp_pokemon_fast) as A where rnk=1;
+
 drop table temp_pokemon_fast;
 -- SPECIAL treats for NIDORAN
 UPDATE $TABLE_MON_FAST_RAW set uid='NIDORAN_F' where pokemon_id='29' and uid='NIDORAN';
@@ -183,14 +187,18 @@ create table if not exists $TABLE_MON_CHARGE_RAW(
 );
 \copy $TABLE_MON_CHARGE_RAW(pokemon_id, form_id, uid, move, legacy) from '$FILE_MON_CHARGE' with CSV delimiter ',' NULL 'null';
 \copy $TABLE_MON_CHARGE_RAW(pokemon_id, form_id, uid, move, legacy) from '$FILE_MON_CHARGE_LEGACY' with CSV delimiter ',' NULL 'null';
--- delete dups
-create temporary table temp_pokemon_charge as select distinct * from $TABLE_MON_CHARGE_RAW;
-delete from $TABLE_MON_CHARGE_RAW where true;
-insert into $TABLE_MON_CHARGE_RAW select * from temp_pokemon_charge;
-drop table temp_pokemon_charge;
 -- SPECIAL treats for NIDORAN
 UPDATE $TABLE_MON_CHARGE_RAW set uid='NIDORAN_F' where pokemon_id='29' and uid='NIDORAN';
 UPDATE $TABLE_MON_CHARGE_RAW set uid='NIDORAN_M' where pokemon_id='32' and uid='NIDORAN';
+-- SPECIAL treats for Shadow/Purified pokemon(add FRASTRATION/RETURN)
+insert into $TABLE_MON_CHARGE_RAW select B.pokemon_id, B.form_id, B.uid, '322' as move, true::boolean as legacy from _stats A join _stats B on B.uid=concat(substring(A.uid for position('_' in A.uid)),'SHADOW') where A.uid~'_SHADOW';
+insert into $TABLE_MON_CHARGE_RAW select B.pokemon_id, B.form_id, B.uid, '323' as move, true::boolean as legacy from _stats A join _stats B on B.uid=concat(substring(A.uid for position('_' in A.uid)),'NORMAL') where A.uid~'_SHADOW';
+-- delete dups
+create temporary table temp_pokemon_charge as select distinct * from $TABLE_MON_CHARGE_RAW;
+delete from $TABLE_MON_CHARGE_RAW where true;
+--insert into $TABLE_MON_CHARGE_RAW select * from temp_pokemon_charge;
+insert into $TABLE_MON_CHARGE_RAW select pokemon_id,form_id,uid,move,legacy from (select *, rank() over (partition by pokemon_id,form_id,uid,move order by legacy) as rnk from temp_pokemon_charge) as A where rnk=1;
+drop table temp_pokemon_charge;
 
 
 -- Fastmove data raw table
@@ -303,6 +311,9 @@ create table if not exists $TABLE_CPM(
     mlp numeric
 );
 \copy $TABLE_CPM(lv, mlp) from '$FILE_CPM' with CSV delimiter ',' NULL 'null';
+-- insert half values
+INSERT into $TABLE_CPM select Round((A.lv+B.lv)/2,1) as lv, SQRT((A.mlp^2 + B.mlp^2)/2) as mlp from $TABLE_CPM A join $TABLE_CPM as B on B.lv=A.lv+1;
+
 
 -- Pokemon not yet implemented
 -- 385,null,"JIRACHI"
@@ -460,7 +471,9 @@ create table if not exists $TABLE_EFFECTIVENESS as (
     join $TABLE_TYPE_RAW C on C.index=A.defender
 );
 
+
 -- all possible pokemon patterns
+-- EXCEPT Purified(follow Shadow)
 drop table if exists $TABLE_POKEMON_PATTERN;
 create table if not exists $TABLE_POKEMON_PATTERN as(
 select
@@ -481,8 +494,14 @@ select
 from $TABLE_POKEMON A 
 join $TABLE_POKEMON_FASTMOVE B on B.pokemon_uid=A.uid and B.index=A.index
 join $TABLE_POKEMON_CHARGEMOVE C on C.pokemon_uid=A.uid and C.index=A.index
+where true
+and A.uid !~ '_PURIFIED$'
+--and A.uid !~ '_SHADOW'
 );
+
+
 -- all possible pokemon patterns for combat
+-- EXCEPT Purified(follow Shadow)
 drop table if exists $TABLE_POKEMON_PATTERN_COMBAT;
 create table if not exists $TABLE_POKEMON_PATTERN_COMBAT as(
 select
@@ -503,21 +522,41 @@ join $TABLE_POKEMON_CHARGEMOVE_COMBAT C on C.pokemon_uid=A.uid and C.index=A.ind
 where true
 --and A.available=true 
 and A.uid not in ('DITTO', 'SHEDINJA')
+and A.uid !~ '_PURIFIED$'
+--and A.uid !~ '_SHADOW'
 );
 
 
 -- resistance exploded
-drop table if exists $TABLE_RESISTANCE;
-create table if not exists $TABLE_RESISTANCE as(
-select 
-    A.uid as move_type,
-    B.uid as pokemon_type1,
-    C.uid as pokemon_type2,
-    calc_weakness(A.uid,B.uid,C.uid) as mlp 
-from _type A 
-join _type B on true 
-join (select uid from _type union select null)C on true
-);
+--drop table if exists $TABLE_RESISTANCE;
+--create table if not exists $TABLE_RESISTANCE as(
+--select 
+--    A.uid as move_type,
+--    B.uid as pokemon_type1,
+--    C.uid as pokemon_type2,
+--    calc_weakness(A.uid,B.uid,C.uid) as mlp 
+--from _type A 
+--join _type B on true 
+--join (select uid from _type union select null)C on true
+--);
+
+
+-------------------------------------------------------------------------------
+-- indexes
+
+DROP INDEX if exists idx_pokemon_puid;
+CREATE INDEX idx_pokemon_puid ON $TABLE_POKEMON USING btree (uid);
+
+DROP INDEX if exists idx_pokemon_pattern_combat;
+CREATE INDEX idx_pokemon_pattern_combat ON $TABLE_POKEMON_PATTERN_COMBAT USING btree (pokemon_uid, f_uid, c_uid);
+
+DROP INDEX if exists idx_effectiveness;
+CREATE INDEX idx_effectiveness ON $TABLE_EFFECTIVENESS USING btree(attacker,defender);
+
+
+
+
+
 
 -------------------------------------------------------------------------------
 -- functions
@@ -531,7 +570,7 @@ join (select uid from _type union select null)C on true
 -- 
 drop function if exists calc_cp(condition TEXT);
 create or replace function calc_cp(condition TEXT)
-returns table(uid text, cp integer, lv numeric, hpt integer, atk integer, def integer) as'
+returns table(uid text, cp integer, lv numeric, hpt integer, atk numeric, def numeric) as'
 DECLARE
     temp text[];
     target_uid TEXT;
@@ -552,9 +591,9 @@ BEGIN
             B.uid,
             (floor((B.at+ATIV) * (sqrt(B.df+DFIV)) * (sqrt(B.hp+HPIV)) * (A.mlp * A.mlp) / 10))::INTEGER as cp,
             A.lv as lv,
-            floor((B.hp+HPIV) * A.mlp)::INTEGER as hp,
-            floor((B.at+ATIV) * A.mlp)::INTEGER as at,
-            floor((B.df+DFIV) * A.mlp)::INTEGER as df
+            Floor((B.hp+HPIV) * A.mlp)::INTEGER as hp,
+            ((B.at+ATIV) * A.mlp)::NUMERIC as at,
+            ((B.df+DFIV) * A.mlp)::NUMERIC as df
         from $TABLE_CPM A
         join $TABLE_POKEMON B on B.uid in (target_uid)
         where A.lv=level;
@@ -616,7 +655,7 @@ END
 -- usage: select * from calc_all('ラティアス,1500,15,15,15');
 drop function if exists calc_all(text);
 create or replace function calc_all(condition TEXT)
-returns table(cp integer, lv numeric, hpt integer, atk integer, def integer) as'
+returns table(cp integer, lv numeric, hpt integer, atk numeric, def numeric) as'
 DECLARE
     temp text[];
     target_uid TEXT;
@@ -624,6 +663,7 @@ DECLARE
     HPIV integer := 15;
     ATIV integer := 15;
     DFIV integer := 15;
+    cap_lv integer := 40;
 BEGIN
     temp := string_to_array(condition,'','');
     target_uid := get_pokemon_uid(temp[1]);
@@ -631,25 +671,26 @@ BEGIN
     IF temp[3] is not null then HPIV := temp[3]::integer; end if;
     IF temp[4] is not null then ATIV := temp[4]::integer; end if;
     IF temp[5] is not null then DFIV := temp[5]::integer; end if;
-    return query select * from calc_all(target_uid, cap_cp, HPIV, ATIV, DFIV);
+    IF temp[6] is not null then cap_lv := temp[6]::integer; end if;
+    return query select * from calc_all(target_uid, cap_cp, HPIV, ATIV, DFIV, cap_lv);
 END
 ' LANGUAGE plpgsql;
 
-drop function if exists calc_all(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer) cascade;
-create or replace function calc_all(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer)
-returns table(cp integer, lv numeric, hpt integer, atk integer, def integer) as'
+drop function if exists calc_all(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, cap_lv integer) cascade;
+create or replace function calc_all(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, cap_lv integer DEFAULT 40)
+returns table(cp integer, lv numeric, hpt integer, atk numeric, def numeric) as'
 BEGIN
     return query
         with A as (
         select
             (floor((B.at+ATIV) * (sqrt(B.df+DFIV)) * (sqrt(B.hp+HPIV)) * (A.mlp * A.mlp) / 10))::INTEGER as cp,
             A.lv as lv,
-            floor((B.hp+HPIV) * A.mlp)::INTEGER as hp,
-            floor((B.at+ATIV) * A.mlp)::INTEGER as at,
-            floor((B.df+DFIV) * A.mlp)::INTEGER as df
+            Floor((B.hp+HPIV) * A.mlp)::INTEGER as hp,
+            ((B.at+ATIV) * A.mlp)::NUMERIC as at,
+            ((B.df+DFIV) * A.mlp)::NUMERIC as df
         from cpm A
         join $TABLE_POKEMON B on B.uid in (target_uid)
-        ) select * from A where A.cp <= cap_cp order by A.cp desc limit 1;
+        ) select * from A where A.cp <= cap_cp and A.lv <= cap_lv order by A.cp desc limit 1;
     return;
 END
 ' LANGUAGE 'plpgsql';
@@ -662,7 +703,7 @@ END
 -- usage: select * from calc_bracket('VENUSAUR', 1500, 12, 14, 8);
 drop function if exists calc_bracket(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer);
 create or replace function calc_bracket(target_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer)
-returns table(IV text, cp integer, lv numeric, hpt integer, atk integer, def integer) as'
+returns table(IV text, cp integer, lv numeric, hpt integer, atk numeric, def numeric) as'
 DECLARE
     pokemon record;
 BEGIN
@@ -691,16 +732,16 @@ END
 -- usage: 
 --  select * from calc_all_IV_pattern('ENTEI',1500) order by cp desc, (at+df+hp) desc;
 --  select * from calc_all_IV_pattern('ENTEI',1500) where cp=1500 order by (at+df+hp) desc;
-drop function if exists calc_all_IV_pattern(target_uid TEXT, cap_cp integer);
-create or replace function calc_all_IV_pattern(target_uid TEXT, cap_cp integer)
+drop function if exists calc_all_IV_pattern(target_uid TEXT, cap_cp integer, cap_lv integer);
+create or replace function calc_all_IV_pattern(target_uid TEXT, cap_cp integer, cap_lv integer DEFAULT 40)
 returns table(
     IV text, 
     cp integer, 
     lv numeric, 
     hp integer, at integer, df integer, 
     overall text,
-    hpt integer, atk integer, def integer, 
-    total integer,
+    hpt integer, atk numeric, def numeric, 
+    total numeric,
     dust integer
 ) as'
 DECLARE
@@ -731,7 +772,7 @@ BEGIN
             q2.atk+q2.def+q2.hpt total,
             q3.stardust
         from (select concat(''HP'',hp,''/AT'',at,''/DF'',df) as IV)q1
-        join (select * from calc_all(target_uid,cap_cp,hp,at,df))q2 on true
+        join (select * from calc_all(target_uid,cap_cp,hp,at,df,cap_lv))q2 on true
         join stardust_candy q3 on q3.lv=q2.lv;
 
     END LOOP;
@@ -863,47 +904,40 @@ END
 
 
 -- calc killtime for combat
--- (Target HP, Fastmove Damage, Fastmove ID, Chargemove Damage, Chargemove Damage, barrier_left int)
+-- (Target HP, Fastmove Damage, Fastmove ID, Fastmove Ene, Fastmove Duration,
+--  Chargemove Damage, Chargemove ID, Chargemove Ene, barrier_left int)
 -- 243,"COUNTER",2,12,900,8,700,900
 -- 246,"DYNAMIC_PUNCH",2,90,2700,50,1200,2700
 -- select * from test(200, 12, 'COUNTER', 90, 'DYNAMIC_PUNCH');
 drop function if exists calc_killtime_combat(
-    hpt numeric, f_dmg numeric, f_uid text, c_dmg numeric, c_uid text, barrier_left int
+    hpt numeric, f_dmg numeric, f_ene numeric, f_dur numeric, c_dmg numeric, c_ene numeric, barrier_left int
 );
 create or replace function calc_killtime_combat(
-    hpt numeric, f_dmg numeric, f_uid text, c_dmg numeric, c_uid text, barrier_left int
+    hpt numeric, f_dmg numeric, f_ene numeric, f_dur numeric, c_dmg numeric, c_ene numeric, barrier_left int
 )
 returns numeric as '
 DECLARE
-    fast record;
-    charge record;
     time numeric := 0;
     gained integer := 0;
     turn int:=1;
 BEGIN
-    select * into fast from $TABLE_FASTMOVE_COMBAT_RAW F where F.uid=f_uid; 
-    select * into charge from $TABLE_CHARGEMOVE_COMBAT_RAW C where C.uid=c_uid; 
-    IF fast.uid is NULL or charge.uid is NULL THEN
-        return -1.0;
-    END IF;
-    
     LOOP
         -- FAST move
         hpt := hpt - f_dmg;
-        time := time + (1 + fast.duration)::numeric * 0.5;
+        time := time + f_dur;
         IF hpt <= 0 THEN
 --RAISE INFO ''#% fastmove HPT:% TIME:% ENE:%'', turn, hpt, time, gained;
             EXIT;
         END IF;
-        gained := gained + fast.energy;
+        gained := gained + f_ene;
         IF gained > 100 THEN 
             gained := 100;
         END IF;
 
         -- CHARGE move
-        IF gained >= charge.energy THEN
+        IF gained >= c_ene THEN
 --RAISE INFO ''#% fastmove HPT:% TIME:% ENE:%'', turn, hpt, time, gained;
-            gained := gained - charge.energy;
+            gained := gained - c_ene;
             IF barrier_left > 0 THEN
                 barrier_left := barrier_left - 1;
             ELSE
@@ -936,15 +970,16 @@ END
 drop function if exists calc_counter(opponent_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, opponent_move_type TEXT);
 create or replace function calc_counter(opponent_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, opponent_move_type TEXT)
 returns table(
-    index numeric, uid text, jp text, type_1 text, type_2 text, cp integer, lv numeric, hpt integer,  atk integer, def integer, 
+    index numeric, uid text, jp text, type_1 text, type_2 text, cp integer, lv numeric, hpt integer,  atk numeric, def numeric, 
     Lf text, fastmove text, f_type text, f_dps numeric, 
 --    f_dmg numeric, f_dur numeric, f_ini numeric, f_ene integer, f_stab_pow numeric, f_eff numeric,
     Lc text, chargemove text, c_type text, c_dps numeric,  
 --    c_dmg numeric,c_dur numeric, c_ini numeric, c_ene integer, c_stab_pow numeric, c_eff numeric,
     dps numeric, 
     killtime numeric,
-    AC numeric, 
-    dps_T numeric, AC_T numeric
+--    AC numeric, 
+    dps_T numeric
+--    , AC_T numeric
 ) as '
 DECLARE
     opponent record;
@@ -1017,13 +1052,13 @@ T_DPS as (
         avg(S.dps) as avg,
         stddev(S.dps) as stdrd
     from S
-),
-T_AC as (
-    select
-        avg(S.AC) as avg,
-        stddev(S.AC) as stdrd
-    from S
-) 
+)
+--, T_AC as (
+--    select
+--        avg(S.AC) as avg,
+--        stddev(S.AC) as stdrd
+--    from S
+--) 
 select
     S.index, S.uid, LP.jp, S.type_1, S.type_2, S.cp, S.lv, S.atk, S.def, S.hpt, 
     (case when S.f_leg = true then ''▲'' else null end), 
@@ -1034,22 +1069,23 @@ select
 --    S.c_dmg,round(S.c_dur,1), round(S.c_ini,1), S.c_ene, S.c_stab_pow, round(S.c_eff,1),
     round(S.dps, 1), 
     S.killtime,
-    ROUND(S.AC, 2),
-    ROUND((S.dps - T_DPS.avg) / T_DPS.stdrd * 10 + 50, 1),
-    ROUND((S.AC - T_AC.avg) / T_AC.stdrd * 10 + 50, 1)
+--    ROUND(S.AC, 2),
+    ROUND((S.dps - T_DPS.avg) / T_DPS.stdrd * 10 + 50, 1)
+--    ,ROUND((S.AC - T_AC.avg) / T_AC.stdrd * 10 + 50, 1)
 from S
 join $TABLE_LOCALIZE_POKEMON LP on LP.uid=S.uid
 join $TABLE_LOCALIZE_FASTMOVE LF on LF.uid=S.f_uid
 join $TABLE_LOCALIZE_CHARGEMOVE LC on LC.uid=S.c_uid
 join T_DPS on true
-join T_AC on true;
+--join T_AC on true
+;
 return;
 END
 ' LANGUAGE 'plpgsql';
 
 
 
-
+-------------------------------------------------------------------------------
 -- calc counter for combat
 -- [usage]
 -- select * from calc_counter_combat('パルキア',5500,15,15,15,'DRAGON_BREATH','FIRE_BLAST');
@@ -1064,8 +1100,8 @@ returns table(
     type_2 text, 
     cp integer, 
     lv numeric, 
-    atk integer, 
-    def integer, 
+    atk numeric, 
+    def numeric, 
     hpt integer, 
 -- fastmove
     Lf text, 
@@ -1093,7 +1129,10 @@ returns table(
     fdpsp numeric, -- fastmove DPS(%) 
     ofdpsp numeric, -- opponent fastmove DPS(%)
     cdp numeric, -- chargemove Damage(%)
-    ocdp numeric -- opponent chargemove Damage(%)
+    ocdp numeric, -- opponent chargemove Damage(%)
+
+    sec2chg numeric, -- sec to charge
+    o_sec2chg numeric -- opponent sec to charge
 ) as '
 DECLARE
     opponent record;
@@ -1108,6 +1147,8 @@ DECLARE
     opponent_c_type TEXT := ''NORMAL'';
     opponent_f_dur NUMERIC := 1.0;
     opponent_move_type TEXT := opponent_f_type;
+    opponent_c_ene NUMERIC := 1.0;
+    opponent_f_ene NUMERIC := 1.0;
 BEGIN
     -- follow JP
     select get_pokemon_uid(opponent_uid) into opponent_uid;
@@ -1132,6 +1173,8 @@ BEGIN
             opponent_f_type := opponent.f_type;
             opponent_c_type := opponent.c_type;
             opponent_f_dur := opponent.f_dur;
+            opponent_f_ene := opponent.f_ene;
+            opponent_c_ene := opponent.c_ene;
         END IF;
 
 RAISE INFO ''Opponent: % - ATK:% DEF:% HPT:% % / %'', opponent_uid, opponent_atk, opponent_def, opponent_hpt, opponent_fastmove, opponent_chargemove;
@@ -1265,6 +1308,8 @@ select
     Round((opponent_f_dmg / S.hpt) / opponent_f_dur, 3),
     Round(S.c_dmg / opponent_hpt, 3),
     Round(opponent_c_dmg / S.hpt, 3)
+    ,ceil(S.c_ene::numeric / S.f_ene) * S.f_dur   -- as sec2chg
+    ,ceil(opponent_c_ene::numeric / opponent_f_ene) * opponent_f_dur    -- as o_sec2chg
 from S
 join $TABLE_LOCALIZE_POKEMON LP on LP.uid=S.uid
 join $TABLE_LOCALIZE_FASTMOVE LF on LF.uid=S.f_uid
@@ -1274,6 +1319,8 @@ join T_DPS on true
 return;
 END
 ' LANGUAGE 'plpgsql';
+
+
 
 -- for simple query without specifying player pokemon
 drop function if exists calc_counter_combat(opponent_uid TEXT, cap_cp integer, HPIV integer, ATIV integer, DFIV integer, opponent_fastmove TEXT, opponent_chargemove TEXT);
@@ -1288,8 +1335,8 @@ returns table(
     cp integer, 
     lv numeric, 
     hpt integer, 
-    atk integer, 
-    def integer, 
+    atk numeric, 
+    def numeric, 
 -- fastmove
     Lf text, 
     f_uid text,
@@ -1316,7 +1363,10 @@ returns table(
     fdpsp numeric, -- fastmove DPS(%) 
     ofdpsp numeric, -- opponent fastmove DPS(%)
     cdp numeric, -- chargemove Damage(%)
-    ocdp numeric -- opponent chargemove Damage(%)
+    ocdp numeric, -- opponent chargemove Damage(%)
+
+    sec2chg numeric, -- sec to charge
+    o_sec2chg numeric -- opponent sec to charge
 ) as '
 BEGIN
     return query select * from calc_counter_combat(opponent_uid, cap_cp, HPIV, ATIV, DFIV, opponent_fastmove, opponent_chargemove, null, null, null);
@@ -1326,7 +1376,7 @@ END
 
 
 
-
+-------------------------------------------------------------------------------
 -- calculate all win(kill < death) and lose(kill>death) patterns
 -- [usage] heavy query - basically make static table
 -- BEGIN;
@@ -1334,9 +1384,7 @@ END
 -- create table win_lose as (select * from count_win_lose_pattern(5500));
 -- COMMIT;
 -- 
--- BEGIN;
--- insert into win_lose select * from count_win_lose_pattern(2500);
--- COMMIT;
+
 -- 
 -- BEGIN;
 -- insert into win_lose select * from count_win_lose_pattern(1500);
@@ -1644,111 +1692,94 @@ END
 
 
 
+-- 進化後のCPと、キャップ時に幾つになるかを計算
+-- select * from calc_evo('アチャモ,バシャーモ,525,12,15,15,1500');
+-- select * from calc_evo('アチャモ,バシャーモ,525,12,15,15');
+--   cp  | lv | evo_cp | evo_lv 
+-- ------+----+--------+--------
+--  1373 | 17 |   1494 |   18.5
+-- (1 row)
+drop function if exists calc_evo(condition TEXT);
+create or replace function calc_evo(condition TEXT)
+returns table(cp integer, lv numeric, evo_cp integer, evo_lv numeric,evo_hp integer, evo_at numeric, evo_df numeric, stardust integer, candy integer) as'
+DECLARE
+    temp text[];
+    target_uid TEXT;
+    evo_uid TEXT;
+    cp INTEGER;
+    HPIV integer := 15;
+    ATIV integer := 15;
+    DFIV integer := 15;
+    cap integer := 1500;
+    cap_LV numeric := 41;
+
+    calculatedCP INTEGER;
+    evo_cp INTEGER;
+    evo_cp_cap INTEGER;
+
+    level NUMERIC;
+    pokemon record;
+    evolve record;
+    lvs record;
+    c_lvs cursor for select * from cpm;
+    _mlp NUMERIC;
+BEGIN
+    temp := string_to_array(condition,'','');
+    target_uid := puid(temp[1]);
+    evo_uid := puid(temp[2]);
+    cp := temp[3];
+    HPIV := temp[4]::integer;
+    ATIV := temp[5]::integer;
+    DFIV := temp[6]::integer;
+    IF temp[7] is not null then cap := temp[7]::integer; end if;
+    IF temp[8] is not null then cap_LV := temp[8]::numeric; end if;
+
+    select * into pokemon from pokemon where uid=get_pokemon_uid(target_uid);
+    select * into evolve from pokemon where uid=get_pokemon_uid(evo_uid);
+
+    -- calculate level
+    FOR lvs in c_lvs LOOP
+        _mlp := lvs.mlp;
+        calculatedCP := floor((pokemon.at + ATIV) * (sqrt(pokemon.df + DFIV)) * (sqrt(pokemon.hp + HPIV)) * (_mlp * _mlp) / 10);
+        IF calculatedCP = cp THEN
+            level := lvs.lv;
+            evo_cp := (floor((evolve.at + ATIV) * (sqrt(evolve.df + DFIV)) * (sqrt(evolve.hp + HPIV)) * (_mlp * _mlp) / 10));
+            return query
+                with A as (
+                    select
+                        (floor((evolve.at + ATIV) * (sqrt(evolve.df + DFIV)) * (sqrt(evolve.hp + HPIV)) * (A.mlp * A.mlp) / 10))::INTEGER as cp, 
+                        A.lv
+                    from cpm A
+                    where A.lv <= cap_LV
+                ) 
+                , B as(
+                    select evo_cp as _cp, level as _lv, A.cp as _evo_cp, A.lv as _evo_lv from A where A.cp <= cap order by A.cp desc limit 1
+                )
+                select 
+                    B.*,
+                    floor((evolve.hp+HPIV) * D.mlp)::INTEGER,
+                    ((evolve.at+ATIV) * D.mlp)::NUMERIC,
+                    ((evolve.df+DFIV) * D.mlp)::NUMERIC,                    
+                    C.stardust, C.candy
+                from B join calc_cost(B._lv, B._evo_lv, 0) C on true
+                join cpm D on D.lv=B._evo_lv;
+        END IF;
+    END LOOP;
+
+    return;
+END
+' LANGUAGE 'plpgsql';
+
+
 
 -------------------------------------------------------------------------------
 -- views
 
 drop view if exists fastmove_combat_export;
-create view fastmove_combat_export as(
-    With Q as (
-        select
-            --A.index,
-            A.uid, B.jp as move, C.uid as type, 
-            A.power as pow, A.duration as dur, A.energy as ene 
-        from $TABLE_FASTMOVE_COMBAT_RAW A 
-        join $TABLE_LOCALIZE_FASTMOVE B on B.uid=A.uid 
-        join $TABLE_LOCALIZE_TYPE C on C.index=A.type
-    ),
-    R as(
-        select 
-            Q.uid, Q.move, Q.type,
-            Q.pow, (Q.dur + 1)::numeric * 0.5 as dur, Q.ene
-        from Q
-    )
-    select
-        *,
-        case when pow is null then 0 else Round(pow / dur, 2) end as dps,
-        case when ene is null then 0 else Round(ene / dur, 2) end as eps
-    from R
-);
-
 drop view if exists chargemove_combat_export;
-create view chargemove_combat_export as(
-    With Q as (
-        select
-            --A.index,
-            A.uid,B.jp as move, C.uid as type, 
-            A.power as pow, A.energy as ene 
-        from $TABLE_CHARGEMOVE_COMBAT_RAW A 
-        join $TABLE_LOCALIZE_CHARGEMOVE B on B.uid=A.uid 
-        join $TABLE_LOCALIZE_TYPE C on C.index=A.type
-    )
-    select
-        *,
-        case when pow is null then 0 else Round(pow::numeric / ene::numeric, 2) end as dpe
-    from Q
-);
-
-
-
 drop view if exists life_cp1500_IV15;
-create view life_cp1500_IV15 as(
-    With q as(
-        select A.index, B.jp, A.uid, A.type_1, A.type_2, A.hp, A.at, A.df from $TABLE_POKEMON A
-        join $TABLE_LOCALIZE_POKEMON B on B.uid=A.uid
-    )
-    select * from q,calc_all(q.uid,1500,15,15,15)
-);
-
 drop view if exists life_cp2500_IV15;
-create view life_cp2500_IV15 as(
-    With q as(
-        select A.index, B.jp, A.uid, A.type_1, A.type_2, A.hp, A.at, A.df from $TABLE_POKEMON A
-        join $TABLE_LOCALIZE_POKEMON B on B.uid=A.uid
-    )
-    select * from q,calc_all(q.uid,2500,15,15,15)
-);
-
-
 drop view if exists dps_cp1500_IV15;
-create view dps_cp1500_IV15 as(
-With Q as (
-    select 
-        A.index, A.uid, A.type_1, A.type_2, 
-        B.cp, B.lv, B.atk, B.def, B.hpt
-    from $TABLE_POKEMON A, calc_all(A.uid,1500,15,15,15) as B
-),
-R as (
-    select 
-        Q.*, 
-        R.f_uid, R.f_type, R.f_ene, R.f_dur, R.f_stab_pow, R.f_leg,
-        Q.atk * R.f_stab_pow / R.f_dur as f_dps,
-        R.c_uid, R.c_type,R.c_ene, R.c_dur, R.c_stab_pow, R.c_leg,
-        Q.atk * R.c_stab_pow / R.c_dur as c_dps,
-        R.c_ene::NUMERIC / R.f_ene::NUMERIC as chargetime
-    from Q
-    join $TABLE_POKEMON_PATTERN R on R.pokemon_uid=Q.uid
-),
-S as (select
-    R.index, R.uid, LP.jp, R.type_1, R.type_2, R.cp, R.lv, R.atk, R.def, R.hpt, 
-    LF.jp as fastmove, R.f_type, R.f_leg,
---    R.f_ene, R.f_stab_pow, to_char(R.f_dur, '0.9') as f_dur, 
-    R.f_dps::INTEGER, 
-    LC.jp as chargemove, R.c_type, R.c_leg,
---    R.c_ene, R.c_stab_pow, to_char(R.c_dur, '0.9') as c_dur, 
-    R.c_dps::INTEGER, 
-    (case when R.f_ene is null then 0 else
-        (R.f_dps * R.chargetime + R.c_dps * R.c_dur) / 
-        (R.chargetime + R.c_dur)
-    end)::INTEGER as total_dps
-from R
-join $TABLE_LOCALIZE_POKEMON LP on LP.uid=R.uid
-join $TABLE_LOCALIZE_FASTMOVE LF on LF.uid=R.f_uid
-join $TABLE_LOCALIZE_CHARGEMOVE LC on LC.uid=R.c_uid
-)
-select *
-from S
-);
 
 
 drop view if exists weakness;
