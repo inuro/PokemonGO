@@ -33,6 +33,7 @@ COMMIT;
 
 
 -- cap 2500
+Delete from top_IV where cap=2500;
 BEGIN;
 INSERT INTO top_IV
 With A as(
@@ -55,6 +56,7 @@ COMMIT;
 
 
 -- cap 5500
+Delete from top_IV where cap=5500;
 BEGIN;
 INSERT INTO top_IV
 With A as(

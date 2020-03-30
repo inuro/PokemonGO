@@ -1503,6 +1503,7 @@ DECLARE
 BEGIN
     IF name ~ ''^\w+$'' THEN
         select * into temp from $TABLE_LOCALIZE_POKEMON where uid=UPPER(name);
+        --select * into temp from $TABLE_LOCALIZE_POKEMON where uid=UPPER(case when position(''_'' in name)>0 then concat(substring(name for position(''_'' in name)),''NORMAL'') else name end);
     ELSE
         select * into temp from $TABLE_LOCALIZE_POKEMON where jp=name;
     END IF;

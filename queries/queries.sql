@@ -1584,3 +1584,48 @@ select * from calc_all_iv_pattern('RHYPERIOR_NORMAL',1500)
 )select iv, A.cp,B.cp,A.lv,A.hp,A.at,A.df from a, calc_cp(concat_ws(',','サイホーン',lv,hp,at,df)) b
 order by b.cp;
 
+
+-- こごえるかぜ の使い手
+With a as(
+select
+    ceil(c_ene::numeric/f_ene)*f_dur as chg,
+    floor(C.atk * c_stab_pow * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end)) as c_pow,
+    floor((C.atk*f_stab_pow * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end))*ceil(c_ene::numeric/f_ene)) as f_pow,
+    round(((C.atk*f_stab_pow * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end))*ceil(c_ene::numeric/f_ene) + C.atk * c_stab_pow * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end))/(ceil(c_ene::numeric/f_ene)*f_dur), 1) as dps,
+    C.cp,round(C.atk * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end)) as atk,round(C.def / (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end)) as def,C.hpt,
+    A.pokemon_uid,B.jp, 
+    A.f_uid,B2.jp,
+    A.c_uid,B3.jp,
+    f_stab_pow,c_stab_pow
+from pokemon_pattern_combat A 
+join localize_pokemon B on B.uid=A.pokemon_uid 
+join localize_fastmove B2 on B2.uid=A.f_uid 
+join localize_chargemove B3 on B3.uid=A.c_uid 
+join top_iv C on C.uid=A.pokemon_uid and C.cap=1500 
+where c_uid in ('ICY_WIND') and pokemon_uid not in (select uid from _not_yet) 
+)
+select * from A where cp>1200
+order by dps desc;
+
+-- 100%バフ・デバフの使い手
+With a as(
+select
+    ceil(c_ene::numeric/f_ene)*f_dur as chg,
+    floor(C.atk * c_stab_pow * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end)) as c_pow,
+    floor((C.atk*f_stab_pow * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end))*ceil(c_ene::numeric/f_ene)) as f_pow,
+    round(((C.atk*f_stab_pow * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end))*ceil(c_ene::numeric/f_ene) + C.atk * c_stab_pow * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end))/(ceil(c_ene::numeric/f_ene)*f_dur), 1) as dps,
+    C.cp,round(C.atk * (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end)) as atk,round(C.def / (case when A.pokemon_uid~'_SHADOW' then 1.2 else 1.0 end)) as def,C.hpt,
+    A.pokemon_uid,B.jp, 
+    A.f_uid,B2.jp,
+    A.c_uid,B3.jp,
+    f_stab_pow,c_stab_pow
+from pokemon_pattern_combat A 
+join localize_pokemon B on B.uid=A.pokemon_uid 
+join localize_fastmove B2 on B2.uid=A.f_uid 
+join localize_chargemove B3 on B3.uid=A.c_uid 
+join top_iv C on C.uid=A.pokemon_uid and C.cap=1500 
+where c_uid in ('POWER_UP_PUNCH','SKULL_BASH','ACID_SPRAY','MUDDY_WATER','BUBBLE_BEAM','ICY_WIND','SAND_TOMB') and pokemon_uid not in (select uid from _not_yet) 
+)
+select * from A where cp>1200
+order by dps desc;
+

@@ -323,7 +323,9 @@ select now();
     select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'CONFUSION'::TEXT as f_uid, 'IRON_HEAD'::TEXT as c_uid
     select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'BUG_BITE'::TEXT as f_uid, 'BUG_BUZZ'::TEXT as c_uid
     select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'CONFUSION'::TEXT as f_uid, 'BUG_BUZZ'::TEXT as c_uid
+    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'BUG_BITE'::TEXT as f_uid, 'PSYBEAM'::TEXT as c_uid
     select 'CAMERUPT'::TEXT as pokemon_uid, 'EMBER'::TEXT as f_uid, 'OVERHEAT'::TEXT as c_uid
+    select 'CAMERUPT'::TEXT as pokemon_uid, 'EMBER'::TEXT as f_uid, 'EARTH_POWER'::TEXT as c_uid
     select 'MUNCHLAX'::TEXT as pokemon_uid, 'LICK'::TEXT as f_uid, 'BODY_SLAM'::TEXT as c_uid
     select 'MUNCHLAX'::TEXT as pokemon_uid, 'LICK'::TEXT as f_uid, 'GUNK_SHOT'::TEXT as c_uid
     select 'MUNCHLAX'::TEXT as pokemon_uid, 'LICK'::TEXT as f_uid, 'BULLDOZE'::TEXT as c_uid
@@ -345,12 +347,63 @@ select now();
     select 'SCIZOR_NORMAL'::TEXT as pokemon_uid, 'BULLET_PUNCH'::TEXT as f_uid, 'IRON_HEAD'::TEXT as c_uid
     select 'CAMERUPT'::TEXT as pokemon_uid, 'EMBER'::TEXT as f_uid, 'OVERHEAT'::TEXT as c_uid
     select 'HIPPOWDON_NORMAL'::TEXT as pokemon_uid, 'FIRE_FANG'::TEXT as f_uid, 'BODY_SLAM'::TEXT as c_uid
+    select 'GOLBAT_NORMAL'::TEXT as pokemon_uid, 'WING_ATTACK'::TEXT as f_uid, 'OMINOUS_WIND'::TEXT as c_uid
+    select 'PILOSWINE'::TEXT as pokemon_uid, 'POWDER_SNOW'::TEXT as f_uid, 'AVALANCHE'::TEXT as c_uid
+    select 'SHIFTRY_NORMAL'::TEXT as pokemon_uid, 'SNARL'::TEXT as f_uid, 'LEAF_BLADE'::TEXT as c_uid
+    select 'PIDGEOT'::TEXT as pokemon_uid, 'WING_ATTACK'::TEXT as f_uid, 'AERIAL_ACE'::TEXT as c_uid
+    select 'ESCAVALIER'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'AERIAL_ACE'::TEXT as c_uid
+    select 'RHYPERIOR_NORMAL'::TEXT as pokemon_uid, 'SMACK_DOWN'::TEXT as f_uid, 'ROCK_WRECKER'::TEXT as c_uid
+    select 'MUK_ALOLA'::TEXT as pokemon_uid, 'SNARL'::TEXT as f_uid, 'DARK_PULSE'::TEXT as c_uid
+
+
+    select 'TENTACRUEL' as pokemon_uid, 'POISON_JAB' as f_uid, 'ACID_SPRAY' as c_uid
+    select 'TENTACRUEL' as pokemon_uid, 'POISON_JAB' as f_uid, 'HYDRO_PUMP' as c_uid
+    select 'SCIZOR_NORMAL' as pokemon_uid, 'BULLET_PUNCH' as f_uid, 'IRON_HEAD' as c_uid
+    select 'SCIZOR_NORMAL' as pokemon_uid, 'BULLET_PUNCH' as f_uid, 'NIGHT_SLASH' as c_uid
+    select 'GLIGAR' as pokemon_uid, 'WING_ATTACK' as f_uid, 'NIGHT_SLASH' as c_uid
+    select 'GLIGAR' as pokemon_uid, 'WING_ATTACK' as f_uid, 'AERIAL_ACE' as c_uid
+    select 'RHYPERIOR_NORMAL' as pokemon_uid, 'SMACK_DOWN' as f_uid, 'ROCK_WRECKER' as c_uid
+    select 'RHYPERIOR_NORMAL' as pokemon_uid, 'SMACK_DOWN' as f_uid, 'SURF' as c_uid
+    select 'HAUNTER' as pokemon_uid, 'SHADOW_CLAW' as f_uid, 'SHADOW_PUNCH' as c_uid
+    select 'HAUNTER' as pokemon_uid, 'SHADOW_CLAW' as f_uid, 'SHADOW_BALL' as c_uid
+    select 'BIBAREL' as pokemon_uid, 'WATER_GUN' as f_uid, 'SURF' as c_uid
+    select 'BIBAREL' as pokemon_uid, 'WATER_GUN' as f_uid, 'HYPER_FANG' as c_uid
+    select 'STEELIX_NORMAL'::TEXT as pokemon_uid, 'DRAGON_TAIL'::TEXT as f_uid, 'CRUNCH'::TEXT as c_uid
+    select 'STEELIX_NORMAL'::TEXT as pokemon_uid, 'DRAGON_TAIL'::TEXT as f_uid, 'EARTHQUAKE'::TEXT as c_uid
+    select 'CAMERUPT'::TEXT as pokemon_uid, 'EMBER'::TEXT as f_uid, 'EARTH_POWER'::TEXT as c_uid
+    select 'CAMERUPT'::TEXT as pokemon_uid, 'EMBER'::TEXT as f_uid, 'OVERHEAT'::TEXT as c_uid
+    select 'TOXICROAK'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'MUD_BOMB'::TEXT as c_uid
+    select 'TOXICROAK'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'DYNAMIC_PUNCH'::TEXT as c_uid
+    select 'GALVANTULA'::TEXT as pokemon_uid, 'VOLT_SWITCH'::TEXT as f_uid, 'DISCHARGE'::TEXT as c_uid
+    select 'VENUSAUR_NORMAL'::TEXT as pokemon_uid, 'VINE_WHIP'::TEXT as f_uid, 'FRENZY_PLANT'::TEXT as c_uid
+    select 'VENUSAUR_NORMAL'::TEXT as pokemon_uid, 'VINE_WHIP'::TEXT as f_uid, 'SLUDGE_BOMB'::TEXT as c_uid
+    select 'DRAPION'::TEXT as pokemon_uid, 'ICE_FANG'::TEXT as f_uid, 'AQUA_TAIL'::TEXT as c_uid
+    select 'DRAPION'::TEXT as pokemon_uid, 'ICE_FANG'::TEXT as f_uid, 'CRUNCH'::TEXT as c_uid
+    select 'DRAPION'::TEXT as pokemon_uid, 'ICE_FANG'::TEXT as f_uid, 'SLUDGE_BOMB'::TEXT as c_uid
+    select 'DRAPION'::TEXT as pokemon_uid, 'BITE'::TEXT as f_uid, 'FELL_STINGER'::TEXT as c_uid
+    select 'DRAPION'::TEXT as pokemon_uid, 'BITE'::TEXT as f_uid, 'SLUDGE_BOMB'::TEXT as c_uid
+    select 'DRAPION'::TEXT as pokemon_uid, 'BITE'::TEXT as f_uid, 'CRUNCH'::TEXT as c_uid
+    select 'PILOSWINE'::TEXT as pokemon_uid, 'POWDER_SNOW'::TEXT as f_uid, 'AVALANCHE'::TEXT as c_uid
+    select 'PILOSWINE'::TEXT as pokemon_uid, 'POWDER_SNOW'::TEXT as f_uid, 'BULLDOZE'::TEXT as c_uid
+    select 'FLYGON_NORMAL'::TEXT as pokemon_uid, 'MUD_SHOT'::TEXT as f_uid, 'DRAGON_CLAW'::TEXT as c_uid
+    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'CONFUSION'::TEXT as f_uid, 'IRON_HEAD'::TEXT as c_uid
+    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'CONFUSION'::TEXT as f_uid, 'PSYBEAM'::TEXT as c_uid
+    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'CONFUSION'::TEXT as f_uid, 'BUG_BUZZ'::TEXT as c_uid
+    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'BUG_BITE'::TEXT as f_uid, 'BUG_BUZZ'::TEXT as c_uid
+    select 'WIGGLYTUFF'::TEXT as pokemon_uid, 'CHARM'::TEXT as f_uid, 'PLAY_ROUGH'::TEXT as c_uid
+    select 'WIGGLYTUFF'::TEXT as pokemon_uid, 'CHARM'::TEXT as f_uid, 'ICE_BEAM'::TEXT as c_uid
+    select 'ESCAVALIER'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'AERIAL_ACE'::TEXT as c_uid
+    select 'ESCAVALIER'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'MEGAHORN'::TEXT as c_uid
+    select 'ESCAVALIER'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'DRILL_RUN'::TEXT as c_uid
+    select 'GOLBAT_NORMAL'::TEXT as pokemon_uid, 'WING_ATTACK'::TEXT as f_uid, 'POISON_FANG'::TEXT as c_uid
+    select 'GOLBAT_NORMAL'::TEXT as pokemon_uid, 'WING_ATTACK'::TEXT as f_uid, 'SHADOW_BALL'::TEXT as c_uid
+
+and pokemon_uid in ('WORMADAM_TRASH','MUNCHLAX','GLIGAR','WIGGLYTUFF','TOXICROAK','LUDICOLO')
 
 
 --相手へのカウンター
 With Z as(
-    --select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'BUG_BITE'::TEXT as f_uid, 'IRON_HEAD'::TEXT as c_uid
-    select 'BIBAREL'::TEXT as pokemon_uid, 'WATER_GUN'::TEXT as f_uid, 'SURF'::TEXT as c_uid
+    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'BUG_BITE'::TEXT as f_uid, 'BUG_BUZZ'::TEXT as c_uid
 ), O as(
     select 
     a.type_1 as o_type_1,
@@ -389,7 +442,6 @@ With Z as(
     and a.c_uid != 'FRUSTRATION'::TEXT
     and B.cp>1400
     and a.pokemon_uid in (select uid from win_lose_toxic)
-    --and a.pokemon_uid in ('GRAVELER_ALOLA','GOLEM_ALOLA') and a.f_uid='ROCK_THROW' and a.c_uid='ROCK_BLAST'
 ), B as(
     select *,
     Floor(1.3 * 0.5 * f_stab_pow * atk * f_eff / o_def) + 1 as f_dmg,
@@ -452,14 +504,19 @@ With Z as(
     --f_dps / o_f_dps desc
     (cycle_dmg::numeric/charge)/(o_cycle_dmg::numeric/o_charge) desc
     --kill0/death0 * kill2/death2, charge
+),
+E as(
+    select 
+        rank()over(partition by pokemon_uid order by (kill0/death0)*(kill2/death2),chg, f_ratio,dpsratio) rnk_e,
+        rank()over(order by (kill0/death0)*(kill2/death2),chg, f_ratio, dpsratio desc) rnk_t,
+        *
+    from D
+    where true 
+    and f_uid not in ('TACKLE')
 )
-select * from D where true
-and (f_ratio>=1.5 or dpsratio>=1.5)
---and chg<11.0
---and dpsratio>0.8
---where pokemon_uid='GLISCOR'
---order by f_ratio desc, dpsratio desc, chg
-order by (kill0/death0)*(kill2/death2),chg
+select * from E where true
+and pokemon_uid in ('WORMADAM_TRASH','MUNCHLAX','GLIGAR','WIGGLYTUFF','TOXICROAK','LUDICOLO')
+order by rnk_t
 ;
 
 
@@ -467,13 +524,28 @@ order by (kill0/death0)*(kill2/death2),chg
 --技の確認
 select
     pokemon_uid,type_1,type_2,
-    f_uid,f_type,f_stab_pow as fpow, f_dur,f_ene,
+    B.jp,f_uid,f_type,f_stab_pow as fpow, f_dur,f_ene,
     Round((c_ene::numeric/f_ene)*f_dur,1) as chg,
-    c_uid,c_type,c_stab_pow as cpow, c_ene
+    C.jp,c_uid,c_type,c_stab_pow as cpow, c_ene
 from pokemon_pattern_combat A
+join localize_fastmove B on B.uid=f_uid
+join localize_chargemove C on C.uid=c_uid
 where true
-and A.pokemon_uid=puid('SCIZOR_NORMAL')
+and A.pokemon_uid=puid('WORMADAM_TRASH')
 order by f_uid, (c_ene::numeric/f_ene)*f_dur;
+
+
+
+
+
+
+With a as(
+select rank()over(order by win0*win2 desc)rnk, * from win_lose_toxic
+)select * from a where uid in ('MUNCHLAX') order by rnk;
+
+
+
+
 
 
 with a as(select *, rank()over(order by win0*win2 desc)as rnk from win_lose_toxic_100 order by win0*win2 desc)
