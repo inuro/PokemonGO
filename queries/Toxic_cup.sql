@@ -403,7 +403,7 @@ and pokemon_uid in ('WORMADAM_TRASH','MUNCHLAX','GLIGAR','WIGGLYTUFF','TOXICROAK
 
 --相手へのカウンター
 With Z as(
-    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'BUG_BITE'::TEXT as f_uid, 'BUG_BUZZ'::TEXT as c_uid
+    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'BUG_BITE'::TEXT as f_uid, 'PSYBEAM'::TEXT as c_uid
 ), O as(
     select 
     a.type_1 as o_type_1,
