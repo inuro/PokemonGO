@@ -354,6 +354,7 @@ select now();
     select 'ESCAVALIER'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'AERIAL_ACE'::TEXT as c_uid
     select 'RHYPERIOR_NORMAL'::TEXT as pokemon_uid, 'SMACK_DOWN'::TEXT as f_uid, 'ROCK_WRECKER'::TEXT as c_uid
     select 'MUK_ALOLA'::TEXT as pokemon_uid, 'SNARL'::TEXT as f_uid, 'DARK_PULSE'::TEXT as c_uid
+    select 'MUK_ALOLA'::TEXT as pokemon_uid, 'SNARL'::TEXT as f_uid, 'SLUDGE_WAVE'::TEXT as c_uid
 
 
     select 'TENTACRUEL' as pokemon_uid, 'POISON_JAB' as f_uid, 'ACID_SPRAY' as c_uid
@@ -397,13 +398,15 @@ select now();
     select 'ESCAVALIER'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'DRILL_RUN'::TEXT as c_uid
     select 'GOLBAT_NORMAL'::TEXT as pokemon_uid, 'WING_ATTACK'::TEXT as f_uid, 'POISON_FANG'::TEXT as c_uid
     select 'GOLBAT_NORMAL'::TEXT as pokemon_uid, 'WING_ATTACK'::TEXT as f_uid, 'SHADOW_BALL'::TEXT as c_uid
+    select 'GLISCOR'::TEXT as pokemon_uid, 'WING_ATTACK'::TEXT as f_uid, 'NIGHT_SLASH'::TEXT as c_uid
+    select 'GLISCOR'::TEXT as pokemon_uid, 'WING_ATTACK'::TEXT as f_uid, 'EARTHQUAKE'::TEXT as c_uid
 
 and pokemon_uid in ('WORMADAM_TRASH','MUNCHLAX','GLIGAR','WIGGLYTUFF','TOXICROAK','LUDICOLO')
 
 
 --相手へのカウンター
 With Z as(
-    select 'WORMADAM_TRASH'::TEXT as pokemon_uid, 'BUG_BITE'::TEXT as f_uid, 'PSYBEAM'::TEXT as c_uid
+    select 'TOXICROAK'::TEXT as pokemon_uid, 'COUNTER'::TEXT as f_uid, 'MUD_BOMB'::TEXT as c_uid
 ), O as(
     select 
     a.type_1 as o_type_1,
@@ -531,7 +534,7 @@ from pokemon_pattern_combat A
 join localize_fastmove B on B.uid=f_uid
 join localize_chargemove C on C.uid=c_uid
 where true
-and A.pokemon_uid=puid('WORMADAM_TRASH')
+and A.pokemon_uid=puid('LUDICOLO')
 order by f_uid, (c_ene::numeric/f_ene)*f_dur;
 
 
