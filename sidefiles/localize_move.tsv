@@ -1,0 +1,265 @@
+0200	FURY_CUTTER_FAST	Fury Cutter	れんぞくぎり
+0201	BUG_BITE_FAST	Bug Bite	むしくい
+0202	BITE_FAST	Bite	かみつく
+0203	SUCKER_PUNCH_FAST	Sucker Punch	ふいうち
+0204	DRAGON_BREATH_FAST	Dragon Breath	りゅうのいぶき
+0205	THUNDER_SHOCK_FAST	Thunder Shock	でんきショック
+0206	SPARK_FAST	Spark	スパーク
+0207	LOW_KICK_FAST	Low Kick	けたぐり
+0208	KARATE_CHOP_FAST	Karate Chop	からてチョップ
+0209	EMBER_FAST	Ember	ひのこ
+0210	WING_ATTACK_FAST	Wing Attack	つばさでうつ
+0211	PECK_FAST	Peck	つつく
+0212	LICK_FAST	Lick	したでなめる
+0213	SHADOW_CLAW_FAST	Shadow Claw	シャドークロー
+0214	VINE_WHIP_FAST	Vine Whip	つるのムチ
+0215	RAZOR_LEAF_FAST	Razor Leaf	はっぱカッター
+0216	MUD_SHOT_FAST	Mud Shot	マッドショット
+0217	ICE_SHARD_FAST	Ice Shard	こおりのつぶて
+0218	FROST_BREATH_FAST	Frost Breath	こおりのいぶき
+0219	QUICK_ATTACK_FAST	Quick Attack	でんこうせっか
+0220	SCRATCH_FAST	Scratch	ひっかく
+0221	TACKLE_FAST	Tackle	たいあたり
+0222	POUND_FAST	Pound	はたく
+0223	CUT_FAST	Cut	いあいぎり
+0224	POISON_JAB_FAST	Poison Jab	どくづき
+0225	ACID_FAST	Acid	ようかいえき
+0226	PSYCHO_CUT_FAST	Psycho Cut	サイコカッター
+0227	ROCK_THROW_FAST	Rock Throw	いわおとし
+0228	METAL_CLAW_FAST	Metal Claw	メタルクロー
+0229	BULLET_PUNCH_FAST	Bullet Punch	バレットパンチ
+0230	WATER_GUN_FAST	Water Gun	みずでっぽう
+0231	SPLASH_FAST	Splash	はねる
+0233	MUD_SLAP_FAST	Mud Slap	どろかけ
+0234	ZEN_HEADBUTT_FAST	Zen Headbutt	しねんのずつき
+0235	CONFUSION_FAST	Confusion	ねんりき
+0236	POISON_STING_FAST	Poison Sting	どくばり
+0237	BUBBLE_FAST	Bubble	あわ
+0238	FEINT_ATTACK_FAST	Feint Attack	だましうち
+0239	STEEL_WING_FAST	Steel Wing	はがねのつばさ
+0240	FIRE_FANG_FAST	Fire Fang	ほのおのキバ
+0241	ROCK_SMASH_FAST	Rock Smash	いわくだき
+0242	TRANSFORM_FAST	Transform	へんしん
+0243	COUNTER_FAST	Counter	カウンター
+0244	POWDER_SNOW_FAST	Powder Snow	こなゆき
+0249	CHARGE_BEAM_FAST	Charge Beam	チャージビーム
+0250	VOLT_SWITCH_FAST	Volt Switch	ボルトチェンジ
+0253	DRAGON_TAIL_FAST	Dragon Tail	ドラゴンテール
+0255	AIR_SLASH_FAST	Air Slash	エアスラッシュ
+0260	INFESTATION_FAST	Infestation	まとわりつく
+0261	STRUGGLE_BUG_FAST	Struggle Bug	むしのていこう
+0263	ASTONISH_FAST	Astonish	おどろかす
+0264	HEX_FAST	Hex	たたりめ
+0266	IRON_TAIL_FAST	Iron Tail	アイアンテール
+0269	FIRE_SPIN_FAST	Fire Spin	ほのおのうず
+0271	BULLET_SEED_FAST	Bullet Seed	タネマシンガン
+0274	EXTRASENSORY_FAST	Extrasensory	じんつうりき
+0278	SNARL_FAST	Snarl	バークアウト
+0281	HIDDEN_POWER_FAST	Hidden Power	めざめるパワー
+0282	TAKE_DOWN_FAST	Take Down	とっしん
+0283	WATERFALL_FAST	Waterfall	たきのぼり
+0287	YAWN_FAST	Yawn	あくび
+0291	PRESENT_FAST	Present	プレゼント
+0297	SMACK_DOWN_FAST	Smack Down	うちおとす
+0320	CHARM_FAST	Charm	あまえる
+0325	LOCK_ON_FAST	Lock On	ロックオン
+0326	THUNDER_FANG_FAST	Thunder Fang	かみなりのキバ
+0327	ICE_FANG_FAST	Ice Fang	こおりのキバ
+0345	GUST_FAST	Gust	かぜおこし
+0346	INCINERATE_FAST	Incinerate	やきつくす
+0357	MAGICAL_LEAF_FAST	Magical Leaf	マジカルリーフ
+0013	WRAP	Wrap	まきつく
+0014	HYPER_BEAM	Hyper Beam	はかいこうせん
+0016	DARK_PULSE	Dark Pulse	あくのはどう
+0018	SLUDGE	Sludge	ヘドロこうげき
+0020	VICE_GRIP	Vice Grip	はさむ
+0021	FLAME_WHEEL	Flame Wheel	かえんぐるま
+0022	MEGAHORN	Megahorn	メガホーン
+0024	FLAMETHROWER	Flamethrower	かえんほうしゃ
+0026	DIG	Dig	あなをほる
+0028	CROSS_CHOP	Cross Chop	クロスチョップ
+0030	PSYBEAM	Psybeam	サイケこうせん
+0031	EARTHQUAKE	Earthquake	じしん
+0032	STONE_EDGE	Stone Edge	ストーンエッジ
+0033	ICE_PUNCH	Ice Punch	れいとうパンチ
+0034	HEART_STAMP	Heart Stamp	ハートスタンプ
+0035	DISCHARGE	Discharge	ほうでん
+0036	FLASH_CANNON	Flash Cannon	ラスターカノン
+0038	DRILL_PECK	Drill Peck	ドリルくちばし
+0039	ICE_BEAM	Ice Beam	れいとうビーム
+0040	BLIZZARD	Blizzard	ふぶき
+0042	HEAT_WAVE	Heat Wave	ねっぷう
+0045	AERIAL_ACE	Aerial Ace	つばめがえし
+0046	DRILL_RUN	Drill Run	ドリルライナー
+0047	PETAL_BLIZZARD	Petal Blizzard	はなふぶき
+0048	MEGA_DRAIN	Mega Drain	メガドレイン
+0049	BUG_BUZZ	Bug Buzz	むしのさざめき
+0050	POISON_FANG	Poison Fang	どくどくのキバ
+0051	NIGHT_SLASH	Night Slash	つじぎり
+0053	BUBBLE_BEAM	Bubble Beam	バブルこうせん
+0054	SUBMISSION	Submission	じごくぐるま
+0056	LOW_SWEEP	Low Sweep	ローキック
+0057	AQUA_JET	Aqua Jet	アクアジェット
+0058	AQUA_TAIL	Aqua Tail	アクアテール
+0059	SEED_BOMB	Seed Bomb	タネばくだん
+0060	PSYSHOCK	Psyshock	サイコショック
+0062	ANCIENT_POWER	Ancient Power	げんしのちから
+0063	ROCK_TOMB	Rock Tomb	がんせきふうじ
+0064	ROCK_SLIDE	Rock Slide	いわなだれ
+0065	POWER_GEM	Power Gem	パワージェム
+0066	SHADOW_SNEAK	Shadow Sneak	かげうち
+0067	SHADOW_PUNCH	Shadow Punch	シャドーパンチ
+0069	OMINOUS_WIND	Ominous Wind	あやしいかぜ
+0070	SHADOW_BALL	Shadow Ball	シャドーボール
+0072	MAGNET_BOMB	Magnet Bomb	マグネットボム
+0074	IRON_HEAD	Iron Head	アイアンヘッド
+0075	PARABOLIC_CHARGE	Parabolic Charge	パラボラチャージ
+0077	THUNDER_PUNCH	Thunder Punch	かみなりパンチ
+0078	THUNDER	Thunder	かみなり
+0079	THUNDERBOLT	Thunderbolt	１０まんボルト
+0080	TWISTER	Twister	たつまき
+0082	DRAGON_PULSE	Dragon Pulse	りゅうのはどう
+0083	DRAGON_CLAW	Dragon Claw	ドラゴンクロー
+0084	DISARMING_VOICE	Disarming Voice	チャームボイス
+0085	DRAINING_KISS	Draining Kiss	ドレインキッス
+0086	DAZZLING_GLEAM	Dazzling Gleam	マジカルシャイン
+0087	MOONBLAST	Moonblast	ムーンフォース
+0088	PLAY_ROUGH	Play Rough	じゃれつく
+0089	CROSS_POISON	Cross Poison	クロスポイズン
+0090	SLUDGE_BOMB	Sludge Bomb	ヘドロばくだん
+0091	SLUDGE_WAVE	Sludge Wave	ヘドロウェーブ
+0092	GUNK_SHOT	Gunk Shot	ダストシュート
+0094	BONE_CLUB	Bone Club	ホネこんぼう
+0095	BULLDOZE	Bulldoze	じならし
+0096	MUD_BOMB	Mud Bomb	どろばくだん
+0099	SIGNAL_BEAM	Signal Beam	シグナルビーム
+0100	X_SCISSOR	X Scissor	シザークロス
+0101	FLAME_CHARGE	Flame Charge	ニトロチャージ
+0102	FLAME_BURST	Flame Burst	はじけるほのお
+0103	FIRE_BLAST	Fire Blast	だいもんじ
+0104	BRINE	Brine	しおみず
+0105	WATER_PULSE	Water Pulse	みずのはどう
+0106	SCALD	Scald	ねっとう
+0107	HYDRO_PUMP	Hydro Pump	ハイドロポンプ
+0108	PSYCHIC	Psychic	サイコキネシス
+0109	PSYSTRIKE	Psystrike	サイコブレイク
+0111	ICY_WIND	Icy Wind	こごえるかぜ
+0114	GIGA_DRAIN	Giga Drain	ギガドレイン
+0115	FIRE_PUNCH	Fire Punch	ほのおのパンチ
+0116	SOLAR_BEAM	Solar Beam	ソーラービーム
+0117	LEAF_BLADE	Leaf Blade	リーフブレード
+0118	POWER_WHIP	Power Whip	パワーウィップ
+0121	AIR_CUTTER	Air Cutter	エアカッター
+0122	HURRICANE	Hurricane	ぼうふう
+0123	BRICK_BREAK	Brick Break	かわらわり
+0125	SWIFT	Swift	スピードスター
+0126	HORN_ATTACK	Horn Attack	つのでつく
+0127	STOMP	Stomp	ふみつけ
+0129	HYPER_FANG	Hyper Fang	ひっさつまえば
+0131	BODY_SLAM	Body Slam	のしかかり
+0132	REST	Rest	ねむる
+0133	STRUGGLE	Struggle	わるあがき
+0245	CLOSE_COMBAT	Close Combat	インファイト
+0246	DYNAMIC_PUNCH	Dynamic Punch	ばくれつパンチ
+0247	FOCUS_BLAST	Focus Blast	きあいだま
+0248	AURORA_BEAM	Aurora Beam	オーロラビーム
+0251	WILD_CHARGE	Wild Charge	ワイルドボルト
+0252	ZAP_CANNON	Zap Cannon	でんじほう
+0254	AVALANCHE	Avalanche	ゆきなだれ
+0256	BRAVE_BIRD	Brave Bird	ブレイブバード
+0257	SKY_ATTACK	Sky Attack	ゴッドバード
+0258	SAND_TOMB	Sand Tomb	すなじごく
+0259	ROCK_BLAST	Rock Blast	ロックブラスト
+0262	SILVER_WIND	Silver Wind	ぎんいろのかぜ
+0265	NIGHT_SHADE	Night Shade	ナイトヘッド
+0267	GYRO_BALL	Gyro Ball	ジャイロボール
+0268	HEAVY_SLAM	Heavy Slam	ヘビーボンバー
+0270	OVERHEAT	Overheat	オーバーヒート
+0272	GRASS_KNOT	Grass Knot	くさむすび
+0273	ENERGY_BALL	Energy Ball	エナジーボール
+0275	FUTURESIGHT	Future Sight	みらいよち
+0276	MIRROR_COAT	Mirror Coat	ミラーコート
+0277	OUTRAGE	Outrage	げきりん
+0279	CRUNCH	Crunch	かみくだく
+0280	FOUL_PLAY	Foul Play	イカサマ
+0284	SURF	Surf	なみのり
+0285	DRACO_METEOR	Draco Meteor	りゅうせいぐん
+0286	DOOM_DESIRE	Doom Desire	はめつのねがい
+0288	PSYCHO_BOOST	Psycho Boost	サイコブースト
+0289	ORIGIN_PULSE	Origin Pulse	こんげんのはどう
+0290	PRECIPICE_BLADES	Precipice Blades	だんがいのつるぎ
+0292	WEATHER_BALL_FIRE	Weather Ball(Fire)	ウェザーボール（ほのお）
+0293	WEATHER_BALL_ICE	Weather Ball(Ice)	ウェザーボール（こおり）
+0294	WEATHER_BALL_ROCK	Weather Ball(Rock)	ウェザーボール（いわ）
+0295	WEATHER_BALL_WATER	Weather Ball(Water)	ウェザーボール（みず）
+0296	FRENZY_PLANT	Frenzy Plant	ハードプラント
+0298	BLAST_BURN	Blast Burn	ブラストバーン
+0299	HYDRO_CANNON	Hydro Cannon	ハイドロカノン
+0300	LAST_RESORT	Last Resort	とっておき
+0301	METEOR_MASH	Meteor Mash	コメットパンチ
+0302	SKULL_BASH	Skull Bash	ロケットずつき
+0303	ACID_SPRAY	Acid Spray	アシッドボム
+0304	EARTH_POWER	Earth Power	だいちのちから
+0305	CRABHAMMER	Crab Hammer	クラブハンマー
+0306	LUNGE	Lunge	とびかかる
+0307	CRUSH_CLAW	Crush Claw	ブレイククロー
+0308	OCTAZOOKA	Octazooka	オクタンほう
+0309	MIRROR_SHOT	Mirror Shot	ミラーショット
+0310	SUPER_POWER	Superpower	ばかぢから
+0311	FELL_STINGER	Fell Stinger	とどめばり
+0312	LEAF_TORNADO	Leaf Tornado	グラスミキサー
+0313	LEECH_LIFE	Leech Life	きゅうけつ
+0314	DRAIN_PUNCH	Drain Punch	ドレインパンチ
+0315	SHADOW_BONE	Shadow Bone	シャドーボーン
+0316	MUDDY_WATER	Muddy Water	だくりゅう
+0317	BLAZE_KICK	Blaze Kick	ブレイズキック
+0318	RAZOR_SHELL	Razor Shell	シェルブレード
+0319	POWER_UP_PUNCH	Power-Up Punch	グロウパンチ
+0321	GIGA_IMPACT	Giga Impact	ギガインパクト
+0322	FRUSTRATION	Frustration	やつあたり
+0323	RETURN	Return	おんがえし
+0324	SYNCHRONOISE	Synchronoise	シンクロノイズ
+0328	HORN_DRILL	Horn Drill	つのドリル
+0329	FISSURE	Fissure	じわれ
+0330	SACRED_SWORD	Sacred Sword	せいなるつるぎ
+0331	FLYING_PRESS	Flying Press	フライングプレス
+0332	AURA_SPHERE	Aura Sphere	はどうだん
+0333	PAYBACK	Payback	しっぺがえし
+0334	ROCK_WRECKER	Rock Wrecker	がんせきほう
+0335	AEROBLAST	Aeroblast	エアロブラスト
+0336	TECHNO_BLAST_NORMAL	Techno Blast(Normal)	テクノバスター（ノーマル）
+0337	TECHNO_BLAST_BURN	Techno Blast(Fire)	テクノバスター（ほのお）
+0338	TECHNO_BLAST_CHILL	Techno Blast(Ice)	テクノバスター（こおり）
+0339	TECHNO_BLAST_WATER	Techno Blast(Water)	テクノバスター（みず）
+0340	TECHNO_BLAST_SHOCK	Techno Blast(Electric)	テクノバスター（でんき）
+0341	FLY	Fly	そらをとぶ
+0342	V_CREATE	V-create	Vジェネレート
+0343	LEAF_STORM	Leaf Storm	リーフストーム
+0344	TRI_ATTACK	Tri Attack	トライアタック
+0348	FEATHER_DANCE	Feather Dance	フェザーダンス
+0350	FAIRY_WIND_FAST	Fairy Wind	ようせいのかぜ
+0352	WEATHER_BALL_NORMAL	Weather Ball(Normal)	ウェザーボール（ノーマル）
+0353	PSYCHIC_FANGS	Psychic Fangs	サイコファング
+0356	DOUBLE_KICK_FAST	Double Kick	にどげり
+0358	SACRED_FIRE	Sacred Fire	せいなるほのお
+0359	ICICLE_SPEAR	Icicle Spear	つららばり
+0360	AEROBLAST_PLUS	Aeroblast+	エアロブラスト＋
+0361	AEROBLAST_PLUS_PLUS	Aeroblast++	エアロブラスト＋＋
+0362	SACRED_FIRE_PLUS	Sacred Fire+	せいなるほのお＋
+0363	SACRED_FIRE_PLUS_PLUS	Sacred Fire++	せいなるほのお＋＋
+0364	ACROBATICS	Acrobatics	アクロバット
+0365	LUSTER_PURGE	Luster Purge	ラスターパージ
+0366	MIST_BALL	Mist Ball	ミストボール
+0367	BRUTAL_SWING	Brutal Swing	ぶんまわす
+0368	ROLLOUT_FAST	Rollout	ころがる
+0369	SEED_FLARE	Seed Flare	シードフレア
+0370	OBSTRUCT	Obstruct	ブロッキング
+0371	SHADOW_FORCE	Shadow Force	シャドーダイブ
+0372	METEOR_BEAM	Meteor Beam	メテオビーム
+0374	FUSION_BOLT	Fusion Bolt	クロスサンダー
+0375	FUSION_FLARE	Fusion Flare	 クロスフレイム
+0376	POLTERGEIST	Poltergeist	ポルターガイスト
+0377	HIGH_HORSEPOWER	High Horsepower	１０まんばりき
+0378	GLACIATE	Glaciate	こごえるせかい
+0379	BREAKING_SWIPE	Breaking Swipe	ワイドブレイカー
+0380	BOOMBURST	Boomburst	ばくおんぱ

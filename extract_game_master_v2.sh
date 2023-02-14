@@ -41,7 +41,7 @@ echo "Output dir: ${OUTPUTDIR}"
 #echo "Pokemon Form definition: ${FORM_FILE}"
 #
 #cat ${LOCALFILE} |
-#jq -r -c '.template[] | select(.templateId | test("^FORMS_V[0-9]+_POKEMON_")) |
+#jq -r -c '.[] | select(.templateId | test("^FORMS_V[0-9]+_POKEMON_")) |
 #(.templateId | capture("^FORMS_V(?<number>[0-9]+)_POKEMON_").number) as $number |
 #.data.formSettings.pokemon as $pokemon |
 #if .data.formSettings.forms == null or $pokemon == "UNOWN" or $pokemon == "SPINDA" then
@@ -59,7 +59,7 @@ POKEMON_FILE="${OUTPUTDIR}/pokemon.tsv"
 echo "Pokemon base stats: ${POKEMON_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^V[0-9]+_POKEMON_")) | 
 select(.templateId | test("_REVERSION") | not) |
 (.templateId | capture("^V(?<number>[0-9]+)").number) as $number |
@@ -72,13 +72,13 @@ select(.templateId | test("_REVERSION") | not) |
 .data | 
 [
     $number,
-#    .pokemon.uniqueId,
+#    .pokemonSettings.uniqueId,
     $form,
-    (.pokemon.type1 | capture("POKEMON_TYPE_(?<type>.+)").type), 
-    (if .pokemon.type2 !=null then (.pokemon.type2 | capture("POKEMON_TYPE_(?<type>.+)").type) else "" end), 
-    .pokemon.stats.baseAttack,
-    .pokemon.stats.baseDefense,
-    .pokemon.stats.baseStamina
+    (.pokemonSettings.type | capture("POKEMON_TYPE_(?<type>.+)").type), 
+    (if .pokemonSettings.type2 !=null then (.pokemonSettings.type2 | capture("POKEMON_TYPE_(?<type>.+)").type) else "" end), 
+    .pokemonSettings.stats.baseAttack,
+    .pokemonSettings.stats.baseDefense,
+    .pokemonSettings.stats.baseStamina
 ]
 |@tsv' | sed -E 's/"//g' > ${POKEMON_FILE}
 
@@ -94,7 +94,7 @@ POKEMON_TO_FASTMOVE_FILE="${OUTPUTDIR}/pokemon_fastmove.tsv"
 echo "Pokemon to Fastmove(current): ${POKEMON_TO_FASTMOVE_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^V[0-9]+_POKEMON_")) | 
 select(.templateId | test("_REVERSION") | not) |
 (.templateId | capture("^V(?<number>[0-9]+)").number) as $number |
@@ -104,7 +104,7 @@ select(.templateId | test("_REVERSION") | not) |
     else .
     end
 ) as $form |
-.data.pokemon.quickMoves[]? | 
+.data.pokemonSettings.quickMoves[]? | 
 [
     $number,
     $form,
@@ -114,7 +114,7 @@ select(.templateId | test("_REVERSION") | not) |
 |@tsv' | sed -E 's/"//g' > ${POKEMON_TO_FASTMOVE_FILE}
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^V[0-9]+_POKEMON_")) | 
 select(.templateId | test("_REVERSION") | not) |
 (.templateId | capture("^V(?<number>[0-9]+)").number) as $number |
@@ -124,7 +124,7 @@ select(.templateId | test("_REVERSION") | not) |
     else .
     end
 ) as $form |
-.data.pokemon.eliteQuickMove[]? | 
+.data.pokemonSettings.eliteQuickMove[]? | 
 [
     $number,
     $form,
@@ -141,7 +141,7 @@ POKEMON_TO_CHARGEMOVE_FILE="${OUTPUTDIR}/pokemon_chargemove.tsv"
 echo "Pokemon to Chargemove(current): ${POKEMON_TO_CHARGEMOVE_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^V[0-9]+_POKEMON_")) | 
 select(.templateId | test("_REVERSION") | not) |
 (.templateId | capture("^V(?<number>[0-9]+)").number) as $number |
@@ -151,7 +151,7 @@ select(.templateId | test("_REVERSION") | not) |
     else .
     end
 ) as $form |
-.data.pokemon.cinematicMoves[]? | 
+.data.pokemonSettings.cinematicMoves[]? | 
 [
     $number,
     $form,
@@ -161,7 +161,7 @@ select(.templateId | test("_REVERSION") | not) |
 |@tsv' | sed -E 's/"//g' > ${POKEMON_TO_CHARGEMOVE_FILE}
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^V[0-9]+_POKEMON_")) | 
 select(.templateId | test("_REVERSION") | not) |
 (.templateId | capture("^V(?<number>[0-9]+)").number) as $number |
@@ -171,7 +171,7 @@ select(.templateId | test("_REVERSION") | not) |
     else .
     end
 ) as $form |
-.data.pokemon.eliteCinematicMove[]? | 
+.data.pokemonSettings.eliteCinematicMove[]? | 
 [
     $number,
     $form,
@@ -190,14 +190,14 @@ FASTMOVE_FILE="${OUTPUTDIR}/fastmove.tsv"
 echo "Fastmove: ${FASTMOVE_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^V[0-9]+_MOVE_.+_FAST$")) | 
 (.templateId | capture("^V(?<number>[0-9]+)").number) as $number |
-.data.move | 
+.data.moveSettings | 
 [
     $number,
-    (.uniqueId | capture("^(?<move>.+)_FAST").move),
-    (.type | capture("POKEMON_TYPE_(?<type>.+)").type),
+    (.movementId | capture("^(?<move>.+)_FAST").move),
+    (.pokemonType | capture("POKEMON_TYPE_(?<type>.+)").type),
     .power // 0,
     .durationMs,
     .energyDelta // 0,
@@ -217,18 +217,18 @@ CHARGEMOVE_FILE="${OUTPUTDIR}/chargemove.tsv"
 echo "Chargemove: ${CHARGEMOVE_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^V[0-9]+_MOVE_")) |
 select(.templateId | test("_FAST$") | not) |  
 select(.templateId | test("_BLASTOISE$") | not) |  
 select(.templateId | test("_GREEN$") | not) |  
 select(.templateId | test("_PINK$") | not) |  
 (.templateId | capture("^V(?<number>[0-9]+)").number) as $number |
-.data.move | 
+.data.moveSettings | 
 [
     $number,
-    .uniqueId,
-    (.type | capture("POKEMON_TYPE_(?<type>.+)").type),
+    .movementId,
+    (.pokemonType | capture("POKEMON_TYPE_(?<type>.+)").type),
     .power // 0,
     .durationMs // 0,
     .energyDelta // 0,
@@ -251,7 +251,7 @@ FASTMOVE_COMBAT_FILE="${OUTPUTDIR}/fastmove_combat.tsv"
 echo "Fastmove(combat): ${FASTMOVE_COMBAT_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^COMBAT_V[0-9]+_MOVE_.+_FAST$")) | 
 (.templateId | capture("^COMBAT_V(?<number>[0-9]+)").number) as $number |
 .data.combatMove | 
@@ -276,7 +276,7 @@ CHARGEMOVE_COMBAT_FILE="${OUTPUTDIR}/chargemove_combat.tsv"
 echo "Chargemove(combat): ${CHARGEMOVE_COMBAT_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^COMBAT_V[0-9]+_MOVE_")) |
 select(.templateId | test("_FAST$") | not) |  
 select(.templateId | test("_BLASTOISE$") | not) |  
@@ -331,7 +331,7 @@ EFFECTIVENESS_FILE="${OUTPUTDIR}/type_effectiveness.tsv"
 echo "Type effectiveness: ${EFFECTIVENESS_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^POKEMON_TYPE_")) | 
 (.data.typeEffective.attackType | capture("POKEMON_TYPE_(?<type>.+)").type) as $attackType |
 .data.typeEffective.attackScalar | to_entries[] |
@@ -351,7 +351,7 @@ CP_MULTIPLIER_FILE="${OUTPUTDIR}/cp_multiplier.tsv"
 echo "CP_Multiplier: ${CP_MULTIPLIER_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^PLAYER_LEVEL_SETTINGS")) | 
 .data.playerLevel.cpMultiplier | to_entries[] | 
 [
@@ -369,7 +369,7 @@ BATTLE_SETTINGS_FILE="${OUTPUTDIR}/battle_settings.tsv"
 echo "Battle settings: ${BATTLE_SETTINGS_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^BATTLE_SETTINGS$")) | 
 .data.battleSettings | to_entries[] |
 [.key, .value]
@@ -382,7 +382,7 @@ COMBAT_SETTINGS_FILE="${OUTPUTDIR}/combat_settings.tsv"
 echo "Combat settings: ${COMBAT_SETTINGS_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^COMBAT_SETTINGS$")) | 
 .data.combatSettings | to_entries[] |
 [.key, .value]
@@ -395,7 +395,7 @@ select(.templateId | test("^COMBAT_SETTINGS$")) |
 STARDUST_CANDY_FILE="${OUTPUTDIR}/stardust_candy.tsv"
 echo "Stardust and candy: ${STARDUST_CANDY_FILE}"
 cat ${LOCALFILE} |
-jq -r -c '.template[] | 
+jq -r -c '.[] | 
 select(.templateId | test("^POKEMON_UPGRADE_SETTINGS")) | 
 .data.pokemonUpgrades | 
 .stardustCost as $stardust |

@@ -1,0 +1,95 @@
+{
+    "templateId": "V0649_POKEMON_GENESECT_NORMAL",
+    "data": {
+        "templateId": "V0649_POKEMON_GENESECT_NORMAL",
+        "pokemonSettings": {
+            "pokemonId": "GENESECT",
+            "modelScale": 1.26,
+            "type": "POKEMON_TYPE_BUG",
+            "type2": "POKEMON_TYPE_STEEL",
+            "camera": {
+                "diskRadiusM": 0.378,
+                "cylinderRadiusM": 0.74,
+                "cylinderHeightM": 1.52,
+                "shoulderModeScale": 0.5
+            },
+            "encounter": {
+                "baseCaptureRate": 0.02,
+                "baseFleeRate": 0.01,
+                "collisionRadiusM": 0.15,
+                "collisionHeightM": 0.1,
+                "collisionHeadRadiusM": 0.25,
+                "movementType": "MOVEMENT_JUMP",
+                "movementTimerS": 10.0,
+                "jumpTimeS": 1.1,
+                "attackTimerS": 29.0,
+                "attackProbability": 0.1,
+                "dodgeProbability": 0.15,
+                "dodgeDurationS": 1.0,
+                "dodgeDistance": 1.0,
+                "cameraDistance": 5.5,
+                "minPokemonActionFrequencyS": 0.2,
+                "maxPokemonActionFrequencyS": 1.6,
+                "bonusXlCandyCaptureReward": 3
+            },
+            "stats": {
+                "baseStamina": 174,
+                "baseAttack": 252,
+                "baseDefense": 199
+            },
+            "quickMoves": [
+                "METAL_CLAW_FAST",
+                "FURY_CUTTER_FAST"
+            ],
+            "cinematicMoves": [
+                "X_SCISSOR",
+                "MAGNET_BOMB",
+                "HYPER_BEAM"
+            ],
+            "animationTime": [
+                1.9,
+                0.6667,
+                1.8,
+                1.7667,
+                0.0,
+                2.4,
+                0.8667,
+                0.0
+            ],
+            "evolutionPips": 1,
+            "rarity": "POKEMON_RARITY_MYTHIC",
+            "pokedexHeightM": 1.5,
+            "pokedexWeightKg": 82.5,
+            "heightStdDev": 0.1875,
+            "weightStdDev": 10.3125,
+            "familyId": "FAMILY_GENESECT",
+            "candyToEvolve": 25,
+            "kmBuddyDistance": 20.0,
+            "modelHeight": 2.0,
+            "modelScaleV2": 1.0,
+            "form": "GENESECT_NORMAL",
+            "buddyOffsetMale": [
+                12.3,
+                0.0,
+                -68.5
+            ],
+            "buddyOffsetFemale": [
+                12.3,
+                0.0,
+                -68.5
+            ],
+            "buddyScale": 19.0,
+            "buddyPortraitOffset": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "thirdMove": {
+                "stardustToUnlock": 100000,
+                "candyToUnlock": 100
+            },
+            "isTransferable": true,
+            "buddyGroupNumber": 2
+        }
+    }
+},

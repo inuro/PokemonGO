@@ -1,188 +1,197 @@
-0001	BULBASAUR	フシギダネ	Bulbasaur
-0002	IVYSAUR	フシギソウ	Ivysaur
-0003	VENUSAUR	フシギバナ	Venusaur
-0004	CHARMANDER	ヒトカゲ	Charmander
-0005	CHARMELEON	リザード	Charmeleon
-0006	CHARIZARD	リザードン	Charizard
-0007	SQUIRTLE	ゼニガメ	Squirtle
-0008	WARTORTLE	カメール	Wartortle
-0009	BLASTOISE	カメックス	Blastoise
+0001	BULBASAUR_NORMAL	フシギダネ	Bulbasaur
+0002	IVYSAUR_NORMAL	フシギソウ	Ivysaur
+0003	VENUSAUR_NORMAL	フシギバナ	Venusaur
+0004	CHARMANDER_NORMAL	ヒトカゲ	Charmander
+0005	CHARMELEON_NORMAL	リザード	Charmeleon
+0006	CHARIZARD_NORMAL	リザードン	Charizard
+0007	SQUIRTLE_NORMAL	ゼニガメ	Squirtle
+0008	WARTORTLE_NORMAL	カメール	Wartortle
+0009	BLASTOISE_NORMAL	カメックス	Blastoise
 0010	CATERPIE	キャタピー	Caterpie
 0011	METAPOD	トランセル	Metapod
 0012	BUTTERFREE	バタフリー	Butterfree
-0013	WEEDLE	ビードル	Weedle
-0014	KAKUNA	コクーン	Kakuna
-0015	BEEDRILL	スピアー	Beedrill
+0013	WEEDLE_NORMAL	ビードル	Weedle
+0014	KAKUNA_NORMAL	コクーン	Kakuna
+0015	BEEDRILL_NORMAL	スピアー	Beedrill
 0016	PIDGEY	ポッポ	Pidgey
 0017	PIDGEOTTO	ピジョン	Pidgeotto
 0018	PIDGEOT	ピジョット	Pidgeot
-0019	RATTATA	コラッタ	Rattata
 0019	RATTATA_ALOLA	コラッタ (アローラのすがた)	Alolan Rattata
-0020	RATICATE	ラッタ	Raticate
+0019	RATTATA_NORMAL	コラッタ	Rattata
 0020	RATICATE_ALOLA	ラッタ (アローラのすがた)	Alolan Raticate
+0020	RATICATE_NORMAL	ラッタ	Raticate
 0021	SPEAROW	オニスズメ	Spearow
 0022	FEAROW	オニドリル	Fearow
-0023	EKANS	アーボ	Ekans
-0024	ARBOK	アーボック	Arbok
-0025	PIKACHU	ピカチュウ	Pikachu
+0023	EKANS_NORMAL	アーボ	Ekans
+0024	ARBOK_NORMAL	アーボック	Arbok
+0025	PIKACHU_NORMAL	ピカチュウ	Pikachu
 0026	RAICHU_ALOLA	ライチュウ (アローラのすがた)	Alolan Raichu
-0026	RAICHU	ライチュウ	Raichu
+0026	RAICHU_NORMAL	ライチュウ	Raichu
 0027	SANDSHREW_ALOLA	サンド (アローラのすがた)	Alolan Sandshrew
-0027	SANDSHREW	サンド	Sandshrew
+0027	SANDSHREW_NORMAL	サンド	Sandshrew
 0028	SANDSLASH_ALOLA	サンドパン (アローラのすがた)	Alolan Sandslash
-0028	SANDSLASH	サンドパン	Sandslash
-0029	NIDORAN_F	ニドラン♀	Nidoran♀
-0030	NIDORINA	ニドリーナ	Nidorina
-0031	NIDOQUEEN	ニドクイン	Nidoqueen
-0032	NIDORAN_M	ニドラン♂	Nidoran♂
-0033	NIDORINO	ニドリーノ	Nidorino
-0034	NIDOKING	ニドキング	Nidoking
+0028	SANDSLASH_NORMAL	サンドパン	Sandslash
+0029	NIDORAN_F_NORMAL	ニドラン♀	Nidoran♀
+0030	NIDORINA_NORMAL	ニドリーナ	Nidorina
+0031	NIDOQUEEN_NORMAL	ニドクイン	Nidoqueen
+0032	NIDORAN_M_NORMAL	ニドラン♂	Nidoran♂
+0033	NIDORINO_NORMAL	ニドリーノ	Nidorino
+0034	NIDOKING_NORMAL	ニドキング	Nidoking
 0035	CLEFAIRY	ピッピ	Clefairy
 0036	CLEFABLE	ピクシー	Clefable
-0037	VULPIX	ロコン	Vulpix
 0037	VULPIX_ALOLA	ロコン (アローラのすがた)	Alolan Vulpix
-0038	NINETALES	キュウコン	Ninetales
+0037	VULPIX_NORMAL	ロコン	Vulpix
 0038	NINETALES_ALOLA	キュウコン (アローラのすがた)	Alolan Ninetales
+0038	NINETALES_NORMAL	キュウコン	Ninetales
 0039	JIGGLYPUFF	プリン	Jigglypuff
 0040	WIGGLYTUFF	プクリン	Wigglytuff
-0041	ZUBAT	ズバット	Zubat
-0042	GOLBAT	ゴルバット	Golbat
-0043	ODDISH	ナゾノクサ	Oddish
-0044	GLOOM	クサイハナ	Gloom
-0045	VILEPLUME	ラフレシア	Vileplume
+0041	ZUBAT_NORMAL	ズバット	Zubat
+0042	GOLBAT_NORMAL	ゴルバット	Golbat
+0043	ODDISH_NORMAL	ナゾノクサ	Oddish
+0044	GLOOM_NORMAL	クサイハナ	Gloom
+0045	VILEPLUME_NORMAL	ラフレシア	Vileplume
 0046	PARAS	パラス	Paras
 0047	PARASECT	パラセクト	Parasect
-0048	VENONAT	コンパン	Venonat
-0049	VENOMOTH	モルフォン	Venomoth
+0048	VENONAT_NORMAL	コンパン	Venonat
+0049	VENOMOTH_NORMAL	モルフォン	Venomoth
 0050	DIGLETT_ALOLA	ディグダ (アローラのすがた)	Alolan Diglett
-0050	DIGLETT	ディグダ	Diglett
+0050	DIGLETT_NORMAL	ディグダ	Diglett
 0051	DUGTRIO_ALOLA	ダグトリオ (アローラのすがた)	Alolan Dugtrio
-0051	DUGTRIO	ダグトリオ	Dugtrio
-0052	MEOWTH	ニャース	Meowth
+0051	DUGTRIO_NORMAL	ダグトリオ	Dugtrio
 0052	MEOWTH_ALOLA	ニャース (アローラのすがた)	Alolan Meowth
 0052	MEOWTH_GALARIAN	ニャース (ガラルのすがた)	Galarian Meowth
-0053	PERSIAN	ペルシアン	Persian
+0052	MEOWTH_NORMAL	ニャース	Meowth
 0053	PERSIAN_ALOLA	ペルシアン (アローラのすがた)	Alolan Persian
-0054	PSYDUCK	コダック	Psyduck
-0055	GOLDUCK	ゴルダック	Golduck
+0053	PERSIAN_NORMAL	ペルシアン	Persian
+0054	PSYDUCK_NORMAL	コダック	Psyduck
+0055	GOLDUCK_NORMAL	ゴルダック	Golduck
 0056	MANKEY	マンキー	Mankey
 0057	PRIMEAPE	オコリザル	Primeape
-0058	GROWLITHE	ガーディ	Growlithe
-0059	ARCANINE	ウインディ	Arcanine
-0060	POLIWAG	ニョロモ	Poliwag
-0061	POLIWHIRL	ニョロゾ	Poliwhirl
-0062	POLIWRATH	ニョロボン	Poliwrath
-0063	ABRA	ケーシィ	Abra
-0064	KADABRA	ユンゲラー	Kadabra
-0065	ALAKAZAM	フーディン	Alakazam
-0066	MACHOP	ワンリキー	Machop
-0067	MACHOKE	ゴーリキー	Machoke
-0068	MACHAMP	カイリキー	Machamp
-0069	BELLSPROUT	マダツボミ	Bellsprout
-0070	WEEPINBELL	ウツドン	Weepinbell
-0071	VICTREEBEL	ウツボット	Victreebel
+0058	GROWLITHE_HISUIAN	ガーディ (ヒスイのすがた)	Hisuian Growlithe
+0058	GROWLITHE_NORMAL	ガーディ	Growlithe
+0059	ARCANINE_HISUIAN	ウインディ (ヒスイのすがた)	Hisuian Arcanine
+0059	ARCANINE_NORMAL	ウインディ	Arcanine
+0060	POLIWAG_NORMAL	ニョロモ	Poliwag
+0061	POLIWHIRL_NORMAL	ニョロゾ	Poliwhirl
+0062	POLIWRATH_NORMAL	ニョロボン	Poliwrath
+0063	ABRA_NORMAL	ケーシィ	Abra
+0064	KADABRA_NORMAL	ユンゲラー	Kadabra
+0065	ALAKAZAM_NORMAL	フーディン	Alakazam
+0066	MACHOP_NORMAL	ワンリキー	Machop
+0067	MACHOKE_NORMAL	ゴーリキー	Machoke
+0068	MACHAMP_NORMAL	カイリキー	Machamp
+0069	BELLSPROUT_NORMAL	マダツボミ	Bellsprout
+0070	WEEPINBELL_NORMAL	ウツドン	Weepinbell
+0071	VICTREEBEL_NORMAL	ウツボット	Victreebel
 0072	TENTACOOL	メノクラゲ	Tentacool
 0073	TENTACRUEL	ドククラゲ	Tentacruel
-0074	GEODUDE	イシツブテ	Geodude
 0074	GEODUDE_ALOLA	イシツブテ (アローラのすがた)	Alolan Geodude
-0075	GRAVELER	ゴローン	Graveler
+0074	GEODUDE_NORMAL	イシツブテ	Geodude
 0075	GRAVELER_ALOLA	ゴローン (アローラのすがた)	Alolan Graveler
+0075	GRAVELER_NORMAL	ゴローン	Graveler
 0076	GOLEM_ALOLA	ゴローニャ (アローラのすがた)	Alolan Golem
-0076	GOLEM	ゴローニャ	Golem
-0077	PONYTA	ポニータ	Ponyta
+0076	GOLEM_NORMAL	ゴローニャ	Golem
 0077	PONYTA_GALARIAN	ポニータ (ガラルのすがた)	Galarian Ponyta
-0078	RAPIDASH	ギャロップ	Rapidash
+0077	PONYTA_NORMAL	ポニータ	Ponyta
 0078	RAPIDASH_GALARIAN	ギャロップ (ガラルのすがた)	Galarian Rapidash
-0079	SLOWPOKE	ヤドン	Slowpoke
-0080	SLOWBRO	ヤドラン	Slowbro
-0081	MAGNEMITE	コイル	Magnemite
-0082	MAGNETON	レアコイル	Magneton
-0083	FARFETCHD	カモネギ	Farfetch'd
+0078	RAPIDASH_NORMAL	ギャロップ	Rapidash
+0079	SLOWPOKE_GALARIAN	ヤドン (ガラルのすがた)	Galarian Slowpoke
+0079	SLOWPOKE_NORMAL	ヤドン	Slowpoke
+0080	SLOWBRO_GALARIAN	ヤドラン (ガラルのすがた)	Galarian Slowbro
+0080	SLOWBRO_NORMAL	ヤドラン	Slowbro
+0081	MAGNEMITE_NORMAL	コイル	Magnemite
+0082	MAGNETON_NORMAL	レアコイル	Magneton
 0083	FARFETCHD_GALARIAN	カモネギ (ガラルのすがた)	Galarian Farfetch'd
+0083	FARFETCHD_NORMAL	カモネギ	Farfetch'd
 0084	DODUO	ドードー	Doduo
 0085	DODRIO	ドードリオ	Dodrio
 0086	SEEL	パウワウ	Seel
 0087	DEWGONG	ジュゴン	Dewgong
 0088	GRIMER_ALOLA	ベトベター (アローラのすがた)	Alolan Grimer
-0088	GRIMER	ベトベター	Grimer
-0089	MUK	ベトベトン	Muk
+0088	GRIMER_NORMAL	ベトベター	Grimer
 0089	MUK_ALOLA	ベトベトン (アローラのすがた)	Alolan Muk
-0090	SHELLDER	シェルダー	Shellder
-0091	CLOYSTER	パルシェン	Cloyster
+0089	MUK_NORMAL	ベトベトン	Muk
+0090	SHELLDER_NORMAL	シェルダー	Shellder
+0091	CLOYSTER_NORMAL	パルシェン	Cloyster
 0092	GASTLY	ゴース	Gastly
 0093	HAUNTER	ゴースト	Haunter
-0094	GENGAR	ゲンガー	Gengar
-0095	ONIX	イワーク	Onix
-0096	DROWZEE	スリープ	Drowzee
-0097	HYPNO	スリーパー	Hypno
-0098	KRABBY	クラブ	Krabby
-0099	KINGLER	キングラー	Kingler
-0100	VOLTORB	ビリリダマ	Voltorb
-0101	ELECTRODE	マルマイン	Electrode
-0102	EXEGGCUTE	タマタマ	Exeggcute
+0094	GENGAR_NORMAL	ゲンガー	Gengar
+0095	ONIX_NORMAL	イワーク	Onix
+0096	DROWZEE_NORMAL	スリープ	Drowzee
+0097	HYPNO_NORMAL	スリーパー	Hypno
+0098	KRABBY_NORMAL	クラブ	Krabby
+0099	KINGLER_NORMAL	キングラー	Kingler
+0100	VOLTORB_HISUIAN	ビリリダマ（ヒスイのすがた）	Hisuian Voltorb
+0100	VOLTORB_NORMAL	ビリリダマ	Voltorb
+0101	ELECTRODE_HISUIAN	マルマイン (ヒスイのすがた)	Hisuian Electrode
+0101	ELECTRODE_NORMAL	マルマイン	Electrode
+0102	EXEGGCUTE_NORMAL	タマタマ	Exeggcute
 0103	EXEGGUTOR_ALOLA	ナッシー (アローラのすがた)	Alolan Exeggutor
-0103	EXEGGUTOR	ナッシー	Exeggutor
-0104	CUBONE	カラカラ	Cubone
+0103	EXEGGUTOR_NORMAL	ナッシー	Exeggutor
+0104	CUBONE_NORMAL	カラカラ	Cubone
 0105	MAROWAK_ALOLA	ガラガラ (アローラのすがた)	Alolan Marowak
-0105	MAROWAK	ガラガラ	Marowak
-0106	HITMONLEE	サワムラー	Hitmonlee
-0107	HITMONCHAN	エビワラー	Hitmonchan
+0105	MAROWAK_NORMAL	ガラガラ	Marowak
+0106	HITMONLEE_NORMAL	サワムラー	Hitmonlee
+0107	HITMONCHAN_NORMAL	エビワラー	Hitmonchan
 0108	LICKITUNG	ベロリンガ	Lickitung
-0109	KOFFING	ドガース	Koffing
-0110	WEEZING	マタドガス	Weezing
+0109	KOFFING_NORMAL	ドガース	Koffing
 0110	WEEZING_GALARIAN	マタドガス (ガラルのすがた)	Galarian Weezing
-0111	RHYHORN	サイホーン	Rhyhorn
-0112	RHYDON	サイドン	Rhydon
+0110	WEEZING_NORMAL	マタドガス	Weezing
+0111	RHYHORN_NORMAL	サイホーン	Rhyhorn
+0112	RHYDON_NORMAL	サイドン	Rhydon
 0113	CHANSEY	ラッキー	Chansey
-0114	TANGELA	モンジャラ	Tangela
-0115	KANGASKHAN	ガルーラ	Kangaskhan
-0116	HORSEA	タッツー	Horsea
-0117	SEADRA	シードラ	Seadra
+0114	TANGELA_NORMAL	モンジャラ	Tangela
+0115	KANGASKHAN_NORMAL	ガルーラ	Kangaskhan
+0116	HORSEA_NORMAL	タッツー	Horsea
+0117	SEADRA_NORMAL	シードラ	Seadra
 0118	GOLDEEN	トサキント	Goldeen
 0119	SEAKING	アズマオウ	Seaking
 0120	STARYU	ヒトデマン	Staryu
 0121	STARMIE	スターミー	Starmie
-0122	MR_MIME	バリヤード	Mr. Mime
 0122	MR_MIME_GALARIAN	バリヤード (ガラルのすがた)	Galarian Mr. Mime
-0123	SCYTHER	ストライク	Scyther
+0122	MR_MIME_NORMAL	バリヤード	Mr. Mime
+0123	SCYTHER_NORMAL	ストライク	Scyther
 0124	JYNX	ルージュラ	Jynx
-0125	ELECTABUZZ	エレブー	Electabuzz
-0126	MAGMAR	ブーバー	Magmar
-0127	PINSIR	カイロス	Pinsir
+0125	ELECTABUZZ_NORMAL	エレブー	Electabuzz
+0126	MAGMAR_NORMAL	ブーバー	Magmar
+0127	PINSIR_NORMAL	カイロス	Pinsir
 0128	TAUROS	ケンタロス	Tauros
-0129	MAGIKARP	コイキング	Magikarp
-0130	GYARADOS	ギャラドス	Gyarados
-0131	LAPRAS	ラプラス	Lapras
+0129	MAGIKARP_NORMAL	コイキング	Magikarp
+0130	GYARADOS_NORMAL	ギャラドス	Gyarados
+0131	LAPRAS_NORMAL	ラプラス	Lapras
 0132	DITTO	メタモン	Ditto
 0133	EEVEE	イーブイ	Eevee
 0134	VAPOREON	シャワーズ	Vaporeon
 0135	JOLTEON	サンダース	Jolteon
 0136	FLAREON	ブースター	Flareon
-0137	PORYGON	ポリゴン	Porygon
-0138	OMANYTE	オムナイト	Omanyte
-0139	OMASTAR	オムスター	Omastar
-0140	KABUTO	カブト	Kabuto
-0141	KABUTOPS	カブトプス	Kabutops
-0142	AERODACTYL	プテラ	Aerodactyl
-0143	SNORLAX	カビゴン	Snorlax
-0144	ARTICUNO	フリーザー	Articuno
-0145	ZAPDOS	サンダー	Zapdos
-0146	MOLTRES	ファイヤー	Moltres
-0147	DRATINI	ミニリュウ	Dratini
-0148	DRAGONAIR	ハクリュー	Dragonair
-0149	DRAGONITE	カイリュー	Dragonite
-0150	MEWTWO	ミュウツー	Mewtwo
+0137	PORYGON_NORMAL	ポリゴン	Porygon
+0138	OMANYTE_NORMAL	オムナイト	Omanyte
+0139	OMASTAR_NORMAL	オムスター	Omastar
+0140	KABUTO_NORMAL	カブト	Kabuto
+0141	KABUTOPS_NORMAL	カブトプス	Kabutops
+0142	AERODACTYL_NORMAL	プテラ	Aerodactyl
+0143	SNORLAX_NORMAL	カビゴン	Snorlax
+0144	ARTICUNO_GALARIAN	フリーザー (ガラルのすがた)	Galarian Articuno
+0144	ARTICUNO_NORMAL	フリーザー	Articuno
+0145	ZAPDOS_GALARIAN	サンダー (ガラルのすがた)	Galarian Zapdos
+0145	ZAPDOS_NORMAL	サンダー	Zapdos
+0146	MOLTRES_GALARIAN	ファイヤー (ガラルのすがた)	Galarian Moltres
+0146	MOLTRES_NORMAL	ファイヤー	Moltres
+0147	DRATINI_NORMAL	ミニリュウ	Dratini
+0148	DRAGONAIR_NORMAL	ハクリュー	Dragonair
+0149	DRAGONITE_NORMAL	カイリュー	Dragonite
 0150	MEWTWO_A	アーマードミュウツー	Armored Mewtwo
+0150	MEWTWO_NORMAL	ミュウツー	Mewtwo
 0151	MEW	ミュウ	Mew
-0152	CHIKORITA	チコリータ	Chikorita
-0153	BAYLEEF	ベイリーフ	Bayleef
-0154	MEGANIUM	メガニウム	Meganium
-0155	CYNDAQUIL	ヒノアラシ	Cyndaquil
-0156	QUILAVA	マグマラシ	Quilava
-0157	TYPHLOSION	バクフーン	Typhlosion
-0158	TOTODILE	ワニノコ	Totodile
-0159	CROCONAW	アリゲイツ	Croconaw
-0160	FERALIGATR	オーダイル	Feraligatr
+0152	CHIKORITA_NORMAL	チコリータ	Chikorita
+0153	BAYLEEF_NORMAL	ベイリーフ	Bayleef
+0154	MEGANIUM_NORMAL	メガニウム	Meganium
+0155	CYNDAQUIL_NORMAL	ヒノアラシ	Cyndaquil
+0156	QUILAVA_NORMAL	マグマラシ	Quilava
+0157	TYPHLOSION_NORMAL	バクフーン	Typhlosion
+0158	TOTODILE_NORMAL	ワニノコ	Totodile
+0159	CROCONAW_NORMAL	アリゲイツ	Croconaw
+0160	FERALIGATR_NORMAL	オーダイル	Feraligatr
 0161	SENTRET	オタチ	Sentret
 0162	FURRET	オオタチ	Furret
 0163	HOOTHOOT	ホーホー	Hoothoot
@@ -191,7 +200,7 @@
 0166	LEDIAN	レディアン	Ledian
 0167	SPINARAK	イトマル	Spinarak
 0168	ARIADOS	アリアドス	Ariados
-0169	CROBAT	クロバット	Crobat
+0169	CROBAT_NORMAL	クロバット	Crobat
 0170	CHINCHOU	チョンチー	Chinchou
 0171	LANTURN	ランターン	Lanturn
 0172	PICHU	ピチュー	Pichu
@@ -201,62 +210,65 @@
 0176	TOGETIC	トゲチック	Togetic
 0177	NATU	ネイティ	Natu
 0178	XATU	ネイティオ	Xatu
-0179	MAREEP	メリープ	Mareep
-0180	FLAAFFY	モココ	Flaaffy
-0181	AMPHAROS	デンリュウ	Ampharos
-0182	BELLOSSOM	キレイハナ	Bellossom
+0179	MAREEP_NORMAL	メリープ	Mareep
+0180	FLAAFFY_NORMAL	モココ	Flaaffy
+0181	AMPHAROS_NORMAL	デンリュウ	Ampharos
+0182	BELLOSSOM_NORMAL	キレイハナ	Bellossom
 0183	MARILL	マリル	Marill
 0184	AZUMARILL	マリルリ	Azumarill
 0185	SUDOWOODO	ウソッキー	Sudowoodo
-0186	POLITOED	ニョロトノ	Politoed
-0187	HOPPIP	ハネッコ	Hoppip
-0188	SKIPLOOM	ポポッコ	Skiploom
-0189	JUMPLUFF	ワタッコ	Jumpluff
-0190	AIPOM	エイパム	Aipom
+0186	POLITOED_NORMAL	ニョロトノ	Politoed
+0187	HOPPIP_NORMAL	ハネッコ	Hoppip
+0188	SKIPLOOM_NORMAL	ポポッコ	Skiploom
+0189	JUMPLUFF_NORMAL	ワタッコ	Jumpluff
+0190	AIPOM_NORMAL	エイパム	Aipom
 0191	SUNKERN	ヒマナッツ	Sunkern
 0192	SUNFLORA	キマワリ	Sunflora
 0193	YANMA	ヤンヤンマ	Yanma
-0194	WOOPER	ウパー	Wooper
-0195	QUAGSIRE	ヌオー	Quagsire
+0194	WOOPER_NORMAL	ウパー	Wooper
+0195	QUAGSIRE_NORMAL	ヌオー	Quagsire
 0196	ESPEON	エーフィ	Espeon
 0197	UMBREON	ブラッキー	Umbreon
-0198	MURKROW	ヤミカラス	Murkrow
-0199	SLOWKING	ヤドキング	Slowking
-0200	MISDREAVUS	ムウマ	Misdreavus
+0198	MURKROW_NORMAL	ヤミカラス	Murkrow
+0199	SLOWKING_GALARIAN	ヤドキング (ガラルのすがた)	Galarian Slowking
+0199	SLOWKING_NORMAL	ヤドキング	Slowking
+0200	MISDREAVUS_NORMAL	ムウマ	Misdreavus
 0201	UNOWN	アンノーン	Unown
-0202	WOBBUFFET	ソーナンス	Wobbuffet
+0202	WOBBUFFET_NORMAL	ソーナンス	Wobbuffet
 0203	GIRAFARIG	キリンリキ	Girafarig
-0204	PINECO	クヌギダマ	Pineco
-0205	FORRETRESS	フォレトス	Forretress
+0204	PINECO_NORMAL	クヌギダマ	Pineco
+0205	FORRETRESS_NORMAL	フォレトス	Forretress
 0206	DUNSPARCE	ノコッチ	Dunsparce
-0207	GLIGAR	グライガー	Gligar
-0208	STEELIX	ハガネール	Steelix
-0209	SNUBBULL	ブルー	Snubbull
-0210	GRANBULL	グランブル	Granbull
-0211	QWILFISH	ハリーセン	Qwilfish
-0212	SCIZOR	ハッサム	Scizor
-0213	SHUCKLE	ツボツボ	Shuckle
+0207	GLIGAR_NORMAL	グライガー	Gligar
+0208	STEELIX_NORMAL	ハガネール	Steelix
+0209	SNUBBULL_NORMAL	ブルー	Snubbull
+0210	GRANBULL_NORMAL	グランブル	Granbull
+0211	QWILFISH_HISUIAN	ハリーセン (ヒスイのすがた)	Hisuian Qwilfish
+0211	QWILFISH_NORMAL	ハリーセン	Qwilfish
+0212	SCIZOR_NORMAL	ハッサム	Scizor
+0213	SHUCKLE_NORMAL	ツボツボ	Shuckle
 0214	HERACROSS	ヘラクロス	Heracross
-0215	SNEASEL	ニューラ	Sneasel
-0216	TEDDIURSA	ヒメグマ	Teddiursa
-0217	URSARING	リングマ	Ursaring
+0215	SNEASEL_HISUIAN	ニューラ (ヒスイのすがた)	Hisuian Sneasel
+0215	SNEASEL_NORMAL	ニューラ	Sneasel
+0216	TEDDIURSA_NORMAL	ヒメグマ	Teddiursa
+0217	URSARING_NORMAL	リングマ	Ursaring
 0218	SLUGMA	マグマッグ	Slugma
 0219	MAGCARGO	マグカルゴ	Magcargo
-0220	SWINUB	ウリムー	Swinub
-0221	PILOSWINE	イノムー	Piloswine
+0220	SWINUB_NORMAL	ウリムー	Swinub
+0221	PILOSWINE_NORMAL	イノムー	Piloswine
 0222	CORSOLA	サニーゴ	Corsola
 0223	REMORAID	テッポウオ	Remoraid
 0224	OCTILLERY	オクタン	Octillery
-0225	DELIBIRD	デリバード	Delibird
+0225	DELIBIRD_NORMAL	デリバード	Delibird
 0226	MANTINE	マンタイン	Mantine
-0227	SKARMORY	エアームド	Skarmory
-0228	HOUNDOUR	デルビル	Houndour
-0229	HOUNDOOM	ヘルガー	Houndoom
-0230	KINGDRA	キングドラ	Kingdra
+0227	SKARMORY_NORMAL	エアームド	Skarmory
+0228	HOUNDOUR_NORMAL	デルビル	Houndour
+0229	HOUNDOOM_NORMAL	ヘルガー	Houndoom
+0230	KINGDRA_NORMAL	キングドラ	Kingdra
 0231	PHANPY	ゴマゾウ	Phanpy
 0232	DONPHAN	ドンファン	Donphan
-0233	PORYGON2	ポリゴン2	Porygon2
-0234	STANTLER	オドシシ	Stantler
+0233	PORYGON2_NORMAL	ポリゴン2	Porygon2
+0234	STANTLER_NORMAL	オドシシ	Stantler
 0235	SMEARGLE	ドーブル	Smeargle
 0236	TYROGUE	バルキー	Tyrogue
 0237	HITMONTOP	カポエラー	Hitmontop
@@ -265,30 +277,35 @@
 0240	MAGBY	ブビィ	Magby
 0241	MILTANK	ミルタンク	Miltank
 0242	BLISSEY	ハピナス	Blissey
-0243	RAIKOU	ライコウ	Raikou
-0244	ENTEI	エンテイ	Entei
-0245	SUICUNE	スイクン	Suicune
-0246	LARVITAR	ヨーギラス	Larvitar
-0247	PUPITAR	サナギラス	Pupitar
-0248	TYRANITAR	バンギラス	Tyranitar
-0249	LUGIA	ルギア	Lugia
-0250	HO_OH	ホウオウ	Ho-Oh
+0243	RAIKOU_NORMAL	ライコウ	Raikou
+0243	RAIKOU_S	ライコウ・APEX	Apex Raikou
+0244	ENTEI_NORMAL	エンテイ	Entei
+0244	ENTEI_S	エンテイ・APEX	Apex Entei
+0245	SUICUNE_NORMAL	スイクン	Suicune
+0245	SUICUNE_S	スイクン・APEX	Apex Suicune
+0246	LARVITAR_NORMAL	ヨーギラス	Larvitar
+0247	PUPITAR_NORMAL	サナギラス	Pupitar
+0248	TYRANITAR_NORMAL	バンギラス	Tyranitar
+0249	LUGIA_NORMAL	ルギア	Lugia
+0249	LUGIA_S	ルギア・APEX	Apex Lugia
+0250	HO_OH_NORMAL	ホウオウ	Ho-Oh
+0250	HO_OH_S	ホウオウ・APEX	Apex Ho-Oh
 0251	CELEBI	セレビィ	Celebi
 0252	TREECKO	キモリ	Treecko
 0253	GROVYLE	ジュプトル	Grovyle
 0254	SCEPTILE	ジュカイン	Sceptile
-0255	TORCHIC	アチャモ	Torchic
-0256	COMBUSKEN	ワカシャモ	Combusken
-0257	BLAZIKEN	バシャーモ	Blaziken
-0258	MUDKIP	ミズゴロウ	Mudkip
-0259	MARSHTOMP	ヌマクロー	Marshtomp
-0260	SWAMPERT	ラグラージ	Swampert
-0261	POOCHYENA	ポチエナ	Poochyena
-0262	MIGHTYENA	グラエナ	Mightyena
-0263	ZIGZAGOON	ジグザグマ	Zigzagoon
+0255	TORCHIC_NORMAL	アチャモ	Torchic
+0256	COMBUSKEN_NORMAL	ワカシャモ	Combusken
+0257	BLAZIKEN_NORMAL	バシャーモ	Blaziken
+0258	MUDKIP_NORMAL	ミズゴロウ	Mudkip
+0259	MARSHTOMP_NORMAL	ヌマクロー	Marshtomp
+0260	SWAMPERT_NORMAL	ラグラージ	Swampert
+0261	POOCHYENA_NORMAL	ポチエナ	Poochyena
+0262	MIGHTYENA_NORMAL	グラエナ	Mightyena
 0263	ZIGZAGOON_GALARIAN	ジグザグマ (ガラルのすがた)	Galarian Zigzagoon
-0264	LINOONE	マッスグマ	Linoone
+0263	ZIGZAGOON_NORMAL	ジグザグマ	Zigzagoon
 0264	LINOONE_GALARIAN	マッスグマ (ガラルのすがた)	Galarian Linoone
+0264	LINOONE_NORMAL	マッスグマ	Linoone
 0265	WURMPLE	ケムッソ	Wurmple
 0266	SILCOON	カラサリス	Silcoon
 0267	BEAUTIFLY	アゲハント	Beautifly
@@ -297,16 +314,16 @@
 0270	LOTAD	ハスボー	Lotad
 0271	LOMBRE	ハスブレロ	Lombre
 0272	LUDICOLO	ルンパッパ	Ludicolo
-0273	SEEDOT	タネボー	Seedot
-0274	NUZLEAF	コノハナ	Nuzleaf
-0275	SHIFTRY	ダーテング	Shiftry
+0273	SEEDOT_NORMAL	タネボー	Seedot
+0274	NUZLEAF_NORMAL	コノハナ	Nuzleaf
+0275	SHIFTRY_NORMAL	ダーテング	Shiftry
 0276	TAILLOW	スバメ	Taillow
 0277	SWELLOW	オオスバメ	Swellow
 0278	WINGULL	キャモメ	Wingull
 0279	PELIPPER	ペリッパー	Pelipper
-0280	RALTS	ラルトス	Ralts
-0281	KIRLIA	キルリア	Kirlia
-0282	GARDEVOIR	サーナイト	Gardevoir
+0280	RALTS_NORMAL	ラルトス	Ralts
+0281	KIRLIA_NORMAL	キルリア	Kirlia
+0282	GARDEVOIR_NORMAL	サーナイト	Gardevoir
 0283	SURSKIT	アメタマ	Surskit
 0284	MASQUERAIN	アメモース	Masquerain
 0285	SHROOMISH	キノココ	Shroomish
@@ -317,24 +334,24 @@
 0290	NINCADA	ツチニン	Nincada
 0291	NINJASK	テッカニン	Ninjask
 0292	SHEDINJA	ヌケニン	Shedinja
-0293	WHISMUR	ゴニョニョ	Whismur
-0294	LOUDRED	ドゴーム	Loudred
-0295	EXPLOUD	バクオング	Exploud
-0296	MAKUHITA	マクノシタ	Makuhita
-0297	HARIYAMA	ハリテヤマ	Hariyama
+0293	WHISMUR_NORMAL	ゴニョニョ	Whismur
+0294	LOUDRED_NORMAL	ドゴーム	Loudred
+0295	EXPLOUD_NORMAL	バクオング	Exploud
+0296	MAKUHITA_NORMAL	マクノシタ	Makuhita
+0297	HARIYAMA_NORMAL	ハリテヤマ	Hariyama
 0298	AZURILL	ルリリ	Azurill
-0299	NOSEPASS	ノズパス	Nosepass
+0299	NOSEPASS_NORMAL	ノズパス	Nosepass
 0300	SKITTY	エネコ	Skitty
 0301	DELCATTY	エネコロロ	Delcatty
-0302	SABLEYE	ヤミラミ	Sableye
-0303	MAWILE	クチート	Mawile
-0304	ARON	ココドラ	Aron
-0305	LAIRON	コドラ	Lairon
-0306	AGGRON	ボスゴドラ	Aggron
+0302	SABLEYE_NORMAL	ヤミラミ	Sableye
+0303	MAWILE_NORMAL	クチート	Mawile
+0304	ARON_NORMAL	ココドラ	Aron
+0305	LAIRON_NORMAL	コドラ	Lairon
+0306	AGGRON_NORMAL	ボスゴドラ	Aggron
 0307	MEDITITE	アサナン	Meditite
 0308	MEDICHAM	チャーレム	Medicham
-0309	ELECTRIKE	ラクライ	Electrike
-0310	MANECTRIC	ライボルト	Manectric
+0309	ELECTRIKE_NORMAL	ラクライ	Electrike
+0310	MANECTRIC_NORMAL	ライボルト	Manectric
 0311	PLUSLE	プラスル	Plusle
 0312	MINUN	マイナン	Minun
 0313	VOLBEAT	バルビート	Volbeat
@@ -342,8 +359,8 @@
 0315	ROSELIA	ロゼリア	Roselia
 0316	GULPIN	ゴクリン	Gulpin
 0317	SWALOT	マルノーム	Swalot
-0318	CARVANHA	キバニア	Carvanha
-0319	SHARPEDO	サメハダー	Sharpedo
+0318	CARVANHA_NORMAL	キバニア	Carvanha
+0319	SHARPEDO_NORMAL	サメハダー	Sharpedo
 0320	WAILMER	ホエルコ	Wailmer
 0321	WAILORD	ホエルオー	Wailord
 0322	NUMEL	ドンメル	Numel
@@ -352,11 +369,11 @@
 0325	SPOINK	バネブー	Spoink
 0326	GRUMPIG	ブーピッグ	Grumpig
 0327	SPINDA	パッチール	Spinda
-0328	TRAPINCH	ナックラー	Trapinch
-0329	VIBRAVA	ビブラーバ	Vibrava
-0330	FLYGON	フライゴン	Flygon
-0331	CACNEA	サボネア	Cacnea
-0332	CACTURNE	ノクタス	Cacturne
+0328	TRAPINCH_NORMAL	ナックラー	Trapinch
+0329	VIBRAVA_NORMAL	ビブラーバ	Vibrava
+0330	FLYGON_NORMAL	フライゴン	Flygon
+0331	CACNEA_NORMAL	サボネア	Cacnea
+0332	CACTURNE_NORMAL	ノクタス	Cacturne
 0333	SWABLU	チルット	Swablu
 0334	ALTARIA	チルタリス	Altaria
 0335	ZANGOOSE	ザングース	Zangoose
@@ -369,10 +386,10 @@
 0342	CRAWDAUNT	シザリガー	Crawdaunt
 0343	BALTOY	ヤジロン	Baltoy
 0344	CLAYDOL	ネンドール	Claydol
-0345	LILEEP	リリーラ	Lileep
-0346	CRADILY	ユレイドル	Cradily
-0347	ANORITH	アノプス	Anorith
-0348	ARMALDO	アーマルド	Armaldo
+0345	LILEEP_NORMAL	リリーラ	Lileep
+0346	CRADILY_NORMAL	ユレイドル	Cradily
+0347	ANORITH_NORMAL	アノプス	Anorith
+0348	ARMALDO_NORMAL	アーマルド	Armaldo
 0349	FEEBAS	ヒンバス	Feebas
 0350	MILOTIC	ミロカロス	Milotic
 0351	CASTFORM_NORMAL	ポワルン	Castform
@@ -380,57 +397,59 @@
 0351	CASTFORM_SNOWY	ポワルン (ゆきぐものすがた)	Castform (Snowy Form)
 0351	CASTFORM_SUNNY	ポワルン (たいようのすがた)	Castform (Sunny Form)
 0352	KECLEON	カクレオン	Kecleon
-0353	SHUPPET	カゲボウズ	Shuppet
-0354	BANETTE	ジュペッタ	Banette
-0355	DUSKULL	ヨマワル	Duskull
-0356	DUSCLOPS	サマヨール	Dusclops
+0353	SHUPPET_NORMAL	カゲボウズ	Shuppet
+0354	BANETTE_NORMAL	ジュペッタ	Banette
+0355	DUSKULL_NORMAL	ヨマワル	Duskull
+0356	DUSCLOPS_NORMAL	サマヨール	Dusclops
 0357	TROPIUS	トロピウス	Tropius
 0358	CHIMECHO	チリーン	Chimecho
-0359	ABSOL	アブソル	Absol
+0359	ABSOL_NORMAL	アブソル	Absol
 0360	WYNAUT	ソーナノ	Wynaut
 0361	SNORUNT	ユキワラシ	Snorunt
 0362	GLALIE	オニゴーリ	Glalie
-0363	SPHEAL	タマザラシ	Spheal
-0364	SEALEO	トドグラー	Sealeo
-0365	WALREIN	トドゼルガ	Walrein
+0363	SPHEAL_NORMAL	タマザラシ	Spheal
+0364	SEALEO_NORMAL	トドグラー	Sealeo
+0365	WALREIN_NORMAL	トドゼルガ	Walrein
 0366	CLAMPERL	パールル	Clamperl
 0367	HUNTAIL	ハンテール	Huntail
 0368	GOREBYSS	サクラビス	Gorebyss
 0369	RELICANTH	ジーランス	Relicanth
 0370	LUVDISC	ラブカス	Luvdisc
-0371	BAGON	タツベイ	Bagon
-0372	SHELGON	コモルー	Shelgon
-0373	SALAMENCE	ボーマンダ	Salamence
-0374	BELDUM	ダンバル	Beldum
-0375	METANG	メタング	Metang
-0376	METAGROSS	メタグロス	Metagross
+0371	BAGON_NORMAL	タツベイ	Bagon
+0372	SHELGON_NORMAL	コモルー	Shelgon
+0373	SALAMENCE_NORMAL	ボーマンダ	Salamence
+0374	BELDUM_NORMAL	ダンバル	Beldum
+0375	METANG_NORMAL	メタング	Metang
+0376	METAGROSS_NORMAL	メタグロス	Metagross
 0377	REGIROCK	レジロック	Regirock
 0378	REGICE	レジアイス	Regice
 0379	REGISTEEL	レジスチル	Registeel
-0380	LATIAS	ラティアス	Latias
-0381	LATIOS	ラティオス	Latios
+0380	LATIAS_NORMAL	ラティアス	Latias
+0380	LATIAS_S	ラティアス・APEX	Apex Latias
+0381	LATIOS_NORMAL	ラティオス	Latios
+0381	LATIOS_S	ラティオス・APEX	Apex Latios
 0382	KYOGRE	カイオーガ	Kyogre
 0383	GROUDON	グラードン	Groudon
 0384	RAYQUAZA	レックウザ	Rayquaza
 0385	JIRACHI	ジラーチ	Jirachi
+0386	DEOXYS_ATTACK	デオキシス (アタックフォルム)	Deoxys (Speed Forme)
 0386	DEOXYS_DEFENSE	デオキシス (ディフェンスフォルム)	Deoxys (Defense Forme)
 0386	DEOXYS_NORMAL	デオキシス (ノーマルフォルム)	Deoxys (Normal Forme)
 0386	DEOXYS_SPEED	デオキシス (スピードフォルム)	Deoxys (Attack Forme)
-0386	DEOXYS_ATTACK	デオキシス (アタックフォルム)	Deoxys (Speed Forme)
-0387	TURTWIG	ナエトル	Turtwig
-0388	GROTLE	ハヤシガメ	Grotle
-0389	TORTERRA	ドダイトス	Torterra
-0390	CHIMCHAR	ヒコザル	Chimchar
-0391	MONFERNO	モウカザル	Monferno
-0392	INFERNAPE	ゴウカザル	Infernape
+0387	TURTWIG_NORMAL	ナエトル	Turtwig
+0388	GROTLE_NORMAL	ハヤシガメ	Grotle
+0389	TORTERRA_NORMAL	ドダイトス	Torterra
+0390	CHIMCHAR_NORMAL	ヒコザル	Chimchar
+0391	MONFERNO_NORMAL	モウカザル	Monferno
+0392	INFERNAPE_NORMAL	ゴウカザル	Infernape
 0393	PIPLUP	ポッチャマ	Piplup
 0394	PRINPLUP	ポッタイシ	Prinplup
 0395	EMPOLEON	エンペルト	Empoleon
-0396	STARLY	ムックル	Starly
-0397	STARAVIA	ムクバード	Staravia
-0398	STARAPTOR	ムクホーク	Staraptor
-0399	BIDOOF	ビッパ	Bidoof
-0400	BIBAREL	ビーダル	Bibarel
+0396	STARLY_NORMAL	ムックル	Starly
+0397	STARAVIA_NORMAL	ムクバード	Staravia
+0398	STARAPTOR_NORMAL	ムクホーク	Staraptor
+0399	BIDOOF_NORMAL	ビッパ	Bidoof
+0400	BIBAREL_NORMAL	ビーダル	Bibarel
 0401	KRICKETOT	コロボーシ	Kricketot
 0402	KRICKETUNE	コロトック	Kricketune
 0403	SHINX	コリンク	Shinx
@@ -442,10 +461,12 @@
 0409	RAMPARDOS	ラムパルド	Rampardos
 0410	SHIELDON	タテトプス	Shieldon
 0411	BASTIODON	トリデプス	Bastiodon
-0412	BURMY	ミノムッチ	Burmy
+0412	BURMY_PLANT	ミノムッチ	Burmy
+0412	BURMY_SANDY	ミノムッチ	Burmy
+0412	BURMY_TRASH	ミノムッチ	Burmy
 0413	WORMADAM_PLANT	ミノマダム (くさきのミノ)	Wormadam (Plant Cloak)
-0413	WORMADAM_TRASH	ミノマダム (ゴミのミノ)	Wormadam (Trash Cloak)
 0413	WORMADAM_SANDY	ミノマダム (すなちのミノ)	Wormadam (Sandy Cloak)
+0413	WORMADAM_TRASH	ミノマダム (ゴミのミノ)	Wormadam (Trash Cloak)
 0414	MOTHIM	ガーメイル	Mothim
 0415	COMBEE	ミツハニー	Combee
 0416	VESPIQUEN	ビークイン	Vespiquen
@@ -453,21 +474,24 @@
 0418	BUIZEL	ブイゼル	Buizel
 0419	FLOATZEL	フローゼル	Floatzel
 0420	CHERUBI	チェリンボ	Cherubi
-0421	CHERRIM	チェリム	Cherrim
-0422	SHELLOS	カラナクシ	Shellos
-0423	GASTRODON	トリトドン	Gastrodon
-0424	AMBIPOM	エテボース	Ambipom
+0421	CHERRIM_OVERCAST	チェリム (ネガフォルム)	Cherrim (Overcast Form)
+0421	CHERRIM_SUNNY	チェリム (ポジフォルム)	Cherrim (Sunshine Form)
+0422	SHELLOS_EAST_SEA	カラナクシ	Shellos
+0422	SHELLOS_WEST_SEA	カラナクシ	Shellos
+0423	GASTRODON_EAST_SEA	トリトドン	Gastrodon
+0423	GASTRODON_WEST_SEA	トリトドン	Gastrodon
+0424	AMBIPOM_NORMAL	エテボース	Ambipom
 0425	DRIFLOON	フワンテ	Drifloon
 0426	DRIFBLIM	フワライド	Drifblim
 0427	BUNEARY	ミミロル	Buneary
 0428	LOPUNNY	ミミロップ	Lopunny
-0429	MISMAGIUS	ムウマージ	Mismagius
-0430	HONCHKROW	ドンカラス	Honchkrow
+0429	MISMAGIUS_NORMAL	ムウマージ	Mismagius
+0430	HONCHKROW_NORMAL	ドンカラス	Honchkrow
 0431	GLAMEOW	ニャルマー	Glameow
 0432	PURUGLY	ブニャット	Purugly
 0433	CHINGLING	リーシャン	Chingling
-0434	STUNKY	スカンプー	Stunky
-0435	SKUNTANK	スカタンク	Skuntank
+0434	STUNKY_NORMAL	スカンプー	Stunky
+0435	SKUNTANK_NORMAL	スカタンク	Skuntank
 0436	BRONZOR	ドーミラー	Bronzor
 0437	BRONZONG	ドータクン	Bronzong
 0438	BONSLY	ウソハチ	Bonsly
@@ -475,48 +499,48 @@
 0440	HAPPINY	ピンプク	Happiny
 0441	CHATOT	ペラップ	Chatot
 0442	SPIRITOMB	ミカルゲ	Spiritomb
-0443	GIBLE	フカマル	Gible
-0444	GABITE	ガバイト	Gabite
-0445	GARCHOMP	ガブリアス	Garchomp
+0443	GIBLE_NORMAL	フカマル	Gible
+0444	GABITE_NORMAL	ガバイト	Gabite
+0445	GARCHOMP_NORMAL	ガブリアス	Garchomp
 0446	MUNCHLAX	ゴンベ	Munchlax
 0447	RIOLU	リオル	Riolu
 0448	LUCARIO	ルカリオ	Lucario
-0449	HIPPOPOTAS	ヒポポタス	Hippopotas
-0450	HIPPOWDON	カバルドン	Hippowdon
-0451	SKORUPI	スコルピ	Skorupi
-0452	DRAPION	ドラピオン	Drapion
+0449	HIPPOPOTAS_NORMAL	ヒポポタス	Hippopotas
+0450	HIPPOWDON_NORMAL	カバルドン	Hippowdon
+0451	SKORUPI_NORMAL	スコルピ	Skorupi
+0452	DRAPION_NORMAL	ドラピオン	Drapion
 0453	CROAGUNK	グレッグル	Croagunk
 0454	TOXICROAK	ドクロッグ	Toxicroak
 0455	CARNIVINE	マスキッパ	Carnivine
 0456	FINNEON	ケイコウオ	Finneon
 0457	LUMINEON	ネオラント	Lumineon
 0458	MANTYKE	タマンタ	Mantyke
-0459	SNOVER	ユキカブリ	Snover
-0460	ABOMASNOW	ユキノオー	Abomasnow
-0461	WEAVILE	マニューラ	Weavile
-0462	MAGNEZONE	ジバコイル	Magnezone
+0459	SNOVER_NORMAL	ユキカブリ	Snover
+0460	ABOMASNOW_NORMAL	ユキノオー	Abomasnow
+0461	WEAVILE_NORMAL	マニューラ	Weavile
+0462	MAGNEZONE_NORMAL	ジバコイル	Magnezone
 0463	LICKILICKY	ベロベルト	Lickilicky
-0464	RHYPERIOR	ドサイドン	Rhyperior
-0465	TANGROWTH	モジャンボ	Tangrowth
-0466	ELECTIVIRE	エレキブル	Electivire
-0467	MAGMORTAR	ブーバーン	Magmortar
+0464	RHYPERIOR_NORMAL	ドサイドン	Rhyperior
+0465	TANGROWTH_NORMAL	モジャンボ	Tangrowth
+0466	ELECTIVIRE_NORMAL	エレキブル	Electivire
+0467	MAGMORTAR_NORMAL	ブーバーン	Magmortar
 0468	TOGEKISS	トゲキッス	Togekiss
 0469	YANMEGA	メガヤンマ	Yanmega
 0470	LEAFEON	リーフィア	Leafeon
 0471	GLACEON	グレイシア	Glaceon
-0472	GLISCOR	グライオン	Gliscor
-0473	MAMOSWINE	マンムー	Mamoswine
-0474	PORYGON_Z	ポリゴンZ	Porygon-Z
-0475	GALLADE	エルレイド	Gallade
-0476	PROBOPASS	ダイノーズ	Probopass
-0477	DUSKNOIR	ヨノワール	Dusknoir
+0472	GLISCOR_NORMAL	グライオン	Gliscor
+0473	MAMOSWINE_NORMAL	マンムー	Mamoswine
+0474	PORYGON_Z_NORMAL	ポリゴンZ	Porygon-Z
+0475	GALLADE_NORMAL	エルレイド	Gallade
+0476	PROBOPASS_NORMAL	ダイノーズ	Probopass
+0477	DUSKNOIR_NORMAL	ヨノワール	Dusknoir
 0478	FROSLASS	ユキメノコ	Froslass
-0479	ROTOM_NORMAL	ロトム	Rotom
-0479	ROTOM_WASH	ロトム (ウォッシュロトム)	Rotom (Wash Rotom)
-0479	ROTOM_FROST	ロトム (フロストロトム)	Rotom (Frost Rotom)
 0479	ROTOM_FAN	ロトム (スピンロトム)	Rotom (Fan Rotom)
+0479	ROTOM_FROST	ロトム (フロストロトム)	Rotom (Frost Rotom)
 0479	ROTOM_HEAT	ロトム (ヒートロトム)	Rotom (Heat Rotom)
 0479	ROTOM_MOW	ロトム (カットロトム)	Rotom (Mow Rotom)
+0479	ROTOM_NORMAL	ロトム	Rotom
+0479	ROTOM_WASH	ロトム (ウォッシュロトム)	Rotom (Wash Rotom)
 0480	UXIE	ユクシー	Uxie
 0481	MESPRIT	エムリット	Mesprit
 0482	AZELF	アグノム	Azelf
@@ -530,26 +554,26 @@
 0489	PHIONE	フィオネ	Phione
 0490	MANAPHY	マナフィ	Manaphy
 0491	DARKRAI	ダークライ	Darkrai
-0492	SHAYMIN_SKY	シェイミ (スカイフォルム)	Shaymin (Sky Forme)
 0492	SHAYMIN_LAND	シェイミ (ランドフォルム)	Shaymin (Land Forme)
+0492	SHAYMIN_SKY	シェイミ (スカイフォルム)	Shaymin (Sky Forme)
 0493	ARCEUS_BUG	アルセウス (むし)	Arceus (Bug)
-0493	ARCEUS_DRAGON	アルセウス (ドラゴン)	Arceus (Dragon)
-0493	ARCEUS_WATER	アルセウス (みず)	Arceus (Water)
-0493	ARCEUS_FAIRY	アルセウス (フェアリー)	Arceus (Fairy)
 0493	ARCEUS_DARK	アルセウス (あく)	Arceus (Dark)
-0493	ARCEUS_GHOST	アルセウス (ゴースト)	Arceus (Ghost)
-0493	ARCEUS_FLYING	アルセウス (ひこう)	Arceus (Flying)
-0493	ARCEUS_ICE	アルセウス (こおり)	Arceus (Ice)
-0493	ARCEUS_FIGHTING	アルセウス (かくとう)	Arceus (Fighting)
+0493	ARCEUS_DRAGON	アルセウス (ドラゴン)	Arceus (Dragon)
 0493	ARCEUS_ELECTRIC	アルセウス (でんき)	Arceus (Electric)
-0493	ARCEUS_STEEL	アルセウス (はがね)	Arceus (Steel)
-0493	ARCEUS_ROCK	アルセウス (いわ)	Arceus (Rock)
-0493	ARCEUS_GROUND	アルセウス (じめん)	Arceus (Ground)
-0493	ARCEUS_PSYCHIC	アルセウス (エスパー)	Arceus (Phychic)
-0493	ARCEUS_NORMAL	アルセウス	Arceus
-0493	ARCEUS_GRASS	アルセウス (くさ)	Arceus (Grass)
-0493	ARCEUS_POISON	アルセウス (どく)	Arceus (Poison)
+0493	ARCEUS_FAIRY	アルセウス (フェアリー)	Arceus (Fairy)
+0493	ARCEUS_FIGHTING	アルセウス (かくとう)	Arceus (Fighting)
 0493	ARCEUS_FIRE	アルセウス (ほのお)	Arceus (Fire)
+0493	ARCEUS_FLYING	アルセウス (ひこう)	Arceus (Flying)
+0493	ARCEUS_GHOST	アルセウス (ゴースト)	Arceus (Ghost)
+0493	ARCEUS_GRASS	アルセウス (くさ)	Arceus (Grass)
+0493	ARCEUS_GROUND	アルセウス (じめん)	Arceus (Ground)
+0493	ARCEUS_ICE	アルセウス (こおり)	Arceus (Ice)
+0493	ARCEUS_NORMAL	アルセウス	Arceus
+0493	ARCEUS_POISON	アルセウス (どく)	Arceus (Poison)
+0493	ARCEUS_PSYCHIC	アルセウス (エスパー)	Arceus (Phychic)
+0493	ARCEUS_ROCK	アルセウス (いわ)	Arceus (Rock)
+0493	ARCEUS_STEEL	アルセウス (はがね)	Arceus (Steel)
+0493	ARCEUS_WATER	アルセウス (みず)	Arceus (Water)
 0494	VICTINI	ビクティニ	Victini
 0495	SNIVY	ツタージャ	Snivy
 0496	SERVINE	ジャノビー	Servine
@@ -606,12 +630,13 @@
 0547	WHIMSICOTT	エルフーン	Whimsicott
 0548	PETILIL	チュリネ	Petilil
 0549	LILLIGANT	ドレディア	Lilligant
-0550	BASCULIN	バスラオ	Basculin
+0550	BASCULIN_BLUE_STRIPED	バスラオ (あおすじのすがた)	Basculin (Blue-Striped Form)
+0550	BASCULIN_RED_STRIPED	バスラオ (あかすじのすがた)	Basculin (Red-Striped Form)
 0551	SANDILE	メグロコ	Sandile
 0552	KROKOROK	ワルビル	Krokorok
 0553	KROOKODILE	ワルビアル	Krookodile
-0554	DARUMAKA	ダルマッカ	Darumaka
 0554	DARUMAKA_GALARIAN	ダルマッカ (ガラルのすがた)	Galarian Darumaka
+0554	DARUMAKA_NORMAL	ダルマッカ	Darumaka
 0555	DARMANITAN_GALARIAN_STANDARD	ヒヒダルマ (ガラルのすがた・ノーマルモード)	Galarian Darmanitan (Standard Mode)
 0555	DARMANITAN_GALARIAN_ZEN	ヒヒダルマ (ガラルのすがた・ダルマモード)	Galarian Darmanitan (Zen Mode)
 0555	DARMANITAN_STANDARD	ヒヒダルマ (ノーマルモード)	Darmanitan (Standard Mode)
@@ -622,9 +647,9 @@
 0559	SCRAGGY	ズルッグ	Scraggy
 0560	SCRAFTY	ズルズキン	Scrafty
 0561	SIGILYPH	シンボラー	Sigilyph
-0562	YAMASK	デスマス	Yamask
 0562	YAMASK_GALARIAN	デスマス (ガラルのすがた)	Galarian Yamask
-0563	COFAGRIGUS	デスカーン	Cofagrigus
+0562	YAMASK_NORMAL	デスマス	Yamask
+0563	COFAGRIGUS_NORMAL	デスカーン	Cofagrigus
 0564	TIRTOUGA	プロトーガ	Tirtouga
 0565	CARRACOSTA	アバゴーラ	Carracosta
 0566	ARCHEN	アーケン	Archen
@@ -646,8 +671,14 @@
 0582	VANILLITE	バニプッチ	Vanillite
 0583	VANILLISH	バニリッチ	Vanillish
 0584	VANILLUXE	バイバニラ	Vanilluxe
-0585	DEERLING	シキジカ	Deerling
-0586	SAWSBUCK	メブキジカ	Sawsbuck
+0585	DEERLING_AUTUMN	シキジカ（あきのすがた）	Deerling (Autumn Form)
+0585	DEERLING_SPRING	シキジカ（はるのすがた）	Deerling (Spring Form)
+0585	DEERLING_SUMMER	シキジカ（なつのすがた）	Deerling (Summer Form)
+0585	DEERLING_WINTER	シキジカ（ふゆのすがた）	Deerling (Winter Form)
+0586	SAWSBUCK_AUTUMN	メブキジカ（あきのすがた）	Sawsbuck (Autumn Form)
+0586	SAWSBUCK_SPRING	メブキジカ（はるのすがた）	Sawsbuck (Spring Form)
+0586	SAWSBUCK_SUMMER	メブキジカ（なつのすがた）	Sawsbuck (Summer Form)
+0586	SAWSBUCK_WINTER	メブキジカ（ふゆのすがた）	Sawsbuck (Winter Form)
 0587	EMOLGA	エモンガ	Emolga
 0588	KARRABLAST	カブルモ	Karrablast
 0589	ESCAVALIER	シュバルゴ	Escavalier
@@ -676,13 +707,13 @@
 0610	AXEW	キバゴ	Axew
 0611	FRAXURE	オノンド	Fraxure
 0612	HAXORUS	オノノクス	Haxorus
-0613	CUBCHOO	クマシュン	Cubchoo
-0614	BEARTIC	ツンベアー	Beartic
+0613	CUBCHOO_NORMAL	クマシュン	Cubchoo
+0614	BEARTIC_NORMAL	ツンベアー	Beartic
 0615	CRYOGONAL	フリージオ	Cryogonal
 0616	SHELMET	チョボマキ	Shelmet
 0617	ACCELGOR	アギルダー	Accelgor
-0618	STUNFISK	マッギョ	Stunfisk
 0618	STUNFISK_GALARIAN	マッギョ (ガラルのすがた)	Galarian Stunfisk
+0618	STUNFISK_NORMAL	マッギョ	Stunfisk
 0619	MIENFOO	コジョフー	Mienfoo
 0620	MIENSHAO	コジョンド	Mienshao
 0621	DRUDDIGON	クリムガン	Druddigon
@@ -692,7 +723,8 @@
 0625	BISHARP	キリキザン	Bisharp
 0626	BOUFFALANT	バッフロン	Bouffalant
 0627	RUFFLET	ワシボン	Rufflet
-0628	BRAVIARY	ウォーグル	Braviary
+0628	BRAVIARY_HISUIAN	ウォーグル (ヒスイのすがた)	Hisuian Braviary
+0628	BRAVIARY_NORMAL	ウォーグル	Braviary
 0629	VULLABY	バルチャイ	Vullaby
 0630	MANDIBUZZ	バルジーナ	Mandibuzz
 0631	HEATMOR	クイタラン	Heatmor
@@ -739,19 +771,98 @@
 0661	FLETCHLING	ヤヤコマ	Fletchling
 0662	FLETCHINDER	ヒノヤコマ	Fletchinder
 0663	TALONFLAME	ファイアロー	Talonflame
-0664	SCATTERBUG	コフキムシ	Scatterbug
-0665	SPEWPA	コフーライ	Spewpa
-0666	VIVILLON	ビビヨン	Vivillon
+0664	SCATTERBUG_ARCHIPELAGO	コフキムシ (ぐんとう)	Scatterbug (Archipelago)
+0664	SCATTERBUG_CONTINENTAL	コフキムシ (たいりく)	Scatterbug (Continental)
+0664	SCATTERBUG_ELEGANT	コフキムシ (みやび)	Scatterbug (Elegant)
+0664	SCATTERBUG_FANCY	コフキムシ (ファンシー)	Scatterbug (Fancy)
+0664	SCATTERBUG_GARDEN	コフキムシ (ていえん)	Scatterbug (Garden)
+0664	SCATTERBUG_HIGH_PLAINS	コフキムシ (こうや)	Scatterbug (High Plains)
+0664	SCATTERBUG_ICY_SNOW	コフキムシ (ひょうせつ)	Scatterbug (Icy Snow)
+0664	SCATTERBUG_JUNGLE	コフキムシ (ジャングル)	Scatterbug (Jungle)
+0664	SCATTERBUG_MARINE	コフキムシ (マリン)	Scatterbug (Marine)
+0664	SCATTERBUG_MEADOW	コフキムシ (はなぞの)	Scatterbug (Meadow)
+0664	SCATTERBUG_MODERN	コフキムシ (モダン)	Scatterbug (Modern)
+0664	SCATTERBUG_MONSOON	コフキムシ (スコール)	Scatterbug (Monsoon)
+0664	SCATTERBUG_OCEAN	コフキムシ (オーシャン)	Scatterbug (Ocean)
+0664	SCATTERBUG_POKEBALL	コフキムシ (モンスターボール)	Scatterbug (Pokéball)
+0664	SCATTERBUG_POLAR	コフキムシ (ゆきぐに)	Scatterbug (Polar)
+0664	SCATTERBUG_RIVER	コフキムシ (たいが)	Scatterbug (River)
+0664	SCATTERBUG_SANDSTORM	コフキムシ (さじん)	Scatterbug (Sandstorm)
+0664	SCATTERBUG_SAVANNA	コフキムシ (サバンナ)	Scatterbug (Savanna)
+0664	SCATTERBUG_SUN	コフキムシ (たいよう)	Scatterbug (Sun)
+0664	SCATTERBUG_TUNDRA	コフキムシ (せつげん)	Scatterbug (Tundra)
+0665	SPEWPA_ARCHIPELAGO	コフーライ (ぐんとう)	Spewpa (Archipelago)
+0665	SPEWPA_CONTINENTAL	コフーライ (たいりく)	Spewpa (Continental)
+0665	SPEWPA_ELEGANT	コフーライ (みやび)	Spewpa (Elegant)
+0665	SPEWPA_FANCY	コフーライ (ファンシー)	Spewpa (Fancy)
+0665	SPEWPA_GARDEN	コフーライ (ていえん)	Spewpa (Garden)
+0665	SPEWPA_HIGH_PLAINS	コフーライ (こうや)	Spewpa (High Plains)
+0665	SPEWPA_ICY_SNOW	コフーライ (ひょうせつ)	Spewpa (Icy Snow)
+0665	SPEWPA_JUNGLE	コフーライ (ジャングル)	Spewpa (Jungle)
+0665	SPEWPA_MARINE	コフーライ (マリン)	Spewpa (Marine)
+0665	SPEWPA_MEADOW	コフーライ (はなぞの)	Spewpa (Meadow)
+0665	SPEWPA_MODERN	コフーライ (モダン)	Spewpa (Modern)
+0665	SPEWPA_MONSOON	コフーライ (スコール)	Spewpa (Monsoon)
+0665	SPEWPA_OCEAN	コフーライ (オーシャン)	Spewpa (Ocean)
+0665	SPEWPA_POKEBALL	コフーライ (モンスターボール)	Spewpa (Pokéball)
+0665	SPEWPA_POLAR	コフーライ (ゆきぐに)	Spewpa (Polar)
+0665	SPEWPA_RIVER	コフーライ (たいが)	Spewpa (River)
+0665	SPEWPA_SANDSTORM	コフーライ (さじん)	Spewpa (Sandstorm)
+0665	SPEWPA_SAVANNA	コフーライ (サバンナ)	Spewpa (Savanna)
+0665	SPEWPA_SUN	コフーライ (たいよう)	Spewpa (Sun)
+0665	SPEWPA_TUNDRA	コフーライ (せつげん)	Spewpa (Tundra)
+0666	VIVILLON_ARCHIPELAGO	ビビヨン (ぐんとう)	Vivillon (Archipelago)
+0666	VIVILLON_CONTINENTAL	ビビヨン (たいりく)	Vivillon (Continental)
+0666	VIVILLON_ELEGANT	ビビヨン (みやび)	Vivillon (Elegant)
+0666	VIVILLON_FANCY	ビビヨン (ファンシー)	Vivillon (Fancy)
+0666	VIVILLON_GARDEN	ビビヨン (ていえん)	Vivillon (Garden)
+0666	VIVILLON_HIGH_PLAINS	ビビヨン (こうや)	Vivillon (High Plains)
+0666	VIVILLON_ICY_SNOW	ビビヨン (ひょうせつ)	Vivillon (Icy Snow)
+0666	VIVILLON_JUNGLE	ビビヨン (ジャングル)	Vivillon (Jungle)
+0666	VIVILLON_MARINE	ビビヨン (マリン)	Vivillon (Marine)
+0666	VIVILLON_MEADOW	ビビヨン (はなぞの)	Vivillon (Meadow)
+0666	VIVILLON_MODERN	ビビヨン (モダン)	Vivillon (Modern)
+0666	VIVILLON_MONSOON	ビビヨン (スコール)	Vivillon (Monsoon)
+0666	VIVILLON_OCEAN	ビビヨン (オーシャン)	Vivillon (Ocean)
+0666	VIVILLON_POKEBALL	ビビヨン (モンスターボール)	Vivillon (Pokéball)
+0666	VIVILLON_POLAR	ビビヨン (ゆきぐに)	Vivillon (Polar)
+0666	VIVILLON_RIVER	ビビヨン (たいが)	Vivillon (River)
+0666	VIVILLON_SANDSTORM	ビビヨン (さじん)	Vivillon (Sandstorm)
+0666	VIVILLON_SAVANNA	ビビヨン (サバンナ)	Vivillon (Savanna)
+0666	VIVILLON_SUN	ビビヨン (たいよう)	Vivillon (Sun)
+0666	VIVILLON_TUNDRA	ビビヨン (せつげん)	Vivillon (Tundra)
 0667	LITLEO	シシコ	Litleo
-0668	PYROAR	カエンジシ	Pyroar
-0669	FLABEBE	フラベベ	Flabébé
-0670	FLOETTE	フラエッテ	Floette
-0671	FLORGES	フラージェス	Florges
+0668	PYROAR_FEMALE	カエンジシ	Pyroar
+0668	PYROAR_NORMAL	カエンジシ	Pyroar
+0669	FLABEBE_BLUE	フラベベ（あおいはな）	Flabébé (Blue Flower)
+0669	FLABEBE_ORANGE	フラベベ（オレンジいろのはな）	Flabébé (Orange Flower)
+0669	FLABEBE_RED	フラベベ（あかいはな）	Flabébé (Red Flower)
+0669	FLABEBE_WHITE	フラベベ（しろいはな）	Flabébé (White Flower)
+0669	FLABEBE_YELLOW	フラベベ（きいろのはな）	Flabébé (Yellow Flower)
+0670	FLOETTE_BLUE	フラエッテ（あおいはな）	Floette (Blue Flower)
+0670	FLOETTE_ORANGE	フラエッテ（オレンジいろのはな）	Floette (Orange Flower)
+0670	FLOETTE_RED	フラエッテ（あかいはな）	Floette (Red Flower)
+0670	FLOETTE_WHITE	フラエッテ（しろいはな）	Floette (White Flower)
+0670	FLOETTE_YELLOW	フラエッテ（きいろのはな）	Floette (Yellow Flower)
+0671	FLORGES_BLUE	フラージェス（あおいはな）	Florges (Blue Flower)
+0671	FLORGES_ORANGE	フラージェス（オレンジいろのはな）	Florges (Orange Flower)
+0671	FLORGES_RED	フラージェス（あかいはな）	Florges (Red Flower)
+0671	FLORGES_WHITE	フラージェス（しろいはな）	Florges (White Flower)
+0671	FLORGES_YELLOW	フラージェス（きいろのはな）	Florges (Yellow Flower)
 0672	SKIDDO	メェークル	Skiddo
 0673	GOGOAT	ゴーゴート	Gogoat
 0674	PANCHAM	ヤンチャム	Pancham
 0675	PANGORO	ゴロンダ	Pangoro
-0676	FURFROU	トリミアン	Furfrou
+0676	FURFROU_DANDY	トリミアン (ジェントルカット)	Furfrow (Dandy Trim)
+0676	FURFROU_DEBUTANTE	トリミアン (レディカット)	Furfrow (Debutante Trim)
+0676	FURFROU_DIAMOND	トリミアン (ダイヤカット)	Furfrow (Diamond Trim)
+0676	FURFROU_HEART	トリミアン (ハートカット)	Furfrow (Heart Trim)
+0676	FURFROU_KABUKI	トリミアン (カブキカット)	Furfrow (Kabuki Trim)
+0676	FURFROU_LA_REINE	トリミアン (クイーンカット)	Furfrow (La Reine Trim)
+0676	FURFROU_MATRON	トリミアン (マダムカット)	Furfrow (Matron Trim)
+0676	FURFROU_NATURAL	トリミアン (あるがまま)	Furfrow (Natural Form)
+0676	FURFROU_PHARAOH	トリミアン (キングダムカット)	Furfrow (Pharaoh Trim)
+0676	FURFROU_STAR	トリミアン (スターカット)	Furfrow (Star Trim)
 0677	ESPURR	ニャスパー	Espurr
 0678	MEOWSTIC_FEMALE	ニャオニクス (メス)	Meowstic (Female)
 0678	MEOWSTIC_NORMAL	ニャオニクス (オス)	Meowstic (Male)
@@ -786,22 +897,252 @@
 0707	KLEFKI	クレッフィ	Klefki
 0708	PHANTUMP	ボクレー	Phantump
 0709	TREVENANT	オーロット	Trevenant
-0710	PUMPKABOO	バケッチャ	Pumpkaboo
-0711	GOURGEIST	パンプジン	Gourgeist
+0710	PUMPKABOO_AVERAGE	バケッチャ（ふつうのサイズ）	Pumpkaboo (Average Size)
+0710	PUMPKABOO_LARGE	バケッチャ（おおきいサイズ）	Pumpkaboo (Large Size)
+0710	PUMPKABOO_SMALL	バケッチャ（ちいさいサイズ）	Pumpkaboo (Small Size)
+0710	PUMPKABOO_SUPER	バケッチャ（とくだいサイズ）	Pumpkaboo (Super Size)
+0711	GOURGEIST_AVERAGE	パンプジン（ふつうのサイズ）	Gourgeist (Average Size)
+0711	GOURGEIST_LARGE	パンプジン（おおきいサイズ）	Gourgeist (Large Size)
+0711	GOURGEIST_SMALL	パンプジン（ちいさいサイズ）	Gourgeist (Small Size)
+0711	GOURGEIST_SUPER	パンプジン（とくだいサイズ）	Gourgeist (Super Size)
 0712	BERGMITE	カチコール	Bergmite
-0713	AVALUGG	クレベース	Avalugg
+0713	AVALUGG_HISUIAN	クレベース（ヒスイのすがた）	Hisuian Avalugg
+0713	AVALUGG_NORMAL	クレベース	Avalugg
 0714	NOIBAT	オンバット	Noibat
 0715	NOIVERN	オンバーン	Noivern
 0716	XERNEAS	ゼルネアス	Xerneas
 0717	YVELTAL	イベルタル	Yveltal
 0718	ZYGARDE	ジガルデ	Zygarde
+0719	DIANCIE	ディアンシー	Diancie
+0720	HOOPA_CONFINED	いましめられしフーパ	Hoopa Confined
+0720	HOOPA_UNBOUND	ときはなたれしフーパ	Hoopa Unbound
+0721	VOLCANION	ボルケニオン	Volcanion
+0722	ROWLET	モクロー	Rowlet
+0723	DARTRIX	フクスロー	Dartrix
+0724	DECIDUEYE	ジュナイパー	Decidueye
+0725	LITTEN	ニャビー	Litten
+0726	TORRACAT	ニャヒート	Torracat
+0727	INCINEROAR	ガオガエン	Incineroar
+0728	POPPLIO	アシマリ	Popplio
+0729	BRIONNE	オシャマリ	Brionne
+0730	PRIMARINA	アシレーヌ	Primarina
+0731	PIKIPEK	ツツケラ	Pikipek
+0732	TRUMBEAK	ケララッパ	Trumbeak
+0733	TOUCANNON	ドデカバシ	Toucannon
+0734	YUNGOOS	ヤングース	Yungoos
+0735	GUMSHOOS	デカグース	Gumshoos
+0736	GRUBBIN	アゴジムシ	Grubbin
+0737	CHARJABUG	デンヂムシ	Charjabug
+0738	VIKAVOLT	クワガノン	Vikavolt
+0739	CRABRAWLER	マケンカニ	Crabrawler
+0740	CRABOMINABLE	ケケンカニ	Crabominable
+0741	ORICORIO_BAILE	オドリドリ（めらめら）	Oricorio (Baile Style)
+0741	ORICORIO_PAU	オドリドリ（ふらふら）	Oricorio (Pa'u Style)
+0741	ORICORIO_POMPOM	オドリドリ（ぱちぱち）	Oricorio (Pom-Pom Style)
+0741	ORICORIO_SENSU	オドリドリ（まいまい）	Oricorio (Sensu Style)
+0742	CUTIEFLY	アブリー	Cutiefly
+0743	RIBOMBEE	アブリボン	Ribombee
+0744	ROCKRUFF	イワンコ	Rockruff
+0745	LYCANROC_DUSK	ルガルガン（たそがれ）	Lycanroc (Dusk)
+0745	LYCANROC_MIDDAY	ルガルガン（まひる）	Lycanroc (Midday)
+0745	LYCANROC_MIDNIGHT	ルガルガン（まよなか）	Lycanroc (Midnight)
+0746	WISHIWASHI_SCHOOL	ヨワシ（むれ）	Wishiwashi (School)
+0746	WISHIWASHI_SOLO	ヨワシ（たんどく）	Wishiwashi (Solo)
+0747	MAREANIE	ヒドイデ	Mareanie
+0748	TOXAPEX	ドヒドイデ	Toxapex
+0749	MUDBRAY	ドロバンコ	Mudbray
+0750	MUDSDALE	バンバドロ	Mudsdale
+0751	DEWPIDER	シズクモ	Dewpider
+0752	ARAQUANID	オニシズクモ	Araquanid
+0753	FOMANTIS	カリキリ	Fomantis
+0754	LURANTIS	ラランテス	Lurantis
+0755	MORELULL	ネマシュ	Morelull
+0756	SHIINOTIC	マシェード	Shiinotic
+0757	SALANDIT	ヤトウモリ	Salandit
+0758	SALAZZLE	エンニュート	Salazzle
+0759	STUFFUL	ヌイコグマ	Stufful
+0760	BEWEAR	キテルグマ	Bewear
+0761	BOUNSWEET	アマカジ	Bounsweet
+0762	STEENEE	アママイコ	Steenee
+0763	TSAREENA	アマージョ	Tsareena
+0764	COMFEY	キュワワー	Comfey
+0765	ORANGURU	ヤレユータン	Oranguru
+0766	PASSIMIAN	ナゲツケサル	Passimian
+0767	WIMPOD	コソクムシ	Wimpod
+0768	GOLISOPOD	グソクムシャ	Golisopod
+0769	SANDYGAST	スナバァ	Sandygast
+0770	PALOSSAND	シロデスナ	Palossand
+0771	PYUKUMUKU	ナマコブシ	Pyukumuku
+0772	TYPE_NULL	タイプ:ヌル	Type: Null
+0773	SILVALLY_BUG	シルヴァディ（むし）	Silvally (Bug)
+0773	SILVALLY_DARK	シルヴァディ（あく）	Silvally (Dark)
+0773	SILVALLY_DRAGON	シルヴァディ（ドラゴン）	Silvally (Dragon)
+0773	SILVALLY_ELECTRIC	シルヴァディ（でんき）	Silvally (Electric)
+0773	SILVALLY_FAIRY	シルヴァディ（フェアリー）	Silvally (Fairy)
+0773	SILVALLY_FIGHTING	シルヴァディ（かくとう）	Silvally (Fighting)
+0773	SILVALLY_FIRE	シルヴァディ（ほのお）	Silvally (Fire)
+0773	SILVALLY_FLYING	シルヴァディ（ひこう）	Silvally (Flying)
+0773	SILVALLY_GHOST	シルヴァディ（ゴースト）	Silvally (Ghost)
+0773	SILVALLY_GRASS	シルヴァディ（くさ）	Silvally (Grass)
+0773	SILVALLY_GROUND	シルヴァディ（じめん）	Silvally (Ground)
+0773	SILVALLY_ICE	シルヴァディ（こおり）	Silvally (Ice)
+0773	SILVALLY_NORMAL	シルヴァディ（ノーマル）	Silvally (Normal)
+0773	SILVALLY_POISON	シルヴァディ（どく）	Silvally (Poison)
+0773	SILVALLY_PSYCHIC	シルヴァディ（エスパー）	Silvally (Psychic)
+0773	SILVALLY_ROCK	シルヴァディ（いわ）	Silvally (Rock)
+0773	SILVALLY_STEEL	シルヴァディ（はがね）	Silvally (Steel)
+0773	SILVALLY_WATER	シルヴァディ（みず）	Silvally (Water)
+0774	MINIOR_BLUE	メテノ（みずいろのコア）	Minior (Blue Core)
+0774	MINIOR_GREEN	メテノ（みどりいろのコア）	Minior (Green Core)
+0774	MINIOR_INDIGO	メテノ（あおいろのコア）	Minior (Indigo Core)
+0774	MINIOR_ORANGE	メテノ（だいだいいろのコア）	Minior (Orange Core)
+0774	MINIOR_RED	メテノ（あかいろのコア）	Minior (Red Core)
+0774	MINIOR_VIOLET	メテノ（むらさきいろのコア）	Minior (Violet Core)
+0774	MINIOR_YELLOW	メテノ（きいろのコア）	Minior (Yellow Core)
+0775	KOMALA	ネッコアラ	Komala
+0776	TURTONATOR	バクガメス	Turtonator
+0777	TOGEDEMARU	トゲデマル	Togedemaru
+0778	MIMIKYU_BUSTED	ミミッキュ（ばれたすがた）	Mimikyu (Busted Form)
+0778	MIMIKYU_DISGUISED	ミミッキュ（ばけたすがた）	Mimikyu (Disguised Form)
+0779	BRUXISH	ハギギシリ	Bruxish
+0780	DRAMPA	ジジーロン	Drampa
+0781	DHELMISE	ダダリン	Dhelmise
+0782	JANGMO_O	ジャラコ	Jangmo-o
+0783	HAKAMO_O	ジャランゴ	Hakamo-o
+0784	KOMMO_O	ジャラランガ	Kommo-o
+0785	TAPU_KOKO	カプ・コケコ	Tapu Koko
+0786	TAPU_LELE	カプ・テテフ	Tapu Lele
+0787	TAPU_BULU	カプ・ブルル	Tapu Bulu
+0788	TAPU_FINI	カプ・レヒレ	Tapu Fini
+0789	COSMOG	コスモッグ	Cosmog
+0790	COSMOEM	コスモウム	Cosmoem
+0791	SOLGALEO	ソルガレオ	Solgaleo
+0792	LUNALA	ルナアーラ	Lunala
+0793	NIHILEGO	ウツロイド	Nihilego
+0794	BUZZWOLE	マッシブーン	Buzzwole
+0795	PHEROMOSA	フェローチェ	Pheromosa
+0796	XURKITREE	デンジュモク	Xurkitree
+0797	CELESTEELA	テッカグヤ	Celesteela
+0798	KARTANA	カミツルギ	Kartana
+0799	GUZZLORD	アクジキング	Guzzlord
+0800	NECROZMA_DAWN_WINGS	ネクロズマ（あかつきのつばさ）	Necrozma (Dawn Wings)
+0800	NECROZMA_DUSK_MANE	ネクロズマ（たそがれのたてがみ）	Necrozma (Dusk Mane)
+0800	NECROZMA_NORMAL	ネクロズマ	Necrozma
+0800	NECROZMA_ULTRA	ウルトラネクロズマ	Ultra Necrozma
+0801	MAGEARNA_NORMAL	マギアナ	Magearna
+0801	MAGEARNA_ORIGINAL_COLOR	マギアナ（５００ねんまえのいろ）	Magearna (Original Color)
+0802	MARSHADOW	マーシャドー	Marshadow
+0803	POIPOLE	ベベノム	Poipole
+0804	NAGANADEL	アーゴヨン	Naganadel
+0805	STAKATAKA	ツンデツンデ	Stakataka
+0806	BLACEPHALON	ズガドーン	Blacephalon
+0807	ZERAORA	ゼラオラ	Zeraora
 0808	MELTAN	メルタン	Meltan
 0809	MELMETAL	メルメタル	Melmetal
-0862	OBSTAGOON	タチフサグマ	Obstagoon
-0863	PERRSERKER	ニャイキング	Perrserker
-0865	SIRFETCHD	ネギガナイト	Sirfetch'd
-0866	MR_RIME	バリコオル	Mr. Rime
-0867	RUNERIGUS	デスバーン	Runerigus
+0810	GROOKEY	サルノリ	Grookey
+0811	THWACKEY	バチンキー	Thwackey
+0812	RILLABOOM	ゴリランダー	Rillaboom
+0813	SCORBUNNY	ヒバニー	Scorbunny
+0814	RABOOT	ラビフット	Raboot
+0815	CINDERACE	エースバーン	Cinderace
+0816	SOBBLE	メッソン	Sobble
+0817	DRIZZILE	ジメレオン	Drizzile
+0818	INTELEON	インテレオン	Inteleon
+0819	SKWOVET	ホシガリス	Skwovet
+0820	GREEDENT	ヨクバリス	Greedent
+0821	ROOKIDEE	ココガラ	Rookidee
+0822	CORVISQUIRE	アオガラス	Corvisquire
+0823	CORVIKNIGHT	アーマーガア	Corviknight
+0824	BLIPBUG	サッチムシ	Blipbug
+0825	DOTTLER	レドームシ	Dottler
+0826	ORBEETLE	イオルブ	Orbeetle
+0827	NICKIT	クスネ	Nickit
+0828	THIEVUL	フォクスライ	Thievul
+0829	GOSSIFLEUR	ヒメンカ	Gossifleur
+0830	ELDEGOSS	ワタシラガ	Eldegoss
+0831	WOOLOO	ウールー	Wooloo
+0832	DUBWOOL	バイウールー	Dubwool
+0833	CHEWTLE	カムカメ	Chewtle
+0834	DREDNAW	カジリガメ	Drednaw
+0835	YAMPER	ワンパチ	Yamper
+0836	BOLTUND	パルスワン	Boltund
+0837	ROLYCOLY	タンドン	Rolycoly
+0838	CARKOL	トロッゴン	Carkol
+0839	COALOSSAL	セキタンザン	Coalossal
+0840	APPLIN	カジッチュ	Applin
+0841	FLAPPLE	アップリュー	Flapple
+0842	APPLETUN	タルップル	Appletun
+0843	SILICOBRA	スナヘビ	Silicobra
+0844	SANDACONDA	サダイジャ	Sandaconda
+0845	CRAMORANT	ウッウ	Cramorant
+0846	ARROKUDA	サシカマス	Arrokuda
+0847	BARRASKEWDA	カマスジョー	Barraskewda
+0848	TOXEL	エレズン	Toxel
+0849	TOXTRICITY_AMPED	ストリンダー（ハイなすがた）	Toxtricity (Amped Form)
+0849	TOXTRICITY_LOW_KEY	ストリンダー（ローなすがた）	Toxtricity (Low Key Form)
+0850	SIZZLIPEDE	ヤクデ	Sizzlipede
+0851	CENTISKORCH	マルヤクデ	Centiskorch
+0852	CLOBBOPUS	タタッコ	Clobbopus
+0853	GRAPPLOCT	オトスパス	Grapploct
+0854	SINISTEA_ANTIQUE	ヤバチャ（しんさくフォルム）	Sinistea (Antique Form)
+0854	SINISTEA_PHONY	ヤバチャ（がんさくフォルム）	Sinistea (Phony Form)
+0855	POLTEAGEIST_ANTIQUE	ポットデス（しんさくフォルム）	Polteageist (Antique Form)
+0855	POLTEAGEIST_PHONY	ポットデス（がんさくフォルム）	Polteageist (Phony Form)
+0856	HATENNA	ミブリム	Hatenna
+0857	HATTREM	テブリム	Hattrem
+0858	HATTERENE	ブリムオン	Hatterene
+0859	IMPIDIMP	ベロバー	Impidimp
+0860	MORGREM	ギモー	Morgrem
+0861	GRIMMSNARL	オーロンゲ	Grimmsnarl
+0862	OBSTAGOON_NORMAL	タチフサグマ	Obstagoon
+0863	PERRSERKER_NORMAL	ニャイキング	Perrserker
+0864	CURSOLA_NORMAL	サニゴーン	Cursola
+0865	SIRFETCHD_NORMAL	ネギガナイト	Sirfetch'd
+0866	MR_RIME_NORMAL	バリコオル	Mr. Rime
+0867	RUNERIGUS_NORMAL	デスバーン	Runerigus
+0868	MILCERY	マホミル	Milcery
+0869	ALCREMIE	マホイップ	Alcremie
+0870	FALINKS	タイレーツ	Falinks
+0871	PINCURCHIN	バチンウニ	Pincurchin
+0872	SNOM	ユキハミ	Snom
+0873	FROSMOTH	モスノウ	Frosmoth
+0874	STONJOURNER	イシヘンジン	Stonjourner
+0875	EISCUE_ICE	コオリッポ（アイスフェイス）	Eiscue (Ice Face)
+0875	EISCUE_NOICE	コオリッポ（ナイスフェイス）	Eiscue (Noice Face)
+0876	INDEEDEE_FEMALE	イエッサン（メスのすがた）	Indeedee (Female)
+0876	INDEEDEE_MALE	イエッサン（オスのすがた）	Indeedee (Male)
+0877	MORPEKO_FULL_BELLY	モルペコ（まんぷくもよう）	Morpeko (Full Belly Mode)
+0877	MORPEKO_HANGRY	モルペコ（はらぺこもよう）	Morpeko (Hangry Mode)
+0878	CUFANT	ゾウドウ	Cufant
+0879	COPPERAJAH	ダイオウドウ	Copperajah
+0880	DRACOZOLT	パッチラゴン	Dracozolt
+0881	ARCTOZOLT	パッチルドン	Arctozolt
+0882	DRACOVISH	ウオノラゴン	Dracovish
+0883	ARCTOVISH	ウオチルドン	Arctovish
+0884	DURALUDON	ジュラルドン	Duraludon
+0885	DREEPY	ドラメシヤ	Dreepy
+0886	DRAKLOAK	ドロンチ	Drakloak
+0887	DRAGAPULT	ドラパルト	Dragapult
+0888	ZACIAN_CROWNED_SWORD	ザシアン（けんのおう）	Zacian (Crowned Sword)
+0888	ZACIAN_HERO	ザシアン（れきせんのゆうしゃ）	Zacian (Hero of Many Battles)
+0889	ZAMAZENTA_CROWNED_SHIELD	ザマゼンタ（たてのおう）	Zamazenta (Crowned Shield)
+0889	ZAMAZENTA_HERO	ザマゼンタ（れきせんのゆうしゃ）	Zamazenta (Hero of Many Battles)
+0890	ETERNATUS_ETERNAMAX	ムゲンダイマックス	Eternatus (Eternamax)
+0890	ETERNATUS_NORMAL	ムゲンダイナ	Eternatus
+0891	KUBFU	ダクマ	Kubfu
+0892	URSHIFU_RAPID_STRIKE	ウーラオス（れんげきのかた）	Urshifu (Rapid Strike Style)
+0892	URSHIFU_SINGLE_STRIKE	ウーラオス（いちげきのかた）	Urshifu (Single Strike Style)
+0893	ZARUDE	ザルード	Zarude
+0894	REGIELEKI	レジエレキ	Regieleki
+0895	REGIDRAGO	レジドラゴ	Regidrago
+0896	GLASTRIER	ブリザポス	Glastrier
+0897	SPECTRIER	レイスポス	Spectrier
+0898	CALYREX_ICE_RIDER	バドレックス（はくばじょうのすがた）	Calyrex (Ice Rider)
+0898	CALYREX_NORMAL	バドレックス	Calyrex
+0898	CALYREX_SHADOW_RIDER	バドレックス（こくばじょうのすがた）	Calyrex (Shadow Rider)
+0901	URSALUNA	ガチグマ	Ursaluna
+0903	SNEASLER	オオニューラ	Sneasler
+0904	OVERQWIL	ハリーマン	Overqwil
 0001	BULBASAUR_SHADOW	フシギダネ (シャドウ)	Bulbasaur (Shadow)
 0002	IVYSAUR_SHADOW	フシギソウ (シャドウ)	Ivysaur (Shadow)
 0003	VENUSAUR_SHADOW	フシギバナ (シャドウ)	Venusaur (Shadow)
@@ -814,11 +1155,15 @@
 0013	WEEDLE_SHADOW	ビードル (シャドウ)	Weedle (Shadow)
 0014	KAKUNA_SHADOW	コクーン (シャドウ)	Kakuna (Shadow)
 0015	BEEDRILL_SHADOW	スピアー (シャドウ)	Beedrill (Shadow)
+0019	RATTATA_ALOLA_SHADOW	コラッタ (アローラのすがた) (シャドウ)	Alolan Rattata (Shadow)
 0019	RATTATA_SHADOW	コラッタ (シャドウ)	Rattata (Shadow)
+0020	RATICATE_ALOLA_SHADOW	ラッタ (アローラのすがた) (シャドウ)	Alolan Raticate (Shadow)
 0020	RATICATE_SHADOW	ラッタ (シャドウ)	Raticate (Shadow)
 0023	EKANS_SHADOW	アーボ (シャドウ)	Ekans (Shadow)
 0024	ARBOK_SHADOW	アーボック (シャドウ)	Arbok (Shadow)
+0027	SANDSHREW_ALOLA_SHADOW	サンド (アローラのすがた) (シャドウ)	Alolan Sandshrew (Shadow)
 0027	SANDSHREW_SHADOW	サンド (シャドウ)	Sandshrew (Shadow)
+0028	SANDSLASH_ALOLA_SHADOW	サンドパン (アローラのすがた) (シャドウ)	Alolan Sandslash (Shadow)
 0028	SANDSLASH_SHADOW	サンドパン (シャドウ)	Sandslash (Shadow)
 0029	NIDORAN_F_SHADOW	ニドラン♀ (シャドウ)	Nidoran♀ (Shadow)
 0030	NIDORINA_SHADOW	ニドリーナ (シャドウ)	Nidorina (Shadow)
@@ -826,7 +1171,9 @@
 0032	NIDORAN_M_SHADOW	ニドラン♂ (シャドウ)	Nidoran♂ (Shadow)
 0033	NIDORINO_SHADOW	ニドリーノ (シャドウ)	Nidorino (Shadow)
 0034	NIDOKING_SHADOW	ニドキング (シャドウ)	Nidoking (Shadow)
+0037	VULPIX_ALOLA_SHADOW	ロコン (アローラのすがた) (シャドウ)	Alolan Vulpix (Shadow)
 0037	VULPIX_SHADOW	ロコン (シャドウ)	Vulpix (Shadow)
+0038	NINETALES_ALOLA_SHADOW	キュウコン (アローラのすがた) (シャドウ)	Alolan Ninetales (Shadow)
 0038	NINETALES_SHADOW	キュウコン (シャドウ)	Ninetales (Shadow)
 0041	ZUBAT_SHADOW	ズバット (シャドウ)	Zubat (Shadow)
 0042	GOLBAT_SHADOW	ゴルバット (シャドウ)	Golbat (Shadow)
@@ -835,13 +1182,20 @@
 0045	VILEPLUME_SHADOW	ラフレシア (シャドウ)	Vileplume (Shadow)
 0048	VENONAT_SHADOW	コンパン (シャドウ)	Venonat (Shadow)
 0049	VENOMOTH_SHADOW	モルフォン (シャドウ)	Venomoth (Shadow)
+0050	DIGLETT_ALOLA_SHADOW	ディグダ (アローラのすがた) (シャドウ)	Alolan Diglett (Shadow)
 0050	DIGLETT_SHADOW	ディグダ (シャドウ)	Diglett (Shadow)
+0051	DUGTRIO_ALOLA_SHADOW	ダグトリオ (アローラのすがた) (シャドウ)	Alolan Dugtrio (Shadow)
 0051	DUGTRIO_SHADOW	ダグトリオ (シャドウ)	Dugtrio (Shadow)
+0052	MEOWTH_ALOLA_SHADOW	ニャース (アローラのすがた) (シャドウ)	Alolan Meowth (Shadow)
+0052	MEOWTH_GALARIAN_SHADOW	ニャース (ガラルのすがた) (シャドウ)	Galarian Meowth (Shadow)
 0052	MEOWTH_SHADOW	ニャース (シャドウ)	Meowth (Shadow)
+0053	PERSIAN_ALOLA_SHADOW	ペルシアン (アローラのすがた) (シャドウ)	Alolan Persian (Shadow)
 0053	PERSIAN_SHADOW	ペルシアン (シャドウ)	Persian (Shadow)
 0054	PSYDUCK_SHADOW	コダック (シャドウ)	Psyduck (Shadow)
 0055	GOLDUCK_SHADOW	ゴルダック (シャドウ)	Golduck (Shadow)
+0058	GROWLITHE_HISUIAN_SHADOW	ガーディ (シャドウ)	Growlithe (Shadow)
 0058	GROWLITHE_SHADOW	ガーディ (シャドウ)	Growlithe (Shadow)
+0059	ARCANINE_HISUIAN_SHADOW	ウインディ (シャドウ)	Arcanine (Shadow)
 0059	ARCANINE_SHADOW	ウインディ (シャドウ)	Arcanine (Shadow)
 0060	POLIWAG_SHADOW	ニョロモ (シャドウ)	Poliwag (Shadow)
 0061	POLIWHIRL_SHADOW	ニョロゾ (シャドウ)	Poliwhirl (Shadow)
@@ -855,17 +1209,27 @@
 0069	BELLSPROUT_SHADOW	マダツボミ (シャドウ)	Bellsprout (Shadow)
 0070	WEEPINBELL_SHADOW	ウツドン (シャドウ)	Weepinbell (Shadow)
 0071	VICTREEBEL_SHADOW	ウツボット (シャドウ)	Victreebel (Shadow)
+0074	GEODUDE_ALOLA_SHADOW	イシツブテ (アローラのすがた) (シャドウ)	Alolan Geodude (Shadow)
 0074	GEODUDE_SHADOW	イシツブテ (シャドウ)	Geodude (Shadow)
+0075	GRAVELER_ALOLA_SHADOW	ゴローン (アローラのすがた) (シャドウ)	Alolan Graveler (Shadow)
 0075	GRAVELER_SHADOW	ゴローン (シャドウ)	Graveler (Shadow)
+0076	GOLEM_ALOLA_SHADOW	ゴローニャ (アローラのすがた) (シャドウ)	Alolan Golem (Shadow)
 0076	GOLEM_SHADOW	ゴローニャ (シャドウ)	Golem (Shadow)
+0077	PONYTA_GALARIAN_SHADOW	ポニータ (ガラルのすがた) (シャドウ)	Galarian Ponyta (Shadow)
 0077	PONYTA_SHADOW	ポニータ (シャドウ)	Ponyta (Shadow)
+0078	RAPIDASH_GALARIAN_SHADOW	ギャロップ (ガラルのすがた) (シャドウ)	Galarian Rapidash (Shadow)
 0078	RAPIDASH_SHADOW	ギャロップ (シャドウ)	Rapidash (Shadow)
+0079	SLOWPOKE_GALARIAN_SHADOW	ヤドン (ガラルのすがた) (シャドウ)	Galarian Slowpoke (Shadow)
 0079	SLOWPOKE_SHADOW	ヤドン (シャドウ)	Slowpoke (Shadow)
+0080	SLOWBRO_GALARIAN_SHADOW	ヤドラン (ガラルのすがた) (シャドウ)	Galarian Slowbro (Shadow)
 0080	SLOWBRO_SHADOW	ヤドラン (シャドウ)	Slowbro (Shadow)
 0081	MAGNEMITE_SHADOW	コイル (シャドウ)	Magnemite (Shadow)
 0082	MAGNETON_SHADOW	レアコイル (シャドウ)	Magneton (Shadow)
+0083	FARFETCHD_GALARIAN_SHADOW	カモネギ (ガラルのすがた) (シャドウ)	Galarian Farfetch'd (Shadow)
 0083	FARFETCHD_SHADOW	カモネギ (シャドウ)	Farfetch'd (Shadow)
+0088	GRIMER_ALOLA_SHADOW	ベトベター (アローラのすがた) (シャドウ)	Alolan Grimer (Shadow)
 0088	GRIMER_SHADOW	ベトベター (シャドウ)	Grimer (Shadow)
+0089	MUK_ALOLA_SHADOW	ベトベトン (アローラのすがた) (シャドウ)	Alolan Muk (Shadow)
 0089	MUK_SHADOW	ベトベトン (シャドウ)	Muk (Shadow)
 0090	SHELLDER_SHADOW	シェルダー (シャドウ)	Shellder (Shadow)
 0091	CLOYSTER_SHADOW	パルシェン (シャドウ)	Cloyster (Shadow)
@@ -874,17 +1238,28 @@
 0097	HYPNO_SHADOW	スリーパー (シャドウ)	Hypno (Shadow)
 0098	KRABBY_SHADOW	クラブ (シャドウ)	Krabby (Shadow)
 0099	KINGLER_SHADOW	キングラー (シャドウ)	Kingler (Shadow)
+0100	VOLTORB_HISUIAN_SHADOW	ビリリダマ（ヒスイのすがた）(シャドウ)	Hisuian Voltorb (Shadow)
+0100	VOLTORB_SHADOW	ビリリダマ (シャドウ)	Voltorb (Shadow)
+0101	ELECTRODE_HISUIAN_SHADOW	マルマイン (シャドウ)	Electrode (Shadow)
+0101	ELECTRODE_SHADOW	マルマイン (シャドウ)	Electrode (Shadow)
 0102	EXEGGCUTE_SHADOW	タマタマ (シャドウ)	Exeggcute (Shadow)
+0103	EXEGGUTOR_ALOLA_SHADOW	ナッシー (アローラのすがた) (シャドウ)	Alolan Exeggutor (Shadow)
 0103	EXEGGUTOR_SHADOW	ナッシー (シャドウ)	Exeggutor (Shadow)
 0104	CUBONE_SHADOW	カラカラ (シャドウ)	Cubone (Shadow)
+0105	MAROWAK_ALOLA_SHADOW	ガラガラ (アローラのすがた) (シャドウ)	Alolan Marowak (Shadow)
 0105	MAROWAK_SHADOW	ガラガラ (シャドウ)	Marowak (Shadow)
 0106	HITMONLEE_SHADOW	サワムラー (シャドウ)	Hitmonlee (Shadow)
 0107	HITMONCHAN_SHADOW	エビワラー (シャドウ)	Hitmonchan (Shadow)
 0109	KOFFING_SHADOW	ドガース (シャドウ)	Koffing (Shadow)
+0110	WEEZING_GALARIAN_SHADOW	マタドガス (ガラルのすがた) (シャドウ)	Galarian Weezing (Shadow)
 0110	WEEZING_SHADOW	マタドガス (シャドウ)	Weezing (Shadow)
 0111	RHYHORN_SHADOW	サイホーン (シャドウ)	Rhyhorn (Shadow)
 0112	RHYDON_SHADOW	サイドン (シャドウ)	Rhydon (Shadow)
+0114	TANGELA_SHADOW	モンジャラ (シャドウ)	Tangela (Shadow)
 0115	KANGASKHAN_SHADOW	ガルーラ (シャドウ)	Kangaskhan (Shadow)
+0116	HORSEA_SHADOW	タッツー (シャドウ)	Horsea (Shadow)
+0117	SEADRA_SHADOW	シードラ (シャドウ)	Seadra (Shadow)
+0122	MR_MIME_GALARIAN_SHADOW	バリヤード (ガラルのすがた) (シャドウ)	Galarian Mr. Mime (Shadow)
 0122	MR_MIME_SHADOW	バリヤード (シャドウ)	Mr. Mime (Shadow)
 0123	SCYTHER_SHADOW	ストライク (シャドウ)	Scyther (Shadow)
 0125	ELECTABUZZ_SHADOW	エレブー (シャドウ)	Electabuzz (Shadow)
@@ -900,18 +1275,34 @@
 0141	KABUTOPS_SHADOW	カブトプス (シャドウ)	Kabutops (Shadow)
 0142	AERODACTYL_SHADOW	プテラ (シャドウ)	Aerodactyl (Shadow)
 0143	SNORLAX_SHADOW	カビゴン (シャドウ)	Snorlax (Shadow)
+0144	ARTICUNO_GALARIAN_SHADOW	フリーザー (シャドウ)	Articuno (Shadow)
 0144	ARTICUNO_SHADOW	フリーザー (シャドウ)	Articuno (Shadow)
+0145	ZAPDOS_GALARIAN_SHADOW	サンダー (シャドウ)	Zapdos (Shadow)
 0145	ZAPDOS_SHADOW	サンダー (シャドウ)	Zapdos (Shadow)
+0146	MOLTRES_GALARIAN_SHADOW	ファイヤー (シャドウ)	Moltres (Shadow)
 0146	MOLTRES_SHADOW	ファイヤー (シャドウ)	Moltres (Shadow)
 0147	DRATINI_SHADOW	ミニリュウ (シャドウ)	Dratini (Shadow)
 0148	DRAGONAIR_SHADOW	ハクリュー (シャドウ)	Dragonair (Shadow)
 0149	DRAGONITE_SHADOW	カイリュー (シャドウ)	Dragonite (Shadow)
+0150	MEWTWO_A_SHADOW	アーマードミュウツー (シャドウ)	Armored Mewtwo (Shadow)
 0150	MEWTWO_SHADOW	ミュウツー (シャドウ)	Mewtwo (Shadow)
+0152	CHIKORITA_SHADOW	チコリータ (シャドウ)	Chikorita (Shadow)
+0153	BAYLEEF_SHADOW	ベイリーフ (シャドウ)	Bayleef (Shadow)
+0154	MEGANIUM_SHADOW	メガニウム (シャドウ)	Meganium (Shadow)
+0155	CYNDAQUIL_SHADOW	ヒノアラシ (シャドウ)	Cyndaquil (Shadow)
+0156	QUILAVA_SHADOW	マグマラシ (シャドウ)	Quilava (Shadow)
+0157	TYPHLOSION_SHADOW	バクフーン (シャドウ)	Typhlosion (Shadow)
+0158	TOTODILE_SHADOW	ワニノコ (シャドウ)	Totodile (Shadow)
+0159	CROCONAW_SHADOW	アリゲイツ (シャドウ)	Croconaw (Shadow)
+0160	FERALIGATR_SHADOW	オーダイル (シャドウ)	Feraligatr (Shadow)
 0169	CROBAT_SHADOW	クロバット (シャドウ)	Crobat (Shadow)
+0177	NATU_SHADOW	ネイティ (シャドウ)	Natu (Shadow)
+0178	XATU_SHADOW	ネイティオ (シャドウ)	Xatu (Shadow)
 0179	MAREEP_SHADOW	メリープ (シャドウ)	Mareep (Shadow)
 0180	FLAAFFY_SHADOW	モココ (シャドウ)	Flaaffy (Shadow)
 0181	AMPHAROS_SHADOW	デンリュウ (シャドウ)	Ampharos (Shadow)
 0182	BELLOSSOM_SHADOW	キレイハナ (シャドウ)	Bellossom (Shadow)
+0185	SUDOWOODO_SHADOW	ウソッキー (シャドウ)	Sudowoodo (Shadow)
 0186	POLITOED_SHADOW	ニョロトノ (シャドウ)	Politoed (Shadow)
 0187	HOPPIP_SHADOW	ハネッコ (シャドウ)	Hoppip (Shadow)
 0188	SKIPLOOM_SHADOW	ポポッコ (シャドウ)	Skiploom (Shadow)
@@ -920,15 +1311,20 @@
 0194	WOOPER_SHADOW	ウパー (シャドウ)	Wooper (Shadow)
 0195	QUAGSIRE_SHADOW	ヌオー (シャドウ)	Quagsire (Shadow)
 0198	MURKROW_SHADOW	ヤミカラス (シャドウ)	Murkrow (Shadow)
+0199	SLOWKING_GALARIAN_SHADOW	ヤドキング (ガラルのすがた) (シャドウ)	Galarian Slowking (Shadow)
 0199	SLOWKING_SHADOW	ヤドキング (シャドウ)	Slowking (Shadow)
 0200	MISDREAVUS_SHADOW	ムウマ (シャドウ)	Misdreavus (Shadow)
 0202	WOBBUFFET_SHADOW	ソーナンス (シャドウ)	Wobbuffet (Shadow)
+0203	GIRAFARIG_SHADOW	キリンリキ (シャドウ)	Girafarig (Shadow)
 0204	PINECO_SHADOW	クヌギダマ (シャドウ)	Pineco (Shadow)
 0205	FORRETRESS_SHADOW	フォレトス (シャドウ)	Forretress (Shadow)
 0207	GLIGAR_SHADOW	グライガー (シャドウ)	Gligar (Shadow)
 0208	STEELIX_SHADOW	ハガネール (シャドウ)	Steelix (Shadow)
+0209	SNUBBULL_SHADOW	ブルー (シャドウ)	Snubbull (Shadow)
+0210	GRANBULL_SHADOW	グランブル (シャドウ)	Granbull (Shadow)
 0212	SCIZOR_SHADOW	ハッサム (シャドウ)	Scizor (Shadow)
 0213	SHUCKLE_SHADOW	ツボツボ (シャドウ)	Shuckle (Shadow)
+0215	SNEASEL_HISUIAN_SHADOW	ニューラ (シャドウ)	Sneasel (Shadow)
 0215	SNEASEL_SHADOW	ニューラ (シャドウ)	Sneasel (Shadow)
 0216	TEDDIURSA_SHADOW	ヒメグマ (シャドウ)	Teddiursa (Shadow)
 0217	URSARING_SHADOW	リングマ (シャドウ)	Ursaring (Shadow)
@@ -938,18 +1334,33 @@
 0227	SKARMORY_SHADOW	エアームド (シャドウ)	Skarmory (Shadow)
 0228	HOUNDOUR_SHADOW	デルビル (シャドウ)	Houndour (Shadow)
 0229	HOUNDOOM_SHADOW	ヘルガー (シャドウ)	Houndoom (Shadow)
+0230	KINGDRA_SHADOW	キングドラ (シャドウ)	Kingdra (Shadow)
 0233	PORYGON2_SHADOW	ポリゴン2 (シャドウ)	Porygon2 (Shadow)
 0234	STANTLER_SHADOW	オドシシ (シャドウ)	Stantler (Shadow)
 0243	RAIKOU_SHADOW	ライコウ (シャドウ)	Raikou (Shadow)
+0243	RAIKOU_S_SHADOW	ライコウ・APEX (シャドウ)	Apex Raikou (Shadow)
 0244	ENTEI_SHADOW	エンテイ (シャドウ)	Entei (Shadow)
+0244	ENTEI_S_SHADOW	エンテイ・APEX (シャドウ)	Apex Entei (Shadow)
 0245	SUICUNE_SHADOW	スイクン (シャドウ)	Suicune (Shadow)
+0245	SUICUNE_S_SHADOW	スイクン・APEX (シャドウ)	Apex Suicune (Shadow)
 0246	LARVITAR_SHADOW	ヨーギラス (シャドウ)	Larvitar (Shadow)
 0247	PUPITAR_SHADOW	サナギラス (シャドウ)	Pupitar (Shadow)
 0248	TYRANITAR_SHADOW	バンギラス (シャドウ)	Tyranitar (Shadow)
+0249	LUGIA_SHADOW	ルギア (シャドウ)	Lugia (Shadow)
+0249	LUGIA_S_SHADOW	ルギア・APEX (シャドウ)	Apex Lugia (Shadow)
+0250	HO_OH_SHADOW	ホウオウ (シャドウ)	Ho-Oh (Shadow)
+0250	HO_OH_S_SHADOW	ホウオウ・APEX (シャドウ)	Apex Ho-Oh (Shadow)
+0255	TORCHIC_SHADOW	アチャモ (シャドウ)	Torchic (Shadow)
+0256	COMBUSKEN_SHADOW	ワカシャモ (シャドウ)	Combusken (Shadow)
+0257	BLAZIKEN_SHADOW	バシャーモ (シャドウ)	Blaziken (Shadow)
 0258	MUDKIP_SHADOW	ミズゴロウ (シャドウ)	Mudkip (Shadow)
 0259	MARSHTOMP_SHADOW	ヌマクロー (シャドウ)	Marshtomp (Shadow)
 0260	SWAMPERT_SHADOW	ラグラージ (シャドウ)	Swampert (Shadow)
+0261	POOCHYENA_SHADOW	ポチエナ (シャドウ)	Poochyena (Shadow)
+0262	MIGHTYENA_SHADOW	グラエナ (シャドウ)	Mightyena (Shadow)
+0263	ZIGZAGOON_GALARIAN_SHADOW	ジグザグマ (ガラルのすがた) (シャドウ)	Galarian Zigzagoon (Shadow)
 0263	ZIGZAGOON_SHADOW	ジグザグマ (シャドウ)	Zigzagoon (Shadow)
+0264	LINOONE_GALARIAN_SHADOW	マッスグマ (ガラルのすがた) (シャドウ)	Galarian Linoone (Shadow)
 0264	LINOONE_SHADOW	マッスグマ (シャドウ)	Linoone (Shadow)
 0273	SEEDOT_SHADOW	タネボー (シャドウ)	Seedot (Shadow)
 0274	NUZLEAF_SHADOW	コノハナ (シャドウ)	Nuzleaf (Shadow)
@@ -957,14 +1368,27 @@
 0280	RALTS_SHADOW	ラルトス (シャドウ)	Ralts (Shadow)
 0281	KIRLIA_SHADOW	キルリア (シャドウ)	Kirlia (Shadow)
 0282	GARDEVOIR_SHADOW	サーナイト (シャドウ)	Gardevoir (Shadow)
+0293	WHISMUR_SHADOW	ゴニョニョ (シャドウ)	Whismur (Shadow)
+0294	LOUDRED_SHADOW	ドゴーム (シャドウ)	Loudred (Shadow)
+0295	EXPLOUD_SHADOW	バクオング (シャドウ)	Exploud (Shadow)
+0296	MAKUHITA_SHADOW	マクノシタ (シャドウ)	Makuhita (Shadow)
+0297	HARIYAMA_SHADOW	ハリテヤマ (シャドウ)	Hariyama (Shadow)
 0299	NOSEPASS_SHADOW	ノズパス (シャドウ)	Nosepass (Shadow)
 0302	SABLEYE_SHADOW	ヤミラミ (シャドウ)	Sableye (Shadow)
 0303	MAWILE_SHADOW	クチート (シャドウ)	Mawile (Shadow)
 0304	ARON_SHADOW	ココドラ (シャドウ)	Aron (Shadow)
 0305	LAIRON_SHADOW	コドラ (シャドウ)	Lairon (Shadow)
 0306	AGGRON_SHADOW	ボスゴドラ (シャドウ)	Aggron (Shadow)
+0309	ELECTRIKE_SHADOW	ラクライ (シャドウ)	Electrike (Shadow)
+0310	MANECTRIC_SHADOW	ライボルト (シャドウ)	Manectric (Shadow)
 0318	CARVANHA_SHADOW	キバニア (シャドウ)	Carvanha (Shadow)
 0319	SHARPEDO_SHADOW	サメハダー (シャドウ)	Sharpedo (Shadow)
+0320	WAILMER_SHADOW	ホエルコ (シャドウ)	Wailmer (Shadow)
+0321	WAILORD_SHADOW	ホエルオー (シャドウ)	Wailord (Shadow)
+0322	NUMEL_SHADOW	ドンメル (シャドウ)	Numel (Shadow)
+0323	CAMERUPT_SHADOW	バクーダ (シャドウ)	Camerupt (Shadow)
+0325	SPOINK_SHADOW	バネブー (シャドウ)	Spoink (Shadow)
+0326	GRUMPIG_SHADOW	ブーピッグ (シャドウ)	Grumpig (Shadow)
 0328	TRAPINCH_SHADOW	ナックラー (シャドウ)	Trapinch (Shadow)
 0329	VIBRAVA_SHADOW	ビブラーバ (シャドウ)	Vibrava (Shadow)
 0330	FLYGON_SHADOW	フライゴン (シャドウ)	Flygon (Shadow)
@@ -988,12 +1412,25 @@
 0374	BELDUM_SHADOW	ダンバル (シャドウ)	Beldum (Shadow)
 0375	METANG_SHADOW	メタング (シャドウ)	Metang (Shadow)
 0376	METAGROSS_SHADOW	メタグロス (シャドウ)	Metagross (Shadow)
+0379	REGISTEEL_SHADOW	レジスチル (シャドウ)	Registeel (Shadow)
+0380	LATIAS_SHADOW	ラティアス (シャドウ)	Latias (Shadow)
+0380	LATIAS_S_SHADOW	ラティアス・APEX (シャドウ)	Apex Latias (Shadow)
+0381	LATIOS_SHADOW	ラティオス (シャドウ)	Latios (Shadow)
+0381	LATIOS_S_SHADOW	ラティオス・APEX (シャドウ)	Apex Latios (Shadow)
 0387	TURTWIG_SHADOW	ナエトル (シャドウ)	Turtwig (Shadow)
 0388	GROTLE_SHADOW	ハヤシガメ (シャドウ)	Grotle (Shadow)
 0389	TORTERRA_SHADOW	ドダイトス (シャドウ)	Torterra (Shadow)
 0390	CHIMCHAR_SHADOW	ヒコザル (シャドウ)	Chimchar (Shadow)
 0391	MONFERNO_SHADOW	モウカザル (シャドウ)	Monferno (Shadow)
 0392	INFERNAPE_SHADOW	ゴウカザル (シャドウ)	Infernape (Shadow)
+0396	STARLY_SHADOW	ムックル (シャドウ)	Starly (Shadow)
+0397	STARAVIA_SHADOW	ムクバード (シャドウ)	Staravia (Shadow)
+0398	STARAPTOR_SHADOW	ムクホーク (シャドウ)	Staraptor (Shadow)
+0399	BIDOOF_SHADOW	ビッパ (シャドウ)	Bidoof (Shadow)
+0400	BIBAREL_SHADOW	ビーダル (シャドウ)	Bibarel (Shadow)
+0403	SHINX_SHADOW	コリンク (シャドウ)	Shinx (Shadow)
+0404	LUXIO_SHADOW	ルクシオ (シャドウ)	Luxio (Shadow)
+0405	LUXRAY_SHADOW	レントラー (シャドウ)	Luxray (Shadow)
 0424	AMBIPOM_SHADOW	エテボース (シャドウ)	Ambipom (Shadow)
 0429	MISMAGIUS_SHADOW	ムウマージ (シャドウ)	Mismagius (Shadow)
 0430	HONCHKROW_SHADOW	ドンカラス (シャドウ)	Honchkrow (Shadow)
@@ -1004,11 +1441,14 @@
 0445	GARCHOMP_SHADOW	ガブリアス (シャドウ)	Garchomp (Shadow)
 0449	HIPPOPOTAS_SHADOW	ヒポポタス (シャドウ)	Hippopotas (Shadow)
 0450	HIPPOWDON_SHADOW	カバルドン (シャドウ)	Hippowdon (Shadow)
+0451	SKORUPI_SHADOW	スコルピ (シャドウ)	Skorupi (Shadow)
+0452	DRAPION_SHADOW	ドラピオン (シャドウ)	Drapion (Shadow)
 0459	SNOVER_SHADOW	ユキカブリ (シャドウ)	Snover (Shadow)
 0460	ABOMASNOW_SHADOW	ユキノオー (シャドウ)	Abomasnow (Shadow)
 0461	WEAVILE_SHADOW	マニューラ (シャドウ)	Weavile (Shadow)
 0462	MAGNEZONE_SHADOW	ジバコイル (シャドウ)	Magnezone (Shadow)
 0464	RHYPERIOR_SHADOW	ドサイドン (シャドウ)	Rhyperior (Shadow)
+0465	TANGROWTH_SHADOW	モジャンボ (シャドウ)	Tangrowth (Shadow)
 0466	ELECTIVIRE_SHADOW	エレキブル (シャドウ)	Electivire (Shadow)
 0467	MAGMORTAR_SHADOW	ブーバーン (シャドウ)	Magmortar (Shadow)
 0472	GLISCOR_SHADOW	グライオン (シャドウ)	Gliscor (Shadow)
@@ -1017,12 +1457,34 @@
 0475	GALLADE_SHADOW	エルレイド (シャドウ)	Gallade (Shadow)
 0476	PROBOPASS_SHADOW	ダイノーズ (シャドウ)	Probopass (Shadow)
 0477	DUSKNOIR_SHADOW	ヨノワール (シャドウ)	Dusknoir (Shadow)
+0504	PATRAT_SHADOW	ミネズミ (シャドウ)	Patrat (Shadow)
+0505	WATCHOG_SHADOW	ミルホッグ (シャドウ)	Watchog (Shadow)
+0509	PURRLOIN_SHADOW	チョロネコ (シャドウ)	Purrloin (Shadow)
+0510	LIEPARD_SHADOW	レパルダス (シャドウ)	Liepard (Shadow)
+0519	PIDOVE_SHADOW	マメパト (シャドウ)	Pidove (Shadow)
+0520	TRANQUILL_SHADOW	ハトーボー (シャドウ)	Tranquill (Shadow)
+0521	UNFEZANT_SHADOW	ケンホロウ (シャドウ)	Unfezant (Shadow)
+0522	BLITZLE_SHADOW	シママ (シャドウ)	Blitzle (Shadow)
+0523	ZEBSTRIKA_SHADOW	ゼブライカ (シャドウ)	Zebstrika (Shadow)
+0554	DARUMAKA_GALARIAN_SHADOW	ダルマッカ (ガラルのすがた) (シャドウ)	Galarian Darumaka (Shadow)
 0554	DARUMAKA_SHADOW	ダルマッカ (シャドウ)	Darumaka (Shadow)
+0562	YAMASK_GALARIAN_SHADOW	デスマス (ガラルのすがた) (シャドウ)	Galarian Yamask (Shadow)
 0562	YAMASK_SHADOW	デスマス (シャドウ)	Yamask (Shadow)
 0563	COFAGRIGUS_SHADOW	デスカーン (シャドウ)	Cofagrigus (Shadow)
+0580	DUCKLETT_SHADOW	コアルヒー (シャドウ)	Ducklett (Shadow)
+0581	SWANNA_SHADOW	スワンナ (シャドウ)	Swanna (Shadow)
+0590	FOONGUS_SHADOW	タマゲタケ (シャドウ)	Foongus (Shadow)
+0591	AMOONGUSS_SHADOW	モロバレル (シャドウ)	Amoonguss (Shadow)
+0595	JOLTIK_SHADOW	バチュル (シャドウ)	Joltik (Shadow)
+0596	GALVANTULA_SHADOW	デンチュラ (シャドウ)	Galvantula (Shadow)
+0618	STUNFISK_GALARIAN_SHADOW	マッギョ (ガラルのすがた) (シャドウ)	Galarian Stunfisk (Shadow)
 0618	STUNFISK_SHADOW	マッギョ (シャドウ)	Stunfisk (Shadow)
+0622	GOLETT_SHADOW	ゴビット (シャドウ)	Golett (Shadow)
+0623	GOLURK_SHADOW	ゴルーグ (シャドウ)	Golurk (Shadow)
 0862	OBSTAGOON_SHADOW	タチフサグマ (シャドウ)	Obstagoon (Shadow)
 0863	PERRSERKER_SHADOW	ニャイキング (シャドウ)	Perrserker (Shadow)
+0864	CURSOLA_SHADOW	サニゴーン (シャドウ)	Cursola (Shadow)
 0865	SIRFETCHD_SHADOW	ネギガナイト (シャドウ)	Sirfetch'd (Shadow)
 0866	MR_RIME_SHADOW	バリコオル (シャドウ)	Mr. Rime (Shadow)
 0867	RUNERIGUS_SHADOW	デスバーン (シャドウ)	Runerigus (Shadow)
+0901	URSALUNA_SHADOW	ガチグマ (シャドウ)	Ursaluna (Shadow)

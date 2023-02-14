@@ -1,0 +1,42 @@
+[
+    {
+        "templateId": "FORMS_V0001_POKEMON_BULBASAUR",
+        "data": {
+            "templateId": "FORMS_V0001_POKEMON_BULBASAUR",
+            "formSettings": {
+                "pokemon": "BULBASAUR",
+                "forms": [
+                    {
+                        "form": "BULBASAUR_NORMAL"
+                    },
+                    {
+                        "form": "BULBASAUR_FALL_2019",
+                        "assetBundleSuffix": "pm0001_00_pgo_fall2019",
+                        "isCostume": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "templateId": "FORMS_V0722_POKEMON_ROWLET",
+        "data": {
+            "templateId": "FORMS_V0722_POKEMON_ROWLET",
+            "formSettings": {
+                "pokemon": "ROWLET",
+                "forms": [
+                    {}
+                ]
+            }
+        }
+    },
+    {
+        "templateId": "FORMS_V0721_POKEMON_VOLCANION",
+        "data": {
+            "templateId": "FORMS_V0721_POKEMON_VOLCANION",
+            "formSettings": {
+                "pokemon": "VOLCANION"
+            }
+        }
+    }
+]

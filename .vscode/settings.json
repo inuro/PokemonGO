@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/Users/inuro/.pyenv/shims/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}

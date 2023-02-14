@@ -1,0 +1,11 @@
+{
+    "combatSettings": {
+        "obCombatSettingsBool1": true,
+        "obCombatSettingsNotPushedBool2": true,
+        "obCombatSettings1": {
+            "obCombatSettings1Number1": 10,
+            "enabled": true
+        },
+        "obCombatSettingsNumber1": 3
+    }
+}

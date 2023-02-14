@@ -10,7 +10,7 @@ minigameBonusVariableMultiplier	1
 maxEnergy	100
 defenderMinigameMultiplier	1
 changePokemonDurationSeconds	12
-minigameSubmitScoreDurationSeconds	10
+minigameSubmitScoreDurationSeconds	6.5
 quickSwapCooldownDurationSeconds	60
 chargeScoreBase	0.25
 chargeScoreNice	0.5
@@ -18,8 +18,13 @@ chargeScoreGreat	0.75
 chargeScoreExcellent	1
 superEffectiveFlyoutDurationTurns	5
 notVeryEffectiveFlyoutDurationTurns	5
-blockedFlyoutDurationTurns	5
+blockedEffectiveFlyoutDurationTurns	5
 normalEffectiveFlyoutDurationTurns	5
 shadowPokemonAttackBonusMultiplier	1.2
 shadowPokemonDefenseBonusMultiplier	0.8333333
 purifiedPokemonAttackMultiplierVsShadow	1
+obCombatSettingsBool1	0
+obCombatSettingsNotPushedBool2	0
+obCombatSettings1	0
+obCombatSettings2	0
+obCombatSettingsNumber1	3

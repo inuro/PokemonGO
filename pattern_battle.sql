@@ -14,19 +14,19 @@ A as(
 select
     A.pokemon_id, A.uid, A.type_1, A.type_2, 
     S.cp, S.lv, S.at, S.df, S.hp,
-    S.atk * (case when A.uid ~ '_SHADOW' then SETTINGS.shadow_atk else 1.0 end) as atk, 
-    S.def * (case when A.uid ~ '_SHADOW' then SETTINGS.shadow_def else 1.0 end) as def, 
+    S.atk * (case when A.uid ~ '_SHADOW$' then SETTINGS.shadow_atk else 1.0 end) as atk, 
+    S.def * (case when A.uid ~ '_SHADOW$' then SETTINGS.shadow_def else 1.0 end) as def, 
     S.hpt,
 
     C.uid as fast, C.type as f_type,
     (case when B.legacy then 'TRUE' end) as f_lgcy,
-    (case when C.type in (A.type_1,A.type_2) then SETTINGS.stab else 1.0 end) * C.power * S.atk * (case when A.uid ~ '_SHADOW' then SETTINGS.shadow_atk else 1.0 end) as f_dmg,
+    (case when C.type in (A.type_1,A.type_2) then SETTINGS.stab else 1.0 end) * C.power * S.atk * (case when A.uid ~ '_SHADOW$' then SETTINGS.shadow_atk else 1.0 end) as f_dmg,
     C.duration::numeric / 1000 as f_dur,
     C.energy as f_ene,
 
     E.uid as charge, E.type as c_type,
     (case when D.legacy then 'TRUE' end) as c_lgcy,
-    (case when E.type in (A.type_1,A.type_2) then SETTINGS.stab else 1.0 end) * E.power * S.atk * (case when A.uid ~ '_SHADOW' then SETTINGS.shadow_atk else 1.0 end) as c_dmg,
+    (case when E.type in (A.type_1,A.type_2) then SETTINGS.stab else 1.0 end) * E.power * S.atk * (case when A.uid ~ '_SHADOW$' then SETTINGS.shadow_atk else 1.0 end) as c_dmg,
     E.duration::numeric / 1000 as c_dur,
     E.energy as c_ene,
     S.cap
@@ -39,7 +39,7 @@ left join _fastmove C on c.uid=b.move
 left join _chargemove E on E.uid=D.move
 left join SETTINGS on true
 where A.at is not null and C.uid is not null
-and C.uid not in ('TRANSFORM')
+and C.uid not in ('TRANSFORM_FAST')
 )
 select
     A.uid,type_1,type_2,cp,lv,at,df,hp,
@@ -59,17 +59,3 @@ from A
 ;
 
 
-select
-    A.uid,B.jp,type_1,type_2,
-    C.jp,f_type,
-    D.jp,c_type,
-    f_dps,chg,ttldps,edr
-from pattern_battle A
-join localize_pokemon B using(uid)
-join localize_fastmove C on C.uid=A.fast
-join localize_chargemove D on D.uid=A.charge
-where
-cap='5500'
-and f_type='ICE' and c_type='ICE'
-order by ttldps desc
-;

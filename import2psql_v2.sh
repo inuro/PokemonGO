@@ -48,6 +48,7 @@ FILE_LOCALIZE_POKEMON=$SIDEFILEDIR/localize_pokemon.tsv
 FILE_LOCALIZE_FASTMOVE=$SIDEFILEDIR/localize_fastmove.tsv
 FILE_LOCALIZE_CHARGEMOVE=$SIDEFILEDIR/localize_chargemove.tsv
 FILE_LOCALIZE_TYPE=$SIDEFILEDIR/localize_type.tsv
+FILE_ORIGINAL_POKEMON_LOCALIZATION=$SIDEFILEDIR/original_pokemom_localization.tsv
 
 #FILE_MON_FAST_LEGACY=$SIDEFILEDIR/pokemon_fastmove_legacy.csv
 #FILE_MON_CHARGE_LEGACY=$SIDEFILEDIR/pokemon_chargemove_legacy.csv
@@ -336,6 +337,24 @@ create table if not exists $TABLE_LOCALIZE_POKEMON(
     en text
 );
 \copy $TABLE_LOCALIZE_POKEMON(pokemon_id, uid, jp, en) from '$FILE_LOCALIZE_POKEMON' with CSV delimiter E'\t' NULL '';
+
+
+-------------------------------------------------------------------------------
+-- Original Pokemon loalization
+drop table if exists original_pokemon_localization CASCADE;
+create table if not exists original_pokemon_localization(
+    pokemon_id text,
+    jp text,
+    en text,
+    de text,
+    fr text,
+    ko text,
+    cn text,
+    tw text
+);
+\copy original_pokemon_localization(pokemon_id, jp, en, de, fr, ko, cn, tw) from '$FILE_ORIGINAL_POKEMON_LOCALIZATION' with CSV delimiter E'\t' NULL '';
+
+
 
 
 -------------------------------------------------------------------------------
